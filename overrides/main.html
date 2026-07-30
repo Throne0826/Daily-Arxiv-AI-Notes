@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block htmltitle %}
+{% if page and page.meta and page.meta.title %}
+<title>{{ page.meta.title }}</title>
+{% else %}
+{{ super() }}
+{% endif %}
+{% endblock %}
+
+{% block extrahead %}
+{% if page %}
+{% set seo_title = page.meta.title if page.meta and page.meta.title else page.title %}
+{% set seo_desc = page.meta.description if page.meta and page.meta.description else config.site_description %}
+<meta name="description" content="{{ seo_desc | e }}">
+<meta property="og:site_name" content="{{ config.site_name | e }}">
+<meta property="og:type" content="{% if page.meta and page.meta.arxiv_id %}article{% else %}website{% endif %}">
+<meta property="og:title" content="{{ seo_title | e }}">
+<meta property="og:description" content="{{ seo_desc | e }}">
+{% if page.meta and page.meta.tags %}
+<meta name="keywords" content="{{ page.meta.tags | join(', ') | e }}">
+{% endif %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "{% if page.meta and page.meta.arxiv_id %}ScholarlyArticle{% elif page.is_homepage %}WebSite{% else %}CollectionPage{% endif %}",
+  "name": {{ seo_title | tojson }},
+  "description": {{ seo_desc | tojson }},
+  "inLanguage": "zh-CN"{% if page.meta and page.meta.arxiv_id %},
+  "identifier": {{ page.meta.arxiv_id | tojson }},
+  "datePublished": {{ page.meta.announcement_date | tojson }}{% endif %}
+}
+</script>
+{% endif %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+{% if page and page.meta and page.meta.review_status %}
+<div class="review-banner review-banner--{{ page.meta.review_status | e }}" role="note">
+  <strong>{% if page.meta.review_status == 'human_verified' %}人工已核验{% elif page.meta.review_status == 'metadata_only' %}仅元数据草稿{% else %}AI 草稿{% endif %}</strong>
+  <span>引用前请核对 arXiv 原文与实验表格。</span>
+</div>
+{% endif %}
+{{ super() }}
+{% endblock %}

@@ -1,0 +1,109 @@
+---
+title: "LLM 安全"
+---
+
+# LLM 安全
+
+当日共 **7** 篇相关论文。多标签论文链接到其唯一正文页。
+
+<div class="daily-paper-list" markdown="1">
+
+<article class="daily-paper-item" markdown="1">
+
+#### [AgentSnare: Learning to Delay, Divert, and Defuse Autonomous Penetration Agents](agentsnare-learning-to-delay-divert-and-defuse-autonomous-penetration-agents.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2607.26998</span><span class="paper-category-chip">LLM 安全</span><span class="paper-category-chip">LLM Agent</span><span class="paper-category-chip">LLM 其他</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+AgentSnare将对LLM渗透代理的防御从预先布置的静态诱饵，转变为依据攻击轨迹动态生成、校验并逐步展开一致诱饵环境的自适应引导。
+
+</div>
+
+</article>
+
+<article class="daily-paper-item" markdown="1">
+
+#### [GPT-Red: Automated Red Teaming via Self-Play at Scale](gpt-red-automated-red-teaming-via-self-play-at-scale.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2607.26115</span><span class="paper-category-chip">LLM 安全</span><span class="paper-category-chip">Multi-Agent</span><span class="paper-category-chip">强化学习</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+本文提出GPT-Red：通过大规模自博弈、代理式交互搜索和多样化安全环境训练自动红队模型，使其持续发现针对前沿大语言模型的新型提示注入攻击，并为防御模型的对抗训练提供更强数据。
+
+</div>
+
+</article>
+
+<article class="daily-paper-item" markdown="1">
+
+#### [Misalignment Has a Personality: A Big Five Account of Emergent Misalignment](misalignment-has-a-personality-a-big-five-account-of-emergent-misalignment.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2607.26389</span><span class="paper-category-chip">LLM 安全</span><span class="paper-category-chip">LLM 机制与可解释性</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+本文将涌现式失配解释为可在人类可读的“大五人格”坐标上测量的人格偏移，并用分级人格向量检验失配数据及微调后模型是否呈现一致的人格特征。
+
+</div>
+
+</article>
+
+<article class="daily-paper-item" markdown="1">
+
+#### [On-Policy Distillation for LLM Safety: A Routing Approach to Template-Robust Realignment](on-policy-distillation-for-llm-safety-a-routing-approach-to-template-robust-realignment.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2607.27081</span><span class="paper-category-chip">LLM 安全</span><span class="paper-category-chip">对齐 / RLHF</span><span class="paper-category-chip">LLM 其他</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+本文针对微调供应链中的安全失准，提出基于路由的在线策略蒸馏 ROPD，通过分别继承原始对齐模型的拒答能力与受攻击微调模型的专业能力，降低安全修复对攻击提示模板的依赖。
+
+</div>
+
+</article>
+
+<article class="daily-paper-item" markdown="1">
+
+#### [Prosody-driven Jailbreaks in Audio LLMs: A Controlled Study and Mechanistic Analysis](prosody-driven-jailbreaks-in-audio-llms-a-controlled-study-and-mechanistic-analysis.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2607.26541</span><span class="paper-category-chip">LLM 安全</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+本文通过固定有害请求的文字内容、仅改变语音表达方式，研究音频大模型的越狱风险能在多大程度上由韵律及相关声学属性触发。
+
+</div>
+
+</article>
+
+<article class="daily-paper-item" markdown="1">
+
+#### [RAGuard: A Layered Defense Framework for Retrieval-Augmented Generation Systems Against Data Poisoning](raguard-a-layered-defense-framework-for-retrieval-augmented-generation-systems-against-data-poisonin.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2607.26339</span><span class="paper-category-chip">LLM 安全</span><span class="paper-category-chip">LLM 其他</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+RAGuard通过“检索阶段预先降权、生成阶段反事实过滤”的两层机制，防御恶意语料利用高相关性虚假文档操纵RAG事实问答的问题。
+
+</div>
+
+</article>
+
+<article class="daily-paper-item" markdown="1">
+
+#### [Recover, Decode, Reguard: Guard-Agnostic Defense Amplification againstEncoded VLM Jailbreaks](recover-decode-reguard-guard-agnostic-defense-amplification-againstencoded-vlm-jailbreaks.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2607.26574</span><span class="paper-category-chip">LLM 安全</span><span class="paper-category-chip">多模态 VLM</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+本文研究如何在不修改现有安全分类器和目标视觉语言模型的前提下，先恢复并解码被改写或跨模态隐藏的恶意请求，再交由安全分类器审查，同时揭示这类防御难以兼顾安全性与正常请求可用性的经验上限。
+
+</div>
+
+</article>
+
+</div>

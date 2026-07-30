@@ -1,0 +1,43 @@
+[project]
+timezone = "Asia/Shanghai"
+output_dir = "docs/arxiv_daily"
+data_dir = "data"
+state_file = "data/state.json"
+review_queue_file = "data/review_queue.jsonl"
+taxonomy_file = "taxonomy.json"
+category_index_dir = "docs/categories"
+review_index_file = "docs/review/index.md"
+
+[arxiv]
+categories = ["cs.CL", "cs.AI", "cs.LG", "cs.CV", "cs.RO", "cs.IR"]
+page_size = 100
+include_crosslists = true
+request_interval_seconds = 3.0
+request_timeout_seconds = 90
+metadata_batch_size = 50
+user_agent = "daily-arxiv-notes/0.1 (set ARXIV_CONTACT_EMAIL)"
+
+[classification]
+mode = "hybrid"
+minimum_rule_score = 2.0
+minimum_llm_confidence = 0.60
+llm_batch_size = 6
+max_categories_per_paper = 4
+
+[generation]
+max_fulltext_chars = 90000
+max_papers_per_run = 50
+workers = 4
+include_scores = false
+require_evidence_for_numbers = true
+
+[llm]
+base_url = ""
+model = ""
+api_key_env = "OPENAI_API_KEY"
+base_url_env = "OPENAI_BASE_URL"
+model_env = "OPENAI_MODEL"
+temperature = 0.1
+reasoning_effort = "low"
+timeout_seconds = 600
+max_output_tokens = 12288

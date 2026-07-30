@@ -1,0 +1,28 @@
+---
+title: "幻觉检测 · 每日 arXiv"
+description: "幻觉检测 方向每日 arXiv 论文中文解读。"
+---
+
+# 幻觉检测
+
+共收录 **1** 篇，按 arXiv 日榜日期倒序排列。
+
+## 2026-07-30
+
+<div class="daily-paper-list" markdown="1">
+
+<article class="daily-paper-item" markdown="1">
+
+#### [Hearsay: Vision-Language Medical Diagnoses Without an Image](../../arxiv_daily/2026-07-30/hallucination/hearsay-vision-language-medical-diagnoses-without-an-image.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2607.26886</span><span class="paper-category-chip">幻觉检测</span><span class="paper-category-chip">多模态 VLM</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+本文研究医疗视觉语言模型在未收到医学图像时仍生成诊断的“幻景效应”，并揭示这些无图诊断会随患者人口统计描述、输出通道和提示词用词而系统变化。
+
+</div>
+
+</article>
+
+</div>

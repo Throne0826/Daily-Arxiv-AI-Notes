@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "daily-arxiv-notes"
+version = "0.2.0"
+description = "Automated daily arXiv AI paper triage and accessible Chinese research notes"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "beautifulsoup4>=4.12,<5",
+  "pypdf>=5,<7",
+]
+
+[project.optional-dependencies]
+site = ["mkdocs-material>=9.6,<10"]
+test = ["pytest>=8,<10"]
+
+[project.scripts]
+arxiv-notes = "daily_arxiv_notes.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+pythonpath = ["src"]

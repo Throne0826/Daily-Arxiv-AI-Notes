@@ -1,0 +1,168 @@
+{
+  "groups": {
+    "llm": {
+      "label": "LLM",
+      "categories": [
+        "llm_reasoning",
+        "llm_agent",
+        "multi_agent",
+        "llm_alignment",
+        "llm_safety",
+        "hallucination",
+        "llm_evaluation",
+        "llm_efficiency",
+        "llm_pretraining",
+        "knowledge_editing",
+        "llm_interpretability",
+        "llm_nlp"
+      ]
+    },
+    "generation_multimodal": {
+      "label": "生成与多模态",
+      "categories": [
+        "image_generation",
+        "video_generation",
+        "multimodal_vlm",
+        "vlm_reasoning",
+        "vlm_efficiency"
+      ]
+    },
+    "decision_embodied": {
+      "label": "决策与具身",
+      "categories": [
+        "autonomous_driving",
+        "robotics",
+        "reinforcement_learning",
+        "recommender"
+      ]
+    }
+  },
+  "categories": {
+    "llm_reasoning": {
+      "label": "LLM Reasoning",
+      "description": "语言模型的数学、代码、逻辑、规划、思维链、推理期扩展与验证",
+      "strong_keywords": ["large reasoning model", "chain-of-thought", "chain of thought", "reasoning model", "test-time scaling", "inference-time scaling", "process reward model"],
+      "keywords": ["reasoning", "reasoner", "mathematical reasoning", "logical reasoning", "self-consistency", "deliberation", "reflection", "verifier", "proof", "problem solving", "thinking mode", "reasoning trace"]
+    },
+    "llm_agent": {
+      "label": "LLM Agent",
+      "description": "基于 LLM 的工具调用、浏览、代码、搜索、记忆与长程任务 Agent",
+      "strong_keywords": ["llm agent", "language model agent", "agentic", "web agent", "tool-using agent"],
+      "keywords": ["tool use", "tool calling", "agent memory", "computer use", "browser agent", "long-horizon agent", "search agent", "coding agent", "agent workflow"]
+    },
+    "multi_agent": {
+      "label": "Multi-Agent",
+      "description": "多智能体协作、竞争、通信、辩论和群体决策",
+      "strong_keywords": ["multi-agent", "multiagent", "agent debate", "agent society"],
+      "keywords": ["multiple agents", "agent collaboration", "agent cooperation", "agent communication", "agent competition", "swarm"]
+    },
+    "llm_alignment": {
+      "label": "对齐 / RLHF",
+      "description": "偏好优化、RLHF/RLAIF/RLVR、奖励模型和后训练",
+      "strong_keywords": ["rlhf", "rlaif", "rlvr", "reward model", "preference optimization", "direct preference optimization", "grpo"],
+      "keywords": ["alignment", "post-training", "preference learning", "ppo", "dpo", "rloo", "reward hacking", "process reward", "reinforcement fine-tuning"]
+    },
+    "llm_safety": {
+      "label": "LLM 安全",
+      "description": "越狱、拒答、对抗攻击、隐私、后门、危险能力和安全对齐",
+      "strong_keywords": ["llm safety", "jailbreak", "prompt injection", "safety alignment", "model backdoor"],
+      "keywords": ["refusal", "red teaming", "harmful response", "adversarial prompt", "privacy leakage", "guardrail", "toxic", "misuse"]
+    },
+    "hallucination": {
+      "label": "幻觉检测",
+      "description": "语言或多模态模型的幻觉检测、归因、事实性和纠正",
+      "strong_keywords": ["hallucination", "factuality", "confabulation"],
+      "keywords": ["fact checking", "fact-checking", "faithfulness", "factual error", "grounded generation", "attribution error", "hallucination detection"]
+    },
+    "llm_evaluation": {
+      "label": "LLM 评测",
+      "description": "LLM benchmark、judge、能力评测、污染和元评估",
+      "strong_keywords": ["llm evaluation", "language model evaluation", "llm benchmark", "benchmarking large language models", "llm-as-a-judge"],
+      "keywords": ["benchmark", "evaluation", "judge model", "test contamination", "capability assessment", "leaderboard", "meta-evaluation"]
+    },
+    "llm_efficiency": {
+      "label": "LLM 效率",
+      "description": "LLM 推理、训练、注意力、缓存、路由和服务效率",
+      "strong_keywords": ["llm efficiency", "efficient language model", "speculative decoding", "kv cache", "long context efficiency"],
+      "keywords": ["inference efficiency", "serving", "token pruning", "sparse attention", "mixture of experts", "early exit", "decoding acceleration", "memory efficient"]
+    },
+    "llm_pretraining": {
+      "label": "预训练",
+      "description": "LLM 架构、预训练数据、目标函数、扩展规律与训练配方",
+      "strong_keywords": ["language model pretraining", "language model pre-training", "pretraining llm", "foundation model pretraining"],
+      "keywords": ["pre-training", "scaling law", "training data mixture", "data curation", "tokenizer", "transformer architecture", "pretraining corpus"]
+    },
+    "knowledge_editing": {
+      "label": "知识编辑",
+      "description": "语言模型知识编辑、遗忘、更新和参数化知识",
+      "strong_keywords": ["knowledge editing", "model editing", "machine unlearning"],
+      "keywords": ["knowledge update", "knowledge erasure", "unlearning", "parametric knowledge", "model knowledge"]
+    },
+    "llm_interpretability": {
+      "label": "LLM 机制与可解释性",
+      "description": "语言模型内部表征、神经元与回路、探针、归因和机制可解释性",
+      "strong_keywords": ["mechanistic interpretability", "representation analysis", "internal representation", "activation probing", "neural circuit"],
+      "keywords": ["interpretability", "model representation", "hidden state", "activation", "probing", "neuron", "circuit", "feature attribution", "representation space"]
+    },
+    "llm_nlp": {
+      "label": "LLM 其他",
+      "description": "不属于以上细分但以大型语言模型机制或方法为核心的工作",
+      "strong_keywords": ["large language model", "large language models", "foundation language model"],
+      "keywords": ["llm", "language models", "instruction tuning", "in-context learning", "prompting"]
+    },
+    "image_generation": {
+      "label": "图像生成",
+      "description": "图像生成、编辑、扩散模型、flow matching 和可控生成",
+      "strong_keywords": ["image generation", "text-to-image", "image synthesis", "image diffusion", "diffusion transformer"],
+      "keywords": ["image editing", "controllable generation", "diffusion model", "flow matching", "personalized generation", "visual generation"]
+    },
+    "video_generation": {
+      "label": "视频生成",
+      "description": "文本到视频、图像到视频、视频扩散、动态与运动生成",
+      "strong_keywords": ["video generation", "text-to-video", "image-to-video", "video diffusion"],
+      "keywords": ["video synthesis", "motion generation", "world simulation video", "video editing", "generative video"]
+    },
+    "multimodal_vlm": {
+      "label": "多模态 VLM",
+      "description": "视觉语言模型、多模态基础模型、理解与生成统一模型",
+      "strong_keywords": ["vision-language model", "vision language model", "multimodal large language model", "large vision-language model", "mlvlm"],
+      "keywords": ["multimodal model", "visual instruction tuning", "vision-language", "multimodal llm", "image-text model", "omnimodal"]
+    },
+    "vlm_reasoning": {
+      "label": "VLM Reasoning",
+      "description": "多模态数学、空间、图表、视频和视觉链式推理",
+      "strong_keywords": ["multimodal reasoning", "visual reasoning", "vision-language reasoning", "spatial reasoning"],
+      "keywords": ["chart reasoning", "diagram reasoning", "video reasoning", "visual chain-of-thought", "multimodal chain-of-thought", "geometry reasoning"]
+    },
+    "vlm_efficiency": {
+      "label": "VLM Efficiency",
+      "description": "视觉语言模型的 token 剪枝、压缩、缓存和高效推理",
+      "strong_keywords": ["efficient vision-language", "vlm efficiency", "visual token pruning", "multimodal model compression"],
+      "keywords": ["visual token compression", "vision-language acceleration", "efficient multimodal", "vlm pruning", "vlm quantization"]
+    },
+    "autonomous_driving": {
+      "label": "自动驾驶",
+      "description": "自动驾驶感知、预测、规划、端到端驾驶和驾驶世界模型",
+      "strong_keywords": ["autonomous driving", "self-driving", "end-to-end driving"],
+      "keywords": ["driving policy", "driving planner", "trajectory prediction", "driving world model", "vehicle planning", "bev driving"]
+    },
+    "robotics": {
+      "label": "机器人 / 具身智能",
+      "description": "机器人操作、导航、VLA、具身 Agent 和运动控制",
+      "strong_keywords": ["robot learning", "robotics", "embodied ai", "vision-language-action", "robot manipulation"],
+      "keywords": ["robot policy", "embodied agent", "robot navigation", "locomotion", "manipulation", "vla model", "sim-to-real", "grasping"]
+    },
+    "reinforcement_learning": {
+      "label": "强化学习",
+      "description": "强化学习算法、离线/在线 RL、策略优化、探索和世界模型",
+      "strong_keywords": ["reinforcement learning", "policy optimization", "offline rl", "online rl", "model-based rl"],
+      "keywords": ["actor-critic", "q-learning", "policy gradient", "reward shaping", "exploration", "markov decision process", "world model"]
+    },
+    "recommender": {
+      "label": "推荐系统",
+      "description": "推荐、排序、用户建模、反馈学习和生成式推荐",
+      "strong_keywords": ["recommender system", "recommendation system", "generative recommendation", "sequential recommendation"],
+      "keywords": ["collaborative filtering", "click-through rate", "ranking model", "user preference", "session recommendation", "recommendation policy"]
+    }
+  }
+}

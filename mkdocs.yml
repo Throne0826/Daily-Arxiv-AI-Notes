@@ -1,0 +1,96 @@
+site_name: Daily arXiv AI Notes
+site_description: 每日筛选 LLM、生成与多模态、决策与具身领域的 arXiv 新论文，并生成可人工审核的中文论文笔记。
+docs_dir: docs
+site_dir: site
+
+validation:
+  nav:
+    omitted_files: ignore
+
+theme:
+  name: material
+  language: zh
+  custom_dir: overrides
+  favicon: assets/favicon.svg
+  icon:
+    logo: material/newspaper-variant-multiple-outline
+  features:
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tabs
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - content.code.copy
+    - toc.follow
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: teal
+      toggle:
+        icon: material/weather-sunny
+        name: 切换暗色模式
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: amber
+      toggle:
+        icon: material/weather-night
+        name: 切换亮色模式
+  font: false
+
+nav:
+  - 首页: index.md
+  - 每日论文: arxiv_daily/index.md
+  - 关注领域: categories/index.md
+
+hooks:
+  - hooks/dynamic_nav.py
+  - hooks/tags_order.py
+  - hooks/slim_search_index.py
+
+plugins:
+  - search:
+      lang:
+        - zh
+        - en
+  - tags
+
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.details
+  - pymdownx.mark
+  - pymdownx.critic
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - admonition
+  - def_list
+  - tables
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+      toc_depth: 3
+
+extra_javascript:
+  - javascripts/title-link.js
+  - javascripts/home-scene.js
+  - javascripts/mathjax.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js
+  - javascripts/search-page.js
+extra_css:
+  - stylesheets/extra.css
+
+copyright: 本站笔记由 AI 辅助生成，引用前必须核对论文原文
+extra:
+  social: []
+  generator: false

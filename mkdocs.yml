@@ -1,5 +1,9 @@
 site_name: Daily arXiv AI Notes
 site_description: 每日筛选 LLM、生成与多模态、决策与具身领域的 arXiv 新论文，并生成可人工审核的中文论文笔记。
+site_url: https://lifexoryoung.cn/Daily-Arxiv-AI-Notes/
+repo_url: https://github.com/Throne0826/Daily-Arxiv-AI-Notes
+repo_name: Throne0826/Daily-Arxiv-AI-Notes
+edit_uri: ""
 docs_dir: docs
 site_dir: site
 

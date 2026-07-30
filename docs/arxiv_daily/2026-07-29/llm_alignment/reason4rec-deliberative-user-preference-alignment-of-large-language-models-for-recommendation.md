@@ -6,7 +6,7 @@ announcement_date: "2026-07-29"
 primary_category: "llm_alignment"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T07:32:03.598503+00:00"
+generated_at: "2026-07-30T09:23:24.078896+00:00"
 source_sha256: "3ec97890783dc127772fd05bac118b686f4d70eb191f9a47c1f280c53dd10bdb"
 tags:
   - "对齐 / RLHF"
@@ -287,7 +287,13 @@ Predictor作为与Reasoner分离训练的专家，根据历史证据和显式理
 
 <p class="paper-minor-label">真正需要看懂的公式</p>
 
-这篇论文不以中心数学公式展开，或全文中未提取到可靠的关键公式。
+<div class="formula-status formula-status--none" markdown="1">
+
+**未收录可核对的关键公式**
+
+该工作以系统设计、数据或实验分析为主，或现有全文证据不足以可靠还原中心方程。
+
+</div>
 
 <div class="paper-focus" markdown="1">
 

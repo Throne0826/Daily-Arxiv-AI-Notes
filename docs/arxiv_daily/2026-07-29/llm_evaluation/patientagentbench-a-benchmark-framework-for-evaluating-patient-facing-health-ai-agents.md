@@ -6,7 +6,7 @@ announcement_date: "2026-07-29"
 primary_category: "llm_evaluation"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T07:32:03.770264+00:00"
+generated_at: "2026-07-30T09:23:24.263834+00:00"
 source_sha256: "ca09b4dbaffd40b0925df9f71bb3c0ebe5f74ae19637a2a38f14db2b8495b940"
 tags:
   - "LLM 评测"
@@ -286,6 +286,14 @@ PatientAgentBench不是训练新模型的方法，而是一套端到端评测框
 </div>
 
 <p class="paper-minor-label">真正需要看懂的公式</p>
+
+<div class="formula-status formula-status--ready" markdown="1">
+
+**已定位 2 个关键公式**
+
+以下方程保留符号说明、直观解释与原文位置。
+
+</div>
 
 <div class="equation-block" markdown="1">
 

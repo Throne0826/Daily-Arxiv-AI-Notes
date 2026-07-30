@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "reinforcement_learning"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T07:32:04.148468+00:00"
+generated_at: "2026-07-30T09:23:24.937866+00:00"
 source_sha256: "abfde6cbcf203876f732d98c6deb68875e70c406acedbed1773e52334fbce96e"
 tags:
   - "强化学习"
@@ -316,6 +316,14 @@ actor 通过梯度上升最大化 E[Z_θ(s,a)−αlogπ_φ(a|s)]，即用悲观�
 </div>
 
 <p class="paper-minor-label">真正需要看懂的公式</p>
+
+<div class="formula-status formula-status--ready" markdown="1">
+
+**已定位 2 个关键公式**
+
+以下方程保留符号说明、直观解释与原文位置。
+
+</div>
 
 <div class="equation-block" markdown="1">
 

@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "llm_safety"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T07:32:04.622043+00:00"
+generated_at: "2026-07-30T09:23:25.505173+00:00"
 source_sha256: "3d7e9356804494b0772b3d8fd572fc1d6365052d773cdae7aa0289a189f28ea8"
 tags:
   - "LLM 安全"
@@ -319,6 +319,14 @@ ShadowOS在披露前验证候选制品，并把有效制品实现到诱饵环境
 </div>
 
 <p class="paper-minor-label">真正需要看懂的公式</p>
+
+<div class="formula-status formula-status--ready" markdown="1">
+
+**已定位 2 个关键公式**
+
+以下方程保留符号说明、直观解释与原文位置。
+
+</div>
 
 <div class="equation-block" markdown="1">
 

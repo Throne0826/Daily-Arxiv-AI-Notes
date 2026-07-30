@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "llm_evaluation"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T07:32:04.906310+00:00"
+generated_at: "2026-07-30T09:23:25.832201+00:00"
 source_sha256: "364b406abeb13c165612f930e01dd6ae298c5760d0bb4287235b01bcc1c68279"
 tags:
   - "LLM 评测"
@@ -317,6 +317,14 @@ IFCMemoryBench把IFC-Bench v2中因信息不完整而无法仅靠IFC回答的问
 </div>
 
 <p class="paper-minor-label">真正需要看懂的公式</p>
+
+<div class="formula-status formula-status--ready" markdown="1">
+
+**已定位 2 个关键公式**
+
+以下方程保留符号说明、直观解释与原文位置。
+
+</div>
 
 <div class="equation-block" markdown="1">
 

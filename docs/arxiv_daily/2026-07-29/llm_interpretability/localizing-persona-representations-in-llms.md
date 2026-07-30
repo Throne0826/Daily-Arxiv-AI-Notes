@@ -6,7 +6,7 @@ announcement_date: "2026-07-29"
 primary_category: "llm_interpretability"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T07:32:03.621993+00:00"
+generated_at: "2026-07-30T09:23:24.099871+00:00"
 source_sha256: "5b7268cd524f099bd2c789bb04b50e8096445d5c4464ac1613b0c920671c2052"
 tags:
   - "LLM 机制与可解释性"
@@ -292,7 +292,13 @@ Transformer逐层把提示转换成预测下一个词所需的表示，因此人
 
 <p class="paper-minor-label">真正需要看懂的公式</p>
 
-这篇论文不以中心数学公式展开，或全文中未提取到可靠的关键公式。
+<div class="formula-status formula-status--none" markdown="1">
+
+**未收录可核对的关键公式**
+
+该工作以系统设计、数据或实验分析为主，或现有全文证据不足以可靠还原中心方程。
+
+</div>
 
 <div class="paper-focus" markdown="1">
 

@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "llm_agent"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T07:32:04.945284+00:00"
+generated_at: "2026-07-30T09:23:25.873187+00:00"
 source_sha256: "af2c646abaee88d4df26b69ec79ec51bd3988c1bef5cea4895de9f957f11d972"
 tags:
   - "LLM Agent"
@@ -289,7 +289,13 @@ SimpleWikiSearch不是新的智能体算法，而是一套可复现的离线维�
 
 <p class="paper-minor-label">真正需要看懂的公式</p>
 
-这篇论文不以中心数学公式展开，或全文中未提取到可靠的关键公式。
+<div class="formula-status formula-status--none" markdown="1">
+
+**未收录可核对的关键公式**
+
+该工作以系统设计、数据或实验分析为主，或现有全文证据不足以可靠还原中心方程。
+
+</div>
 
 <div class="paper-focus" markdown="1">
 

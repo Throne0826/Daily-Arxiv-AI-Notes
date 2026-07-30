@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "llm_evaluation"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T07:32:04.229699+00:00"
+generated_at: "2026-07-30T09:23:25.016416+00:00"
 source_sha256: "6560492fd1c1d08bf66ad1d687c98bebfedaf6d048a5ad74fa504479a84ecec6"
 tags:
   - "LLM 评测"
@@ -297,6 +297,14 @@ tags:
 </div>
 
 <p class="paper-minor-label">真正需要看懂的公式</p>
+
+<div class="formula-status formula-status--ready" markdown="1">
+
+**已定位 2 个关键公式**
+
+以下方程保留符号说明、直观解释与原文位置。
+
+</div>
 
 <div class="equation-block" markdown="1">
 

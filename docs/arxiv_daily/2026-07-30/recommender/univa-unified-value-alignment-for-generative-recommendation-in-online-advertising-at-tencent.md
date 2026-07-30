@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "recommender"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T07:32:04.427388+00:00"
+generated_at: "2026-07-30T09:23:25.267927+00:00"
 source_sha256: "c43fd9cfb341f264042cf7adee7cd98fdfd50980de36b91c1a770c33940f352e"
 tags:
   - "推荐系统"
@@ -315,6 +315,14 @@ HSTU编码器将User、Organic、Environment和Item四类token编码为上下文
 </div>
 
 <p class="paper-minor-label">真正需要看懂的公式</p>
+
+<div class="formula-status formula-status--ready" markdown="1">
+
+**已定位 2 个关键公式**
+
+以下方程保留符号说明、直观解释与原文位置。
+
+</div>
 
 <div class="equation-block" markdown="1">
 

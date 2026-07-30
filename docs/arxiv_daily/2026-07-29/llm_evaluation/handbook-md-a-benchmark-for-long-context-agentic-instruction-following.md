@@ -6,7 +6,7 @@ announcement_date: "2026-07-29"
 primary_category: "llm_evaluation"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T07:32:03.714528+00:00"
+generated_at: "2026-07-30T09:23:24.199743+00:00"
 source_sha256: "4238394d666a78e0e49b8283a001473c2fb6461c062eaa8deb6b20c73f0ebe70"
 tags:
   - "LLM 评测"
@@ -305,7 +305,13 @@ HANDBOOK.md不是一种需要训练的新模型，而是一套评测长上下文
 
 <p class="paper-minor-label">真正需要看懂的公式</p>
 
-这篇论文不以中心数学公式展开，或全文中未提取到可靠的关键公式。
+<div class="formula-status formula-status--none" markdown="1">
+
+**未收录可核对的关键公式**
+
+该工作以系统设计、数据或实验分析为主，或现有全文证据不足以可靠还原中心方程。
+
+</div>
 
 <div class="paper-focus" markdown="1">
 

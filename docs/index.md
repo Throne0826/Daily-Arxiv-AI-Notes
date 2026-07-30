@@ -47,17 +47,17 @@ hide:
     <h2 id="home-fields-title">沿着问题，而不是关键词浏览论文</h2>
   </div>
   <div class="home-field-grid">
-    <section>
+    <section data-domain="llm">
       <p class="home-field__code">LLM</p>
       <h3>语言、推理与智能体</h3>
       <p><a href="categories/llm_reasoning/">推理</a> · <a href="categories/llm_agent/">Agent</a> · <a href="categories/multi_agent/">多智能体</a> · <a href="categories/llm_alignment/">对齐 / RLHF</a> · <a href="categories/llm_safety/">安全</a> · <a href="categories/llm_evaluation/">评测</a> · <a href="categories/llm_interpretability/">机制与可解释性</a></p>
     </section>
-    <section>
+    <section data-domain="generation_multimodal">
       <p class="home-field__code">GEN / MM</p>
       <h3>生成与多模态</h3>
       <p><a href="categories/image_generation/">图像生成</a> · <a href="categories/video_generation/">视频生成</a> · <a href="categories/multimodal_vlm/">多模态 VLM</a> · <a href="categories/vlm_reasoning/">VLM Reasoning</a> · <a href="categories/vlm_efficiency/">VLM Efficiency</a></p>
     </section>
-    <section>
+    <section data-domain="decision_embodied">
       <p class="home-field__code">DECISION</p>
       <h3>决策与具身</h3>
       <p><a href="categories/autonomous_driving/">自动驾驶</a> · <a href="categories/robotics/">机器人 / 具身智能</a> · <a href="categories/reinforcement_learning/">强化学习</a> · <a href="categories/recommender/">推荐系统</a></p>

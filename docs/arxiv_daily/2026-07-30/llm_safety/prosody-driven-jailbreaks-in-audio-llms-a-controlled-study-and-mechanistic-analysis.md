@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "llm_safety"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T07:32:04.094448+00:00"
+generated_at: "2026-07-30T09:23:24.876081+00:00"
 source_sha256: "0f4f01eb0b23cd9adbfdb85b37154a025f331db00a7d048744c999973d0e7cc1"
 tags:
   - "LLM 安全"
@@ -312,7 +312,13 @@ PJ-Break是一套面向音频大语言模型的黑盒安全评测方法，核心
 
 <p class="paper-minor-label">真正需要看懂的公式</p>
 
-这篇论文不以中心数学公式展开，或全文中未提取到可靠的关键公式。
+<div class="formula-status formula-status--none" markdown="1">
+
+**未收录可核对的关键公式**
+
+该工作以系统设计、数据或实验分析为主，或现有全文证据不足以可靠还原中心方程。
+
+</div>
 
 <div class="paper-focus" markdown="1">
 

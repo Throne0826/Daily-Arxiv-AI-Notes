@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import html
 import re
+from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -173,8 +174,19 @@ def _equation_blocks(items: Any, limit: int = 2) -> str:
             f"**直观理解**：{plain}  \n**原文位置**：{source}\n\n</div>\n\n</div>"
         )
     if not blocks:
-        return "这篇论文不以中心数学公式展开，或全文中未提取到可靠的关键公式。"
-    return "\n\n".join(blocks)
+        return (
+            '<div class="formula-status formula-status--none" markdown="1">\n\n'
+            "**未收录可核对的关键公式**\n\n"
+            "该工作以系统设计、数据或实验分析为主，或现有全文证据不足以可靠还原中心方程。\n\n"
+            "</div>"
+        )
+    status = (
+        '<div class="formula-status formula-status--ready" markdown="1">\n\n'
+        f"**已定位 {len(blocks)} 个关键公式**\n\n"
+        "以下方程保留符号说明、直观解释与原文位置。\n\n"
+        "</div>"
+    )
+    return status + "\n\n" + "\n\n".join(blocks)
 
 
 def _experiment_table(rows: list[dict[str, Any]], limit: int = 4) -> str:
@@ -774,29 +786,258 @@ def render_daily_master(dates: list[str], seen: dict[str, Any]) -> str:
 
 
 def render_categories_master(seen: dict[str, Any], taxonomy: Taxonomy) -> str:
-    counts = {category: 0 for category in taxonomy.categories}
-    for item in seen.values():
+    records = list(seen.values())
+    dates = sorted(
+        {str(item.get("announcement_date", "")) for item in records if item.get("announcement_date")}
+    )
+    latest_date = dates[-1] if dates else ""
+    previous_date = dates[-2] if len(dates) > 1 else ""
+    counts: Counter[str] = Counter()
+    latest_counts: Counter[str] = Counter()
+    previous_counts: Counter[str] = Counter()
+    pair_counts: Counter[tuple[str, str]] = Counter()
+    assignments = 0
+    multi_label = 0
+    cross_domain = 0
+
+    for item in records:
         primary = str(item.get("primary_category", ""))
-        categories = item.get("categories", [primary])
-        for category in set(categories):
-            if category in counts:
-                counts[category] += 1
+        categories = list(
+            dict.fromkeys(
+                category
+                for category in item.get("categories", [primary])
+                if taxonomy.valid_category(str(category))
+            )
+        )
+        counts.update(categories)
+        assignments += len(categories)
+        if len(categories) > 1:
+            multi_label += 1
+        item_groups = {taxonomy.group_for(category) for category in categories}
+        if len(item_groups) > 1:
+            cross_domain += 1
+        if str(item.get("announcement_date", "")) == latest_date:
+            latest_counts.update(categories)
+        if str(item.get("announcement_date", "")) == previous_date:
+            previous_counts.update(categories)
+        for left_index, left in enumerate(categories):
+            for right in categories[left_index + 1 :]:
+                pair_counts[tuple(sorted((left, right)))] += 1
+
+    group_rows = []
+    category_rows = []
+    for group_id, group in taxonomy.groups.items():
+        group_categories = list(group["categories"])
+        group_total = sum(counts[category] for category in group_categories)
+        group_unique = sum(
+            1
+            for item in records
+            if any(
+                category in set(item.get("categories", [item.get("primary_category", "")]))
+                for category in group_categories
+            )
+        )
+        group_rows.append(
+            {
+                "id": group_id,
+                "label": group["label"],
+                "assignments": group_total,
+                "papers": group_unique,
+            }
+        )
+        for category in group_categories:
+            category_rows.append(
+                {
+                    "id": category,
+                    "label": taxonomy.label(category),
+                    "group": group_id,
+                    "count": counts[category],
+                    "latest": latest_counts[category],
+                    "delta": latest_counts[category] - previous_counts[category],
+                    "href": f"{category}/",
+                }
+            )
+
+    date_rows = []
+    for date_value in dates:
+        date_records = [
+            item for item in records if str(item.get("announcement_date", "")) == date_value
+        ]
+        date_groups = []
+        for group_id, group in taxonomy.groups.items():
+            category_set = set(group["categories"])
+            group_count = sum(
+                1
+                for item in date_records
+                if category_set
+                & set(item.get("categories", [item.get("primary_category", "")]))
+            )
+            date_groups.append(
+                {"id": group_id, "label": group["label"], "count": group_count}
+            )
+        date_rows.append(
+            {"date": date_value, "papers": len(date_records), "groups": date_groups}
+        )
+
+    connections = [
+        {
+            "source": left,
+            "target": right,
+            "count": count,
+            "source_label": taxonomy.label(left),
+            "target_label": taxonomy.label(right),
+        }
+        for (left, right), count in pair_counts.most_common(18)
+    ]
+    map_data = {
+        "latestDate": latest_date,
+        "previousDate": previous_date,
+        "groups": group_rows,
+        "categories": category_rows,
+        "dates": date_rows,
+        "connections": connections,
+    }
+    map_json = json.dumps(map_data, ensure_ascii=False).replace("</", "<\\/")
+    multi_rate = round(multi_label / len(records) * 100) if records else 0
     lines = [
         "---",
-        "title: 研究领域",
-        "description: 按 LLM、生成与多模态、决策与具身的细分方向浏览每日 arXiv 论文。",
+        "title: AI 研究版图",
+        "description: 用研究分布、每日变化与多标签关联探索 LLM、生成与多模态、决策与具身方向的 arXiv 论文。",
+        "hide:",
+        "  - toc",
         "---",
         "",
-        "# 研究领域",
+        '<div class="research-map" data-research-map>',
+        "",
+        '<header class="research-map__header">',
+        '<p class="research-map__eyebrow">LIVE RESEARCH LANDSCAPE</p>',
+        "<h1>AI 研究版图</h1>",
+        (
+            f"<p>把 {len(records)} 篇论文看成一个持续变化的研究网络：节点表示细分方向，"
+            "节点大小表示累计论文量，连线来自同一论文的多标签共现。</p>"
+        ),
+        "</header>",
+        "",
+        '<section class="research-map__metrics" aria-label="论文版图概览">',
+        f'<div><strong>{len(records)}</strong><span>不重复论文</span></div>',
+        f'<div><strong>{assignments}</strong><span>方向归属</span></div>',
+        f'<div><strong>{multi_rate}%</strong><span>多标签论文</span></div>',
+        f'<div><strong>{cross_domain}</strong><span>跨主域论文</span></div>',
+        "</section>",
+        "",
+        '<div class="research-map__toolbar" role="tablist" aria-label="研究地图视图">',
+        '<button type="button" class="is-active" role="tab" aria-selected="true" data-map-view="landscape">研究版图</button>',
+        '<button type="button" role="tab" aria-selected="false" data-map-view="trend">每日变化</button>',
+        '<button type="button" role="tab" aria-selected="false" data-map-view="network">方向关联</button>',
+        "</div>",
+        "",
+        '<section class="research-map__panel is-active" role="tabpanel" data-map-panel="landscape">',
+        '<div class="research-domain-grid">',
         "",
     ]
-    for group in taxonomy.groups.values():
-        lines.extend([f"## {group['label']}", ""])
+    maximum = max(counts.values(), default=1) or 1
+    for group_id, group in taxonomy.groups.items():
+        group_categories = list(group["categories"])
+        group_assignments = sum(counts[category] for category in group_categories)
+        lines.extend(
+            [
+                f'<section class="research-domain" data-map-group="{group_id}">',
+                '<div class="research-domain__head">',
+                f"<h2>{html.escape(group['label'])}</h2>",
+                f"<span>{group_assignments} 条归属</span>",
+                "</div>",
+                '<div class="research-node-field">',
+            ]
+        )
         for category in group["categories"]:
+            count = counts[category]
+            size = 4.2 + (count / maximum) ** 0.5 * 3.4
+            delta = latest_counts[category] - previous_counts[category]
+            delta_label = f"最新日 +{delta}" if delta > 0 else (f"最新日 {delta}" if delta < 0 else "最新日持平")
             lines.append(
-                f"- [{taxonomy.label(category)}]({category}/index.md) · {counts[category]} 篇"
+                f'<a class="research-node" href="{category}/" style="--node-size:{size:.2f}rem" '
+                f'data-map-group="{group_id}" title="{html.escape(taxonomy.label(category))}：{count} 篇">'
+                f'<strong>{count}</strong><span>{html.escape(taxonomy.label(category))}</span>'
+                f'<small>{delta_label}</small></a>'
             )
-        lines.append("")
+        lines.extend(["</div>", "</section>", ""])
+    lines.extend(
+        [
+            "</div>",
+            "</section>",
+            "",
+            '<section class="research-map__panel" role="tabpanel" data-map-panel="trend" hidden>',
+            '<div class="research-trend">',
+            '<div class="research-trend__legend">',
+        ]
+    )
+    for group_id, group in taxonomy.groups.items():
+        lines.append(
+            f'<span data-map-group="{group_id}">{html.escape(group["label"])}</span>'
+        )
+    lines.extend(["</div>", ""])
+    for date_row in reversed(date_rows):
+        group_sum = sum(group["count"] for group in date_row["groups"]) or 1
+        lines.extend(
+            [
+                '<div class="research-trend__row">',
+                f'<div><time>{date_row["date"]}</time><span>{date_row["papers"]} 篇论文</span></div>',
+                '<div class="research-trend__bar" aria-label="各主域相关论文占比">',
+            ]
+        )
+        for group in date_row["groups"]:
+            share = group["count"] / group_sum * 100
+            lines.append(
+                f'<span data-map-group="{group["id"]}" style="--segment-share:{share:.2f}%" '
+                f'title="{html.escape(group["label"])}：{group["count"]} 篇"></span>'
+            )
+        lines.extend(["</div>", "</div>", ""])
+    lines.extend(
+        [
+            "</div>",
+            '<p class="research-map__note">同一篇多标签论文可以同时计入多个主域，因此主域计数之和可能高于当日论文数。</p>',
+            "</section>",
+            "",
+            '<section class="research-map__panel" role="tabpanel" data-map-panel="network" hidden>',
+            '<div class="research-network">',
+            '<svg class="research-network__canvas" data-map-network viewBox="0 0 1000 560" role="img" aria-label="论文方向共现网络"></svg>',
+            '<aside class="research-network__detail" data-map-detail>',
+            "<span>最强关联</span>",
+            (
+                f"<strong>{html.escape(connections[0]['source_label'])} × {html.escape(connections[0]['target_label'])}</strong>"
+                if connections
+                else "<strong>等待更多多标签论文</strong>"
+            ),
+            (
+                f"<p>共有 {connections[0]['count']} 篇论文同时进入这两个方向。</p>"
+                if connections
+                else "<p>当前数据还不足以形成稳定的方向关联。</p>"
+            ),
+            "</aside>",
+            "</div>",
+            '<ol class="research-connection-list">',
+        ]
+    )
+    for connection in connections[:6]:
+        lines.append(
+            "<li>"
+            f'<a href="{connection["source"]}/">{html.escape(connection["source_label"])}</a>'
+            "<span>×</span>"
+            f'<a href="{connection["target"]}/">{html.escape(connection["target_label"])}</a>'
+            f'<strong>{connection["count"]}</strong>'
+            "</li>"
+        )
+    lines.extend(
+        [
+            "</ol>",
+            "</section>",
+            "",
+            f'<script type="application/json" data-research-map-data>{map_json}</script>',
+            "",
+            "</div>",
+            "",
+        ]
+    )
     return "\n".join(lines).rstrip() + "\n"
 
 

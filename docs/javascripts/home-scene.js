@@ -10,7 +10,6 @@
     var context = canvas.getContext("2d");
     var hero = canvas.closest(".home-hero");
     var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    var colors = ["#37c8b2", "#ffb347", "#ef6f61", "#d7e04b"];
     var points = [];
     var signals = [];
     var anchors = [];
@@ -19,29 +18,55 @@
     var pointer = { x: -1000, y: -1000 };
     var frame = 0;
 
+    function palette() {
+      var dark = document.documentElement.getAttribute("data-md-color-scheme") === "slate";
+      return dark
+        ? {
+            background: "#101819",
+            grid: "rgba(220, 238, 234, 0.06)",
+            line: "rgba(205, 226, 221, 0.22)",
+            link: "rgba(175, 205, 200, 0.22)",
+            signal: "rgba(242, 247, 244, 0.94)",
+            halo: "rgba(104, 216, 204, 0.18)",
+            colors: ["#68d8cc", "#ffd080", "#ff9388", "#a7d66d"]
+          }
+        : {
+            background: "#edf3f0",
+            grid: "rgba(32, 67, 63, 0.075)",
+            line: "rgba(32, 91, 84, 0.23)",
+            link: "rgba(45, 91, 85, 0.2)",
+            signal: "rgba(23, 34, 35, 0.88)",
+            halo: "rgba(8, 127, 117, 0.12)",
+            colors: ["#087f75", "#b36f08", "#d9584c", "#728d1f"]
+          };
+    }
+
     function seed() {
-      var count = Math.max(18, Math.min(36, Math.round(width / 42)));
+      var colors = palette().colors;
+      var count = Math.max(28, Math.min(52, Math.round(width / 29)));
       points = Array.from({ length: count }, function (_, index) {
         return {
-          x: width * (0.46 + Math.random() * 0.58),
-          y: Math.random() * height,
-          vx: (Math.random() - 0.5) * 0.22,
-          vy: (Math.random() - 0.5) * 0.18,
-          size: 5 + Math.random() * 9,
+          x: width * (0.015 + Math.random() * 0.97),
+          y: height * (0.04 + Math.random() * 0.9),
+          vx: (Math.random() - 0.5) * 0.2,
+          vy: (Math.random() - 0.5) * 0.16,
+          size: 4 + Math.random() * 8,
           color: colors[index % colors.length],
-          phase: Math.random() * Math.PI * 2
+          phase: Math.random() * Math.PI * 2,
+          alpha: 0.48 + Math.random() * 0.42
         };
       });
       anchors = [
-        { x: width * 0.46, y: height * 0.68 },
-        { x: width * 0.61, y: height * 0.47 },
-        { x: width * 0.76, y: height * 0.58 },
-        { x: width * 0.92, y: height * 0.31 }
+        { x: width * 0.04, y: height * 0.74 },
+        { x: width * 0.24, y: height * 0.54 },
+        { x: width * 0.47, y: height * 0.64 },
+        { x: width * 0.7, y: height * 0.4 },
+        { x: width * 0.94, y: height * 0.57 }
       ];
-      signals = Array.from({ length: 11 }, function (_, index) {
+      signals = Array.from({ length: 15 }, function (_, index) {
         return {
-          progress: index / 11,
-          speed: 0.000025 + (index % 3) * 0.000004,
+          progress: index / 15,
+          speed: 0.000022 + (index % 4) * 0.000003,
           color: colors[index % colors.length]
         };
       });
@@ -61,8 +86,8 @@
       draw(0);
     }
 
-    function drawGrid() {
-      context.strokeStyle = "rgba(220, 238, 234, 0.055)";
+    function drawGrid(theme) {
+      context.strokeStyle = theme.grid;
       context.lineWidth = 1;
       for (var x = 28; x < width; x += 56) {
         context.beginPath();
@@ -91,9 +116,9 @@
       };
     }
 
-    function drawPipeline(time) {
+    function drawPipeline(time, theme) {
       if (!anchors.length) return;
-      context.strokeStyle = "rgba(205, 226, 221, 0.18)";
+      context.strokeStyle = theme.line;
       context.lineWidth = 1.5;
       context.beginPath();
       context.moveTo(anchors[0].x, anchors[0].y);
@@ -107,9 +132,9 @@
 
       anchors.forEach(function (anchor, index) {
         var pulse = 11 + Math.sin(time * 0.0013 + index) * 2;
-        context.strokeStyle = "rgba(114, 216, 202, 0.28)";
+        context.strokeStyle = theme.halo;
         context.strokeRect(anchor.x - pulse, anchor.y - pulse, pulse * 2, pulse * 2);
-        context.fillStyle = colors[index % colors.length];
+        context.fillStyle = theme.colors[index % theme.colors.length];
         context.fillRect(anchor.x - 2.8, anchor.y - 2.8, 5.6, 5.6);
       });
 
@@ -119,7 +144,7 @@
         context.save();
         context.translate(position.x, position.y);
         context.rotate(-0.18 + Math.sin(time * 0.001 + index) * 0.08);
-        context.fillStyle = index % 3 === 0 ? "rgba(242, 247, 244, 0.92)" : signal.color;
+        context.fillStyle = index % 3 === 0 ? theme.signal : signal.color;
         context.fillRect(-5, -6.5, 10, 13);
         if (index % 3 === 0) {
           context.fillStyle = signal.color;
@@ -136,11 +161,12 @@
         window.removeEventListener("resize", resize);
         return;
       }
+      var theme = palette();
       context.clearRect(0, 0, width, height);
-      context.fillStyle = "#11191a";
+      context.fillStyle = theme.background;
       context.fillRect(0, 0, width, height);
-      drawGrid();
-      drawPipeline(time);
+      drawGrid(theme);
+      drawPipeline(time, theme);
 
       for (var i = 0; i < points.length; i += 1) {
         var a = points[i];
@@ -149,8 +175,9 @@
           var dx = a.x - b.x;
           var dy = a.y - b.y;
           var distance = Math.sqrt(dx * dx + dy * dy);
-          if (distance < 155) {
-            context.strokeStyle = "rgba(175, 205, 200," + ((1 - distance / 155) * 0.2) + ")";
+          if (distance < 142) {
+            context.globalAlpha = (1 - distance / 142) * 0.9;
+            context.strokeStyle = theme.link;
             context.beginPath();
             context.moveTo(a.x, a.y);
             context.lineTo(b.x, b.y);
@@ -158,6 +185,7 @@
           }
         }
       }
+      context.globalAlpha = 1;
 
       points.forEach(function (point) {
         var dx = point.x - pointer.x;
@@ -178,6 +206,7 @@
         }
 
         context.save();
+        context.globalAlpha = point.alpha;
         context.translate(point.x, point.y);
         context.rotate(Math.PI / 4 + Math.sin(time * 0.0004 + point.phase) * 0.08);
         context.fillStyle = point.color;
@@ -203,11 +232,19 @@
       pointer.y = -1000;
     });
     window.addEventListener("resize", resize, { passive: true });
+    var themeObserver = new MutationObserver(function (changes) {
+      if (changes.some(function (change) { return change.attributeName === "data-md-color-scheme"; })) {
+        seed();
+        draw(performance.now());
+      }
+    });
+    themeObserver.observe(document.documentElement, { attributes: true });
     resize();
 
     if (!reduceMotion) frame = window.requestAnimationFrame(draw);
     window.addEventListener("pagehide", function () {
       if (frame) window.cancelAnimationFrame(frame);
+      themeObserver.disconnect();
     }, { once: true });
   }
 

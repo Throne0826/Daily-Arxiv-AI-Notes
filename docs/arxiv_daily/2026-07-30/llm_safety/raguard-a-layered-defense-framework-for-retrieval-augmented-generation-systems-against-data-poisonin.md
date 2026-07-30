@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "llm_safety"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T07:32:04.780771+00:00"
+generated_at: "2026-07-30T09:23:25.695489+00:00"
 source_sha256: "6402c6d246ac9f802df2bd4ce680435454a99599f4877db86d26a6735b142aac"
 tags:
   - "LLM 安全"
@@ -315,6 +315,14 @@ RAGuard在标准检索增强生成（RAG）流程中加入两层互补防御。�
 </div>
 
 <p class="paper-minor-label">真正需要看懂的公式</p>
+
+<div class="formula-status formula-status--ready" markdown="1">
+
+**已定位 2 个关键公式**
+
+以下方程保留符号说明、直观解释与原文位置。
+
+</div>
 
 <div class="equation-block" markdown="1">
 

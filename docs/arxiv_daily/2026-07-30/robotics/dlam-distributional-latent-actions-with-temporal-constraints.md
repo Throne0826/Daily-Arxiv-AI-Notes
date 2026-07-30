@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "robotics"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T07:32:04.041628+00:00"
+generated_at: "2026-07-30T09:23:24.814081+00:00"
 source_sha256: "1c033438e3d994f070b4dd88a91b84e8c2fdd52bb782dbc57778f3649ff199d7"
 tags:
   - "机器人 / 具身智能"
@@ -316,6 +316,14 @@ DLAM把无动作标注视频中的帧间变化表示为一组对角高斯潜在�
 </div>
 
 <p class="paper-minor-label">真正需要看懂的公式</p>
+
+<div class="formula-status formula-status--ready" markdown="1">
+
+**已定位 2 个关键公式**
+
+以下方程保留符号说明、直观解释与原文位置。
+
+</div>
 
 <div class="equation-block" markdown="1">
 

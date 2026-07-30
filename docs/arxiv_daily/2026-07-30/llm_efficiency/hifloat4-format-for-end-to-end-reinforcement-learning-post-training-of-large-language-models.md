@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "llm_efficiency"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T07:32:04.675882+00:00"
+generated_at: "2026-07-30T09:23:25.568909+00:00"
 source_sha256: "78ca15a6ac558d9f9760a2abbbbabecac11ccb1779ed0ecfbe14afe821c8d223"
 tags:
   - "LLM 效率"
@@ -287,6 +287,14 @@ GRPO 在组内归一化奖励以得到 token 级优势，通过当前策略与�
 </div>
 
 <p class="paper-minor-label">真正需要看懂的公式</p>
+
+<div class="formula-status formula-status--ready" markdown="1">
+
+**已定位 2 个关键公式**
+
+以下方程保留符号说明、直观解释与原文位置。
+
+</div>
 
 <div class="equation-block" markdown="1">
 

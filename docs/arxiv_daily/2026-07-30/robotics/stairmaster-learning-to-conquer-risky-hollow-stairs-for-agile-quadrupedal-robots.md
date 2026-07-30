@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "robotics"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T07:32:04.300312+00:00"
+generated_at: "2026-07-30T09:23:25.102071+00:00"
 source_sha256: "86438b21bf0f7e56d161b8c2832e2f9c6286435d8e468f70138eb620d6e067da"
 tags:
   - "机器人 / 具身智能"
@@ -299,6 +299,14 @@ CNN提取深度特征，MLP编码本体状态；以本体特征为查询、视�
 </div>
 
 <p class="paper-minor-label">真正需要看懂的公式</p>
+
+<div class="formula-status formula-status--ready" markdown="1">
+
+**已定位 2 个关键公式**
+
+以下方程保留符号说明、直观解释与原文位置。
+
+</div>
 
 <div class="equation-block" markdown="1">
 

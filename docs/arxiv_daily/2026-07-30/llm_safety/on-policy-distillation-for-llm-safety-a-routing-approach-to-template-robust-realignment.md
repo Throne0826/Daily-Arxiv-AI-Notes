@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "llm_safety"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T07:32:04.057690+00:00"
+generated_at: "2026-07-30T09:23:24.838245+00:00"
 source_sha256: "c80de25044bc417c0305004250c2b5d1dd32ba691459d8b695ff08c8e9b07960"
 tags:
   - "LLM 安全"
@@ -317,6 +317,14 @@ ROPD（Routing-based On-Policy Distillation，基于路由的在策略蒸馏）�
 </div>
 
 <p class="paper-minor-label">真正需要看懂的公式</p>
+
+<div class="formula-status formula-status--ready" markdown="1">
+
+**已定位 2 个关键公式**
+
+以下方程保留符号说明、直观解释与原文位置。
+
+</div>
 
 <div class="equation-block" markdown="1">
 

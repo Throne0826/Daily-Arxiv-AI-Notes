@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "llm_efficiency"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T07:32:04.280102+00:00"
+generated_at: "2026-07-30T09:23:25.080169+00:00"
 source_sha256: "c8e690fa03abdbe36fca73fe3582fa363710b1966e0b9ad3a2676500f8aa3c01"
 tags:
   - "LLM 效率"
@@ -314,6 +314,14 @@ Keyless Attention 将标准注意力中彼此独立的“键路由”和“值�
 </div>
 
 <p class="paper-minor-label">真正需要看懂的公式</p>
+
+<div class="formula-status formula-status--ready" markdown="1">
+
+**已定位 2 个关键公式**
+
+以下方程保留符号说明、直观解释与原文位置。
+
+</div>
 
 <div class="equation-block" markdown="1">
 

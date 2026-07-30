@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "llm_safety"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T07:32:04.833256+00:00"
+generated_at: "2026-07-30T09:23:25.755000+00:00"
 source_sha256: "11ce03c2593bea4c70903b7a3335a88caea47b58bcc3d436c391892e3df95532"
 tags:
   - "LLM 安全"
@@ -289,7 +289,13 @@ GPT-Red 是一个以大语言模型为核心的智能体式红队攻击器，目
 
 <p class="paper-minor-label">真正需要看懂的公式</p>
 
-这篇论文不以中心数学公式展开，或全文中未提取到可靠的关键公式。
+<div class="formula-status formula-status--none" markdown="1">
+
+**未收录可核对的关键公式**
+
+该工作以系统设计、数据或实验分析为主，或现有全文证据不足以可靠还原中心方程。
+
+</div>
 
 <div class="paper-focus" markdown="1">
 

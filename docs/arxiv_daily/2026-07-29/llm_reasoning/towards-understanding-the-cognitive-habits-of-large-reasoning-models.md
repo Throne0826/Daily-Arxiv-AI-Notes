@@ -6,7 +6,7 @@ announcement_date: "2026-07-29"
 primary_category: "llm_reasoning"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T07:32:03.639454+00:00"
+generated_at: "2026-07-30T09:23:24.119536+00:00"
 source_sha256: "e93044a16762309a69859c410438bbd9baeb389a6e69b3336354dfa45683e926"
 tags:
   - "LLM Reasoning"
@@ -289,7 +289,13 @@ GPT-4.1-mini 充当自动标注器，将任务处理为二元分类，但必须�
 
 <p class="paper-minor-label">真正需要看懂的公式</p>
 
-这篇论文不以中心数学公式展开，或全文中未提取到可靠的关键公式。
+<div class="formula-status formula-status--none" markdown="1">
+
+**未收录可核对的关键公式**
+
+该工作以系统设计、数据或实验分析为主，或现有全文证据不足以可靠还原中心方程。
+
+</div>
 
 <div class="paper-focus" markdown="1">
 

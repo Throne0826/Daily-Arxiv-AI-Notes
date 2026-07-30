@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "llm_interpretability"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T07:32:04.492005+00:00"
+generated_at: "2026-07-30T09:23:25.334883+00:00"
 source_sha256: "3ef27fd4e30402c3d72d5ec2ec0b0a164bb0ccdac5bb98529f3aa8912ed2297f"
 tags:
   - "LLM 机制与可解释性"
@@ -316,6 +316,14 @@ v_{k,nc} 与 v_{k,c} 之间的夹角，用于度量加入上下文后的方向�
 </div>
 
 <p class="paper-minor-label">真正需要看懂的公式</p>
+
+<div class="formula-status formula-status--ready" markdown="1">
+
+**已定位 2 个关键公式**
+
+以下方程保留符号说明、直观解释与原文位置。
+
+</div>
 
 <div class="equation-block" markdown="1">
 

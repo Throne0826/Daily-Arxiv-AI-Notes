@@ -4,6 +4,7 @@ from pathlib import Path
 from daily_arxiv_notes.models import Classification, GeneratedNote, Paper
 from daily_arxiv_notes.render import (
     render_category_index,
+    render_categories_master,
     render_daily_index,
     render_global_category_index,
     render_note,
@@ -177,6 +178,49 @@ def test_equation_without_plain_explanation_is_flagged() -> None:
     note.content["method"]["equations"][0]["plain_explanation"] = ""
 
     assert "equations[0] has no plain-language explanation" in validate_generated_content(note.content)
+
+
+def test_note_marks_equation_availability() -> None:
+    paper = Paper(
+        arxiv_id="2607.00003",
+        title="Reliable Learned Verifiers",
+        authors=["Alice Example"],
+        affiliations=["Example University"],
+        announcement_date="2026-07-29",
+        arxiv_url="https://arxiv.org/abs/2607.00003",
+        pdf_url="https://arxiv.org/pdf/2607.00003",
+    )
+    note = generated_note()
+    classification = Classification(
+        relevant=True,
+        primary_category="llm_reasoning",
+        categories=["llm_reasoning"],
+    )
+    assert "formula-status--ready" in render_note(paper, classification, note, taxonomy())
+    note.content["method"]["equations"] = []
+    assert "formula-status--none" in render_note(paper, classification, note, taxonomy())
+
+
+def test_categories_master_contains_data_views_and_network_payload() -> None:
+    seen = {
+        "2607.00001": {
+            "announcement_date": "2026-07-29",
+            "primary_category": "llm_reasoning",
+            "categories": ["llm_reasoning", "llm_agent"],
+        },
+        "2607.00002": {
+            "announcement_date": "2026-07-30",
+            "primary_category": "robotics",
+            "categories": ["robotics", "reinforcement_learning"],
+        },
+    }
+    rendered = render_categories_master(seen, taxonomy())
+    assert 'data-map-panel="landscape"' in rendered
+    assert 'data-map-panel="trend"' in rendered
+    assert 'data-map-panel="network"' in rendered
+    assert '"latestDate": "2026-07-30"' in rendered
+    assert "LLM Reasoning" in rendered
+    assert "机器人 / 具身智能" in rendered
 
 
 def test_fenced_latex_is_normalized_and_symbols_remain_math() -> None:

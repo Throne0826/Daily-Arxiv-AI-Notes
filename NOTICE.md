@@ -13,3 +13,7 @@ Material changes in this derivative:
 - added AI-draft and human-review status throughout the site.
 
 The derivative site material remains licensed under CC BY-NC-SA 4.0. See `LICENSE`.
+
+The site vendors MathJax 3.2.2's `tex-svg-full` browser component for reliable
+local formula rendering. MathJax is licensed under Apache-2.0; its license is
+included at `docs/vendor/mathjax/LICENSE`.

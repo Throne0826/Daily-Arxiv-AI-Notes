@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "llm_agent"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T07:32:04.639418+00:00"
+generated_at: "2026-07-30T09:23:25.525644+00:00"
 source_sha256: "334b0a6fea336ad500b967ec9da40867b9491b33ae71f75216862c760502d3a3"
 tags:
   - "LLM Agent"
@@ -318,6 +318,14 @@ Living-Harness 将智能体的工具、基础上下文和领域规则保持冻�
 </div>
 
 <p class="paper-minor-label">真正需要看懂的公式</p>
+
+<div class="formula-status formula-status--ready" markdown="1">
+
+**已定位 2 个关键公式**
+
+以下方程保留符号说明、直观解释与原文位置。
+
+</div>
 
 <div class="equation-block" markdown="1">
 

@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "robotics"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T07:32:04.187448+00:00"
+generated_at: "2026-07-30T09:23:24.978483+00:00"
 source_sha256: "85198c9fde085f278af0195450e120cdd51972836cfdcc11d757b860414c3316"
 tags:
   - "机器人 / 具身智能"
@@ -285,6 +285,14 @@ TDE利用上一采样时刻的控制输入和系统状态，近似当前未知�
 </div>
 
 <p class="paper-minor-label">真正需要看懂的公式</p>
+
+<div class="formula-status formula-status--ready" markdown="1">
+
+**已定位 2 个关键公式**
+
+以下方程保留符号说明、直观解释与原文位置。
+
+</div>
 
 <div class="equation-block" markdown="1">
 

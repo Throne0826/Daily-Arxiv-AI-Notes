@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "llm_alignment"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T07:32:04.259215+00:00"
+generated_at: "2026-07-30T09:23:25.055323+00:00"
 source_sha256: "d9a72645821981870eb5095b9d31e84c037b920cf3396d387f26d0b12106813c"
 tags:
   - "对齐 / RLHF"
@@ -317,6 +317,14 @@ MeRLa 是一个先学习奖励塑形、再执行常规 RLHF 的两阶段框架�
 </div>
 
 <p class="paper-minor-label">真正需要看懂的公式</p>
+
+<div class="formula-status formula-status--ready" markdown="1">
+
+**已定位 2 个关键公式**
+
+以下方程保留符号说明、直观解释与原文位置。
+
+</div>
 
 <div class="equation-block" markdown="1">
 

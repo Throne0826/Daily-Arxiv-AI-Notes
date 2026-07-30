@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "llm_evaluation"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T07:32:04.207312+00:00"
+generated_at: "2026-07-30T09:23:24.997929+00:00"
 source_sha256: "223f53c089f7d19b3f8e8a80de7fef9d4311908cb03a77341078be7be91e44d3"
 tags:
   - "LLM 评测"
@@ -318,7 +318,13 @@ tags:
 
 <p class="paper-minor-label">真正需要看懂的公式</p>
 
-这篇论文不以中心数学公式展开，或全文中未提取到可靠的关键公式。
+<div class="formula-status formula-status--none" markdown="1">
+
+**未收录可核对的关键公式**
+
+该工作以系统设计、数据或实验分析为主，或现有全文证据不足以可靠还原中心方程。
+
+</div>
 
 <div class="paper-focus" markdown="1">
 

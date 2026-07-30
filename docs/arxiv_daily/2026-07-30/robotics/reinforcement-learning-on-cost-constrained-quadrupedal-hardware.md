@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "robotics"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T07:32:04.759609+00:00"
+generated_at: "2026-07-30T09:23:25.672220+00:00"
 source_sha256: "f9e63aa03f2c82d9fa73eeeb40b05835409b91d4f4d08f2d74f1cc388a59a982"
 tags:
   - "机器人 / 具身智能"
@@ -317,6 +317,14 @@ LSTM 策略在硬件上以 25 Hz 运行，不采用真实编码器闭环反馈�
 </div>
 
 <p class="paper-minor-label">真正需要看懂的公式</p>
+
+<div class="formula-status formula-status--ready" markdown="1">
+
+**已定位 1 个关键公式**
+
+以下方程保留符号说明、直观解释与原文位置。
+
+</div>
 
 <div class="equation-block" markdown="1">
 

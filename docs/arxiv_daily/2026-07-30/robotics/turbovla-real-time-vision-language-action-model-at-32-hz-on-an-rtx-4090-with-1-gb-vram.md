@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "robotics"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T07:32:04.588332+00:00"
+generated_at: "2026-07-30T09:23:25.455170+00:00"
 source_sha256: "0f1fb0e160e037c8809a5fd5583d34bacafc4dae0264222fe80e604c2462428d"
 tags:
   - "机器人 / 具身智能"
@@ -318,6 +318,14 @@ ACT 风格的轻量 Transformer 解码器以 [Z_n^{vl};Z_n^s] 为上下文，同
 </div>
 
 <p class="paper-minor-label">真正需要看懂的公式</p>
+
+<div class="formula-status formula-status--ready" markdown="1">
+
+**已定位 2 个关键公式**
+
+以下方程保留符号说明、直观解释与原文位置。
+
+</div>
 
 <div class="equation-block" markdown="1">
 

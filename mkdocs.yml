@@ -88,8 +88,9 @@ markdown_extensions:
 extra_javascript:
   - javascripts/title-link.js
   - javascripts/home-scene.js
+  - javascripts/research-map.js
   - javascripts/mathjax.js
-  - https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js
+  - vendor/mathjax/tex-svg-full.js
   - javascripts/search-page.js
 extra_css:
   - stylesheets/extra.css

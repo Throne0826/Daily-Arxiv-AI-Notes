@@ -6,7 +6,7 @@ announcement_date: "2026-07-31"
 primary_category: "robotics"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-31T03:25:49.250436+00:00"
+generated_at: "2026-07-31T05:30:51.478405+00:00"
 source_sha256: "cd5473701090856875ba84f9e6f513509832804f056e5a21bb2ecf6aeba7bf0e"
 tags:
   - "机器人 / 具身智能"
@@ -30,7 +30,7 @@ tags:
 
 <span><strong>日榜</strong> 2026-07-31</span>
 <span><strong>作者</strong> Gu, Zhaoyuan, Chen, Yipu, Chai, Zimeng, Cueva, Alfred, Nguyen, Thong, Wu, Yifan, Xue, Huishu, Kim, Minji, Legene, Isaac, Liu, Fukang, Kim, KyoungMok, Barula, Ayan, Chen, Yongxin, Zhao, Ye</span>
-<span><strong>通讯单位</strong> arXiv 元数据未标注</span>
+<span><strong title="按论文首页署名机构汇总">通讯单位</strong> Institute for Robotics and Intelligent Machines, Georgia Institute of Technology</span>
 
 </div>
 

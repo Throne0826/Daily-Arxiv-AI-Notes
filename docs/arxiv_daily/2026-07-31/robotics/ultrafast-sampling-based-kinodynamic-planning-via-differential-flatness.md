@@ -6,7 +6,7 @@ announcement_date: "2026-07-31"
 primary_category: "robotics"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-31T03:25:49.281888+00:00"
+generated_at: "2026-07-31T05:30:51.508914+00:00"
 source_sha256: "4b2e8345462b0a131c8eab06d85d1fdd5f54078ca6e4a290077eb9a77d2cc75b"
 tags:
   - "机器人 / 具身智能"
@@ -30,7 +30,7 @@ tags:
 
 <span><strong>日榜</strong> 2026-07-31</span>
 <span><strong>作者</strong> Duong, Thai, Ramsey, Clayton W., Kingston, Zachary, Thomason, Wil, Kavraki, Lydia E.</span>
-<span><strong>通讯单位</strong> arXiv 元数据未标注</span>
+<span><strong title="按论文首页署名机构汇总">通讯单位</strong> Department of Computer Science, Rice University；Ken Kennedy Institute</span>
 
 </div>
 

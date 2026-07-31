@@ -6,7 +6,7 @@ announcement_date: "2026-07-31"
 primary_category: "recommender"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-31T03:25:49.136059+00:00"
+generated_at: "2026-07-31T05:30:51.383817+00:00"
 source_sha256: "c95bb39446fd0e9dda12017e4f11496ea65c4e9451f31d017b83f1b23dfa9380"
 tags:
   - "推荐系统"
@@ -29,7 +29,7 @@ tags:
 
 <span><strong>日榜</strong> 2026-07-31</span>
 <span><strong>作者</strong> Kavuru, Harshini, Katariya, Dwipam, Iyengar, Giri, Mohanty, Pranab, Mishra, Kalanand, Machiraju, Raghu</span>
-<span><strong>通讯单位</strong> arXiv 元数据未标注</span>
+<span><strong title="按论文首页署名机构汇总">通讯单位</strong> The Ohio State University</span>
 
 </div>
 

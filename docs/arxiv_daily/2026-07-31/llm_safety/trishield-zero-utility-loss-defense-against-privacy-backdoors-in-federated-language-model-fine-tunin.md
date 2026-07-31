@@ -6,7 +6,7 @@ announcement_date: "2026-07-31"
 primary_category: "llm_safety"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-31T03:25:49.040673+00:00"
+generated_at: "2026-07-31T05:30:51.308130+00:00"
 source_sha256: "8e88007cd26c52551362f1b8a8bbc1ad7524126c804519229e35d610bcb311f6"
 tags:
   - "LLM 安全"
@@ -30,7 +30,7 @@ tags:
 
 <span><strong>日榜</strong> 2026-07-31</span>
 <span><strong>作者</strong> Wei, Cheng</span>
-<span><strong>通讯单位</strong> arXiv 元数据未标注</span>
+<span><strong title="按论文首页署名机构汇总">通讯单位</strong> Honor Device Co., Ltd.</span>
 
 </div>
 

@@ -6,7 +6,7 @@ announcement_date: "2026-07-31"
 primary_category: "llm_alignment"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-31T03:25:49.375368+00:00"
+generated_at: "2026-07-31T05:30:51.588860+00:00"
 source_sha256: "e4da4136d4a22bfa15d4620c1e831f7933ae8a0649366a42ac6bcec7f84b2df5"
 tags:
   - "对齐 / RLHF"
@@ -32,7 +32,7 @@ tags:
 
 <span><strong>日榜</strong> 2026-07-31</span>
 <span><strong>作者</strong> Zhang, Zhenrong, Wu, Fei, Du, Jun, Zhang, Jianshu, Wei, Si</span>
-<span><strong>通讯单位</strong> arXiv 元数据未标注</span>
+<span><strong title="按论文首页署名机构汇总">通讯单位</strong> IFLYTEK Research；University of Science and Technology of China</span>
 
 </div>
 

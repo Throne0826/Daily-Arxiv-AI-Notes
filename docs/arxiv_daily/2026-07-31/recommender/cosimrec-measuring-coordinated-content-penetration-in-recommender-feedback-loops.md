@@ -6,7 +6,7 @@ announcement_date: "2026-07-31"
 primary_category: "recommender"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-31T03:25:49.049808+00:00"
+generated_at: "2026-07-31T05:30:51.314703+00:00"
 source_sha256: "a8a0999edbeec4a4775c86abaf6c5b965351e35b503dbe5bfdb56aab17a1880d"
 tags:
   - "推荐系统"
@@ -28,7 +28,7 @@ tags:
 
 <span><strong>日榜</strong> 2026-07-31</span>
 <span><strong>作者</strong> Li, Nan, Shao, Jiahong, Lyu, Jiuyang</span>
-<span><strong>通讯单位</strong> arXiv 元数据未标注</span>
+<span><strong title="按论文首页署名机构汇总">通讯单位</strong> State Key Laboratory of Media Convergence and Communication, Communication University of China</span>
 
 </div>
 

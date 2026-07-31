@@ -6,7 +6,7 @@ announcement_date: "2026-07-31"
 primary_category: "llm_agent"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-31T03:25:49.152880+00:00"
+generated_at: "2026-07-31T05:30:51.398250+00:00"
 source_sha256: "74396e8e18123c0bbdd760f66e705f1afd2e9138fd6fa4e4b5b37fc5a5ded3a9"
 tags:
   - "LLM Agent"
@@ -29,7 +29,7 @@ tags:
 
 <span><strong>日榜</strong> 2026-07-31</span>
 <span><strong>作者</strong> Agarwal, Dhruv, Mohan, Rishitha Guttapalle, Kumari, Aarti, Sinha, Ashi, Anil, Athulya, Srinivas, Kavitha, Samulowitz, Horst, McCallum, Andrew</span>
-<span><strong>通讯单位</strong> arXiv 元数据未标注</span>
+<span><strong title="按论文首页署名机构汇总">通讯单位</strong> University of Massachusetts Amherst；IBM Research</span>
 
 </div>
 

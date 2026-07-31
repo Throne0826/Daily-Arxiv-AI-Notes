@@ -6,7 +6,7 @@ announcement_date: "2026-07-31"
 primary_category: "llm_evaluation"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-31T03:25:48.964733+00:00"
+generated_at: "2026-07-31T05:30:51.248928+00:00"
 source_sha256: "e14f2dd557bf9eff1b6cf6097f9014e7b99c8175fbcd0da9fe96f27082eae336"
 tags:
   - "LLM 评测"
@@ -29,7 +29,7 @@ tags:
 
 <span><strong>日榜</strong> 2026-07-31</span>
 <span><strong>作者</strong> Mao, Yuetian, Chen, Chunyang</span>
-<span><strong>通讯单位</strong> arXiv 元数据未标注</span>
+<span><strong title="按论文首页署名机构汇总">通讯单位</strong> Technical University of Munich</span>
 
 </div>
 

@@ -6,7 +6,7 @@ announcement_date: "2026-07-31"
 primary_category: "multimodal_vlm"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-31T03:25:49.266501+00:00"
+generated_at: "2026-07-31T05:30:51.492425+00:00"
 source_sha256: "66658cd7b42c8980f62ad7b1fddc60cdc706ef25a8d30ebccdb2555fa858071d"
 tags:
   - "多模态 VLM"
@@ -29,7 +29,7 @@ tags:
 
 <span><strong>日榜</strong> 2026-07-31</span>
 <span><strong>作者</strong> Zhang, Kangning, Li, Yixing, Shao, Shuai, Li, Qingyao, Lu, Zhengxi, Yao, Zhiyuan, Lin, Jianghao, Jiao, Wenxiang, Lu, Yuan, Liu, Weiwen, Zhang, Weinan, Yu, Yong</span>
-<span><strong>通讯单位</strong> arXiv 元数据未标注</span>
+<span><strong title="按论文首页署名机构汇总">通讯单位</strong> Shanghai Jiao Tong University；Xiaohongshu Inc.；The Chinese University of Hong Kong；Zhejiang University；Southeast University</span>
 
 </div>
 

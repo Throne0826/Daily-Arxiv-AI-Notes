@@ -6,7 +6,7 @@ announcement_date: "2026-07-31"
 primary_category: "recommender"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-31T03:25:49.118597+00:00"
+generated_at: "2026-07-31T05:30:51.367947+00:00"
 source_sha256: "e62b06b014c368ec26db4c376d85f2f57a63773148841a68edad9ea7cf47610f"
 tags:
   - "推荐系统"
@@ -28,7 +28,7 @@ tags:
 
 <span><strong>日榜</strong> 2026-07-31</span>
 <span><strong>作者</strong> Fan, Hao, Liu, Qingyang, Liu, Hongjiu, Hu, Yanrong, Fang, Kai</span>
-<span><strong>通讯单位</strong> arXiv 元数据未标注</span>
+<span><strong title="按论文首页署名机构汇总">通讯单位</strong> College of Mathematics and Computer Science, Zhejiang A&F University；School of Information Science and Engineering, East China University of Science and Technology</span>
 
 </div>
 

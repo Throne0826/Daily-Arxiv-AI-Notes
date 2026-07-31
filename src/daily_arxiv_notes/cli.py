@@ -46,6 +46,17 @@ def build_parser() -> argparse.ArgumentParser:
         help="Cached date to rebuild; repeat for multiple dates, omit for all",
     )
 
+    affiliations = subparsers.add_parser(
+        "enrich-affiliations",
+        help="Backfill author institutions from arXiv HTML and rerender cached notes",
+    )
+    affiliations.add_argument(
+        "--date",
+        action="append",
+        required=True,
+        help="Cached date to enrich; repeat for multiple dates",
+    )
+
     validate = subparsers.add_parser("validate", help="Validate generated Markdown notes")
     validate.add_argument("--output", default="", help="Override output directory")
     return parser
@@ -69,6 +80,10 @@ def main(argv: list[str] | None = None) -> int:
             return 1 if manifest["failures"] else 0
         if args.command == "rerender":
             result = DailyPipeline(settings).rerender(args.date or None)
+            print(json.dumps(result, ensure_ascii=False, indent=2))
+            return 1 if result["failures"] else 0
+        if args.command == "enrich-affiliations":
+            result = DailyPipeline(settings).enrich_affiliations(args.date)
             print(json.dumps(result, ensure_ascii=False, indent=2))
             return 1 if result["failures"] else 0
         output = Path(args.output).resolve() if args.output else settings.project_path("output_dir")

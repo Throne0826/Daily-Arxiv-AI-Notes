@@ -6,7 +6,7 @@ announcement_date: "2026-07-31"
 primary_category: "llm_agent"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-31T03:25:49.367180+00:00"
+generated_at: "2026-07-31T05:30:51.582190+00:00"
 source_sha256: "29449d2f497299f5b598f5458eb8e83fd7ffc358f7f8d7c60b77396030cf0984"
 tags:
   - "LLM Agent"
@@ -29,7 +29,7 @@ tags:
 
 <span><strong>日榜</strong> 2026-07-31</span>
 <span><strong>作者</strong> Sigillo, Luigi, Silvestri, Matteo, Tabaro, Francesco, Bhatnagar, Rajat, Mubashar, Syed Irtaza, Jeffryes, Matt, Nijjer, Daljit, Perera, Vittorio, Spjuth, Ola, Saez-Rodriguez, Julio, Harrison, Melissa, Petroni, Fabio</span>
-<span><strong>通讯单位</strong> arXiv 元数据未标注</span>
+<span><strong title="按论文首页署名机构汇总">通讯单位</strong> EMBL Rome, European Molecular Biology Laboratory；European Bioinformatics Institute (EMBL-EBI)；Sapienza University of Rome；Uppsala University；Science for Life Laboratory (SciLifeLab)；Heidelberg University</span>
 
 </div>
 

@@ -6,7 +6,7 @@ announcement_date: "2026-07-31"
 primary_category: "knowledge_editing"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-31T03:25:49.180533+00:00"
+generated_at: "2026-07-31T05:30:51.420147+00:00"
 source_sha256: "7f1bb21cc41efc15b3b7caff0eb40390c05bad9f16d7ca55e9611e1eaf21466f"
 tags:
   - "知识编辑"
@@ -30,7 +30,7 @@ tags:
 
 <span><strong>日榜</strong> 2026-07-31</span>
 <span><strong>作者</strong> Ramesh, Vishwajith</span>
-<span><strong>通讯单位</strong> arXiv 元数据未标注</span>
+<span><strong title="按论文首页署名机构汇总">通讯单位</strong> Vy Labs, Inc</span>
 
 </div>
 

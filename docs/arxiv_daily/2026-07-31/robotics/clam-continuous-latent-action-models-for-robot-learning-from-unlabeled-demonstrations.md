@@ -6,7 +6,7 @@ announcement_date: "2026-07-31"
 primary_category: "robotics"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-31T03:25:48.974368+00:00"
+generated_at: "2026-07-31T05:30:51.257596+00:00"
 source_sha256: "e6ca0da979464ef4d47ac3e8722f4fcd7f0d96f87fd0140f70ea04abd7277fca"
 tags:
   - "机器人 / 具身智能"
@@ -28,7 +28,7 @@ tags:
 
 <span><strong>日榜</strong> 2026-07-31</span>
 <span><strong>作者</strong> Liang, Anthony, Czempin, Pavel, Hong, Matthew M., Zhou, Yutai, Wang, Jingzhen, Biyik, Erdem, Tu, Stephen</span>
-<span><strong>通讯单位</strong> arXiv 元数据未标注</span>
+<span><strong title="按论文首页署名机构汇总">通讯单位</strong> Thomas Lord Department of Computer Science, University of Southern California；Ming Hsieh Department of Electrical and Computer Engineering, University of Southern California</span>
 
 </div>
 

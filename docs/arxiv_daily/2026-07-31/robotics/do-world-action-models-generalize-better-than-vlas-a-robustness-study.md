@@ -6,7 +6,7 @@ announcement_date: "2026-07-31"
 primary_category: "robotics"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-31T03:25:49.360180+00:00"
+generated_at: "2026-07-31T05:30:51.575476+00:00"
 source_sha256: "c12dd985e4412cba5e951f893490f96e23d7d253b8c68fb7c76ba3fd5d920aac"
 tags:
   - "机器人 / 具身智能"
@@ -31,7 +31,7 @@ tags:
 
 <span><strong>日榜</strong> 2026-07-31</span>
 <span><strong>作者</strong> Zhang, Zhanguang, Li, Zhiyuan, Rahmati, Behnam, Yang, Rui Heng, Ma, Yintao, Rasouli, Amir, Pakdamansavoji, Sajjad, Wu, Yangzheng, Zhang, Lingfeng, Cao, Tongtong, Wen, Feng, Wang, Xinyu, Quan, Xingyue, Zhang, Yingxue</span>
-<span><strong>通讯单位</strong> arXiv 元数据未标注</span>
+<span><strong title="按论文首页署名机构汇总">通讯单位</strong> Huawei Technologies Canada；University of Toronto</span>
 
 </div>
 

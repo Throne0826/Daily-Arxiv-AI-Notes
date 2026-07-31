@@ -4,8 +4,11 @@ from daily_arxiv_notes.arxiv import (
     ArxivClient,
     ArxivError,
     ListingEntry,
+    extract_affiliations_from_html,
+    extract_affiliations_from_pdf_text,
     parse_listing_page,
 )
+from bs4 import BeautifulSoup
 from daily_arxiv_notes.models import Paper
 
 
@@ -58,6 +61,7 @@ class FakeFullTextHttp:
         return f"""
         <html><article>
           <h1>Example Paper</h1>
+          <div class="ltx_authors"><span>Alice<sup>1</sup></span><span><sup>1</sup>Example University</span></div>
           <h6>Abstract</h6><p>Abstract body.</p>
           <h2>1 Introduction</h2><p>Introduction body.</p>
           <h2>2 Named Method</h2><p>{method_body}</p>
@@ -75,6 +79,49 @@ def test_full_text_preserves_html_section_hierarchy() -> None:
     assert "[SECTION level=6] Abstract" in full_text.text
     assert "[SECTION level=2] 2 Named Method" in full_text.text
     assert "[SECTION level=3] 2.1 Training" in full_text.text
+
+
+def test_extract_affiliations_from_latexml_author_notes() -> None:
+    soup = BeautifulSoup(
+        """
+        <div class="ltx_authors"><span class="ltx_personname">
+          Alice<sup>1,*</sup>, Bob<sup>2</sup></span>
+          <span class="ltx_author_notes"><sup>*</sup>Corresponding author: Alice
+          <sup>1</sup>Technical University of Munich
+          <sup>2</sup>Example AI Research Lab</span>
+        </div>
+        """,
+        "html.parser",
+    )
+
+    assert extract_affiliations_from_html(soup) == [
+        "Technical University of Munich",
+        "Example AI Research Lab",
+    ]
+
+
+def test_full_text_backfills_affiliations_from_same_html_request() -> None:
+    paper = Paper(arxiv_id="2607.99991", title="Example Paper")
+    ArxivClient(FakeFullTextHttp()).fetch_full_text(paper)
+
+    assert paper.affiliations == ["Example University"]
+
+
+def test_extract_affiliations_from_pdf_first_page() -> None:
+    text = """
+    Example Paper
+    Alice Example1, Bob Example2
+    1Sichuan University
+    2Dexmal Inc.
+    *Equal contribution
+    Abstract
+    We study a research problem at university scale.
+    """
+
+    assert extract_affiliations_from_pdf_text(text) == [
+        "Sichuan University",
+        "Dexmal Inc",
+    ]
 
 
 def test_atom_rate_limit_falls_back_to_listing_metadata_once(monkeypatch) -> None:

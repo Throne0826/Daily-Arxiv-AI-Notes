@@ -6,7 +6,7 @@ announcement_date: "2026-07-31"
 primary_category: "recommender"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-31T03:25:49.022196+00:00"
+generated_at: "2026-07-31T05:30:51.293658+00:00"
 source_sha256: "d6db193d81aaeb2e3ec599f4e00931c5785ae7b17f381ee1a41aefe74dc5e85b"
 tags:
   - "推荐系统"
@@ -29,7 +29,7 @@ tags:
 
 <span><strong>日榜</strong> 2026-07-31</span>
 <span><strong>作者</strong> Chen, Yuxin, Luo, Liang, Zhang, Buyun, Jiao, Jian, Li, Boda, Wang, Haoyu, Tang, Tongyi, Cai, Ao, Shen, Zijian, Zhang, Zhengkai, Xie, Wenyi, Dick, Ryan, Liu, Han, Shi, Neng, Yu, Bin, Xiao, Jianbo, Bi, Shuyao, Yu, Hongtao, Fang, Yuanwei, Zhao, Zhuoran, Chen, Sijia, Chen, Yang, Yang, Shuqi, Li, Qianru, Liu, Zikun, Ling, Wei, Zeng, Sihan, Jin, Longhao, Lu, Jiaxin, Ma, Yinbin, Li, Jiawei, Ruan, Yichen, Lee, Yong Ler, Guan, Birmingham, Li, Zijian, Sun, Jianbo, Zhang, Zhengyu, Chen, Zeliang, Wei, Xiaohan, Hao, Yuchen, Musumeci, GP, Ranganathan, Venkatesh, Yao, Yantao, Tang, Chunqiang, Chen, Wenlin, Kolay, Santanu, Wen, Ellie Dingqiao</span>
-<span><strong>通讯单位</strong> arXiv 元数据未标注</span>
+<span><strong title="按论文首页署名机构汇总">通讯单位</strong> Meta AI</span>
 
 </div>
 

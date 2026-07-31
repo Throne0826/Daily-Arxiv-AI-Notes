@@ -6,7 +6,7 @@ announcement_date: "2026-07-31"
 primary_category: "robotics"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-31T03:25:49.306246+00:00"
+generated_at: "2026-07-31T05:30:51.528903+00:00"
 source_sha256: "601e59d2490c48cd858581445260162844389bac3652414671fdb56cc14f3401"
 tags:
   - "机器人 / 具身智能"
@@ -31,7 +31,7 @@ tags:
 
 <span><strong>日榜</strong> 2026-07-31</span>
 <span><strong>作者</strong> Suzuki, Kanata, Nakamura, Hanon, Miyamoto, Kana, Ogata, Tetsuya</span>
-<span><strong>通讯单位</strong> arXiv 元数据未标注</span>
+<span><strong title="按论文首页署名机构汇总">通讯单位</strong> Kanata Suzuki is affiliated with Spatial Robotics Research Center, Fujitsu Limited., Kanagawa 211-8588, Japan；Hanon Nakamura, Kana Miyamoto, and Tetsuya Ogata are affiliated with Faculty of Science and Engineering, Waseda University, Tokyo 169-8050, Japan；Tetsuya Ogata is also at the National Institute of Advanced Industrial Science and Technology, Tokyo 100-8921, Japan</span>
 
 </div>
 

@@ -6,7 +6,7 @@ announcement_date: "2026-07-31"
 primary_category: "llm_agent"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-31T03:25:49.225151+00:00"
+generated_at: "2026-07-31T05:30:51.455304+00:00"
 source_sha256: "0f79840a31e0a21a2817120af0ec36de7b68268d29ef17dba318f512af348ebb"
 tags:
   - "LLM Agent"
@@ -29,7 +29,7 @@ tags:
 
 <span><strong>日榜</strong> 2026-07-31</span>
 <span><strong>作者</strong> Cui, Hanshuai, Tang, Zhiqing, Yao, Zhi, Meng, Fanshuai, Ma, Qianli, Jia, Weijia</span>
-<span><strong>通讯单位</strong> arXiv 元数据未标注</span>
+<span><strong title="按论文首页署名机构汇总">通讯单位</strong> Institute of Artificial Intelligence and Future Networks, Beijing Normal University, Zhuhai 519087, China；School of Artificial Intelligence, Beijing Normal University, Beijing 100875, China</span>
 
 </div>
 

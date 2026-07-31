@@ -7,6 +7,7 @@ review_queue_file = "data/review_queue.jsonl"
 taxonomy_file = "taxonomy.json"
 category_index_dir = "docs/categories"
 review_index_file = "docs/review/index.md"
+affiliation_overrides_file = "data/affiliation_overrides.json"
 
 [arxiv]
 categories = ["cs.CL", "cs.AI", "cs.LG", "cs.CV", "cs.RO", "cs.IR"]

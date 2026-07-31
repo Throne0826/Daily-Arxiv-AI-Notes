@@ -466,7 +466,7 @@ def render_note(
             related.append(f"- **{work}**: {relationship or '关系待人工核验。'}")
 
     authors = ", ".join(paper.authors) if paper.authors else "原文元数据未获取"
-    affiliations = "；".join(paper.affiliations) if paper.affiliations else "arXiv 元数据未标注"
+    affiliations = "；".join(paper.affiliations) if paper.affiliations else "原文页首未识别"
     generated_at = datetime.now(timezone.utc).isoformat()
     summary = _text(content.get("one_sentence_summary", "原文未明确报告。"))
     plain_problem = _text(content.get("plain_language_problem", ""), summary)
@@ -500,7 +500,7 @@ def render_note(
 
 <span><strong>日榜</strong> {paper.announcement_date or '未知'}</span>
 <span><strong>作者</strong> {authors}</span>
-<span><strong>通讯单位</strong> {affiliations}</span>
+<span><strong title="按论文首页署名机构汇总">通讯单位</strong> {affiliations}</span>
 
 </div>
 

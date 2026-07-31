@@ -6,7 +6,7 @@ announcement_date: "2026-07-31"
 primary_category: "recommender"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-31T03:25:48.985055+00:00"
+generated_at: "2026-07-31T05:30:51.264359+00:00"
 source_sha256: "94c09f14b825a02658748a3b2a0c924f34164d86e62b53e7a5d71649fe074bdb"
 tags:
   - "推荐系统"
@@ -30,7 +30,7 @@ tags:
 
 <span><strong>日榜</strong> 2026-07-31</span>
 <span><strong>作者</strong> Hertsch, Finn</span>
-<span><strong>通讯单位</strong> arXiv 元数据未标注</span>
+<span><strong title="按论文首页署名机构汇总">通讯单位</strong> DHBW Ravensburg, School of Business, Data Science and AI</span>
 
 </div>
 

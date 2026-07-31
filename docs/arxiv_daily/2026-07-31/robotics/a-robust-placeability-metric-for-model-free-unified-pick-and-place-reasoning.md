@@ -6,7 +6,7 @@ announcement_date: "2026-07-31"
 primary_category: "robotics"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-31T03:25:48.945773+00:00"
+generated_at: "2026-07-31T05:30:51.234314+00:00"
 source_sha256: "1e77abb443ccf7bd9ea0c0b539ffc7d34d496979cfe22fccc873f1e3842c55d1"
 tags:
   - "机器人 / 具身智能"
@@ -29,7 +29,7 @@ tags:
 
 <span><strong>日榜</strong> 2026-07-31</span>
 <span><strong>作者</strong> Wingender, Benno, Dengler, Nils, Menon, Rohit, Pan, Sicong, Bennewitz, Maren</span>
-<span><strong>通讯单位</strong> arXiv 元数据未标注</span>
+<span><strong title="按论文首页署名机构汇总">通讯单位</strong> Humanoid Robots Lab, University of Bonn；Lamarr Institute for Machine Learning and Artificial Intelligence；Center for Robotics, Bonn</span>
 
 </div>
 

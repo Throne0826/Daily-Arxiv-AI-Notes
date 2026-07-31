@@ -6,7 +6,7 @@ announcement_date: "2026-07-31"
 primary_category: "llm_reasoning"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-31T03:25:48.954509+00:00"
+generated_at: "2026-07-31T05:30:51.241806+00:00"
 source_sha256: "89696f32d444d0466bfa8dfd6623a0f4256a4bff5b1b35f1842f94a082614727"
 tags:
   - "LLM Reasoning"
@@ -31,7 +31,7 @@ tags:
 
 <span><strong>日榜</strong> 2026-07-31</span>
 <span><strong>作者</strong> Chen, Hongyu, Lin, Liang, Wang, Guangrun</span>
-<span><strong>通讯单位</strong> arXiv 元数据未标注</span>
+<span><strong title="按论文首页署名机构汇总">通讯单位</strong> Sun Yat-sen University；Guangdong Key Laboratory of Big Data Analysis and Processing；X-Era AI Lab</span>
 
 </div>
 

@@ -6,7 +6,7 @@ announcement_date: "2026-07-31"
 primary_category: "robotics"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-31T03:25:49.144251+00:00"
+generated_at: "2026-07-31T05:30:51.390461+00:00"
 source_sha256: "a02e0a62bc8413f65bef48a7f7b598c62f69333c528ddc085e2085d7b34a4969"
 tags:
   - "机器人 / 具身智能"
@@ -29,7 +29,7 @@ tags:
 
 <span><strong>日榜</strong> 2026-07-31</span>
 <span><strong>作者</strong> Gui, Youqiang, Zhou, Yuxuan, Cheng, Shen, Yuan, Xinyang, Fan, Haoqiang, Cheng, Peng, Liu, Shuaicheng</span>
-<span><strong>通讯单位</strong> arXiv 元数据未标注</span>
+<span><strong title="按论文首页署名机构汇总">通讯单位</strong> Sichuan University；Dexmal Inc；UESTC</span>
 
 </div>
 

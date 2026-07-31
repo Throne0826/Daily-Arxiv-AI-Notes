@@ -23,6 +23,26 @@ ARXIV_ID_RE = re.compile(r"(?P<id>\d{4}\.\d{4,5})(?:v\d+)?")
 ATOM_NS = "http://www.w3.org/2005/Atom"
 ARXIV_NS = "http://arxiv.org/schemas/atom"
 
+AFFILIATION_HINT_RE = re.compile(
+    r"\b(?:"
+    r"universit(?:y|ies)|institute|institution|college|school|department|faculty|"
+    r"laborator(?:y|ies)|\blab\b|centre|center|academy|research|foundation|"
+    r"hospital|clinic|corporation|\bcorp\b|\binc\b|\bltd\b|"
+    r"polytechnic|polytechnique|telecom|télécom|chapel hill|ucla|kaist|"
+    r"tsinghua|peking|stanford|berkeley|max planck|allen institute|"
+    r"amazon|alibaba|apple|bytedance|deepmind|google|huawei|meta ai|"
+    r"nvidia|openai|tencent|anthropic|inria|cnrs|epfl|\beth\b|\bmit\b|"
+    r"microsoft|honor|orange|kuaishou|xiaohongshu|hermeneutic ai|"
+    r"hku|pku|hkust|thu|szu|sjtu|uestc|zju|sysu|iflytek|ibm"
+    r")\b",
+    re.IGNORECASE,
+)
+NON_AFFILIATION_RE = re.compile(
+    r"\b(?:corresponding author|equal(?:ly)? contribut|work done|e-?mail|"
+    r"arxiv|github|project page|funded by|supported by|grant no)\b",
+    re.IGNORECASE,
+)
+
 
 class ArxivError(RuntimeError):
     pass
@@ -108,6 +128,111 @@ class PoliteHttpClient:
             timeout_seconds=timeout_seconds,
             retries=retries,
         ).decode("utf-8", errors="replace")
+
+
+def _clean_affiliation_candidate(value: str) -> str:
+    value = " ".join(value.split()).strip(" ,;:.-")
+    value = re.sub(r"^[\d*†‡§¶∗#\s,]+", "", value).strip(" ,;:.-")
+    value = re.sub(r"^with\s+(?:the\s+)?", "", value, flags=re.I)
+    value = re.sub(r"\s+(?:\S+@\S+).*$", "", value).strip(" ,;:.-")
+    value = re.sub(r"\s*\([^)]*$", "", value).strip(" ,;:.-")
+    if "@" in value or not value or len(value) > 240 or NON_AFFILIATION_RE.search(value):
+        return ""
+    if not AFFILIATION_HINT_RE.search(value):
+        return ""
+
+    # LaTeXML sometimes puts a prose footnote around a short institution name.
+    # Keep the named organization instead of rendering the whole explanatory note.
+    subject = re.search(
+        r"(?:^|[.!?]\s+)(.{2,90}?)\s+is\s+(?:an?|the)\s+.*"
+        r"(?:research|institute|university|centre|center)",
+        value,
+        flags=re.IGNORECASE,
+    )
+    if subject:
+        value = subject.group(1).strip(" ,;:.-")
+    return value
+
+
+def extract_affiliations_from_html(soup: BeautifulSoup) -> list[str]:
+    """Extract institution strings from LaTeXML's inconsistent author byline."""
+    candidates: list[str] = []
+
+    for node in soup.select(
+        ".ltx_role_affiliationtext, .ltx_affiliation, "
+        "[class*='affiliation'], [itemprop='affiliation']"
+    ):
+        candidates.append(node.get_text(" ", strip=True))
+
+    author_block = soup.select_one(".ltx_authors")
+    if author_block is not None:
+        # A large share of arXiv HTML has no affiliation-specific class. Superscript
+        # markers and line breaks are the only stable boundaries in the byline.
+        author_copy = BeautifulSoup(str(author_block), "html.parser")
+        for node in author_copy.select("br"):
+            node.replace_with("\n")
+        for node in author_copy.select("sup"):
+            marker = " ".join(node.get_text(" ", strip=True).split())
+            node.replace_with(f"\n[[AFFILIATION_MARKER:{marker}]] ")
+        text = author_copy.get_text(" ", strip=False)
+        candidates.extend(
+            part
+            for part in re.split(r"\[\[AFFILIATION_MARKER:[^\]]*\]\]|\n", text)
+            if part.strip()
+        )
+
+    cleaned: list[str] = []
+    for candidate in candidates:
+        value = _clean_affiliation_candidate(candidate)
+        if value and value.casefold() not in {item.casefold() for item in cleaned}:
+            cleaned.append(value)
+    return cleaned[:12]
+
+
+def extract_affiliations_from_pdf_text(text: str) -> list[str]:
+    """Extract numbered institution lines from the first page of a paper PDF."""
+    raw_lines = [" ".join(line.split()) for line in text.splitlines() if line.strip()]
+    lines: list[str] = []
+    index = 0
+    while index < len(raw_lines):
+        line = raw_lines[index]
+        # PDF extraction commonly breaks words such as "Na-\ntional" in footnotes.
+        while line.endswith("-") and index + 1 < len(raw_lines):
+            index += 1
+            line = line[:-1] + raw_lines[index]
+        lines.append(line)
+        index += 1
+
+    abstract_index = next(
+        (i for i, line in enumerate(lines) if re.match(r"^(?:abstract|abstract—)", line, re.I)),
+        len(lines),
+    )
+    header_lines = lines[:abstract_index]
+    footnote_lines = [
+        " ".join(lines[max(0, i - 1) : min(len(lines), i + 3)])
+        for i, line in enumerate(lines)
+        if re.search(r"\b(?:authors? are|author is|is with|are with)\b", line, re.I)
+    ]
+
+    candidates: list[str] = []
+    for line in [*header_lines, *footnote_lines]:
+        if not AFFILIATION_HINT_RE.search(line):
+            continue
+        line = re.sub(r"^.*?\b(?:authors? are|author is|is with|are with)\s+", "", line, flags=re.I)
+        line = re.split(r"(?:\be-?mail\b|\bcorrespond(?:ing|ence)\b|\*equal|†|‡)", line, maxsplit=1, flags=re.I)[0]
+        # Superscript affiliation markers become leading digits in extracted PDF text.
+        parts = re.split(r"(?<!\d)(?=[1-9](?:[A-Z]|The\b|Independent\b))", line)
+        for part in parts:
+            value = _clean_affiliation_candidate(part)
+            if value:
+                candidates.append(value)
+
+    cleaned: list[str] = []
+    for value in candidates:
+        key = value.casefold()
+        if key not in {item.casefold() for item in cleaned}:
+            cleaned.append(value)
+    return cleaned[:12]
 
 
 def parse_listing_page(
@@ -369,11 +494,46 @@ class ArxivClient:
             pdf_url=meta("citation_pdf_url") or f"https://arxiv.org/pdf/{arxiv_id}",
         )
 
+    def fetch_affiliations(self, paper: Paper) -> list[str]:
+        try:
+            html = self.http.get_text(
+                f"https://arxiv.org/html/{paper.arxiv_id}",
+                timeout_seconds=min(20, self.http.timeout_seconds),
+                retries=1,
+            )
+            affiliations = extract_affiliations_from_html(BeautifulSoup(html, "html.parser"))
+            if affiliations:
+                return affiliations
+        except ArxivError:
+            pass
+
+        return self._fetch_pdf_affiliations(paper)
+
+    def _fetch_pdf_affiliations(self, paper: Paper) -> list[str]:
+        pdf = self.http.get_bytes(
+            paper.pdf_url or f"https://arxiv.org/pdf/{paper.arxiv_id}",
+            timeout_seconds=min(45, self.http.timeout_seconds),
+            retries=1,
+        )
+        reader = PdfReader(io.BytesIO(pdf))
+        if not reader.pages:
+            return []
+        return extract_affiliations_from_pdf_text(reader.pages[0].extract_text() or "")
+
     def fetch_full_text(self, paper: Paper, max_chars: int = 90000) -> FullText:
         html_url = f"https://arxiv.org/html/{paper.arxiv_id}"
         try:
             html = self.http.get_text(html_url)
             soup = BeautifulSoup(html, "html.parser")
+            if not paper.affiliations:
+                paper.affiliations = extract_affiliations_from_html(soup)
+            if not paper.affiliations:
+                try:
+                    paper.affiliations = self._fetch_pdf_affiliations(paper)
+                except Exception:
+                    # Affiliation enrichment is useful metadata, but a missing or
+                    # malformed PDF must not discard an otherwise valid HTML source.
+                    pass
             for node in soup.select("script, style, nav, footer, .ltx_page_footer"):
                 node.decompose()
             article = soup.find("article") or soup.select_one("main")

@@ -6,7 +6,7 @@ announcement_date: "2026-07-31"
 primary_category: "robotics"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-31T03:25:49.064132+00:00"
+generated_at: "2026-07-31T05:30:51.322295+00:00"
 source_sha256: "70340e267455516ca85f7211f2bdbd3eb31996029e102df9aef1c2f7d2bcdda4"
 tags:
   - "机器人 / 具身智能"
@@ -31,7 +31,7 @@ tags:
 
 <span><strong>日榜</strong> 2026-07-31</span>
 <span><strong>作者</strong> Tan, Derek Ming Siang, Shailesh, Shailesh, Iyer, Srikrishna, Teo, William Wei Jie, Ju, Yuanliang, Gu, Qiao, Sartoretti, Guillaume</span>
-<span><strong>通讯单位</strong> arXiv 元数据未标注</span>
+<span><strong title="按论文首页署名机构汇总">通讯单位</strong> National University of Singapore；University of Toronto</span>
 
 </div>
 

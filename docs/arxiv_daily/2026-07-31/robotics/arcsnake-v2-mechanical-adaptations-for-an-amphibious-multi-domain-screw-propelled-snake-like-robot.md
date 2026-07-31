@@ -6,7 +6,7 @@ announcement_date: "2026-07-31"
 primary_category: "robotics"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-31T03:25:49.032097+00:00"
+generated_at: "2026-07-31T05:30:51.300442+00:00"
 source_sha256: "18b965c8e458180ed7d2b2a8101fe14dede26dec37c4df8a94511205b1b541fe"
 tags:
   - "机器人 / 具身智能"
@@ -30,7 +30,7 @@ tags:
 
 <span><strong>日榜</strong> 2026-07-31</span>
 <span><strong>作者</strong> Wickenhiser, Sara, Peiros, Lizzie, Joyce, Calvin, Gavrilov, Peter, Mukherjee, Sujaan, Sylvester, Syler, Zhou, Junrong, Cheung, Mandy, Lim, Jason, Richter, Florian, Yip, Michael C.</span>
-<span><strong>通讯单位</strong> arXiv 元数据未标注</span>
+<span><strong title="按论文首页署名机构汇总">通讯单位</strong> University of California San Diego</span>
 
 </div>
 

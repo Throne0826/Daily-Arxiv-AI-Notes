@@ -6,7 +6,7 @@ announcement_date: "2026-07-31"
 primary_category: "robotics"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-31T03:25:49.091357+00:00"
+generated_at: "2026-07-31T05:30:51.343900+00:00"
 source_sha256: "9fb58ca5f36b3362ddf98975c9fa74861aa468b2723e763330ff718b7833b0ef"
 tags:
   - "机器人 / 具身智能"
@@ -30,7 +30,7 @@ tags:
 
 <span><strong>日榜</strong> 2026-07-31</span>
 <span><strong>作者</strong> Liu, Pei, Zheng, Nan, Zhang, Lang, Peng, Daojie, Zhang, Yanan, Kong, Feilong, Feng, Mingyue, Liu, Jiachao, Wang, Yaonong, Chen, Qifeng, Ma, Jun</span>
-<span><strong>通讯单位</strong> arXiv 元数据未标注</span>
+<span><strong title="按论文首页署名机构汇总">通讯单位</strong> The Hong Kong University of Science and Technology (Guangzhou)；The Hong Kong University of Science and Technology；Southeast University</span>
 
 </div>
 

@@ -6,7 +6,7 @@ announcement_date: "2026-07-31"
 primary_category: "llm_efficiency"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-31T03:25:49.109763+00:00"
+generated_at: "2026-07-31T05:30:51.359687+00:00"
 source_sha256: "e3cec44c8e21636f10f1c297d033bf1505b8623376c0aa7c901c6a0587012477"
 tags:
   - "LLM 效率"
@@ -30,7 +30,7 @@ tags:
 
 <span><strong>日榜</strong> 2026-07-31</span>
 <span><strong>作者</strong> Hu, Haozhe, Wu, Hao, Yin, Peiran, Han, Chao, Ma, Yunpu, Shen, Xiaoyu</span>
-<span><strong>通讯单位</strong> arXiv 元数据未标注</span>
+<span><strong title="按论文首页署名机构汇总">通讯单位</strong> Ningbo Institute of Digital Twin, Eastern Institute of Technology, Ningbo；Munich Center for Machine Learning, LMU Munich</span>
 
 </div>
 

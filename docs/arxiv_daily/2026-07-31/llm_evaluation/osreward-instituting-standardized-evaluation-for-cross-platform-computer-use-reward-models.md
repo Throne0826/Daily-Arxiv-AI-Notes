@@ -6,7 +6,7 @@ announcement_date: "2026-07-31"
 primary_category: "llm_evaluation"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-31T03:25:49.297982+00:00"
+generated_at: "2026-07-31T05:30:51.522705+00:00"
 source_sha256: "d11259b072318a2ac5be07724a2f985b1c2316de4abd38afb308b7320fb04de9"
 tags:
   - "LLM 评测"
@@ -32,7 +32,7 @@ tags:
 
 <span><strong>日榜</strong> 2026-07-31</span>
 <span><strong>作者</strong> Sun, Qiushi, Cheng, Kanzhi, Wang, Yian, Yang, Bowen, Yan, Hang, Chen, Liheng, Xu, Fangzhi, Ding, Zichen, Chen, Nuo, Cao, Jialin, Gong, Xingdong, Li, Zehao, Jin, Kaiming, Yuan, Xinfeng, Liu, Zhoumianze, Gong, Jingyang, Yin, Zhangyue, Gao, Jiahui, Wu, Zhiyong, Xie, Tianbao, Zhang, Jianbing, Kao, Ben, Kong, Lingpeng</span>
-<span><strong>通讯单位</strong> arXiv 元数据未标注</span>
+<span><strong title="按论文首页署名机构汇总">通讯单位</strong> The University of Hong Kong；Xi’an Jiaotong University；Nanjing University；University of Science and Technology of China；National University of Singapore；Fudan University</span>
 
 </div>
 

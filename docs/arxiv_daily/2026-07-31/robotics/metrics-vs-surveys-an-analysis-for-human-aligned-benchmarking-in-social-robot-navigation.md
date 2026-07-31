@@ -6,7 +6,7 @@ announcement_date: "2026-07-31"
 primary_category: "robotics"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-31T03:25:49.352253+00:00"
+generated_at: "2026-07-31T05:30:51.568460+00:00"
 source_sha256: "5bdfdff25077746c1d29e7dc0496ecfe68cd5341be9172d24a2520bc3abcc057"
 tags:
   - "机器人 / 具身智能"
@@ -29,7 +29,7 @@ tags:
 
 <span><strong>日榜</strong> 2026-07-31</span>
 <span><strong>作者</strong> Trepella, Stefano, Martini, Mauro, Pérez-Higueras, Noé, Ostuni, Andrea, Caballero, Fernando, Merino, Luis, Chiaberge, Marcello</span>
-<span><strong>通讯单位</strong> arXiv 元数据未标注</span>
+<span><strong title="按论文首页署名机构汇总">通讯单位</strong> Department of Electronics and Telecommunications, Politecnico di Torino；School of Engineering, Pablo de Olavide University</span>
 
 </div>
 

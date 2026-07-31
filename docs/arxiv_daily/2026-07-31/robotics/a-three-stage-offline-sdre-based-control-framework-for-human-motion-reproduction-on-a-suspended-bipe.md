@@ -6,7 +6,7 @@ announcement_date: "2026-07-31"
 primary_category: "robotics"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-31T03:25:49.215719+00:00"
+generated_at: "2026-07-31T05:30:51.448978+00:00"
 source_sha256: "677d38c0dd2d6a417d055eee55fbb9e5c9614f53a187ad94aaae1ebef3f18e9f"
 tags:
   - "机器人 / 具身智能"
@@ -30,7 +30,7 @@ tags:
 
 <span><strong>日榜</strong> 2026-07-31</span>
 <span><strong>作者</strong> Huang, Ping-Kong, Lan, Chien-Wu, Wu, Chin-Tien, Lin, Ching-Kai</span>
-<span><strong>通讯单位</strong> arXiv 元数据未标注</span>
+<span><strong title="按论文首页署名机构汇总">通讯单位</strong> Department of Applied Mathematics, National Yang Ming Chiao Tung University；Department of Electrical Engineering, National Central University</span>
 
 </div>
 

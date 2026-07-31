@@ -6,7 +6,7 @@ announcement_date: "2026-07-31"
 primary_category: "multi_agent"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-31T03:25:49.258332+00:00"
+generated_at: "2026-07-31T05:30:51.485796+00:00"
 source_sha256: "66045161892a31239b8ee8aeae9963cca20362f3ce64818ab55208941400ac54"
 tags:
   - "Multi-Agent"
@@ -29,7 +29,7 @@ tags:
 
 <span><strong>日榜</strong> 2026-07-31</span>
 <span><strong>作者</strong> Leo, Cristian, Dykyi, Anton, Cortegaca, Danny, Begimher, Daniel, Jha, Prakash</span>
-<span><strong>通讯单位</strong> arXiv 元数据未标注</span>
+<span><strong title="按论文首页署名机构汇总">通讯单位</strong> Amazon Web Services, Inc.；Amazon Web Services EMEA SARL</span>
 
 </div>
 

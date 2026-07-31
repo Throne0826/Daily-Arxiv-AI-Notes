@@ -133,6 +133,76 @@ class DailyPipeline:
             reasoning_effort=str(settings.section("llm").get("reasoning_effort", "")),
         )
 
+    def _apply_affiliation_overrides(self, papers: list[Paper]) -> None:
+        value = str(
+            self.settings.section("project").get("affiliation_overrides_file", "")
+        ).strip()
+        if not value:
+            return
+        overrides = load_json((self.settings.root / value).resolve(), {})
+        if not isinstance(overrides, dict):
+            return
+        for paper in papers:
+            affiliations = overrides.get(paper.arxiv_id)
+            if isinstance(affiliations, list):
+                paper.affiliations = [
+                    str(item).strip() for item in affiliations if str(item).strip()
+                ]
+
+    def enrich_affiliations(self, dates: list[str]) -> dict[str, Any]:
+        """Backfill affiliations from arXiv HTML without regenerating LLM notes."""
+        data_dir = self.settings.project_path("data_dir")
+        state = load_json(self.settings.project_path("state_file"), {"seen": {}})
+        seen: dict[str, Any] = state.get("seen", {})
+        updated = 0
+        missing = 0
+        failures: list[dict[str, str]] = []
+
+        for date_string in dates:
+            papers_path = data_dir / "raw" / date_string / "papers.json"
+            payload = load_json(papers_path, [])
+            if not isinstance(payload, list):
+                raise PipelineError(f"cached paper metadata missing for {date_string}")
+            papers = [Paper.from_dict(value) for value in payload if isinstance(value, dict)]
+            self._apply_affiliation_overrides(papers)
+            selected = [
+                paper
+                for paper in papers
+                if seen.get(paper.arxiv_id, {}).get("announcement_date") == date_string
+                and seen.get(paper.arxiv_id, {}).get("path")
+            ]
+            for index, paper in enumerate(selected, start=1):
+                if paper.affiliations:
+                    continue
+                print(
+                    f"[affiliations] fetch {index}/{len(selected)}: {paper.arxiv_id}",
+                    file=sys.stderr,
+                    flush=True,
+                )
+                try:
+                    paper.affiliations = self.arxiv.fetch_affiliations(paper)
+                    if paper.affiliations:
+                        updated += 1
+                    else:
+                        missing += 1
+                except Exception as exc:
+                    failures.append({"arxiv_id": paper.arxiv_id, "error": str(exc)})
+                finally:
+                    # Persist every attempt so a transient network failure or an
+                    # interrupted backfill can resume without discarding prior work.
+                    atomic_write_json(papers_path, [item.to_dict() for item in papers])
+            atomic_write_json(papers_path, [item.to_dict() for item in papers])
+
+        render_result = self.rerender(dates)
+        failures.extend(render_result["failures"])
+        return {
+            "dates": dates,
+            "updated": updated,
+            "missing": missing,
+            "rendered": render_result["rendered"],
+            "failures": failures,
+        }
+
     def rerender(self, dates: list[str] | None = None) -> dict[str, Any]:
         """Rebuild Markdown from cached metadata and generation checkpoints only."""
         data_dir = self.settings.project_path("data_dir")
@@ -165,6 +235,7 @@ class DailyPipeline:
                     if isinstance(value, dict)
                 )
             }
+            self._apply_affiliation_overrides(list(papers.values()))
             classifications = load_json(raw_dir / "classifications.json", {})
             records: list[dict[str, Any]] = []
             prefix = f"{date_string}/"
@@ -292,6 +363,8 @@ class DailyPipeline:
                 file=sys.stderr,
                 flush=True,
             )
+        self._apply_affiliation_overrides(papers)
+        atomic_write_json(papers_cache, [paper.to_dict() for paper in papers])
 
         state_path = self.settings.project_path("state_file")
         state = load_json(state_path, {"version": 1, "seen": {}})
@@ -390,6 +463,7 @@ class DailyPipeline:
                     generation_candidates.append(paper)
                 except Exception as exc:
                     failures.append({"arxiv_id": paper.arxiv_id, "error": str(exc)})
+            atomic_write_json(papers_cache, [paper.to_dict() for paper in papers])
         else:
             generation_candidates = selected
 

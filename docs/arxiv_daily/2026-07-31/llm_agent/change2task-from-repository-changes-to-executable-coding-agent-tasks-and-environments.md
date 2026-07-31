@@ -6,7 +6,7 @@ announcement_date: "2026-07-31"
 primary_category: "llm_agent"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-31T03:25:49.313593+00:00"
+generated_at: "2026-07-31T05:30:51.535263+00:00"
 source_sha256: "1b86d4050945ca38e35d7a0ffe1427f47a586effee3d65f74de66b6c74cb7b27"
 tags:
   - "LLM Agent"
@@ -31,7 +31,7 @@ tags:
 
 <span><strong>日榜</strong> 2026-07-31</span>
 <span><strong>作者</strong> Qi, Haomin, Wang, Xingliang, Gao, Xuanqi, Sang, Baihui, Zhang, Xin, Ma, Minghua, Gao, Pengfei, Kang, Yu, Lin, Qingwei, Rajmohan, Saravan, Zhang, Dongmei, Zhang, Qi</span>
-<span><strong>通讯单位</strong> arXiv 元数据未标注</span>
+<span><strong title="按论文首页署名机构汇总">通讯单位</strong> Microsoft；University of California San Diego；Zhejiang University；Xi'an Jiaotong University；Nanjing University</span>
 
 </div>
 

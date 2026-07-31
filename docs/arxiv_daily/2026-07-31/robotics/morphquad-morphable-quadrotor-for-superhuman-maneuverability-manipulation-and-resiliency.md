@@ -6,7 +6,7 @@ announcement_date: "2026-07-31"
 primary_category: "robotics"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-31T03:25:49.100229+00:00"
+generated_at: "2026-07-31T05:30:51.352240+00:00"
 source_sha256: "4d2936fcaa9a38a5f3441de902e846505b0f5371ad25ebe87f9b2c6c8844b45f"
 tags:
   - "机器人 / 具身智能"
@@ -29,7 +29,7 @@ tags:
 
 <span><strong>日榜</strong> 2026-07-31</span>
 <span><strong>作者</strong> Pacheco, Jose Diaz Peon Gonzalez, Xu, Jiawei, Zhao, Andrew, Zhou, Hongyu, Navsalkar, Atharva, Scheffer, Andrew, Reddi, Amrith Malli, Shankar, Sashreek, Bao, Yuqing, Tzoumas, Vasileios</span>
-<span><strong>通讯单位</strong> arXiv 元数据未标注</span>
+<span><strong title="按论文首页署名机构汇总">通讯单位</strong> Aerospace Engineering, University of Michigan</span>
 
 </div>
 

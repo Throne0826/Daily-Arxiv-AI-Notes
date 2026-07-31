@@ -6,7 +6,7 @@ announcement_date: "2026-07-31"
 primary_category: "robotics"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-31T03:25:49.207657+00:00"
+generated_at: "2026-07-31T05:30:51.441389+00:00"
 source_sha256: "ea320d7992b9d2149c2ec406f950aee94219a14f23189139daa1f4dd6cec5f42"
 tags:
   - "机器人 / 具身智能"
@@ -30,7 +30,7 @@ tags:
 
 <span><strong>日榜</strong> 2026-07-31</span>
 <span><strong>作者</strong> Chen, Tianxing, Wang, Yuran, Li, Mingleyang, Qin, Yan, Shi, Hao, Li, Zixuan, Hu, Yifan, Zhang, Yingsheng, Wang, Kaixuan, Chen, Yue, Wang, Hongcheng, Wang, Junjie, Yang, Tianhang, Xu, Renjing, Wu, Ruihai, Mu, Yao, Yang, Yaodong, Dong, Hao, Luo, Ping</span>
-<span><strong>通讯单位</strong> arXiv 元数据未标注</span>
+<span><strong title="按论文首页署名机构汇总">通讯单位</strong> MMLab, The University of Hong Kong；Peking University；PsiBot；The Hong Kong University of Science and Technology (Guangzhou)；Tsinghua University；Shenzhen University；Shanghai Jiao Tong University</span>
 
 </div>
 

@@ -6,7 +6,7 @@ announcement_date: "2026-07-31"
 primary_category: "robotics"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-31T03:25:48.993891+00:00"
+generated_at: "2026-07-31T05:30:51.272333+00:00"
 source_sha256: "e7bd5e574ee5cd25a1b47b0547a208f9bca61e6d93d312ab22ea1ae689d074b8"
 tags:
   - "机器人 / 具身智能"
@@ -29,7 +29,7 @@ tags:
 
 <span><strong>日榜</strong> 2026-07-31</span>
 <span><strong>作者</strong> Wu, Yansong, Chen, Xiao, Chen, Yu, Sadeghian, Hamid, Wu, Fan, Bing, Zhenshan, Knoll, Alois</span>
-<span><strong>通讯单位</strong> arXiv 元数据未标注</span>
+<span><strong title="按论文首页署名机构汇总">通讯单位</strong> Technical University of Munich；Mohamed bin Zayed University of Artificial Intelligence；Shanghai University；Nanjing University</span>
 
 </div>
 

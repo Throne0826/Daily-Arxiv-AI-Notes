@@ -6,7 +6,7 @@ announcement_date: "2026-07-31"
 primary_category: "llm_nlp"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-31T03:25:49.322433+00:00"
+generated_at: "2026-07-31T05:30:51.542778+00:00"
 source_sha256: "15016eadc0d3d6056ba7150bd32ca285a035399da8fb00614228a93394d988f7"
 tags:
   - "LLM 其他"
@@ -27,7 +27,7 @@ tags:
 
 <span><strong>日榜</strong> 2026-07-31</span>
 <span><strong>作者</strong> D'Souza, Jennifer, Sadruddin, Sameer, Rula, Anisa, Bossler, Ana, Fullana, Andrés, Bas, Enric, Ather, Syed, Circi, Defne, Chen, Anlan, Brinson, L. Catherine, Columbus, Alyssa, Demetriou, George, Jeong, Dongjun, Kumar, Tarun, Krüger, Frank, Genehr, Sascha, Budde-Sagert, Kai, Leonescu, Anamaria, Lodola, Francesco, Florindi, Chiara, Murthy, Gagana Balasubramanya, Olagbile, Samson Oluwapelumi, Riasat, Nazia, Sha, Yan, Shen, Kevin, Yang, Shaokai</span>
-<span><strong>通讯单位</strong> arXiv 元数据未标注</span>
+<span><strong title="按论文首页署名机构汇总">通讯单位</strong> TIB Leibniz Information Centre for Science and Technology, Hannover, Germany；University of Brescia, Brescia, Italy；University of Alicante, Alicante, Spain；Georgia Institute of Technology, Atlanta, United States；Duke University, Durham, United States；Johns Hopkins University, Baltimore, United States；University of Manchester, Manchester, United Kingdom；Wismar University of Applied Sciences, Wismar, Germany；University of Rostock, Rostock, Germany；University College London, London, United Kingdom；University of Milano-Bicocca, Milan, Italy；Cambridge Institute of Technology, Bengaluru, India</span>
 
 </div>
 

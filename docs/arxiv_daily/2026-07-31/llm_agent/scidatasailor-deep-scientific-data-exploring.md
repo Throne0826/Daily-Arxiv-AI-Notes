@@ -6,7 +6,7 @@ announcement_date: "2026-07-31"
 primary_category: "llm_agent"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-31T03:25:49.198041+00:00"
+generated_at: "2026-07-31T05:30:51.434042+00:00"
 source_sha256: "f9f2c6e896d37b3ff67397406ff0078d79b0d49cf1ed80c397e79989dd856a83"
 tags:
   - "LLM Agent"
@@ -29,7 +29,7 @@ tags:
 
 <span><strong>日榜</strong> 2026-07-31</span>
 <span><strong>作者</strong> Rao, Jiyong, Qiu, Yicheng, Zhang, Chi, Song, Chunfeng, Zhao, Runkai</span>
-<span><strong>通讯单位</strong> arXiv 元数据未标注</span>
+<span><strong title="按论文首页署名机构汇总">通讯单位</strong> Shanghai Artificial Intelligence Laboratory；Tongji University</span>
 
 </div>
 

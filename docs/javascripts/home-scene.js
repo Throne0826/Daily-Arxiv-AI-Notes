@@ -248,11 +248,93 @@
     }, { once: true });
   }
 
-  if (window.document$ && typeof window.document$.subscribe === "function") {
-    window.document$.subscribe(initHomeScene);
-  } else if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initHomeScene);
-  } else {
+  function initHomePipeline() {
+    var lab = document.querySelector(".home-reading-lab");
+    if (!lab || lab.dataset.ready === "true") return;
+    lab.dataset.ready = "true";
+
+    var steps = Array.prototype.slice.call(lab.querySelectorAll("[data-pipeline-step]"));
+    var caption = lab.querySelector("[data-pipeline-caption]");
+    var counter = lab.querySelector("[data-pipeline-counter]");
+    var captions = [
+      "过滤噪声，留下真正相关的工作",
+      "把一篇论文放回它所属的研究网络",
+      "沿原文章节还原问题、方法与公式",
+      "让每个关键结论都能回到原文证据"
+    ];
+    var active = 0;
+    var timer = 0;
+    var visible = false;
+    var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function selectStep(index) {
+      active = (index + steps.length) % steps.length;
+      lab.dataset.activeStep = String(active);
+      steps.forEach(function (step, stepIndex) {
+        var selected = stepIndex === active;
+        step.classList.toggle("is-active", selected);
+        if (selected) step.setAttribute("aria-current", "step");
+        else step.removeAttribute("aria-current");
+      });
+      if (caption) caption.textContent = captions[active];
+      if (counter) counter.textContent = String(active + 1).padStart(2, "0");
+    }
+
+    function stopRotation() {
+      if (timer) window.clearInterval(timer);
+      timer = 0;
+    }
+
+    function startRotation() {
+      stopRotation();
+      if (!reduceMotion && visible) {
+        timer = window.setInterval(function () { selectStep(active + 1); }, 3200);
+      }
+    }
+
+    steps.forEach(function (step, index) {
+      ["pointerenter", "focusin", "click"].forEach(function (eventName) {
+        step.addEventListener(eventName, function () {
+          selectStep(index);
+          startRotation();
+        });
+      });
+    });
+
+    var visibilityObserver = new IntersectionObserver(function (entries) {
+      visible = entries[0] && entries[0].isIntersecting;
+      if (visible) startRotation();
+      else stopRotation();
+    }, { threshold: 0.3 });
+    visibilityObserver.observe(lab);
+
+    var stepObserver = new IntersectionObserver(function (entries) {
+      if (window.innerWidth > 760) return;
+      var leading = entries
+        .filter(function (entry) { return entry.isIntersecting; })
+        .sort(function (a, b) { return b.intersectionRatio - a.intersectionRatio; })[0];
+      if (leading) selectStep(Number(leading.target.dataset.pipelineStep));
+    }, { rootMargin: "-28% 0px -42%", threshold: [0.35, 0.6, 0.9] });
+    steps.forEach(function (step) { stepObserver.observe(step); });
+
+    selectStep(0);
+    window.addEventListener("pagehide", function () {
+      stopRotation();
+      visibilityObserver.disconnect();
+      stepObserver.disconnect();
+    }, { once: true });
+  }
+
+  function initHome() {
     initHomeScene();
+    initHomePipeline();
+  }
+
+  if (window.document$ && typeof window.document$.subscribe === "function") {
+    window.document$.subscribe(initHome);
+  } else if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initHome);
+  } else {
+    initHome();
   }
 })();

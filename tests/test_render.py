@@ -133,7 +133,7 @@ def test_note_has_required_sections() -> None:
     assert "## 实验" in markdown
     assert "\\mathcal{L}" in markdown
     assert "提高 3.0 点" in markdown
-    assert "通讯单位</strong> Example University" in markdown
+    assert '通讯单位</strong> Example University' in markdown
     assert "分类置信度" not in markdown
 
 

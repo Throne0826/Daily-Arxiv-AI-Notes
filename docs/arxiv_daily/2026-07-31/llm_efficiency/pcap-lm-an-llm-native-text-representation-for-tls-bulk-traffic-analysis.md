@@ -6,7 +6,7 @@ announcement_date: "2026-07-31"
 primary_category: "llm_efficiency"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-31T03:25:49.343506+00:00"
+generated_at: "2026-07-31T05:30:51.562568+00:00"
 source_sha256: "b6ed21339e620758548d65d73cbfb5d6cc169a5a5d91e9543bb6bf38960c1087"
 tags:
   - "LLM 效率"
@@ -31,7 +31,7 @@ tags:
 
 <span><strong>日榜</strong> 2026-07-31</span>
 <span><strong>作者</strong> Marjou, Xavier, Tamic, Lucas, Jaffeux-Cheniout, Ilan</span>
-<span><strong>通讯单位</strong> arXiv 元数据未标注</span>
+<span><strong title="按论文首页署名机构汇总">通讯单位</strong> Orange</span>
 
 </div>
 

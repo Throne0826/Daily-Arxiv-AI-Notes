@@ -6,7 +6,7 @@ announcement_date: "2026-07-31"
 primary_category: "llm_agent"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-31T03:25:49.232011+00:00"
+generated_at: "2026-07-31T05:30:51.463166+00:00"
 source_sha256: "eb9b6af8d984c4c38df7fe0a1d65528319f1b708b17208cb996f1237a217e6f7"
 tags:
   - "LLM Agent"
@@ -30,7 +30,7 @@ tags:
 
 <span><strong>日榜</strong> 2026-07-31</span>
 <span><strong>作者</strong> HONOR Agentic Search Team, Chen, Zhengzong, Tang, Lei, Liu, Lijun, Jiang, Chuandi, Yang, Fan, Chu, Keyun, Zhao, Chu, Liu, Shihao, Li, Minghang, Liang, Bo, Wen, Can, Wu, Hailong, Ju, Jingnan, Liu, Mian, Zhang, Nengbin, Wang, Peiqiang, Nie, Penghe, Gu, Qinhui, Lv, Sijia, Chen, Siqi, Zhang, Wei, Xu, Yang, Qian, Yuhao, Zhang, Yuxiang, Cheng, Zeng, Wang, Zhen, Chen, Zuan, Zhao, Yuanyuan, Huang, Fei</span>
-<span><strong>通讯单位</strong> arXiv 元数据未标注</span>
+<span><strong title="按论文首页署名机构汇总">通讯单位</strong> HONOR</span>
 
 </div>
 

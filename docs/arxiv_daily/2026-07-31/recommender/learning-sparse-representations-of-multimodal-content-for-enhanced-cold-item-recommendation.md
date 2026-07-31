@@ -6,7 +6,7 @@ announcement_date: "2026-07-31"
 primary_category: "recommender"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-31T03:25:49.124858+00:00"
+generated_at: "2026-07-31T05:30:51.375543+00:00"
 source_sha256: "06782f945b1b23bb1be5c4126e033f4a839992b05db0f79b2deb7ba4ccbf2ac4"
 tags:
   - "推荐系统"
@@ -29,7 +29,7 @@ tags:
 
 <span><strong>日榜</strong> 2026-07-31</span>
 <span><strong>作者</strong> Meehan, Gregor, Pauwels, Johan</span>
-<span><strong>通讯单位</strong> arXiv 元数据未标注</span>
+<span><strong title="按论文首页署名机构汇总">通讯单位</strong> Queen Mary University of London</span>
 
 </div>
 

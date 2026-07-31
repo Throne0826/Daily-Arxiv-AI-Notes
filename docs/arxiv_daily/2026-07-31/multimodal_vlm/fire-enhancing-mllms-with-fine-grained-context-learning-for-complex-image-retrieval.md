@@ -6,7 +6,7 @@ announcement_date: "2026-07-31"
 primary_category: "multimodal_vlm"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-31T03:25:49.290750+00:00"
+generated_at: "2026-07-31T05:30:51.515557+00:00"
 source_sha256: "f4507013400f243b0bb14008a01def44d02907860ab5715cc9a2e11b1143f0fb"
 tags:
   - "多模态 VLM"
@@ -29,7 +29,7 @@ tags:
 
 <span><strong>日榜</strong> 2026-07-31</span>
 <span><strong>作者</strong> Hou, Bohan, Lin, Haoqiang, Song, Xuemeng, Wen, Haokun, Liu, Meng, Hu, Yupeng, Zhao, Xiangyu</span>
-<span><strong>通讯单位</strong> arXiv 元数据未标注</span>
+<span><strong title="按论文首页署名机构汇总">通讯单位</strong> Shandong University；City University of Hong Kong；Harbin Institute of Technology (Shenzhen)；Shandong Jianzhu University</span>
 
 </div>
 

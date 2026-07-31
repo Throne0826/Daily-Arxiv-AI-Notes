@@ -6,7 +6,7 @@ announcement_date: "2026-07-31"
 primary_category: "llm_interpretability"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-31T03:25:49.082944+00:00"
+generated_at: "2026-07-31T05:30:51.336903+00:00"
 source_sha256: "679382983a864521937aac952ce3f49737d4fb8333048168a12515903212ef35"
 tags:
   - "LLM 机制与可解释性"
@@ -32,7 +32,7 @@ tags:
 
 <span><strong>日榜</strong> 2026-07-31</span>
 <span><strong>作者</strong> Heimann, Marc, Moghaddam, Roxana Assadi, Brovkina, Olga, Pettifor, Mark, Goetzmann, Lutz</span>
-<span><strong>通讯单位</strong> arXiv 元数据未标注</span>
+<span><strong title="按论文首页署名机构汇总">通讯单位</strong> Hermeneutic AI</span>
 
 </div>
 

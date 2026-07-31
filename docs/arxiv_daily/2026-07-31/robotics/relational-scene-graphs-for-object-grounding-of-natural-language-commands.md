@@ -6,7 +6,7 @@ announcement_date: "2026-07-31"
 primary_category: "robotics"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-31T03:25:49.329473+00:00"
+generated_at: "2026-07-31T05:30:51.549561+00:00"
 source_sha256: "f7766ed0547412098a104c005d89385dff749b6b21231e775da8880427f7c05a"
 tags:
   - "机器人 / 具身智能"
@@ -31,7 +31,7 @@ tags:
 
 <span><strong>日榜</strong> 2026-07-31</span>
 <span><strong>作者</strong> Kuhn, Julia, Verdoja, Francesco, Mihaylova, Tsvetomila, Kyrki, Ville</span>
-<span><strong>通讯单位</strong> arXiv 元数据未标注</span>
+<span><strong title="按论文首页署名机构汇总">通讯单位</strong> Aalto University</span>
 
 </div>
 

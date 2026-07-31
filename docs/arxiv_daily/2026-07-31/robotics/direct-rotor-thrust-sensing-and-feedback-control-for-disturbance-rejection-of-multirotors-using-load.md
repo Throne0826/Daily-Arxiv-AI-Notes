@@ -6,7 +6,7 @@ announcement_date: "2026-07-31"
 primary_category: "robotics"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-31T03:25:49.162040+00:00"
+generated_at: "2026-07-31T05:30:51.405404+00:00"
 source_sha256: "29328b57e5e0779720ecae5b6ad28b3063424514b397efefe231df028782eea5"
 tags:
   - "机器人 / 具身智能"
@@ -29,7 +29,7 @@ tags:
 
 <span><strong>日榜</strong> 2026-07-31</span>
 <span><strong>作者</strong> Böhm, Peter, Brünig, Michael, Moghadam, Peyman Z., Pounds, Pauline E. I.</span>
-<span><strong>通讯单位</strong> arXiv 元数据未标注</span>
+<span><strong title="按论文首页署名机构汇总">通讯单位</strong> The University of Queensland；CSIRO Robotics</span>
 
 </div>
 

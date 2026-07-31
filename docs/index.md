@@ -2,6 +2,7 @@
 title: Daily arXiv AI Notes
 description: 每日筛选 LLM、生成与多模态、决策与具身领域的 arXiv 新论文，并生成适合从零阅读的中文研究笔记。
 hide:
+  - navigation
   - toc
 ---
 
@@ -33,12 +34,57 @@ hide:
     <p class="home-section__index">01 / READING PIPELINE</p>
     <h2 id="home-intro-title">从论文列表，到可复用的研究理解</h2>
   </div>
-  <ol class="home-pipeline">
-    <li><span>01</span><strong>筛选</strong><p>按日获取 arXiv 新投稿与跨区投稿，去重后聚焦关注方向。</p></li>
-    <li><span>02</span><strong>归类</strong><p>依据论文的核心贡献，进入对应研究主域与细分方向。</p></li>
-    <li><span>03</span><strong>深读</strong><p>基于全文拆解背景、动机、方法、公式和实验结论。</p></li>
-    <li><span>04</span><strong>校验</strong><p>实验数字保留原文位置与证据，明确区分事实和分析。</p></li>
-  </ol>
+  <div class="home-reading-lab" data-active-step="0">
+    <figure class="home-reading-visual" aria-label="论文从原始列表转化为结构化中文笔记的动态示意图">
+      <div class="home-visual__rail" aria-hidden="true">
+        <span>ARXIV FEED</span><i></i><span>RESEARCH NOTE</span>
+      </div>
+      <div class="home-visual__stage" aria-hidden="true">
+        <div class="home-feed-stack">
+          <div class="home-feed-paper"><b>2607.31</b><span></span><span></span><em>cs.CL</em></div>
+          <div class="home-feed-paper"><b>2607.30</b><span></span><span></span><em>cs.RO</em></div>
+          <div class="home-feed-paper"><b>2607.29</b><span></span><span></span><em>cs.CV</em></div>
+        </div>
+        <div class="home-analysis-core">
+          <span class="home-core-ring home-core-ring--one"></span>
+          <span class="home-core-ring home-core-ring--two"></span>
+          <strong>AI</strong>
+          <i class="home-core-scan"></i>
+        </div>
+        <div class="home-note-sheet">
+          <div class="home-note-sheet__head"><span>研究笔记</span><b>ZH</b></div>
+          <div class="home-note-sheet__title"></div>
+          <div class="home-note-sheet__line"></div>
+          <div class="home-note-sheet__line home-note-sheet__line--short"></div>
+          <div class="home-note-sheet__formula">L(θ) = E[r · log π<sub>θ</sub>]</div>
+          <div class="home-note-sheet__chart"><i></i><i></i><i></i><i></i></div>
+        </div>
+        <span class="home-flow-dot home-flow-dot--one"></span>
+        <span class="home-flow-dot home-flow-dot--two"></span>
+        <span class="home-flow-dot home-flow-dot--three"></span>
+      </div>
+      <figcaption class="home-visual__caption">
+        <span>当前处理</span>
+        <strong data-pipeline-caption>过滤噪声，留下真正相关的工作</strong>
+        <small><b data-pipeline-counter>01</b> / 04</small>
+      </figcaption>
+    </figure>
+
+    <ol class="home-pipeline">
+      <li class="is-active" data-pipeline-step="0" tabindex="0">
+        <span>01</span><strong>筛选</strong><p>按日获取新投稿与跨区投稿，去重后聚焦真正相关的研究问题。</p>
+      </li>
+      <li data-pipeline-step="1" tabindex="0">
+        <span>02</span><strong>归类</strong><p>一篇论文可进入多个相关方向，保留它在研究地图中的真实连接。</p>
+      </li>
+      <li data-pipeline-step="2" tabindex="0">
+        <span>03</span><strong>深读</strong><p>从全文定位背景、动机、方法、公式与实验，而不是只改写摘要。</p>
+      </li>
+      <li data-pipeline-step="3" tabindex="0">
+        <span>04</span><strong>校验</strong><p>关键数字关联原文证据，清楚区分作者结论与辅助分析。</p>
+      </li>
+    </ol>
+  </div>
 </section>
 
 <section class="home-band home-fields" aria-labelledby="home-fields-title">

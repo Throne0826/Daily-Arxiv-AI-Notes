@@ -5,7 +5,27 @@ description: "LLM 机制与可解释性 方向每日 arXiv 论文中文解读。
 
 # LLM 机制与可解释性
 
-共收录 **4** 篇，按 arXiv 日榜日期倒序排列。
+共收录 **5** 篇，按 arXiv 日榜日期倒序排列。
+
+## 2026-07-31
+
+<div class="daily-paper-list" markdown="1">
+
+<article class="daily-paper-item" markdown="1">
+
+#### [Metaphor Tracer: A Theory-Informed Analysis of Hidden States](../../arxiv_daily/2026-07-31/llm_interpretability/metaphor-tracer-a-theory-informed-analysis-of-hidden-states.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2607.28434</span><span class="paper-category-chip">LLM 机制与可解释性</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+本文尝试把关于“文本意义取决于符号在具体文本中的关系位置”的理论主张转化为可检验问题：能否从语言模型一次前向传播的隐藏状态几何中，无训练地识别某个位置对全文的聚合与对其他词元的隐喻式迁移。
+
+</div>
+
+</article>
+
+</div>
 
 ## 2026-07-30
 

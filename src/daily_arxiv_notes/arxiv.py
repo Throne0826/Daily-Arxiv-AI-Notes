@@ -164,11 +164,13 @@ class ArxivClient:
         page_size: int = 100,
         metadata_batch_size: int = 50,
         include_crosslists: bool = True,
+        fallback_to_abs_metadata: bool = True,
     ) -> None:
         self.http = http
         self.page_size = page_size
         self.metadata_batch_size = metadata_batch_size
         self.include_crosslists = include_crosslists
+        self.fallback_to_abs_metadata = fallback_to_abs_metadata
 
     def fetch_daily_listings(
         self,
@@ -222,25 +224,32 @@ class ArxivClient:
     ) -> list[Paper]:
         ids = sorted(listings)
         papers: dict[str, Paper] = {}
+        atom_api_available = True
         for start in range(0, len(ids), self.metadata_batch_size):
             batch = ids[start : start + self.metadata_batch_size]
             query = urllib.parse.urlencode(
                 {"id_list": ",".join(batch), "start": 0, "max_results": len(batch)}
             )
-            try:
-                xml_text = self._fetch_atom_batch(query)
-                root = ET.fromstring(xml_text)
-                for entry in root.findall(f"{{{ATOM_NS}}}entry"):
-                    paper = self._parse_atom_entry(entry, announcement_date)
-                    listing = listings.get(paper.arxiv_id)
-                    if listing:
-                        paper.source_categories = listing.source_category.split(",")
-                        if not paper.title:
-                            paper.title = listing.title
-                        if not paper.authors:
-                            paper.authors = listing.authors
-                    papers[paper.arxiv_id] = paper
-            except (ArxivError, ET.ParseError):
+            if atom_api_available:
+                try:
+                    xml_text = self._fetch_atom_batch(query)
+                    root = ET.fromstring(xml_text)
+                    for entry in root.findall(f"{{{ATOM_NS}}}entry"):
+                        paper = self._parse_atom_entry(entry, announcement_date)
+                        listing = listings.get(paper.arxiv_id)
+                        if listing:
+                            paper.source_categories = listing.source_category.split(",")
+                            if not paper.title:
+                                paper.title = listing.title
+                            if not paper.authors:
+                                paper.authors = listing.authors
+                        papers[paper.arxiv_id] = paper
+                except (ArxivError, ET.ParseError):
+                    # A rate-limited Atom endpoint normally remains unavailable for
+                    # the whole run. Avoid repeating the same delay for every batch.
+                    atom_api_available = False
+
+            if not atom_api_available and self.fallback_to_abs_metadata:
                 for arxiv_id in batch:
                     listing = listings[arxiv_id]
                     try:

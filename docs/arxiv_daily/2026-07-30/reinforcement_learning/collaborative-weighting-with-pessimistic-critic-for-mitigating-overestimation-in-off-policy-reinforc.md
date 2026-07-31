@@ -126,21 +126,21 @@ TD学习用即时奖励加上下一个状态的当前价值估计构造监督目
 
 **$\mathcal{M}=\langle\mathcal{S},\mathcal{A},\mathcal{P},\mathcal{R},\gamma\rangle$**
 
-马尔可夫决策过程；其中\(\mathcal{S}\)是状态空间，\(\mathcal{A}\)是动作空间，\(\mathcal{P}\)是状态转移规律，\(\mathcal{R}\)是奖励函数，\(\gamma\)是折扣因子。
+马尔可夫决策过程；其中$\mathcal{S}$是状态空间，$\mathcal{A}$是动作空间，$\mathcal{P}$是状态转移规律，$\mathcal{R}$是奖励函数，$\gamma$是折扣因子。
 
 </div>
 <div class="notation-item" markdown="1">
 
 **$\pi_{\phi}(a\mid s)$**
 
-参数为\(\phi\)的策略；在状态\(s\)下给动作\(a\)分配概率或概率密度，文中预备知识部分采用高斯策略。
+参数为$\phi$的策略；在状态$s$下给动作$a$分配概率或概率密度，文中预备知识部分采用高斯策略。
 
 </div>
 <div class="notation-item" markdown="1">
 
 **$Q_{\theta}(s,a)$**
 
-参数为\(\theta\)的评论家网络，对状态\(s\)下执行动作\(a\)后的长期折扣回报进行估计。
+参数为$\theta$的评论家网络，对状态$s$下执行动作$a$后的长期折扣回报进行估计。
 
 </div>
 <div class="notation-item" markdown="1">

@@ -1,6 +1,11 @@
 from datetime import date
 
-from daily_arxiv_notes.arxiv import ArxivClient, parse_listing_page
+from daily_arxiv_notes.arxiv import (
+    ArxivClient,
+    ArxivError,
+    ListingEntry,
+    parse_listing_page,
+)
 from daily_arxiv_notes.models import Paper
 
 
@@ -70,3 +75,33 @@ def test_full_text_preserves_html_section_hierarchy() -> None:
     assert "[SECTION level=6] Abstract" in full_text.text
     assert "[SECTION level=2] 2 Named Method" in full_text.text
     assert "[SECTION level=3] 2.1 Training" in full_text.text
+
+
+def test_atom_rate_limit_falls_back_to_listing_metadata_once(monkeypatch) -> None:
+    client = ArxivClient(
+        object(),
+        metadata_batch_size=1,
+        fallback_to_abs_metadata=False,
+    )
+    atom_calls = []
+
+    def rate_limited(query: str) -> str:
+        atom_calls.append(query)
+        raise ArxivError("rate limited")
+
+    monkeypatch.setattr(client, "_fetch_atom_batch", rate_limited)
+    monkeypatch.setattr(
+        client,
+        "_fetch_abs_metadata",
+        lambda *_: (_ for _ in ()).throw(AssertionError("unexpected per-paper fallback")),
+    )
+    listings = {
+        "2607.99991": ListingEntry("2607.99991", "First paper", ["Alice"], "cs.AI"),
+        "2607.99992": ListingEntry("2607.99992", "Second paper", ["Bob"], "cs.CL"),
+    }
+
+    papers = client.fetch_metadata(listings, date(2026, 7, 31))
+
+    assert len(atom_calls) == 1
+    assert [paper.title for paper in papers] == ["First paper", "Second paper"]
+    assert [paper.source_categories for paper in papers] == [["cs.AI"], ["cs.CL"]]

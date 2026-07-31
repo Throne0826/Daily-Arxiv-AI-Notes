@@ -5,7 +5,27 @@ description: "Multi-Agent 方向每日 arXiv 论文中文解读。"
 
 # Multi-Agent
 
-共收录 **2** 篇，按 arXiv 日榜日期倒序排列。
+共收录 **3** 篇，按 arXiv 日榜日期倒序排列。
+
+## 2026-07-31
+
+<div class="daily-paper-list" markdown="1">
+
+<article class="daily-paper-item" markdown="1">
+
+#### [ThreatForest: Multi-Agent Attack Tree Generation with Pluggable TTP Framework Mapping](../../arxiv_daily/2026-07-31/multi_agent/threatforest-multi-agent-attack-tree-generation-with-pluggable-ttp-framework-mapping.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2607.27528</span><span class="paper-category-chip">Multi-Agent</span><span class="paper-category-chip">LLM Agent</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+ThreatForest研究如何把云原生应用的源代码仓库自动转化为具有应用上下文、标准化TTP映射和针对性缓解措施的结构化攻击树，并通过可插拔映射组件与人工验证关口兼顾覆盖范围、可审查性和实际可用性。
+
+</div>
+
+</article>
+
+</div>
 
 ## 2026-07-30
 

@@ -442,7 +442,7 @@ $$
 
 **Accuracy Drop（AD）**
 
-对第 ℓ 层实施均值消融前后的准确率差，定义为 \(\mathrm{AD}_{\ell}=\mathrm{Acc}_{\text{base}}-\mathrm{Acc}_{\ell}^{\text{abl}}\)。其中，\(\mathrm{Acc}_{\text{base}}\) 是不干预时的准确率，\(\mathrm{Acc}_{\ell}^{\text{abl}}\) 是把第 ℓ 层激活 \(h_{\ell}\) 替换为参考均值激活 \(\mu_{\ell}\) 后的准确率。它衡量该层信息被抹平后性能损失多少。 （若用于衡量模型性能，AD 越低越稳健；若用于判断某层的重要性，正向 AD 越大表示该层被替换后损失越大、因而越关键。负值表示干预后的样本准确率反而高于未干预基准，不能直接解释为负的重要性。）
+对第 ℓ 层实施均值消融前后的准确率差，定义为 $\mathrm{AD}_{\ell}=\mathrm{Acc}_{\text{base}}-\mathrm{Acc}_{\ell}^{\text{abl}}$。其中，$\mathrm{Acc}_{\text{base}}$ 是不干预时的准确率，$\mathrm{Acc}_{\ell}^{\text{abl}}$ 是把第 ℓ 层激活 $h_{\ell}$ 替换为参考均值激活 $\mu_{\ell}$ 后的准确率。它衡量该层信息被抹平后性能损失多少。 （若用于衡量模型性能，AD 越低越稳健；若用于判断某层的重要性，正向 AD 越大表示该层被替换后损失越大、因而越关键。负值表示干预后的样本准确率反而高于未干预基准，不能直接解释为负的重要性。）
 
 </div>
 <div class="metric-item" markdown="1">

@@ -55,6 +55,26 @@ _NESTED_SCRIPT_MATH_RE = re.compile(
     rf"(?P<base>(?:\\[A-Za-z]+|[{_MATH_ATOM}])(?:[_^]\{{[^{{}}\n]+\}})*)"
     r"(?P<script>[_^])\{\$(?P<body>[^$\n]+)\$\}"
 )
+_LATEX_PREFIX_CONTROL_RE = re.compile(r"[\x00\x01\x07](?=[A-Za-z])")
+_UNSUPPORTED_CONTROL_RE = re.compile(r"[\x00-\x09\x0b\x0c\x0e-\x1f]")
+_LITERAL_CONTROL_ESCAPE_RE = re.compile(r"\\u000[017](?=[A-Za-z])")
+_CORRUPTED_CONTROL_LITERAL_RE = re.compile(r"(?:\\|\t)?u000[017](?=[A-Za-z])")
+
+
+def _sanitize_generated_text(value: Any) -> str:
+    """Repair control bytes occasionally emitted in model-generated LaTeX."""
+    text = str(value or "")
+    # Some older responses contain a tab or a literal ``\u0007`` where a
+    # LaTeX backslash should be. Repair compound forms before single bytes.
+    text = re.sub(r"\tu0007(?=[A-Za-z])", lambda _: "\\", text)
+    text = _LITERAL_CONTROL_ESCAPE_RE.sub(lambda _: "\\", text)
+    text = re.sub(r"\x08(?=ar)", lambda _: r"\b", text)
+    text = re.sub(r"\t(?=[A-Za-z])", lambda _: r"\t", text)
+    text = text.replace("\t", " ")
+    text = _LATEX_PREFIX_CONTROL_RE.sub(lambda _: "\\", text)
+    # ESC-prefixed C/I/U labels are plain verdict labels, not LaTeX commands.
+    text = text.replace("\x1b", "")
+    return _UNSUPPORTED_CONTROL_RE.sub("", text)
 
 
 def _unclosed_math_delimiters(expression: str) -> bool:
@@ -124,7 +144,14 @@ def _normalize_unprotected_math(text: str) -> str:
 
 def _normalize_inline_math(value: Any) -> str:
     """Wrap likely bare LaTeX fragments while preserving existing Markdown math."""
-    text = str(value or "")
+    text = _sanitize_generated_text(value)
+    text = re.sub(r"\\\((.+?)\\\)", lambda match: f"${match.group(1)}$", text)
+    text = re.sub(
+        r"\\\[(.+?)\\\]",
+        lambda match: f"$$\n{match.group(1)}\n$$",
+        text,
+        flags=re.DOTALL,
+    )
     text = _NESTED_SCRIPT_MATH_RE.sub(
         lambda match: (
             f"${match.group('base')}{match.group('script')}{{{match.group('body')}}}$"
@@ -253,7 +280,7 @@ def _key_modules(items: Any, limit: int = 4) -> str:
 
 
 def _normalize_latex(value: Any) -> str:
-    latex = str(value or "").strip()
+    latex = _sanitize_generated_text(value).strip()
     fence = re.fullmatch(r"```(?:latex|tex|math)?\s*\n?(.*?)\n?```", latex, re.DOTALL | re.I)
     if fence:
         latex = fence.group(1).strip()
@@ -424,9 +451,10 @@ def render_note(
     project_url = str(content.get("project_url", "")).strip()
     links = []
     if code_url:
-        links.append(f"**代码**: [{code_url}]({code_url})  ")
+        links.append(f"**代码**: [{code_url}]({code_url})")
     if project_url:
-        links.append(f"**项目页**: [{project_url}]({project_url})  ")
+        links.append(f"**项目页**: [{project_url}]({project_url})")
+    links_text = " · ".join(links)
 
     related = []
     for item in content.get("related_work", [])[:3]:
@@ -479,7 +507,7 @@ def render_note(
 <div class="paper-link-row" markdown="1">
 
 [arXiv 原文]({paper.arxiv_url or f'https://arxiv.org/abs/{paper.arxiv_id}'}) · [PDF 下载]({paper.pdf_url or f'https://arxiv.org/pdf/{paper.arxiv_id}'}) · **关键词** {', '.join(keywords) if keywords else category_label}<br>
-{''.join(links)}
+{links_text}
 
 </div>
 
@@ -727,6 +755,12 @@ def validate_rendered_note(markdown: str) -> list[str]:
         issues.append("missing review_status frontmatter")
     if "source_sha256:" not in markdown:
         issues.append("missing source fingerprint")
+    if _UNSUPPORTED_CONTROL_RE.search(markdown):
+        issues.append("contains unsupported control characters")
+    if _CORRUPTED_CONTROL_LITERAL_RE.search(markdown):
+        issues.append("contains serialized control-character remnants")
+    if re.search(r"(?<!\\)\\(?:\(|\)|\[|\])", markdown):
+        issues.append("contains legacy LaTeX delimiters")
     return issues
 
 

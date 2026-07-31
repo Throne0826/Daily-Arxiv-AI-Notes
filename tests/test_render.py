@@ -4,6 +4,7 @@ from pathlib import Path
 from daily_arxiv_notes.models import Classification, GeneratedNote, Paper
 from daily_arxiv_notes.render import (
     _normalize_inline_math,
+    _sanitize_generated_text,
     render_category_index,
     render_categories_master,
     render_daily_index,
@@ -266,7 +267,24 @@ def test_bare_inline_latex_is_delimited_without_touching_code_names() -> None:
 def test_existing_inline_math_is_not_double_wrapped() -> None:
     value = "$D_{\\mathrm{task}}$ 与 \\(T_d\\) 已经带有定界符。"
 
-    assert _normalize_inline_math(value) == value
+    assert _normalize_inline_math(value) == value.replace(r"\(T_d\)", "$T_d$")
+
+
+def test_generated_control_bytes_are_repaired_before_math_rendering() -> None:
+    value = (
+        "params $\x07gamma=\x07lambda=1$, state $\x00mathcal{M}$, label $\x1bC$, "
+        "normalized $(\x08ar\\u0007delta, \\tilde\tu0007varphi)$, time $\tau$"
+    )
+
+    assert _sanitize_generated_text(value) == (
+        r"params $\gamma=\lambda=1$, state $\mathcal{M}$, label $C$, "
+        r"normalized $(\bar\delta, \tilde\varphi)$, time $\tau$"
+    )
+
+
+def test_rendered_note_rejects_control_bytes_and_legacy_delimiters() -> None:
+    assert "contains unsupported control characters" in validate_rendered_note("\x07gamma")
+    assert "contains legacy LaTeX delimiters" in validate_rendered_note(r"value \(x\)")
 
 
 def test_inline_math_keeps_spaced_expressions_together() -> None:

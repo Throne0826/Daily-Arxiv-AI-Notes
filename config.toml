@@ -15,6 +15,7 @@ include_crosslists = true
 request_interval_seconds = 3.0
 request_timeout_seconds = 90
 metadata_batch_size = 50
+fallback_to_abs_metadata = false
 user_agent = "daily-arxiv-notes/0.1 (set ARXIV_CONTACT_EMAIL)"
 
 [classification]
@@ -22,12 +23,13 @@ mode = "hybrid"
 minimum_rule_score = 2.0
 minimum_llm_confidence = 0.60
 llm_batch_size = 6
+workers = 20
 max_categories_per_paper = 4
 
 [generation]
 max_fulltext_chars = 90000
 max_papers_per_run = 50
-workers = 4
+workers = 20
 include_scores = false
 require_evidence_for_numbers = true
 
@@ -39,5 +41,5 @@ base_url_env = "OPENAI_BASE_URL"
 model_env = "OPENAI_MODEL"
 temperature = 0.1
 reasoning_effort = "low"
-timeout_seconds = 600
+timeout_seconds = 180
 max_output_tokens = 12288

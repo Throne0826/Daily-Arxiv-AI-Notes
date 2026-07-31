@@ -207,16 +207,16 @@ TDE利用上一采样时刻的控制输入和系统状态，近似当前未知�
 
 #### 构造跟踪误差与滑模变量
 
-先计算 \(\mathbf e=\mathbf q_d-\mathbf q\)，再将误差速度、误差的分数阶微分项和分数阶积分项组合成FONTSM滑模变量 \(\mathbf s\)。分数阶幂次均取在0与1之间，以形成非线性、非奇异的有限时间误差动态。
+先计算 $\mathbf e=\mathbf q_d-\mathbf q$，再将误差速度、误差的分数阶微分项和分数阶积分项组合成FONTSM滑模变量 $\mathbf s$。分数阶幂次均取在0与1之间，以形成非线性、非奇异的有限时间误差动态。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：期望关节轨迹 \(\mathbf q_d,\dot{\mathbf q}_d,\ddot{\mathbf q}_d\) 和实测关节状态 \(\mathbf q,\dot{\mathbf q}\)。<br>
-**输出**：每个关节的跟踪误差 \(e_i\) 和滑模变量 \(s_i\)。
+**输入**：期望关节轨迹 $\mathbf q_d,\dot{\mathbf q}_d,\ddot{\mathbf q}_d$ 和实测关节状态 $\mathbf q,\dot{\mathbf q}$。<br>
+**输出**：每个关节的跟踪误差 $e_i$ 和滑模变量 $s_i$。
 
 </div>
 
-**直观理解**：控制器不分别处理许多误差量，而是把位置误差、变化趋势和历史信息浓缩为一个“偏离程度” \(s_i\)；令它接近零，就能进一步约束跟踪误差。
+**直观理解**：控制器不分别处理许多误差量，而是把位置误差、变化趋势和历史信息浓缩为一个“偏离程度” $s_i$；令它接近零，就能进一步约束跟踪误差。
 
 </div>
 
@@ -227,12 +227,12 @@ TDE利用上一采样时刻的控制输入和系统状态，近似当前未知�
 
 #### 用时间延迟数据估计未知动力学
 
-将完整机械臂动力学重写为“常值对角惯量乘关节加速度＋集总未知项”，并以 \(\hat{\mathbf V}=\boldsymbol\tau_m(t-l_s)-\hat{\mathbf M}\ddot{\mathbf q}(t-l_s)\) 近似当前集总未知动力学。其有效性依赖未知项在一个采样周期内变化不大，以及等效惯量满足适当的失配约束。
+将完整机械臂动力学重写为“常值对角惯量乘关节加速度＋集总未知项”，并以 $\hat{\mathbf V}=\boldsymbol\tau_m(t-l_s)-\hat{\mathbf M}\ddot{\mathbf q}(t-l_s)$ 近似当前集总未知动力学。其有效性依赖未知项在一个采样周期内变化不大，以及等效惯量满足适当的失配约束。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：上一采样时刻的电机力矩 \(\boldsymbol\tau_m(t-l_s)\)、关节加速度 \(\ddot{\mathbf q}(t-l_s)\) 以及在线等效惯量矩阵 \(\hat{\mathbf M}\)。<br>
-**输出**：未建模动力学、耦合、重力、电机侧效应及外扰的合并估计 \(\hat{\mathbf V}\)。
+**输入**：上一采样时刻的电机力矩 $\boldsymbol\tau_m(t-l_s)$、关节加速度 $\ddot{\mathbf q}(t-l_s)$ 以及在线等效惯量矩阵 $\hat{\mathbf M}$。<br>
+**输出**：未建模动力学、耦合、重力、电机侧效应及外扰的合并估计 $\hat{\mathbf V}$。
 
 </div>
 
@@ -247,12 +247,12 @@ TDE利用上一采样时刻的控制输入和系统状态，近似当前未知�
 
 #### 生成名义滑模控制与鲁棒补偿
 
-名义项 \(\mathbf u_1\) 结合期望加速度、FONTSM误差动态和快速终端滑模到达律 \(-\boldsymbol\beta_1\mathbf s-\boldsymbol\beta_2\operatorname{sig}(\mathbf s)^{\boldsymbol\eta}\)；附加项 \(\mathbf u_2=\hat{\mathbf k}\operatorname{sgn}(\mathbf s)\) 用于压制TDE误差与剩余扰动。
+名义项 $\mathbf u_1$ 结合期望加速度、FONTSM误差动态和快速终端滑模到达律 $-\boldsymbol\beta_1\mathbf s-\boldsymbol\beta_2\operatorname{sig}(\mathbf s)^{\boldsymbol\eta}$；附加项 $\mathbf u_2=\hat{\mathbf k}\operatorname{sgn}(\mathbf s)$ 用于压制TDE误差与剩余扰动。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：期望加速度 \(\ddot{\mathbf q}_d\)、误差相关项 \(\boldsymbol\xi(\mathbf e,\hat{\boldsymbol\theta})\)、滑模变量 \(\mathbf s\) 及在线参数 \(\hat{\mathbf M},\hat{\mathbf k}\)。<br>
-**输出**：注入动力学命令 \(\mathbf u=\mathbf u_1+\mathbf u_2\)。
+**输入**：期望加速度 $\ddot{\mathbf q}_d$、误差相关项 $\boldsymbol\xi(\mathbf e,\hat{\boldsymbol\theta})$、滑模变量 $\mathbf s$ 及在线参数 $\hat{\mathbf M},\hat{\mathbf k}$。<br>
+**输出**：注入动力学命令 $\mathbf u=\mathbf u_1+\mathbf u_2$。
 
 </div>
 
@@ -267,16 +267,16 @@ TDE利用上一采样时刻的控制输入和系统状态，近似当前未知�
 
 #### 非线性自适应并输出电机力矩
 
-依据 \(|s_i|\) 是否越过边界层，分段增加或减小 \(\hat\theta_i\)，再由自适应指数 \(\hat\sigma_i=\bar\sigma(1-k_{6,i}\hat\theta_i)\) 构造非线性量 \(\hat\theta_i^{\hat\sigma_i}\)，同步更新 \(\hat M_i\) 与 \(\hat k_i\)。最终计算 \(\boldsymbol\tau_m=\hat{\mathbf M}\mathbf u+\hat{\mathbf V}\) 并发送给电机。
+依据 $|s_i|$ 是否越过边界层，分段增加或减小 $\hat\theta_i$，再由自适应指数 $\hat\sigma_i=\bar\sigma(1-k_{6,i}\hat\theta_i)$ 构造非线性量 $\hat\theta_i^{\hat\sigma_i}$，同步更新 $\hat M_i$ 与 $\hat k_i$。最终计算 $\boldsymbol\tau_m=\hat{\mathbf M}\mathbf u+\hat{\mathbf V}$ 并发送给电机。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：各关节滑模变量 \(s_i\)、边界层 \(\Omega_i\)、更新状态 \(\hat\theta_i\) 及预设参数。<br>
-**输出**：当前采样时刻的电机力矩命令 \(\boldsymbol\tau_m\)，以及供下一周期使用的更新参数和历史数据。
+**输入**：各关节滑模变量 $s_i$、边界层 $\Omega_i$、更新状态 $\hat\theta_i$ 及预设参数。<br>
+**输出**：当前采样时刻的电机力矩命令 $\boldsymbol\tau_m$，以及供下一周期使用的更新参数和历史数据。
 
 </div>
 
-**直观理解**：平稳跟踪时，较小的 \(\hat\theta_i\) 配合大于1的指数会被进一步压小，从而减轻噪声引发的抖振；轨迹反向时指数可降至1或以下，使控制增益不被削弱，必要时甚至得到增强。
+**直观理解**：平稳跟踪时，较小的 $\hat\theta_i$ 配合大于1的指数会被进一步压小，从而减轻噪声引发的抖振；轨迹反向时指数可降至1或以下，使控制增益不被削弱，必要时甚至得到增强。
 
 </div>
 
@@ -313,20 +313,20 @@ $$
 
 - $\mathbf e=\mathbf q_d-\mathbf q$：期望关节角与实际关节角之差。
 - $\mathbf s$：FONTSM滑模变量，用于综合表征位置、速度及分数阶误差动态。
-- $D^{\chi}$：阶次为 \(\chi\) 的分数阶微积分算子；正阶对应分数阶微分，负阶对应分数阶积分。
-- $\operatorname{sig}(a)^b$：逐元素带符号幂函数，即 \(|a|^b\operatorname{sign}(a)\)。
+- $D^{\chi}$：阶次为 $\chi$ 的分数阶微积分算子；正阶对应分数阶微分，负阶对应分数阶积分。
+- $\operatorname{sig}(a)^b$：逐元素带符号幂函数，即 $|a|^b\operatorname{sign}(a)$。
 - $\boldsymbol\tau_m$：电机产生的控制力矩向量。
 - $\hat{\mathbf M}$：在线调整的对角等效惯量矩阵。
 - $\hat{\mathbf V}$：由上一采样时刻数据得到的集总未知动力学估计。
 - $l_s$：数字控制器的采样间隔。
 - $\mathbf u_1,\mathbf u_2$：分别为名义误差整形与到达控制项、抵抗估计误差和扰动的鲁棒切换项。
-- $\boldsymbol\beta_1,\boldsymbol\beta_2,\boldsymbol\eta$：快速终端滑模到达律参数，其中各 \(\eta_i\) 满足 \(0<\eta_i<1\)。
+- $\boldsymbol\beta_1,\boldsymbol\beta_2,\boldsymbol\eta$：快速终端滑模到达律参数，其中各 $\eta_i$ 满足 $0<\eta_i<1$。
 - $\boldsymbol\xi$：由分数阶误差项和自适应非线性增益共同构成的误差补偿项。
 
 <div class="equation-explanation" markdown="1">
 
 **直观理解**：第一行规定什么状态算“已经回到正确轨迹”；后续各行则把期望加速度、滑模纠偏、鲁棒切换补偿和上一周期估计的未知动力学合成为实际电机力矩。该结构的核心是：已知的轨迹信息直接控制，未知的机器人动力学交给TDE近似，剩余估计误差由切换项覆盖。<br>
-**原文位置**：第II-B节，式(11)、式(13)–(16)及式(15)后的 \(\xi_i\) 定义；TDE估计对应第II-A节式(5)。
+**原文位置**：第II-B节，式(11)、式(13)–(16)及式(15)后的 $\xi_i$ 定义；TDE估计对应第II-A节式(5)。
 
 </div>
 
@@ -351,18 +351,18 @@ $$
 
 **符号说明**
 
-- $\hat\theta_i$：第 \(i\) 个关节的基础自适应更新状态。
-- $\hat\sigma_i$：随 \(\hat\theta_i\) 变化的自适应指数。
+- $\hat\theta_i$：第 $i$ 个关节的基础自适应更新状态。
+- $\hat\sigma_i$：随 $\hat\theta_i$ 变化的自适应指数。
 - $\hat\theta_i^{\hat\sigma_i}$：实际用于放大或压缩控制参数的非线性更新增益。
 - $\bar M_i,\bar k_i$：等效惯量和鲁棒切换增益的正基准值。
 - $k_{3,i},k_{4,i},k_{5,i},k_{6,i},\bar\sigma,\phi_i$：预先设定的正控制系数，用于决定增益幅度、指数变化和更新速度。
-- $\Omega_i$：第 \(i\) 个滑模变量的预设边界层阈值。
-- $\Delta_i$：下降分支中的正偏置，用于避免 \(s_i\) 穿越切换面附近时出现除零奇异性。
+- $\Omega_i$：第 $i$ 个滑模变量的预设边界层阈值。
+- $\Delta_i$：下降分支中的正偏置，用于避免 $s_i$ 穿越切换面附近时出现除零奇异性。
 - $\hat\theta_{i,\max},\hat\theta_{i,\mathrm{mid}}$：更新状态的预设上界及越界后用于回拉的中间值。
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：当 \(|s_i|\) 超出边界层时，更新状态按幂律增长，使等效惯量和鲁棒增益提高；进入边界层后，更新状态下降，避免长期维持过大切换力。新增的可变指数进一步区分工作阶段：小 \(\hat\theta_i\) 时可令指数大于1以显著压低噪声增益，而较大 \(\hat\theta_i\) 时可令指数降至1或以下，从而保留或增强轨迹反向时的控制能力。<br>
+**直观理解**：当 $|s_i|$ 超出边界层时，更新状态按幂律增长，使等效惯量和鲁棒增益提高；进入边界层后，更新状态下降，避免长期维持过大切换力。新增的可变指数进一步区分工作阶段：小 $\hat\theta_i$ 时可令指数大于1以显著压低噪声增益，而较大 $\hat\theta_i$ 时可令指数降至1或以下，从而保留或增强轨迹反向时的控制能力。<br>
 **原文位置**：第II-B节，式(17)–(19)。
 
 </div>
@@ -371,7 +371,7 @@ $$
 
 <div class="paper-focus" markdown="1">
 
-**优化目标如何起作用**：不适用。本文提出的是解析设计的在线反馈控制器，不涉及数据集训练、经验风险最小化或神经网络参数优化；设计目标是使滑模变量进入有界区域，并据此保证关节跟踪误差最终一致有界。参数 \(\hat\theta_i\) 在运行中按照分段微分方程更新，这属于在线自适应控制而非离线训练。
+**优化目标如何起作用**：不适用。本文提出的是解析设计的在线反馈控制器，不涉及数据集训练、经验风险最小化或神经网络参数优化；设计目标是使滑模变量进入有界区域，并据此保证关节跟踪误差最终一致有界。参数 $\hat\theta_i$ 在运行中按照分段微分方程更新，这属于在线自适应控制而非离线训练。
 
 </div>
 
@@ -382,29 +382,29 @@ $$
 
 **1. 时间延迟估计（TDE）模型无关框架**
 
-系统被表示为 \(\boldsymbol\tau_m=\bar{\mathbf M}\ddot{\mathbf q}+\mathbf V\)，其中 \(\mathbf V\) 汇总真实惯量与选定对角惯量的差异、科氏项、重力、电机惯性与阻尼、外部扰动等。控制器用前一采样时刻的数据估计 \(\mathbf V\)，不需要逐项辨识这些动力学。
+系统被表示为 $\boldsymbol\tau_m=\bar{\mathbf M}\ddot{\mathbf q}+\mathbf V$，其中 $\mathbf V$ 汇总真实惯量与选定对角惯量的差异、科氏项、重力、电机惯性与阻尼、外部扰动等。控制器用前一采样时刻的数据估计 $\mathbf V$，不需要逐项辨识这些动力学。
 
 > 直观理解：它把所有难以建模的作用装进一个“未知总项”，再用最近一次观测估计该总项，因此显著降低模型依赖；代价是采样必须足够快，且未知作用不能在相邻采样间剧烈跳变。
 
 **2. FONTSM流形与快速终端到达律**
 
-滑模流形将 \(\dot{\mathbf e}\)、误差非线性函数的分数阶微分和分数阶积分组合起来；到达律同时包含线性项 \(-\boldsymbol\beta_1\mathbf s\) 与亚线性幂项 \(-\boldsymbol\beta_2\operatorname{sig}(\mathbf s)^{\boldsymbol\eta}\)，其中 \(0<\eta_i<1\)。作者据此构造有限时间趋近机制，并在定理1中给出滑模变量及跟踪误差最终一致有界的结论。
+滑模流形将 $\dot{\mathbf e}$、误差非线性函数的分数阶微分和分数阶积分组合起来；到达律同时包含线性项 $-\boldsymbol\beta_1\mathbf s$ 与亚线性幂项 $-\boldsymbol\beta_2\operatorname{sig}(\mathbf s)^{\boldsymbol\eta}$，其中 $0<\eta_i<1$。作者据此构造有限时间趋近机制，并在定理1中给出滑模变量及跟踪误差最终一致有界的结论。
 
 > 直观理解：分数阶算子使控制器同时利用当前误差和一定的历史信息；线性项提供整体稳定纠偏，非线性幂项强化接近滑模面时的收敛。论文证明的是误差最终进入一个小区域，而不是在所有扰动下严格等于零。
 
 **3. 带自适应指数的非线性增益律**
 
-基础更新状态 \(\hat\theta_i\) 由 \(|s_i|\) 驱动：位于边界层外时按幂律增长，边界层内时按负倒数规律下降，越过预设上下范围时被拉回中间值。区别于直接使用线性 \(\hat\theta_i\) 的基线方法，本文以 \(\hat\theta_i^{\hat\sigma_i}\) 调节 \(\hat M_i\) 和 \(\hat k_i\)，且指数本身随 \(\hat\theta_i\) 变化。
+基础更新状态 $\hat\theta_i$ 由 $|s_i|$ 驱动：位于边界层外时按幂律增长，边界层内时按负倒数规律下降，越过预设上下范围时被拉回中间值。区别于直接使用线性 $\hat\theta_i$ 的基线方法，本文以 $\hat\theta_i^{\hat\sigma_i}$ 调节 $\hat M_i$ 和 $\hat k_i$，且指数本身随 $\hat\theta_i$ 变化。
 
 > 直观理解：固定指数会同时压低平稳阶段和轨迹反向阶段的增益，而可变指数试图把两种状态分开处理：平稳时主动降噪，反向或误差较大时保留快速响应能力。
 
 **训练与推理**
 
-无训练阶段。在线运行时，每个采样周期依次读取期望轨迹和关节状态，计算 \(\mathbf e\) 与 \(\mathbf s\)，根据 \(|s_i|\) 和边界层 \(\Omega_i\) 积分更新 \(\hat\theta_i\)，再计算 \(\hat\sigma_i\)、\(\hat M_i\) 和 \(\hat k_i\)。随后利用上一周期的力矩与加速度形成TDE项 \(\hat{\mathbf V}\)，组合 \(\mathbf u_1\) 和 \(\mathbf u_2\)，输出当前力矩 \(\boldsymbol\tau_m\)，并保存当前量供下一周期使用。作者的理论结论是在给定假设和适当参数下实现最终一致有界，而非无条件的精确渐近收敛。
+无训练阶段。在线运行时，每个采样周期依次读取期望轨迹和关节状态，计算 $\mathbf e$ 与 $\mathbf s$，根据 $|s_i|$ 和边界层 $\Omega_i$ 积分更新 $\hat\theta_i$，再计算 $\hat\sigma_i$、$\hat M_i$ 和 $\hat k_i$。随后利用上一周期的力矩与加速度形成TDE项 $\hat{\mathbf V}$，组合 $\mathbf u_1$ 和 $\mathbf u_2$，输出当前力矩 $\boldsymbol\tau_m$，并保存当前量供下一周期使用。作者的理论结论是在给定假设和适当参数下实现最终一致有界，而非无条件的精确渐近收敛。
 
 **复现信息**
 
-公平复现需要保持数字采样间隔 \(l_s\) 足够小，并选择等效惯量使 \(\|\mathbf I-\mathbf M^{-1}\bar{\mathbf M}\|<1\)，否则TDE误差的有界性前提可能不成立。参考轨迹需有界且二次连续可微，其一、二阶导数也需有界；机械臂被假定运行在关节位置、速度和加速度均有界的紧集内。还需实现分数阶算子、上一周期力矩与加速度缓存、\(\hat\theta_i\) 的上下界处理以及边界层判定；具体离散分数阶算法、采样频率和全部参数数值在所给方法节选中原文未明确报告。
+公平复现需要保持数字采样间隔 $l_s$ 足够小，并选择等效惯量使 $\|\mathbf I-\mathbf M^{-1}\bar{\mathbf M}\|<1$，否则TDE误差的有界性前提可能不成立。参考轨迹需有界且二次连续可微，其一、二阶导数也需有界；机械臂被假定运行在关节位置、速度和加速度均有界的紧集内。还需实现分数阶算子、上一周期力矩与加速度缓存、$\hat\theta_i$ 的上下界处理以及边界层判定；具体离散分数阶算法、采样频率和全部参数数值在所给方法节选中原文未明确报告。
 
 </details>
 
@@ -443,14 +443,14 @@ $$
 
 **ITAE（时间加权绝对误差积分）**
 
-定义为\(\mathrm{ITAE}_i=\int_0^{T_i}t|e_i|\,dt\)，其中$e_i$为关节i的跟踪误差，t为时间，$T_i$为评价区间长度。时间权重使实验后段仍未消失的误差受到更大惩罚，因而反映全过程收敛质量和持续误差。 （越低越好；较低值表示误差更快消退或长期残差更小，但该指标不能区分误差方向。）
+定义为$\mathrm{ITAE}_i=\int_0^{T_i}t|e_i|\,dt$，其中$e_i$为关节i的跟踪误差，t为时间，$T_i$为评价区间长度。时间权重使实验后段仍未消失的误差受到更大惩罚，因而反映全过程收敛质量和持续误差。 （越低越好；较低值表示误差更快消退或长期残差更小，但该指标不能区分误差方向。）
 
 </div>
 <div class="metric-item" markdown="1">
 
 **ISCT（控制转矩平方积分）**
 
-定义为\(\mathrm{ISCT}_i=\int_0^{T_i}\tau_{m,i}^2\,dt\)，其中\(\tau_{m,i}\)为关节i的电机控制转矩。它用平方积分近似刻画完整实验期间的总体控制用力。 （越低通常越好；表示在完成跟踪时所需控制作用更小，但它不是直接测得的电能、机械效率或执行器寿命。）
+定义为$\mathrm{ISCT}_i=\int_0^{T_i}\tau_{m,i}^2\,dt$，其中$\tau_{m,i}$为关节i的电机控制转矩。它用平方积分近似刻画完整实验期间的总体控制用力。 （越低通常越好；表示在完成跟踪时所需控制作用更小，但它不是直接测得的电能、机械效率或执行器寿命。）
 
 </div>
 
@@ -594,8 +594,8 @@ In the experiments, the RMS ratios are rRMS,1=0.0291 and rRMS,2=0.0306, indicati
 
 | 对比 / 设置 | 结果 | 怎么理解 | 原文位置与证据 |
 |---|---|---|---|
-| 实验I子情形一：固定其他自适应参数，令边界层\(\Omega=10^{-2}\times[7,8,9,10]\)，比较非线性更新增益\(\hat{\theta}_i^{\hat{\sigma}_i}\)的峰值、激活时长和噪声敏感性。 | 较小Ω产生更大的更新增益和更长的激活持续时间，但平滑跟踪阶段对噪声更敏感；增大Ω会降低增益峰值、缩短激活时间并减弱噪声影响，同时使控制响应变慢。 | 该消融隔离了边界层宽度的作用。边界层可理解为系统把滑模变量视为“足够接近零”的容许范围：范围越窄，控制器越积极地纠正微小偏差，也越容易把测量噪声当成真实误差；范围越宽则更平滑，但牺牲部分响应速度。该实验给出趋势而非RMSE等闭环指标的逐档数值，因此不能确定全局最优Ω。 | Section III-B, Experiment I, Subcase One；Fig. 3(a–c)<br><span class="experiment-evidence">As shown in Fig. 3(a-c), the smaller boundary layer parameter Ω results in the larger nonlinear adaptive update gain and the longer activation duration. However, it also leads to increased noise sensitivity during the smooth tracking phase.</span> |
-| 实验I子情形二：固定\(\Omega=10^{-2}\times[5,5]\)，分别设置\(\bar{\sigma}=[1,2,3,4]\)，考察自适应指数项系数对响应速度、激活时长和增益振荡的影响。 | 较小\(\bar{\sigma}\)带来更快响应和更长激活时间；但\(\bar{\sigma}=1\)时不能抑制平滑阶段噪声，反而放大自适应增益振荡。取2、3、4时，\(\bar{\sigma}\)越大，平滑阶段非线性更新增益的振荡越弱。 | 该消融直接检验论文核心新增指数机制的关键系数。结果表明它调节的是“换向时保留增益”和“平滑时压制噪声”之间的折中，而不是单调提升所有性能；过小的指数系数会破坏预期的降噪作用。由于原文未给出各档设置对应的跟踪误差和控制能耗数值，这里只能确认增益曲线机制，不能量化其最终闭环收益。 | Section III-B, Experiment I, Subcase Two；Fig. 3(d–f)<br><span class="experiment-evidence">Under condition σ̄=[2,3,4], as σ̄ increases, the oscillation of the adaptive nonlinear update gain θ̂iσ̂i during the smooth tracking phase gradually diminishes, indicating an enhanced ability to suppress noise.</span> |
+| 实验I子情形一：固定其他自适应参数，令边界层$\Omega=10^{-2}\times[7,8,9,10]$，比较非线性更新增益$\hat{\theta}_i^{\hat{\sigma}_i}$的峰值、激活时长和噪声敏感性。 | 较小Ω产生更大的更新增益和更长的激活持续时间，但平滑跟踪阶段对噪声更敏感；增大Ω会降低增益峰值、缩短激活时间并减弱噪声影响，同时使控制响应变慢。 | 该消融隔离了边界层宽度的作用。边界层可理解为系统把滑模变量视为“足够接近零”的容许范围：范围越窄，控制器越积极地纠正微小偏差，也越容易把测量噪声当成真实误差；范围越宽则更平滑，但牺牲部分响应速度。该实验给出趋势而非RMSE等闭环指标的逐档数值，因此不能确定全局最优Ω。 | Section III-B, Experiment I, Subcase One；Fig. 3(a–c)<br><span class="experiment-evidence">As shown in Fig. 3(a-c), the smaller boundary layer parameter Ω results in the larger nonlinear adaptive update gain and the longer activation duration. However, it also leads to increased noise sensitivity during the smooth tracking phase.</span> |
+| 实验I子情形二：固定$\Omega=10^{-2}\times[5,5]$，分别设置$\bar{\sigma}=[1,2,3,4]$，考察自适应指数项系数对响应速度、激活时长和增益振荡的影响。 | 较小$\bar{\sigma}$带来更快响应和更长激活时间；但$\bar{\sigma}=1$时不能抑制平滑阶段噪声，反而放大自适应增益振荡。取2、3、4时，$\bar{\sigma}$越大，平滑阶段非线性更新增益的振荡越弱。 | 该消融直接检验论文核心新增指数机制的关键系数。结果表明它调节的是“换向时保留增益”和“平滑时压制噪声”之间的折中，而不是单调提升所有性能；过小的指数系数会破坏预期的降噪作用。由于原文未给出各档设置对应的跟踪误差和控制能耗数值，这里只能确认增益曲线机制，不能量化其最终闭环收益。 | Section III-B, Experiment I, Subcase Two；Fig. 3(d–f)<br><span class="experiment-evidence">Under condition σ̄=[2,3,4], as σ̄ increases, the oscillation of the adaptive nonlinear update gain θ̂iσ̂i during the smooth tracking phase gradually diminishes, indicating an enhanced ability to suppress noise.</span> |
 
 **定性案例**
 

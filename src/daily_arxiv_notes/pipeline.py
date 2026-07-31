@@ -115,6 +115,9 @@ class DailyPipeline:
             page_size=int(arxiv_config.get("page_size", 100)),
             metadata_batch_size=int(arxiv_config.get("metadata_batch_size", 50)),
             include_crosslists=bool(arxiv_config.get("include_crosslists", True)),
+            fallback_to_abs_metadata=bool(
+                arxiv_config.get("fallback_to_abs_metadata", True)
+            ),
         )
         api_key = settings.llm_value("api_key")
         base_url = settings.llm_value("base_url")
@@ -260,9 +263,16 @@ class DailyPipeline:
             announcement_date = cached_target_date
             listings = {}
         else:
+            print("[arxiv] fetching daily listings", file=sys.stderr, flush=True)
             announcement_date, listings = self.arxiv.fetch_daily_listings(
                 arxiv_config["categories"],
                 requested_date=requested_date,
+            )
+            print(
+                f"[arxiv] fetched {len(listings)} unique listings for "
+                f"{announcement_date.isoformat()}",
+                file=sys.stderr,
+                flush=True,
             )
         date_string = announcement_date.isoformat()
         raw_dir = data_dir / "raw" / date_string
@@ -274,8 +284,14 @@ class DailyPipeline:
                 for value in json.loads(papers_cache.read_text(encoding="utf-8"))
             ]
         else:
+            print("[arxiv] fetching paper metadata", file=sys.stderr, flush=True)
             papers = self.arxiv.fetch_metadata(listings, announcement_date)
             atomic_write_json(papers_cache, [paper.to_dict() for paper in papers])
+            print(
+                f"[arxiv] cached metadata for {len(papers)} papers",
+                file=sys.stderr,
+                flush=True,
+            )
 
         state_path = self.settings.project_path("state_file")
         state = load_json(state_path, {"version": 1, "seen": {}})
@@ -691,33 +707,53 @@ class DailyPipeline:
         )
         batch_size = int(config.get("llm_batch_size", 8))
         total_batches = (len(papers) + batch_size - 1) // batch_size
+        configured_workers = max(1, int(config.get("workers", 1)))
+        worker_count = min(configured_workers, total_batches) if total_batches else 1
         llm_results: dict[str, Classification] = {}
         errors: list[str] = []
-        for start in range(0, len(papers), batch_size):
-            batch = papers[start : start + batch_size]
-            batch_number = start // batch_size + 1
+        batches = [papers[start : start + batch_size] for start in range(0, len(papers), batch_size)]
+        print(
+            f"[classification] {len(papers)} papers in {total_batches} batches with "
+            f"{worker_count} worker(s)",
+            file=sys.stderr,
+            flush=True,
+        )
+
+        def classify_batch(batch_number: int, batch: list[Paper]) -> dict[str, Classification]:
             print(
                 f"[classification] batch {batch_number}/{total_batches}: {len(batch)} papers",
                 file=sys.stderr,
                 flush=True,
             )
-            try:
-                batch_results = classifier.classify_batch(batch)
-                llm_results.update(batch_results)
-                relevant_count = sum(result.relevant for result in batch_results.values())
-                print(
-                    f"[classification] completed {batch_number}/{total_batches}: "
-                    f"{relevant_count} relevant",
-                    file=sys.stderr,
-                    flush=True,
-                )
-            except LlmError as exc:
-                errors.append(f"classification batch {start // batch_size}: {exc}")
-                print(
-                    f"[classification] fallback {batch_number}/{total_batches}: {exc}",
-                    file=sys.stderr,
-                    flush=True,
-                )
+            return classifier.classify_batch(batch)
+
+        with ThreadPoolExecutor(
+            max_workers=worker_count,
+            thread_name_prefix="paper-classification",
+        ) as executor:
+            futures = {
+                executor.submit(classify_batch, batch_number, batch): batch_number
+                for batch_number, batch in enumerate(batches, start=1)
+            }
+            for future in as_completed(futures):
+                batch_number = futures[future]
+                try:
+                    batch_results = future.result()
+                    llm_results.update(batch_results)
+                    relevant_count = sum(result.relevant for result in batch_results.values())
+                    print(
+                        f"[classification] completed {batch_number}/{total_batches}: "
+                        f"{relevant_count} relevant",
+                        file=sys.stderr,
+                        flush=True,
+                    )
+                except LlmError as exc:
+                    errors.append(f"classification batch {batch_number}: {exc}")
+                    print(
+                        f"[classification] fallback {batch_number}/{total_batches}: {exc}",
+                        file=sys.stderr,
+                        flush=True,
+                    )
 
         if mode == "llm":
             return {

@@ -31,6 +31,7 @@ max_categories_per_paper = 4
 max_fulltext_chars = 90000
 max_papers_per_run = 50
 workers = 20
+target_categories = ["llm_reasoning"]
 include_scores = false
 require_evidence_for_numbers = true
 

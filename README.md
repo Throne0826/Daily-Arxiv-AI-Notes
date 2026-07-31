@@ -76,7 +76,7 @@ data/
 
 ## 自动化
 
-`.github/workflows/daily-arxiv.yml` 在北京时间工作日 11:30 运行抓取与生成；`.github/workflows/deploy.yml` 构建并部署 GitHub Pages。仓库需要配置：
+`.github/workflows/daily-arxiv.yml` 在北京时间工作日 08:00 运行抓取与生成，目前只发布 `LLM Reasoning` 方向；`.github/workflows/deploy.yml` 构建并部署 GitHub Pages。仓库需要配置：
 
 - Secret `LLM_API_KEY`
 - Variable `LLM_BASE_URL`

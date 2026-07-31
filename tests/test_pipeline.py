@@ -112,6 +112,42 @@ def test_targeted_regeneration_can_reuse_stored_classification(tmp_path) -> None
     assert classification.categories == ["llm_agent", "reinforcement_learning"]
 
 
+def test_target_category_filter_excludes_unmatched_classification() -> None:
+    classification = Classification(
+        relevant=True,
+        primary_category="llm_agent",
+        categories=["llm_agent"],
+    )
+
+    assert not DailyPipeline._matches_target_categories(
+        classification,
+        {"llm_reasoning"},
+    )
+
+
+def test_target_category_filter_accepts_matching_secondary_label() -> None:
+    classification = Classification(
+        relevant=True,
+        primary_category="llm_alignment",
+        categories=["llm_alignment", "llm_reasoning"],
+    )
+
+    assert DailyPipeline._matches_target_categories(
+        classification,
+        {"llm_reasoning"},
+    )
+
+
+def test_empty_target_category_filter_preserves_relevant_papers() -> None:
+    classification = Classification(
+        relevant=True,
+        primary_category="llm_agent",
+        categories=["llm_agent"],
+    )
+
+    assert DailyPipeline._matches_target_categories(classification, set())
+
+
 def test_daily_run_reuses_cached_classification(tmp_path, monkeypatch) -> None:
     base = load_settings("config.toml")
     settings = Settings(root=tmp_path, raw=copy.deepcopy(base.raw), taxonomy=base.taxonomy)
@@ -164,7 +200,9 @@ def test_daily_run_reuses_cached_classification(tmp_path, monkeypatch) -> None:
 
 def test_targeted_run_preserves_other_cached_classifications(tmp_path) -> None:
     base = load_settings("config.toml")
-    settings = Settings(root=tmp_path, raw=copy.deepcopy(base.raw), taxonomy=base.taxonomy)
+    raw = copy.deepcopy(base.raw)
+    raw["generation"]["target_categories"] = []
+    settings = Settings(root=tmp_path, raw=raw, taxonomy=base.taxonomy)
     raw_dir = tmp_path / "data" / "raw" / "2026-07-29"
     raw_dir.mkdir(parents=True)
     papers = [
@@ -339,6 +377,7 @@ def test_generation_workers_run_concurrently_and_keep_daily_total(
     base = load_settings("config.toml")
     raw = copy.deepcopy(base.raw)
     raw["generation"]["workers"] = 3
+    raw["generation"]["target_categories"] = []
     settings = Settings(root=tmp_path, raw=raw, taxonomy=base.taxonomy)
     raw_dir = tmp_path / "data" / "raw" / "2026-07-30"
     raw_dir.mkdir(parents=True)
@@ -435,6 +474,7 @@ def test_worker_failure_does_not_stop_other_papers(tmp_path, monkeypatch) -> Non
     base = load_settings("config.toml")
     raw = copy.deepcopy(base.raw)
     raw["generation"]["workers"] = 2
+    raw["generation"]["target_categories"] = []
     settings = Settings(root=tmp_path, raw=raw, taxonomy=base.taxonomy)
     raw_dir = tmp_path / "data" / "raw" / "2026-07-30"
     raw_dir.mkdir(parents=True)

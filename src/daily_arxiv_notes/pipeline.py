@@ -133,6 +133,31 @@ class DailyPipeline:
             reasoning_effort=str(settings.section("llm").get("reasoning_effort", "")),
         )
 
+    def _target_categories(self) -> set[str]:
+        configured = self.settings.section("generation").get("target_categories", [])
+        if isinstance(configured, str):
+            configured = [configured]
+        if not isinstance(configured, list):
+            raise PipelineError("generation.target_categories must be a list of category IDs")
+
+        targets = {str(value).strip() for value in configured if str(value).strip()}
+        invalid = sorted(target for target in targets if not self.taxonomy.valid_category(target))
+        if invalid:
+            raise PipelineError(
+                "unknown generation.target_categories: " + ", ".join(invalid)
+            )
+        return targets
+
+    @staticmethod
+    def _matches_target_categories(
+        classification: Classification,
+        target_categories: set[str],
+    ) -> bool:
+        return classification.relevant and (
+            not target_categories
+            or bool(target_categories.intersection(classification.categories))
+        )
+
     def _apply_affiliation_overrides(self, papers: list[Paper]) -> None:
         value = str(
             self.settings.section("project").get("affiliation_overrides_file", "")
@@ -422,10 +447,15 @@ class DailyPipeline:
             }
         )
         atomic_write_json(classification_path, classification_payload)
+        generation_config = self.settings.section("generation")
+        target_categories = self._target_categories()
         selected = [
             paper
             for paper in candidates
-            if classifications.get(paper.arxiv_id, Classification(False)).relevant
+            if self._matches_target_categories(
+                classifications.get(paper.arxiv_id, Classification(False)),
+                target_categories,
+            )
         ]
         selected.sort(
             key=lambda paper: (
@@ -437,14 +467,13 @@ class DailyPipeline:
             reverse=True,
         )
         relevant_total = len(selected)
-        configured_max = int(self.settings.section("generation").get("max_papers_per_run", 0))
+        configured_max = int(generation_config.get("max_papers_per_run", 0))
         effective_max = configured_max if max_papers is None else max_papers
         if effective_max and effective_max > 0:
             selected = selected[:effective_max]
 
         records: list[dict[str, Any]] = []
         failures: list[dict[str, str]] = []
-        generation_config = self.settings.section("generation")
         full_texts: dict[str, FullText] = {}
         generation_candidates: list[Paper] = []
         if self.llm.available and not metadata_only:
@@ -564,6 +593,7 @@ class DailyPipeline:
             "fetched_unique": len(papers),
             "new_candidates": len(candidates),
             "relevant_total": relevant_total,
+            "target_categories": sorted(target_categories),
             "selected": len(selected),
             "generated": len(records),
             "generated_this_run": len(records),

@@ -1,9 +1,10 @@
 # Daily arXiv AI Notes
-
-一个独立的每日 arXiv AI 论文筛选、分类与中文解读系统。它面向 LLM、生成与多模态、决策与具身三个大领域，自动完成每日抓取、多标签分类、全文解析和结构化笔记生成。
+https://lifexoryoung.cn/Daily-Arxiv-AI-Notes/   运行网站
+一个独立的每日 arXiv AI 论文筛选、分类与中文解读系统。自动完成每日抓取、多标签分类、全文解析和结构化笔记生成。
 
 本站最初基于 [Paper-Notes](https://github.com/zhaoyang97/Paper-Notes) 的 MkDocs Material 站点框架进行改造，但不包含原仓库的顶会论文语料；来源、许可证与主要改动详见文末说明和 [NOTICE.md](NOTICE.md)。
 
+目前是自用 ，其他领域可以fork完自己本地加。
 每天处理 arXiv 的 `new submissions` 与 `cross submissions`，覆盖三个大领域、21 个细分方向：
 
 - LLM：推理、Agent、多智能体、对齐/RLHF、安全、幻觉、评测、效率、预训练、知识编辑与其他 LLM/NLP。

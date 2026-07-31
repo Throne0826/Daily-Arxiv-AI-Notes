@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "recommender"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:25.267927+00:00"
+generated_at: "2026-07-30T10:14:52.731182+00:00"
 source_sha256: "c43fd9cfb341f264042cf7adee7cd98fdfd50980de36b91c1a770c33940f352e"
 tags:
   - "推荐系统"
@@ -35,7 +35,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2605.05803v2) · [PDF 下载](https://arxiv.org/pdf/2605.05803v2) · **关键词** 生成式推荐, 在线广告, 语义 ID, 商业价值对齐, 自回归解码, eCPM, 请求约束检索  
+[arXiv 原文](https://arxiv.org/abs/2605.05803v2) · [PDF 下载](https://arxiv.org/pdf/2605.05803v2) · **关键词** 生成式推荐, 在线广告, 语义 ID, 商业价值对齐, 自回归解码, eCPM, 请求约束检索<br>
 
 
 </div>
@@ -84,21 +84,21 @@ UniVA针对生成式广告推荐中“生成概率不等于广告效用”的矛
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **语义 ID（Semantic ID, SID）**
 
 SID 是将一个广告表示为固定长度离散 token 序列的标识，通常由残差量化等方法按从粗到细的语义层次构造。内容相似的广告往往共享较长前缀，但纯语义 SID 未必能区分出价或商业目标不同的广告。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **自回归生成与束搜索（Beam Search）**
 
 模型在给定请求和已生成前缀后逐步预测下一个 SID token，并将各步条件概率相乘得到完整路径的生成概率。束搜索每一步只保留有限数量的高分前缀，因此早期概率较低但最终商业价值较高的广告可能被永久剪枝。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **广告商业价值与 eCPM**
 
@@ -112,7 +112,7 @@ SID 是将一个广告表示为固定长度离散 token 序列的标识，通常
 
 **论文具体研究什么**
 
-给定一次广告请求 x=(u,c,\mathbf{x}_{1:T})，其中包含用户 u、请求上下文 c 和长度为 T 的历史交互序列，系统需要生成某个广告 i 对应的长度为 L 的 SID 序列 s_i=\Phi(i)。生成策略按 \pi_\theta(y\mid x)=\prod_{l=1}^{L}\pi_\theta(a_l\mid x,s_{<l}) 对完整轨迹 y=(a_1,\ldots,a_L) 建模；但在线输出还必须属于请求特定的可行集合 \mathcal{Y}(x)，该集合由库存、定向与素材约束确定。任务目标不是单纯选择生成概率最高的路径，而是在保留监督式下一 SID 预测能力的同时，使可行轨迹获得更高的终局 eCPM，并利用请求条件化的 token 级价值估计辅助前缀选择。该设定隐含三个需要贯通处理的环节：SID 空间应体现商业差异，解码时商业价值应在高价值路径被剪枝前介入，服务时则应只搜索当前请求有效的路径。
+给定一次广告请求 $x=(u,c,\mathbf{x}_{1:T})$，其中包含用户 u、请求上下文 c 和长度为 T 的历史交互序列，系统需要生成某个广告 i 对应的长度为 L 的 SID 序列 $s_i=\Phi(i)$。生成策略按 $\pi_\theta(y\mid x)=\prod_{l=1}^{L}\pi_\theta(a_l\mid x,s_{<l})$ 对完整轨迹 $y=(a_1,\ldots,a_L)$ 建模；但在线输出还必须属于请求特定的可行集合 $\mathcal{Y}(x)$，该集合由库存、定向与素材约束确定。任务目标不是单纯选择生成概率最高的路径，而是在保留监督式下一 SID 预测能力的同时，使可行轨迹获得更高的终局 eCPM，并利用请求条件化的 token 级价值估计辅助前缀选择。该设定隐含三个需要贯通处理的环节：SID 空间应体现商业差异，解码时商业价值应在高价值路径被剪枝前介入，服务时则应只搜索当前请求有效的路径。
 
 </div>
 
@@ -123,32 +123,32 @@ SID 是将一个广告表示为固定长度离散 token 序列的标识，通常
 
 <div class="notation-list" markdown="1">
 
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$x=(u,c,\mathbf{x}_{1:T})$**
 
-一次广告请求；u 为用户，c 为请求上下文，\mathbf{x}_{1:T} 为用户的历史交互序列。
+一次广告请求；u 为用户，c 为请求上下文，$\mathbf{x}_{1:T}$ 为用户的历史交互序列。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$s_i=\Phi(i)=(s_i^1,\ldots,s_i^L)$**
 
-广告 i 经映射函数 \Phi 得到的长度为 L 的 SID 序列，s_i^l 是第 l 层 token。
+广告 i 经映射函数 $\Phi$ 得到的长度为 L 的 SID 序列，$s_i^l$ 是第 l 层 token。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\pi_\theta(y\mid x)=\prod_{l=1}^{L}\pi_\theta(a_l\mid x,s_{<l})$**
 
-参数为 \theta 的自回归生成策略；y 是完整 SID 轨迹，a_l 是第 l 步动作，s_{<l} 是此前已生成的前缀。
+参数为 $\theta$ 的自回归生成策略；y 是完整 SID 轨迹，$a_l$ 是第 l 步动作，$s_{<l}$ 是此前已生成的前缀。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$q_\phi(s_{<l},a;x)$**
 
-参数为 \phi、以请求 x 为条件的 token 级动作价值函数，估计在前缀 s_{<l} 后选择候选 token a 所带来的下游商业回报。
+参数为 $\phi$、以请求 x 为条件的 token 级动作价值函数，估计在前缀 $s_{<l}$ 后选择候选 token a 所带来的下游商业回报。
 
 </div>
 
@@ -241,7 +241,7 @@ UniVA把广告生成推荐视为“在约束条件下逐层生成并排序语义
 
 <div class="method-step__io" markdown="1">
 
-**输入**：广告的语义特征、优化目标、ROI目标、行业类别和出价，以及商业token词表预算。  
+**输入**：广告的语义特征、优化目标、ROI目标、行业类别和出价，以及商业token词表预算。<br>
 **输出**：长度为L的CSID路径：前L-1层表达由粗到细的语义结构，第L层同时表达商业上下文和该上下文内的相对出价水平。
 
 </div>
@@ -261,7 +261,7 @@ HSTU编码器将User、Organic、Environment和Item四类token编码为上下文
 
 <div class="method-step__io" markdown="1">
 
-**输入**：用户属性与偏好、自然内容行为、当前请求环境、历史广告交互，以及已经生成的CSID前缀。  
+**输入**：用户属性与偏好、自然内容行为、当前请求环境、历史广告交互，以及已经生成的CSID前缀。<br>
 **输出**：每个SID层级上的生成logit、生成策略πθ，以及对全部候选token的动作价值qφ。
 
 </div>
@@ -281,7 +281,7 @@ HSTU编码器将User、Organic、Environment和Item四类token编码为上下文
 
 <div class="method-step__io" markdown="1">
 
-**输入**：带目标CSID的监督样本，以及由旧策略束搜索和价值引导MCTS收集、经离线模拟器评估的完整CSID轨迹。  
+**输入**：带目标CSID的监督样本，以及由旧策略束搜索和价值引导MCTS收集、经离线模拟器评估的完整CSID轨迹。<br>
 **输出**：兼顾生成相关性与商业回报的共享解码主干、生成头和动作价值头。
 
 </div>
@@ -301,7 +301,7 @@ HSTU编码器将User、Organic、Environment和Item四类token编码为上下文
 
 <div class="method-step__io" markdown="1">
 
-**输入**：当前请求和SID前缀对应的生成logit、动作价值，以及在验证集上选定的各层融合系数αl。  
+**输入**：当前请求和SID前缀对应的生成logit、动作价值，以及在验证集上选定的各层融合系数αl。<br>
 **输出**：同时反映用户相关性、路径兼容性与预测商业回报的下一token排序分数。
 
 </div>
@@ -343,7 +343,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：该式把每次自回归生成改写为一次候选token排序：生成分数保证路径与用户及前缀相符，动作价值使高预期商业回报的分支获得额外优先级。它是训练得到的价值估计进入在线决策的直接接口。  
+**直观理解**：该式把每次自回归生成改写为一次候选token排序：生成分数保证路径与用户及前缀相符，动作价值使高预期商业回报的分支获得额外优先级。它是训练得到的价值估计进入在线决策的直接接口。<br>
 **原文位置**：第3.2节，公式(16)
 
 </div>
@@ -371,7 +371,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：第一行训练模型复现有效且相关的目标SID，第二行一方面用PPO把商业奖励传给生成策略，另一方面让价值头拟合每个前缀动作的回报。第三行表示两类批次交替而非简单同时混合，从而兼顾生成稳定性和商业价值对齐。  
+**直观理解**：第一行训练模型复现有效且相关的目标SID，第二行一方面用PPO把商业奖励传给生成策略，另一方面让价值头拟合每个前缀动作的回报。第三行表示两类批次交替而非简单同时混合，从而兼顾生成稳定性和商业价值对齐。<br>
 **原文位置**：第3.3节，公式(17)、(19)、(20)
 
 </div>
@@ -426,26 +426,37 @@ $$
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- Amazon Reviews的Industrial_and_Scientific（Industrial）子集：公开序列推荐基准，用于检验方法在非广告场景中的泛化。该场景采用语义SID，以评分所表达的用户效用作为价值监督，不使用广告专属CSID。原文未明确报告样本规模、数据划分与预处理细节。
-- Amazon Reviews的Office_Products（Office）子集：第二个公开序列推荐基准，作用与Industrial相同，用于避免结论仅来自单一品类。原文未明确报告样本规模、数据划分与预处理细节。
-- 腾讯大规模广告数据集及线上微信视频号流量：离线数据包含广告与自然内容混合流量、会话级用户行为和多模态物品特征，用于评估完整UniVA，包括CSID、eCPM对齐解码及GMV加权的下一转化集合；线上A/B测试于2026年3月7日至11日在20%生产流量上开展，平台覆盖数亿活跃用户和数千万动态广告。离线样本量及训练、验证、测试划分原文未明确报告。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- Amazon Reviews的Industrial_and_Scientific（Industrial）子集：公开序列推荐基准，用于检验方法在非广告场景中的泛化。该场景采用语义SID，以评分所表达的用户效用作为价值监督，不使用广告专属CSID。原文未明确报告样本规模、数据划分与预处理细节。
+- Amazon Reviews的Office_Products（Office）子集：第二个公开序列推荐基准，作用与Industrial相同，用于避免结论仅来自单一品类。原文未明确报告样本规模、数据划分与预处理细节。
+- 腾讯大规模广告数据集及线上微信视频号流量：离线数据包含广告与自然内容混合流量、会话级用户行为和多模态物品特征，用于评估完整UniVA，包括CSID、eCPM对齐解码及GMV加权的下一转化集合；线上A/B测试于2026年3月7日至11日在20%生产流量上开展，平台覆盖数亿活跃用户和数千万动态广告。离线样本量及训练、验证、测试划分原文未明确报告。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **HR@K**
 
 Hit Rate@K，判断真实下一交互物品是否出现在前K个候选中；公开数据报告K∈{3,5,10}，工业数据还重点报告HR@100。它主要衡量候选召回覆盖，而不直接衡量候选的商业价值或前K内部排序质量。 （越高越好，因为真实下一物品被召回的比例更高。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **NDCG@K／wNDCG@K**
 
 NDCG@K对命中位置进行折损，正确物品排得越靠前得分越高；wNDCG@K用于GMV加权的下一转化集合，并进一步强调高价值转化的排序质量。 （越高越好，因为相关物品，尤其是高商业价值转化，被排在更靠前的位置。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **ValueHR@K／线上GMV指标**
 
@@ -453,7 +464,9 @@ ValueHR@K衡量Top-K候选覆盖了多少转化价值；线上GMV Lift与GMV(nor
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -484,7 +497,11 @@ UniVA在所有已报告指标上排名最佳；相对各指标最强基线的提
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">UniVA achieves the best performance across all reported metrics, with relative improvements ranging from 1.5% to 8.4% over the strongest baseline for each metric.</span>
+<div class="experiment-evidence" markdown="1">
+
+UniVA achieves the best performance across all reported metrics, with relative improvements ranging from 1.5% to 8.4% over the strongest baseline for each metric.
+
+</div>
 
 </details>
 
@@ -512,7 +529,11 @@ UniVA在所有已报告指标上排名最佳；相对各指标最强基线的提
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">UniVA (Full) | 80M | 23.2G | +37.04%</span>
+<div class="experiment-evidence" markdown="1">
+
+UniVA (Full) | 80M | 23.2G | +37.04%
+
+</div>
 
 </details>
 
@@ -540,7 +561,11 @@ UniVA在所有已报告指标上排名最佳；相对各指标最强基线的提
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Full UniVA achieves the strongest performance, with a 1.50% GMV lift and a 1.42% GMV(normal) lift.</span>
+<div class="experiment-evidence" markdown="1">
+
+Full UniVA achieves the strongest performance, with a 1.50% GMV lift and a 1.42% GMV(normal) lift.
+
+</div>
 
 </details>
 
@@ -584,7 +609,7 @@ UniVA在所有已报告指标上排名最佳；相对各指标最强基线的提
 
 **定性案例**
 
-- CSID构造策略分析显示，Classify-then-Bin配合等频分箱取得最高商业token加权熵H_tok=7.487，同时词表规模V=1939最接近2048预算。作者解释为：先按结构化商业属性分类，再在类内按出价等频切分，可避免长尾出价使少数token过密，并兼顾商业区分度与词表利用率；这是一项聚合统计分析，而非单个用户或广告的定性案例。证据：“Classify-then-Bin combined with equal-frequency binning achieves the highest weighted entropy while keeping the vocabulary size closest to the target budget of 2048, with H_tok=7.487 and V=1939.”（附录C，图5）
+- CSID构造策略分析显示，Classify-then-Bin配合等频分箱取得最高商业token加权熵$H_tok=7.487$，同时词表规模V=1939最接近2048预算。作者解释为：先按结构化商业属性分类，再在类内按出价等频切分，可避免长尾出价使少数token过密，并兼顾商业区分度与词表利用率；这是一项聚合统计分析，而非单个用户或广告的定性案例。证据：“Classify-then-Bin combined with equal-frequency binning achieves the highest weighted entropy while keeping the vocabulary size closest to the target budget of 2048, with $H_tok=7.487$ and V=1939.”（附录C，图5）
 
 </details>
 

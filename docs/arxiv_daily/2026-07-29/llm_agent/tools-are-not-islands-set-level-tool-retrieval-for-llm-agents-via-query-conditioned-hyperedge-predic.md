@@ -6,7 +6,7 @@ announcement_date: "2026-07-29"
 primary_category: "llm_agent"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:24.174837+00:00"
+generated_at: "2026-07-30T10:14:52.334731+00:00"
 source_sha256: "92900626aea9e517ab60e44a85b7ade753c4b0a40033e5c377e496140dc2b067"
 tags:
   - "LLM Agent"
@@ -36,7 +36,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2607.25718v1) · [PDF 下载](https://arxiv.org/pdf/2607.25718v1) · **关键词** 大型语言模型智能体, 工具检索, 集合级检索, 超图, 查询条件超边预测, 工具共调用, 基数特定交互  
+[arXiv 原文](https://arxiv.org/abs/2607.25718v1) · [PDF 下载](https://arxiv.org/pdf/2607.25718v1) · **关键词** 大型语言模型智能体, 工具检索, 集合级检索, 超图, 查询条件超边预测, 工具共调用, 基数特定交互<br>
 
 
 </div>
@@ -85,21 +85,21 @@ HYSET将LLM智能体的工具检索从“逐个工具排序”改写为“给定
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **工具检索（tool retrieval）**
 
 给定用户查询和大型工具库，在智能体开始规划或调用之前选出一个较小的候选工具子集。它用于缩小智能体的搜索空间，而不是直接决定工具的调用顺序或参数。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **超图与超边预测（hypergraph / hyperedge prediction）**
 
 普通图的一条边通常连接两个节点，而超图中的一条超边可以同时连接多个节点；在本文中，节点是工具，一条超边表示一组曾被共同调用或适合共同完成任务的工具。查询条件下的超边预测，就是判断哪个完整工具集合最适合当前查询。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **集合基数（cardinality）**
 
@@ -124,28 +124,28 @@ HYSET将LLM智能体的工具检索从“逐个工具排序”改写为“给定
 
 <div class="notation-list" markdown="1">
 
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$q$**
 
 当前用户的自然语言查询；原文节选未给出正式符号表，此处仅用作问题描述中的简写。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\mathcal{T}$**
 
 可供检索的完整工具或 API 端点库；原文节选未明确规定该符号。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$S \subseteq \mathcal{T}$**
 
 针对查询选出的候选工具集合，也是本文主张直接进行整体评分的基本单位；原文节选未明确规定该符号。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$|S|$**
 
@@ -243,7 +243,7 @@ HYSET把工具检索重新定义为“查询条件下的超边预测”：工具
 
 <div class="method-step__io" markdown="1">
 
-**输入**：工具节点集合 \(\mathcal{V}=\mathcal{T}\)，以及训练集 \(\mathcal{D}_{\mathrm{tr}}=\{(x_i,E_i^\star)\}_{i=1}^{N}\)。  
+**输入**：工具节点集合 \(\mathcal{V}=\mathcal{T}\)，以及训练集 \(\mathcal{D}_{\mathrm{tr}}=\{(x_i,E_i^\star)\}_{i=1}^{N}\)。<br>
 **输出**：包含一个标注正集合和若干对比负集合的、可计算的集合级候选池 \(\mathcal{C}_i\)。
 
 </div>
@@ -263,7 +263,7 @@ HYSET把工具检索重新定义为“查询条件下的超边预测”：工具
 
 <div class="method-step__io" markdown="1">
 
-**输入**：查询 \(x_i\)、候选工具集 \(E=\{t_{j_1},\ldots,t_{j_m}\}\)、工具嵌入 \(\mathbf{Z}\)、冻结查询编码器 \(\mathbf{r}(\cdot)\)、投影矩阵 \(\mathbf{P}\) 和集合规模专属矩阵 \(\mathbf{M}_m\)。  
+**输入**：查询 \(x_i\)、候选工具集 \(E=\{t_{j_1},\ldots,t_{j_m}\}\)、工具嵌入 \(\mathbf{Z}\)、冻结查询编码器 \(\mathbf{r}(\cdot)\)、投影矩阵 \(\mathbf{P}\) 和集合规模专属矩阵 \(\mathbf{M}_m\)。<br>
 **输出**：表示候选集合对当前查询联合效用的单一实数分数。
 
 </div>
@@ -283,7 +283,7 @@ HYSET把工具检索重新定义为“查询条件下的超边预测”：工具
 
 <div class="method-step__io" markdown="1">
 
-**输入**：候选池内各集合的分数、标注集合 \(E_i^\star\)、当前最高分集合 \(\widehat{E}_i\)，以及冻结智能体执行该集合所得奖励 \(\rho_i\in[0,1]\)。  
+**输入**：候选池内各集合的分数、标注集合 \(E_i^\star\)、当前最高分集合 \(\widehat{E}_i\)，以及冻结智能体执行该集合所得奖励 \(\rho_i\in[0,1]\)。<br>
 **输出**：学习后的参数 \(\widehat{\theta}=(\widehat{\mathbf{Z}},\{\widehat{\mathbf{M}}_m\}_{m=2}^{M},\widehat{\mathbf{P}})\)及评分函数 \(\widehat{F}=F_{\widehat{\theta}}\)。
 
 </div>
@@ -303,7 +303,7 @@ HYSET把工具检索重新定义为“查询条件下的超边预测”：工具
 
 <div class="method-step__io" markdown="1">
 
-**输入**：新查询 \(x_{\mathrm{new}}\)、学习后的评分函数、初始相关工具数 \(K_1\)、短名单规模 \(K_{\mathrm{pool}}\)和最大输出规模 \(M\)。  
+**输入**：新查询 \(x_{\mathrm{new}}\)、学习后的评分函数、初始相关工具数 \(K_1\)、短名单规模 \(K_{\mathrm{pool}}\)和最大输出规模 \(M\)。<br>
 **输出**：变长无序工具集 \(\widehat{E}(x_{\mathrm{new}})\)，并将其交给冻结的下游LLM智能体执行。
 
 </div>
@@ -351,7 +351,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：第一项检查工具之间能否协作，并允许协作关系随集合规模改变；第二项让查询在当前集合内部重新分配关注度。两者相加意味着一个集合只有在“成员搭配合理”和“整体符合当前任务”两方面都表现良好时才会获得高分。  
+**直观理解**：第一项检查工具之间能否协作，并允许协作关系随集合规模改变；第二项让查询在当前集合内部重新分配关注度。两者相加意味着一个集合只有在“成员搭配合理”和“整体符合当前任务”两方面都表现良好时才会获得高分。<br>
 **原文位置**：第2.4节，公式(2)–(6)
 
 </div>
@@ -386,7 +386,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：第一项以人工标注为教师，第二项以真实执行是否成功为补充信号：奖励越高，模型越强地学习当前预测集合；奖励为零时该样本不产生自训练强化。正则化和单位范数约束防止模型仅通过无限放大工具嵌入或交互矩阵来降低softmax损失。  
+**直观理解**：第一项以人工标注为教师，第二项以真实执行是否成功为补充信号：奖励越高，模型越强地学习当前预测集合；奖励为零时该样本不产生自训练强化。正则化和单位范数约束防止模型仅通过无限放大工具嵌入或交互矩阵来降低softmax损失。<br>
 **原文位置**：第2.4节，公式(8)–(11)
 
 </div>
@@ -443,26 +443,37 @@ $$
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- ToolBench是主要训练与测试基准。官方过滤后包含13,860个可调用API端点和200,311条带真实API集合的指令；作者合并官方训练部分进行训练，并在六个留出测试集的共600个查询上评估。它用于比较离线检索、集合完整性和冻结智能体的端到端执行成功率，并额外按训练测试重合情况、未见完整工具集和未见工具对进行切分，以检查结果是否依赖记忆既有组合。
-- UltraTool用于检验跨工具库迁移，包含22个领域的2,032个工具，且工具库与ToolBench完全不相交。其真实工具集合仅6.1%为单工具集合，而ToolBench为20.4%，因此它更强调多工具协作检索；实验比较目标域训练、从ToolBench直接零样本迁移以及HYSET与ToolGen的差距。
-- ToolBench上的泛化划分包括UT、UC和CD三种设置：UT留出工具，UC留出工具类别，CD考查跨领域迁移。UC还提供每个目标类别1、5、10个标注样本的少样本适配及完整监督，用于区分工具新颖性、类别分布偏移和领域偏移，并衡量少量目标域标注能恢复多少性能。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- ToolBench是主要训练与测试基准。官方过滤后包含13,860个可调用API端点和200,311条带真实API集合的指令；作者合并官方训练部分进行训练，并在六个留出测试集的共600个查询上评估。它用于比较离线检索、集合完整性和冻结智能体的端到端执行成功率，并额外按训练测试重合情况、未见完整工具集和未见工具对进行切分，以检查结果是否依赖记忆既有组合。
+- UltraTool用于检验跨工具库迁移，包含22个领域的2,032个工具，且工具库与ToolBench完全不相交。其真实工具集合仅6.1%为单工具集合，而ToolBench为20.4%，因此它更强调多工具协作检索；实验比较目标域训练、从ToolBench直接零样本迁移以及HYSET与ToolGen的差距。
+- ToolBench上的泛化划分包括UT、UC和CD三种设置：UT留出工具，UC留出工具类别，CD考查跨领域迁移。UC还提供每个目标类别1、5、10个标注样本的少样本适配及完整监督，用于区分工具新颖性、类别分布偏移和领域偏移，并衡量少量目标域标注能恢复多少性能。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **Recall@5**
 
 衡量长度为5的检索排名覆盖了多少真实所需工具，主要检查单个相关工具能否被召回。它不能单独保证一个多工具任务所需的全部工具同时出现。 （越高越好，因为更高值表示真实工具中有更大比例进入前5名。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **COMP@5**
 
 集合完整性指标，检查前5个结果是否覆盖任务所需的完整工具集合。相较Recall@5，它更直接测试多工具任务是否因缺少任一必要工具而无法执行，是验证集合级检索主张的核心指标。 （越高越好，因为智能体只有获得完整的必要工具组合，才具备完成任务的工具条件。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **GPT-4/Human Pass Rate**
 
@@ -470,7 +481,9 @@ $$
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -501,7 +514,11 @@ $$
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Table 1 shows that HYSET outperforms every baseline on every retrieval and end-to-end metric. Retrieval gains over the strongest baseline reach 15.3% relative for the BERT configuration and 17.8% for Qwen, and are largest on COMP, where COMP@5 improves by 10.8% and 11.6% relative over ToolGen.</span>
+<div class="experiment-evidence" markdown="1">
+
+Table 1 shows that HYSET outperforms every baseline on every retrieval and end-to-end metric. Retrieval gains over the strongest baseline reach 15.3% relative for the BERT configuration and 17.8% for Qwen, and are largest on COMP, where COMP@5 improves by 10.8% and 11.6% relative over ToolGen.
+
+</div>
 
 </details>
 
@@ -529,7 +546,11 @@ $$
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Retraining the two strongest baselines with the identical reward, judge and 20,000-rollout budget raises ToolGen to 83.12% Recall@5, 70.94% COMP@5 and 66.85% Pass Rate, and ToolLLaMA-Retriever to 66.42% Pass Rate. Execution feedback thus helps them by about as much as it helps HYSET, whose own Pass Rate gains 7.0% relative over its annotation-only value of 65.14%. The GPT-4 Pass Rate margin consequently falls from 8.8% to 4.3% relative while the COMP@5 margin falls only from 10.8% to 9.3%.</span>
+<div class="experiment-evidence" markdown="1">
+
+Retraining the two strongest baselines with the identical reward, judge and 20,000-rollout budget raises ToolGen to 83.12% Recall@5, 70.94% COMP@5 and 66.85% Pass Rate, and ToolLLaMA-Retriever to 66.42% Pass Rate. Execution feedback thus helps them by about as much as it helps HYSET, whose own Pass Rate gains 7.0% relative over its annotation-only value of 65.14%. The GPT-4 Pass Rate margin consequently falls from 8.8% to 4.3% relative while the COMP@5 margin falls only from 10.8% to 9.3%.
+
+</div>
 
 </details>
 
@@ -557,7 +578,11 @@ $$
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Performance decreases as the shift grows, yet CD retains 79.9% of in-domain set completeness, and 5-shot UC recovers 93.2% of fully supervised performance. On UltraTool, whose library is disjoint from ToolBench, HYSET improves COMP@5 by 11.5% over ToolGen. Direct transfer from ToolBench without target training retains 77.9% of the performance obtained by training on UltraTool.</span>
+<div class="experiment-evidence" markdown="1">
+
+Performance decreases as the shift grows, yet CD retains 79.9% of in-domain set completeness, and 5-shot UC recovers 93.2% of fully supervised performance. On UltraTool, whose library is disjoint from ToolBench, HYSET improves COMP@5 by 11.5% over ToolGen. Direct transfer from ToolBench without target training retains 77.9% of the performance obtained by training on UltraTool.
+
+</div>
 
 </details>
 
@@ -597,7 +622,7 @@ $$
 
 | 对比 / 设置 | 结果 | 怎么理解 | 原文位置与证据 |
 |---|---|---|---|
-| 移除集合级评分函数F_set | 完整模型为84.75±0.09% Recall@5、77.55±0.12% COMP@5和69.69±0.61% Pass Rate；移除F_set后分别降至72.04±0.18%、67.36±0.09%和57.97±0.73%。作者按相对变化概括为COMP@5下降13.1%、Pass Rate下降16.8%。 | 该消融直接检验“把候选集合整体作为评分单位”是否必要。三个指标均大幅下降，尤其集合完整性和最终通过率同步下降，说明逐工具或缺少联合集合项的表示无法充分捕捉工具间互补关系。这是支持核心结构主张最直接的消融，但它同时移除了一个较大的功能模块，不能进一步区分该模块内部究竟哪种交互形式贡献最大。 | 第3.3节 Ablation Study，Table 2(a)<br><span class="experiment-evidence">Removing F_set reduces COMP@5 by 13.1% and Pass Rate by 16.8%, showing that joint set scoring drives the gains.</span> |
+| 移除集合级评分函数$F_set$ | 完整模型为84.75±0.09% Recall@5、77.55±0.12% COMP@5和69.69±0.61% Pass Rate；移除$F_set$后分别降至72.04±0.18%、67.36±0.09%和57.97±0.73%。作者按相对变化概括为COMP@5下降13.1%、Pass Rate下降16.8%。 | 该消融直接检验“把候选集合整体作为评分单位”是否必要。三个指标均大幅下降，尤其集合完整性和最终通过率同步下降，说明逐工具或缺少联合集合项的表示无法充分捕捉工具间互补关系。这是支持核心结构主张最直接的消融，但它同时移除了一个较大的功能模块，不能进一步区分该模块内部究竟哪种交互形式贡献最大。 | 第3.3节 Ablation Study，Table 2(a)<br><span class="experiment-evidence">Removing $F_set$ reduces COMP@5 by 13.1% and Pass Rate by 16.8%, showing that joint set scoring drives the gains.</span> |
 | 基数相关交互矩阵对比共享矩阵、恒等矩阵及去正则化 | 完整模型为84.75±0.09% Recall@5、77.55±0.12% COMP@5和69.69±0.61% Pass Rate；改用共享矩阵后降至78.43±0.20%、73.66±0.08%和64.37±0.69%，使用恒等矩阵则进一步降至75.05±0.16%、68.68±0.15%和59.92±0.71%。去掉正则化后的结果为83.17±0.07%、75.34±0.13%和68.93±0.64%。 | 共享矩阵保留了可学习的工具交互，却不再根据集合大小选择不同参数，因此它与完整模型的差距主要隔离“基数条件化”的价值；恒等矩阵进一步取消了可学习兼容性，表现更差。结果支持这样的直观解释：两个工具在小集合中可能构成核心互补，而在更大集合中可能冗余或需要其他工具配合，因此兼容性不应被视为与集合大小无关。去正则化的较小下降还表明，正则项有帮助，但不是主要收益来源。 | 第3.3节 Ablation Study，Table 2(b)<br><span class="experiment-evidence">Replacing cardinality-specific matrices with a learned shared matrix reduces performance, and identity matrices perform worse still. These results confirm that compatibility should vary with set size.</span> |
 
 **定性案例**

@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "llm_agent"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:25.849594+00:00"
+generated_at: "2026-07-30T10:14:52.931518+00:00"
 source_sha256: "e6f1799a574fb5c8a2a4fc2f15d84596b13522e53b01afec18dfca0fe5755a7f"
 tags:
   - "LLM Agent"
@@ -34,7 +34,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2607.26075v1) · [PDF 下载](https://arxiv.org/pdf/2607.26075v1) · **关键词** 智能文档处理, 大语言模型智能体, 闭环优化, 流水线配置, 领域技能, 信息抽取  
+[arXiv 原文](https://arxiv.org/abs/2607.26075v1) · [PDF 下载](https://arxiv.org/pdf/2607.26075v1) · **关键词** 智能文档处理, 大语言模型智能体, 闭环优化, 流水线配置, 领域技能, 信息抽取<br>
 
 
 </div>
@@ -82,21 +82,21 @@ tags:
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **智能文档处理（IDP）流水线**
 
 由OCR、拆分、分类、信息抽取和后处理等组件组成的可配置处理流程，输入通常是PDF或图像文档，输出是类别、字段值或文档边界等结构化结果。任一组件的配置变化都可能影响后续步骤，因此需要从整体上调优。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **闭环优化**
 
 系统反复执行“运行当前配置—计算评价指标—分析错误—修改配置—重新评价”，并利用上一轮反馈决定下一轮操作。与一次性生成提示词不同，它能够针对具体字段和失败样本持续修正。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **领域技能注入**
 
@@ -210,7 +210,7 @@ IDP AutoOpt将智能文档处理流水线的配置过程建模为带运行约束
 
 <div class="method-step__io" markdown="1">
 
-**输入**：可配置的文档处理流水线P、初始YAML配置c、小规模标注评估集D、评分函数S，以及成本预算、时延要求或模型可用性等约束Ω。  
+**输入**：可配置的文档处理流水线P、初始YAML配置c、小规模标注评估集D、评分函数S，以及成本预算、时延要求或模型可用性等约束Ω。<br>
 **输出**：一个具有明确搜索空间、评价标准、停止条件和初始配置版本的优化任务。
 
 </div>
@@ -226,11 +226,11 @@ IDP AutoOpt将智能文档处理流水线的配置过程建模为带运行约束
 
 #### 执行流水线并生成细粒度反馈
 
-评估工具在D上运行P(c_t)，将预测结果与真值比较，计算字段级准确率，并生成按文档、字段和错误模式组织的明细；同时保存本轮配置及结果。
+评估工具在D上运行$P(c_t)$，将预测结果与真值比较，计算字段级准确率，并生成按文档、字段和错误模式组织的明细；同时保存本轮配置及结果。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：当前配置c_t、完整标注集D，以及可通过评估API调用的目标流水线P。  
+**输入**：当前配置$c_t$、完整标注集D，以及可通过评估API调用的目标流水线P。<br>
 **输出**：总体评分、逐文档和逐字段错误分解、成本等运行信息，以及版本化的评估记录。
 
 </div>
@@ -250,8 +250,8 @@ IDP AutoOpt将智能文档处理流水线的配置过程建模为带运行约束
 
 <div class="method-step__io" markdown="1">
 
-**输入**：本轮评分与错误明细、当前配置、历史优化日志、27个人工编写的领域技能，以及必要时的文档图像；可选输入为目标流水线源代码的只读访问。  
-**输出**：候选配置c_{t+1}，以及记录修改理由和预期效果的日志条目。
+**输入**：本轮评分与错误明细、当前配置、历史优化日志、27个人工编写的领域技能，以及必要时的文档图像；可选输入为目标流水线源代码的只读访问。<br>
+**输出**：候选配置$c_{t+1}$，以及记录修改理由和预期效果的日志条目。
 
 </div>
 
@@ -270,7 +270,7 @@ IDP AutoOpt将智能文档处理流水线的配置过程建模为带运行约束
 
 <div class="method-step__io" markdown="1">
 
-**输入**：候选配置c_{t+1}、标注集D、历史最佳结果、优化日志及剩余迭代、时间和费用预算。  
+**输入**：候选配置$c_{t+1}$、标注集D、历史最佳结果、优化日志及剩余迭代、时间和费用预算。<br>
 **输出**：满足运行约束的最终配置、完整版本历史、每轮决策与结果构成的可审计日志。
 
 </div>
@@ -313,7 +313,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：该目标要求从复杂的混合配置空间中找到效果最好的方案，但候选方案必须满足真实部署限制。核心取舍是“预算内的最佳准确率”，而不是不计成本地追求最高分。  
+**直观理解**：该目标要求从复杂的混合配置空间中找到效果最好的方案，但候选方案必须满足真实部署限制。核心取舍是“预算内的最佳准确率”，而不是不计成本地追求最高分。<br>
 **原文位置**：第3节，公式(1)
 
 </div>
@@ -369,26 +369,37 @@ $$
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- RealKIE FCC-Verified：包含75张真实广播广告发票，覆盖18种来自不同电视台和媒体公司的视觉版式；其中25张人工挑选、覆盖全部版式模板的文档作为eval集，49张作为最终held-out test集，另有1张因标注质量问题被排除。代理只在eval集上搜索配置，test集仅用于评价所选配置。任务是抽取7个顶层字段以及包含5个子字段的变长行项目数组，用于检验小标注集条件下的配置优化和泛化。
-- OCR-Benchmark：分类实验使用其中293份文档和9个类别，用于检验方法是否能从信息抽取推广到文档分类，以及代理能否发现无需OCR的低成本多模态分类配置。
-- DocSplit-Poly-Seq：文件包切分实验包含500份文档和15个类别，用于检验代理能否优化连续文件包中的文档边界或类别切分，并与人工配置在相同成本下比较。原文未明确报告这两个泛化数据集的训练、eval与test划分。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- RealKIE FCC-Verified：包含75张真实广播广告发票，覆盖18种来自不同电视台和媒体公司的视觉版式；其中25张人工挑选、覆盖全部版式模板的文档作为eval集，49张作为最终held-out test集，另有1张因标注质量问题被排除。代理只在eval集上搜索配置，test集仅用于评价所选配置。任务是抽取7个顶层字段以及包含5个子字段的变长行项目数组，用于检验小标注集条件下的配置优化和泛化。
+- OCR-Benchmark：分类实验使用其中293份文档和9个类别，用于检验方法是否能从信息抽取推广到文档分类，以及代理能否发现无需OCR的低成本多模态分类配置。
+- DocSplit-Poly-Seq：文件包切分实验包含500份文档和15个类别，用于检验代理能否优化连续文件包中的文档边界或类别切分，并与人工配置在相同成本下比较。原文未明确报告这两个泛化数据集的训练、eval与test划分。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **Peak test accuracy**
 
 在满足0.05美元/页成本约束的配置中，先按eval集得分选择最佳配置，再报告其held-out test集严格精确匹配准确率。字符串必须逐字符一致，数值也必须完全一致，因此它衡量最终可部署配置的字段级正确程度。 （越高越好，因为表示所选配置在未参与优化的测试文档上精确抽取或预测正确的比例更高。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **AUC-50-Calibrated**
 
 50次迭代内，测试准确率“截至当前的历史最高值”曲线下面积，并减去基线；它同时反映代理是否提升、提升出现得多早以及能否保持较好的历史最优配置，零表示相对基线没有改进。 （越高越好，因为快速获得并持续保留高质量配置会产生更大的曲线面积；它比只看一次峰值更能评价整个搜索过程。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **美元/页（$/page）**
 
@@ -396,7 +407,9 @@ $$
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -427,7 +440,11 @@ $$
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">The agent surpasses the expert by iteration 4 and peaks at 90.2% ($0.022/page): +8.6 pp accuracy at 4.6× lower cost.</span>
+<div class="experiment-evidence" markdown="1">
+
+The agent surpasses the expert by iteration 4 and peaks at 90.2% ($0.022/page): +8.6 pp accuracy at 4.6× lower cost.
+
+</div>
 
 </details>
 
@@ -455,11 +472,15 @@ Sonnet、Opus和Kimi的AUC-50分别为5.28、3.89和3.72，峰值准确率分别
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Claude Sonnet 4.6 5.28 88.5% 0.008
+<div class="experiment-evidence" markdown="1">
+
+Claude Sonnet 4.6 5.28 88.5% 0.008
 Claude Opus 4.7 3.89 84.9% 0.019
 Kimi K2.5 3.72 84.1% 0.016
 Claude Haiku 4.5 0.38 77.6% 0.034
-Llama 4 Maverick 0.00 76.4% 0.011</span>
+Llama 4 Maverick 0.00 76.4% 0.011
+
+</div>
 
 </details>
 
@@ -487,7 +508,11 @@ Llama 4 Maverick 0.00 76.4% 0.011</span>
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">On classification (9 classes, 293 documents from the OCR-Benchmark (OmniAI, 2025)), the agent matches human expert accuracy at 21% lower cost in 4 iterations, by discovering that OCR is unnecessary for multimodal classification with detailed class descriptions. On packet splitting (15 classes, 500 documents from DocSplit-Poly-Seq (Islam et al., 2026b)), the agent achieves a 11% relative improvement over the human expert at identical cost, in 7 iterations.</span>
+<div class="experiment-evidence" markdown="1">
+
+On classification (9 classes, 293 documents from the OCR-Benchmark (OmniAI, 2025)), the agent matches human expert accuracy at 21% lower cost in 4 iterations, by discovering that OCR is unnecessary for multimodal classification with detailed class descriptions. On packet splitting (15 classes, 500 documents from DocSplit-Poly-Seq (Islam et al., 2026b)), the agent achieves a 11% relative improvement over the human expert at identical cost, in 7 iterations.
+
+</div>
 
 </details>
 
@@ -510,7 +535,7 @@ Llama 4 Maverick 0.00 76.4% 0.011</span>
 **主要 baseline**
 
 - 最小初始配置：只有字段名、空字段描述、通用提示词，不含少样本示例和OCR，并以Claude Sonnet 4.6作为抽取模型，测试准确率约70%。它是所有优化运行的共同起点，用于衡量代理实际带来的增量，而非与一个已经精调的系统比较。
-- RealKIE人工专家配置V_current：领域专家经过数周人工迭代后达到81.6%准确率、0.102美元/页，是判断自动代理能否替代高成本人工配置工作的核心基线。表1还列出V1、V3和V5，展示人工调优并非单一偶然配置，而是经历模型、OCR和提示词修改后在81.6%附近达到平台期。
+- RealKIE人工专家配置$V_current$：领域专家经过数周人工迭代后达到81.6%准确率、0.102美元/页，是判断自动代理能否替代高成本人工配置工作的核心基线。表1还列出V1、V3和V5，展示人工调优并非单一偶然配置，而是经历模型、OCR和提示词修改后在81.6%附近达到平台期。
 - 不同代理LLM：Claude Sonnet 4.6、Claude Opus 4.7、Kimi K2.5、Claude Haiku 4.5和Llama 4 Maverick在相同起点、预算和知识条件下比较，用于判断优化成功是否存在模型能力门槛。
 - 知识供给基线：skills加源代码、仅skills、仅源代码、两者皆无四种条件，用于区分结构化生产经验与大量非结构化实现信息的作用，而不是把提升笼统归因于代理获得了更多上下文。
 

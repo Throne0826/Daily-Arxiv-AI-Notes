@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "llm_agent"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:25.525644+00:00"
+generated_at: "2026-07-30T10:14:52.813212+00:00"
 source_sha256: "334b0a6fea336ad500b967ec9da40867b9491b33ae71f75216862c760502d3a3"
 tags:
   - "LLM Agent"
@@ -37,7 +37,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2607.26598v1) · [PDF 下载](https://arxiv.org/pdf/2607.26598v1) · **关键词** 大语言模型智能体, 交互式智能体, 智能体支架, 跨回合适配, 持久程序性修复, 情节记忆, 状态图, Evolution-SOP  
+[arXiv 原文](https://arxiv.org/abs/2607.26598v1) · [PDF 下载](https://arxiv.org/pdf/2607.26598v1) · **关键词** 大语言模型智能体, 交互式智能体, 智能体支架, 跨回合适配, 持久程序性修复, 情节记忆, 状态图, Evolution-SOP<br>
 
 
 </div>
@@ -86,21 +86,21 @@ tags:
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **智能体支架（agent harness）**
 
 围绕基础模型搭建的外部运行结构，用来配置提示、工具、上下文、记忆、工作流和评估接口。它决定模型能够获得哪些信息、执行哪些动作，以及按何种程序与环境交互。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **情节记忆（episodic memory）**
 
 以一次具体交互经历为单位保存的经验记录。本文所需的记录不仅描述发生了什么，还包含失败的触发条件、失败模式以及对应的恢复动作。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **状态图（state graph）**
 
@@ -125,28 +125,28 @@ tags:
 
 <div class="notation-list" markdown="1">
 
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\tau$**
 
 一轮已完成的智能体交互轨迹；本文将其与评估信号一起作为跨回合支架更新的证据。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\tau^{2}\text{-Bench}$**
 
 论文实验所采用的交互式智能体基准之一；这里的上标 2 属于基准名称，并非本文定义的轨迹平方运算。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\text{Pass@1}$**
 
 论文摘要所报告的主要成功率指标，表示首次执行即通过任务评估的表现；其具体判定细节在所给背景节选中未明确说明。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\text{POMDP}$**
 
@@ -240,12 +240,12 @@ Living-Harness 将智能体的工具、基础上下文和领域规则保持冻�
 
 #### 1. 初始化并冻结执行资源
 
-构造固定执行资源 C_d^{act}、固定更新协议 \psi_d，并初始化 S_d^{(0)}=(\emptyset,G_{d,\mathrm{scaf}})；基础模型、C_d^{act} 和 \psi_d 在后续演化中均不更新。
+构造固定执行资源 $C_d^{act}$、固定更新协议 $\psi_d$，并初始化 $S_d^{(0)}=(\emptyset,G_{d,\mathrm{scaf}})$；基础模型、$C_d^{act}$ 和 $\psi_d$ 在后续演化中均不更新。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：领域 d 的工具、基础上下文、领域规则，以及仅含领域根节点和任务族结构的粗粒度图骨架。  
-**输出**：初始 harness H_d^{(0)}，其中情景记忆为空，状态图尚无细粒度故障修复。
+**输入**：领域 d 的工具、基础上下文、领域规则，以及仅含领域根节点和任务族结构的粗粒度图骨架。<br>
+**输出**：初始 harness $H_d^{(0)}$，其中情景记忆为空，状态图尚无细粒度故障修复。
 
 </div>
 
@@ -260,12 +260,12 @@ Living-Harness 将智能体的工具、基础上下文和领域规则保持冻�
 
 #### 2. 按任务检索程序性上下文
 
-先构造查询 q_n=Q(x_n,f_n)，分别检索记忆和图中的相关条目，再将结果渲染为执行上下文 \kappa_n；固定规则 C_d^{act} 的优先级高于检索内容。
+先构造查询 $q_n=Q(x_n,f_n)$，分别检索记忆和图中的相关条目，再将结果渲染为执行上下文 $\kappa_n$；固定规则 $C_d^{act}$ 的优先级高于检索内容。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：当前任务 x_n、任务作用域 f_n，以及任务开始时的情景记忆 \mathcal{R}^{(n)} 和状态图 G^{(n)}。  
-**输出**：仅包含当前任务相关故障模式、恢复操作和状态转移提示的上下文 \kappa_n。
+**输入**：当前任务 $x_n$、任务作用域 $f_n$，以及任务开始时的情景记忆 $\mathcal{R}^{(n)}$ 和状态图 $G^{(n)}$。<br>
+**输出**：仅包含当前任务相关故障模式、恢复操作和状态转移提示的上下文 $\kappa_n$。
 
 </div>
 
@@ -280,12 +280,12 @@ Living-Harness 将智能体的工具、基础上下文和领域规则保持冻�
 
 #### 3. 执行交互并获得评估
 
-智能体依照 p_M(\tau\mid x_n,C_d^{act},\kappa_n) 与环境交互，生成由观察、回复和工具动作组成的完整轨迹 \tau_n；终止后由评估器计算 y_n=E(x_n,\tau_n)，且整个 rollout 期间 S^{(n)} 保持不变。
+智能体依照 $p_M(\tau\mid x_n,C_d^{act},\kappa_n)$ 与环境交互，生成由观察、回复和工具动作组成的完整轨迹 $\tau_n$；终止后由评估器计算 $y_n=E(x_n,\tau_n)$，且整个 rollout 期间 $S^{(n)}$ 保持不变。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：任务 x_n、固定执行资源 C_d^{act}、检索上下文 \kappa_n 和基础模型 M。  
-**输出**：已完成轨迹 \tau_n 及其执行结果信号 y_n。
+**输入**：任务 $x_n$、固定执行资源 $C_d^{act}$、检索上下文 $\kappa_n$ 和基础模型 M。<br>
+**输出**：已完成轨迹 $\tau_n$ 及其执行结果信号 $y_n$。
 
 </div>
 
@@ -300,12 +300,12 @@ Living-Harness 将智能体的工具、基础上下文和领域规则保持冻�
 
 #### 4. 抽象轨迹并提取候选修复
 
-后处理器生成 episode abstraction e_n，保留任务目标、已验证交互事实、执行结果及关键失败或恢复点；随后提取 u_n=(u_n^{\mathcal R},u_n^G)，分别描述记忆修复证据与图修复证据。
+后处理器生成 episode abstraction $e_n$，保留任务目标、已验证交互事实、执行结果及关键失败或恢复点；随后提取 $u_n=(u_n^{\mathcal R},u_n^G)$，分别描述记忆修复证据与图修复证据。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：任务 x_n、轨迹 \tau_n、评估信号 y_n、固定资源 C_d^{act} 和领域级 Evolution-SOP \psi_d。  
-**输出**：结构化候选修复 u_n，而非未经筛选的完整历史轨迹。
+**输入**：任务 $x_n$、轨迹 $\tau_n$、评估信号 $y_n$、固定资源 $C_d^{act}$ 和领域级 Evolution-SOP $\psi_d$。<br>
+**输出**：结构化候选修复 $u_n$，而非未经筛选的完整历史轨迹。
 
 </div>
 
@@ -348,7 +348,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：该分解明确划定了系统可以学习什么：工具、正式规则和更新规程不动，只有记忆与状态图能在任务之间改变。这样把适应限制在程序性指导层，而不是训练模型参数或自动改写工具代码。  
+**直观理解**：该分解明确划定了系统可以学习什么：工具、正式规则和更新规程不动，只有记忆与状态图能在任务之间改变。这样把适应限制在程序性指导层，而不是训练模型参数或自动改写工具代码。<br>
 **原文位置**：Method，Problem Setting and Harness State，式 (1)
 
 </div>
@@ -369,13 +369,13 @@ $$
 - $S^{(n+1)}$：完成评估和候选审查后，供后续 episode 使用的新状态。
 - $\operatorname{Update}_{\psi_d}$：由 Evolution-SOP 控制的更新算子，执行证据、作用域和约束一致性检查并决定是否提交。
 - $\psi_d$：领域 d 的固定更新协议。
-- $u_n$：由第 n 个 episode 抽象提取出的候选修复证据，包含记忆证据 u_n^{\mathcal R} 和图证据 u_n^G。
+- $u_n$：由第 n 个 episode 抽象提取出的候选修复证据，包含记忆证据 $u_n^{\mathcal R}$ 和图证据 $u_n^G$。
 - $C_d^{\mathrm{act}}$：作为不可违反的参照条件传入更新过程的固定工具、基础上下文和领域规则。
 - $n$：当前已完成并经过评估的 episode 索引。
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：该式是持久演化的核心：一次任务产生的修复建议不会直接生效，而要在固定规则约束下由 SOP 审核。若证据不足或发生冲突，更新算子使状态保持不变；若通过，经验才进入下一次任务可检索的长期状态。  
+**直观理解**：该式是持久演化的核心：一次任务产生的修复建议不会直接生效，而要在固定规则约束下由 SOP 审核。若证据不足或发生冲突，更新算子使状态保持不变；若通过，经验才进入下一次任务可检索的长期状态。<br>
 **原文位置**：Method，Rollout–Evaluate–Update Loop，式 (9)
 
 </div>
@@ -395,25 +395,25 @@ $$
 
 **1. 双组件持久状态**
 
-演化状态 S_d^{(n)}=(\mathcal{R}_d^{(n)},G_d^{(n)}) 由情景记忆与状态图组成。\mathcal{R} 保存带作用域的触发条件、失败模式和恢复动作，G 保存状态节点、转移规则以及把观测条件连接到缺失或修订动作的修复边；前者表达修复“为何及何时有用”，后者表达修复“在流程何处改变动作”。
+演化状态 $S_d^{(n)}=(\mathcal{R}_d^{(n)},G_d^{(n)})$ 由情景记忆与状态图组成。$\mathcal{R}$ 保存带作用域的触发条件、失败模式和恢复动作，G 保存状态节点、转移规则以及把观测条件连接到缺失或修订动作的修复边；前者表达修复“为何及何时有用”，后者表达修复“在流程何处改变动作”。
 
 > 直观理解：只保存文字经验容易知道问题却不知道该插入流程的哪一步，只保存流程边又可能丢失适用条件。记忆与图联合使用，使系统同时记住事故语境和可执行的流程修改。
 
 **2. Evolution-SOP**
 
-Evolution-SOP \psi_d 是固定的领域级更新协议，不属于 actor 的任务执行提示。各领域共享 posterior–extract–commit 总流程，但 \psi_d 提供领域特定的失败解释、更新作用域划分以及领域规则和工具约束检查；它将评估后的轨迹转成候选证据，并通过有界门控决定是否提交。
+Evolution-SOP $\psi_d$ 是固定的领域级更新协议，不属于 actor 的任务执行提示。各领域共享 posterior–extract–commit 总流程，但 $\psi_d$ 提供领域特定的失败解释、更新作用域划分以及领域规则和工具约束检查；它将评估后的轨迹转成候选证据，并通过有界门控决定是否提交。
 
 > 直观理解：它相当于维护手册的审核规程，而不是完成业务任务的现场指令。其作用是防止一次偶然失败、错误归因或越界建议直接污染以后所有任务。
 
 **3. 任务条件化检索与渲染**
 
-系统根据任务 x_n 和作用域 f_n 生成查询，独立检索 \mathcal R^{(n)} 与 G^{(n)}，再将命中条目组织为 actor 可读的程序性上下文 \kappa_n。该机制是对持久状态的选择性投影，不重放全部历史，并明确让固定规则 C_d^{act} 保持更高优先级。
+系统根据任务 $x_n$ 和作用域 $f_n$ 生成查询，独立检索 $\mathcal R^{(n)}$ 与 $G^{(n)}$，再将命中条目组织为 actor 可读的程序性上下文 $\kappa_n$。该机制是对持久状态的选择性投影，不重放全部历史，并明确让固定规则 $C_d^{act}$ 保持更高优先级。
 
 > 直观理解：长期状态可以不断增长，但当前模型只看到最相关的一小部分。这样既控制上下文负担，也降低不相关经验误导当前决策的风险。
 
 **训练与推理**
 
-演化阶段与部署推理使用同一闭环。对第 n 个任务，先从固定于该 episode 的 S^{(n)} 中检索相关记忆和图结构，渲染为 \kappa_n，随后基础模型在 x_n、C_d^{act} 和 \kappa_n 条件下执行交互；任务结束后，评估器生成 y_n，Evolution-SOP 将 (x_n,\tau_n,y_n,C_d^{act}) 压缩为 episode abstraction，再提取并审查 u_n，最后生成 S^{(n+1)}。若任务本身允许重试，失败尝试还可以形成仅供当前任务使用的局部反思，但该反馈在任务实例结束时丢弃；只有经过评估和门控后写入情景记忆或状态图的修复才属于持久演化。
+演化阶段与部署推理使用同一闭环。对第 n 个任务，先从固定于该 episode 的 $S^{(n)}$ 中检索相关记忆和图结构，渲染为 $\kappa_n$，随后基础模型在 $x_n$、$C_d^{act}$ 和 $\kappa_n$ 条件下执行交互；任务结束后，评估器生成 $y_n$，Evolution-SOP 将 ($x_n,\tau_n,y_n,C_d^{act})$ 压缩为 episode abstraction，再提取并审查 $u_n$，最后生成 $S^{(n+1)}$。若任务本身允许重试，失败尝试还可以形成仅供当前任务使用的局部反思，但该反馈在任务实例结束时丢弃；只有经过评估和门控后写入情景记忆或状态图的修复才属于持久演化。
 纯推理或迁移复用时，无须重新训练模型，也可以只读取已经演化好的状态：针对新任务执行查询、检索、渲染和 rollout 即可。原文摘要称该状态支持跨模型骨干的 retrieval-only reuse，但所给方法节选未明确说明跨骨干时的序列化格式、兼容性处理或额外校准步骤，因此不能据此推断具体迁移实现。
 
 **复现信息**
@@ -430,25 +430,36 @@ Evolution-SOP \psi_d 是固定的领域级更新协议，不属于 actor 的任�
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- τ²-Bench：面向对话智能体的真实多轮交互基准，包含策略约束和可执行工具调用。实验使用 Retail、Airline、Telecom 三个领域，用于检验复杂业务规则下的持续程序修复。原文未明确报告本实验使用的样本规模与具体数据划分。
-- MultiWOZ-2.4：经过纠正的多领域任务型对话基准。实验使用 Restaurant、Hotel、Train、Attraction、Taxi 五个主要领域，用于检验修复知识在不同任务领域及跨领域组合中的迁移。原文未明确报告本实验使用的样本规模与具体数据划分。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- τ²-Bench：面向对话智能体的真实多轮交互基准，包含策略约束和可执行工具调用。实验使用 Retail、Airline、Telecom 三个领域，用于检验复杂业务规则下的持续程序修复。原文未明确报告本实验使用的样本规模与具体数据划分。
+- MultiWOZ-2.4：经过纠正的多领域任务型对话基准。实验使用 Restaurant、Hotel、Train、Attraction、Taxi 五个主要领域，用于检验修复知识在不同任务领域及跨领域组合中的迁移。原文未明确报告本实验使用的样本规模与具体数据划分。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **Pass@1（任务成功率）**
 
 衡量智能体在被计分的一次任务执行中是否完成目标；论文将其作为两个基准的主要指标。协议允许任务局部重试时，报告分数仍遵循论文规定的任务级评估流程。 （越高越好，因为更高数值表示更大比例的交互任务满足基准成功条件。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **相邻演化周期的 Pass@1 绝对变化**
 
 Table 2 括号中的数值表示当前周期相对前一周期的百分点变化，用于观察持久 harness 在在线更新后是否持续改善，以及是否出现回落。 （通常正值且越大表示该周期带来的增益越强；负值表示波动或退化，但不能单独说明长期累计效果。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **组件移除后的平均 Pass@1**
 
@@ -456,7 +467,9 @@ Table 2 括号中的数值表示当前周期相对前一周期的百分点变化
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -487,7 +500,11 @@ Living-Harness 在 τ²-Bench 和 MultiWOZ-2.4 上的平均 Pass@1 分别为 83.
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Table 1 shows that Living-Harness achieves the best overall performance on both benchmarks, reaching 83.09 average Pass@1 on τ²-Bench and 65.50 on MultiWOZ-2.4.</span>
+<div class="experiment-evidence" markdown="1">
+
+Table 1 shows that Living-Harness achieves the best overall performance on both benchmarks, reaching 83.09 average Pass@1 on τ²-Bench and 65.50 on MultiWOZ-2.4.
+
+</div>
 
 </details>
 
@@ -515,7 +532,11 @@ Living-Harness 在 τ²-Bench 和 MultiWOZ-2.4 上的平均 Pass@1 分别为 83.
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">On τ²-Bench, all three domains improve substantially over Cycle 0: Retail rises from 57.02 to 85.96, Telecom from 57.39 to 78.07, and Airline reaches 88.00 at Cycle 2 before remaining high at 86.00 in Cycle 3.</span>
+<div class="experiment-evidence" markdown="1">
+
+On τ²-Bench, all three domains improve substantially over Cycle 0: Retail rises from 57.02 to 85.96, Telecom from 57.39 to 78.07, and Airline reaches 88.00 at Cycle 2 before remaining high at 86.00 in Cycle 3.
+
+</div>
 
 </details>
 
@@ -543,7 +564,11 @@ Living-Harness 在 τ²-Bench 和 MultiWOZ-2.4 上的平均 Pass@1 分别为 83.
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">The gains are especially large in domains where the base model struggles, such as Taxi, where GLM-5, Qwen3-max, and Kimi-k2 improve from 0.00 to 43.08, 45.13, and 45.13, respectively.</span>
+<div class="experiment-evidence" markdown="1">
+
+The gains are especially large in domains where the base model struggles, such as Taxi, where GLM-5, Qwen3-max, and Kimi-k2 improve from 0.00 to 43.08, 45.13, and 45.13, respectively.
+
+</div>
 
 </details>
 

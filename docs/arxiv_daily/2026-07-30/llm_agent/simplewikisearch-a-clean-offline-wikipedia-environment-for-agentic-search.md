@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "llm_agent"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:25.873187+00:00"
+generated_at: "2026-07-30T10:14:52.939209+00:00"
 source_sha256: "af2c646abaee88d4df26b69ec79ec51bd3988c1bef5cea4895de9f957f11d972"
 tags:
   - "LLM Agent"
@@ -38,7 +38,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2607.26070v1) · [PDF 下载](https://arxiv.org/pdf/2607.26070v1) · **关键词** 智能体搜索, 开放域问答, 离线维基百科, 可复现评测, 文本分块, 关键词检索, 稠密检索, 工具调用  
+[arXiv 原文](https://arxiv.org/abs/2607.26070v1) · [PDF 下载](https://arxiv.org/pdf/2607.26070v1) · **关键词** 智能体搜索, 开放域问答, 离线维基百科, 可复现评测, 文本分块, 关键词检索, 稠密检索, 工具调用<br>
 **代码**: [https://github.com/JimXiongGM/simple_wiki_search](https://github.com/JimXiongGM/simple_wiki_search)  
 
 </div>
@@ -87,21 +87,21 @@ tags:
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **智能体搜索（agentic search）**
 
 指大语言模型不直接一次性回答问题，而是根据当前信息决定是否调用搜索、打开页面等工具，并经过多轮交互后提交答案。模型的推理策略与工具环境共同决定最终表现。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **检索单元与文本分块（retrieval unit / chunking）**
 
 检索系统通常不直接搜索整篇文章，而是先把文章切成可建立索引的文本块，再返回与查询最相关的块。块过短可能丢失章节或文档级上下文，块过长则可能包含更多无关信息并增加模型阅读成本。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **关键词检索与稠密检索（keyword / dense retrieval）**
 
@@ -214,7 +214,7 @@ SimpleWikiSearch不是新的智能体算法，而是一套可复现的离线维�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：官方英文维基百科转储 enwiki-20260601，其中包含原始 wikitext、页面结构、链接及表格等内容。  
+**输入**：官方英文维基百科转储 enwiki-20260601，其中包含原始 wikitext、页面结构、链接及表格等内容。<br>
 **输出**：具有稳定页面标识、标题和章节结构的离线英文维基百科文本集合。
 
 </div>
@@ -234,7 +234,7 @@ SimpleWikiSearch不是新的智能体算法，而是一套可复现的离线维�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：清洗后的文章、文章章节边界，以及 Qwen3-Embedding-0.6B 分词器。  
+**输入**：清洗后的文章、文章章节边界，以及 Qwen3-Embedding-0.6B 分词器。<br>
 **输出**：统一块标识空间中的结构化长文本块，以及形如 /wiki/<pageid>#chunk-N 的稳定离线 URL。
 
 </div>
@@ -254,7 +254,7 @@ SimpleWikiSearch不是新的智能体算法，而是一套可复现的离线维�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：全部文本块、标题和共享块 id。  
+**输入**：全部文本块、标题和共享块 id。<br>
 **输出**：支持 rrf、keywords 和 vector 三种模式的离线检索后端，返回排序后的标题、块 URL 和文本摘要。
 
 </div>
@@ -274,7 +274,7 @@ SimpleWikiSearch不是新的智能体算法，而是一套可复现的离线维�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：用户问题、对话历史、三项 OpenAI 风格函数工具的 JSON schema，以及离线检索后端。  
+**输入**：用户问题、对话历史、三项 OpenAI 风格函数工具的 JSON schema，以及离线检索后端。<br>
 **输出**：由工具观察不断扩展的对话轨迹，以及显式终止该轮任务的最终答案。
 
 </div>
@@ -346,26 +346,37 @@ search 接收 query，并可设置 top_k、only_title 及 rrf、keywords、vecto
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- MuSiQue：开发集，共 2,417 个样本，问题平均 18.1 个词，28.1% 的样本提供至少一个答案别名。它主要检验需要组合多条证据的多跳问答能力，也是分析高交互成本与预算耗尽问题的代表性困难数据集。
-- FRAMES：使用全部 824 个样本，问题平均 27.6 个词，不提供答案别名。它用于检验较长问题下的多步搜索与推理，并可观察词面 F1 在缺少别名时是否低估语义正确但表述不同的答案。
-- HotpotQA：使用 dev-fullwiki 划分，共 7,405 个样本，问题平均 15.7 个词，不提供答案别名。它用于测试全 Wikipedia 环境中的多跳检索，并构成模型规模增大后并非所有数据集都提升的反例。实验还评测了 2WikiMultiHopQA、PopQA 和 Bamboogle，但受字段数量限制不逐项展开。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- MuSiQue：开发集，共 2,417 个样本，问题平均 18.1 个词，28.1% 的样本提供至少一个答案别名。它主要检验需要组合多条证据的多跳问答能力，也是分析高交互成本与预算耗尽问题的代表性困难数据集。
+- FRAMES：使用全部 824 个样本，问题平均 27.6 个词，不提供答案别名。它用于检验较长问题下的多步搜索与推理，并可观察词面 F1 在缺少别名时是否低估语义正确但表述不同的答案。
+- HotpotQA：使用 dev-fullwiki 划分，共 7,405 个样本，问题平均 15.7 个词，不提供答案别名。它用于测试全 Wikipedia 环境中的多跳检索，并构成模型规模增大后并非所有数据集都提升的反例。实验还评测了 2WikiMultiHopQA、PopQA 和 Bamboogle，但受字段数量限制不逐项展开。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **Token-level F1**
 
 对预测答案与主答案及其别名分别做开放域问答的标准规范化，包括转为小写、去除标点和冠词，再计算词元级精确率与召回率的调和平均，并取所有可接受答案中的最大值。它主要衡量预测与标准答案的词面重合程度。 （越高越好，因为更高表示预测包含更多正确答案词元且无关词元更少；但正确的改写或较长回答可能因词面差异而得分偏低。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **LLM-judged accuracy**
 
 由 gpt-5.4-mini-2026-03-17 按固定二元提示判断预测是否在事实意义上正确，允许释义、日期或姓名变体，以及嵌入较长文本中的正确答案。 （越高越好，因为它表示被判定为事实正确的样本比例更大；但该指标依赖特定裁判模型及提示词，不能视为完全客观的人工准确率。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **交互轨迹统计**
 
@@ -373,7 +384,9 @@ search 接收 query，并可设置 top_k、only_title 及 rrf、keywords、vecto
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -404,7 +417,11 @@ search 接收 query，并可设置 top_k、only_title 及 rrf、keywords、vecto
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Under the LLM-judged metric, the open-source 9B model improves over the 4B model on most datasets, with the largest gains on MuSiQue, FRAMES, and Bamboogle; HotpotQA is an exception, where 9B is slightly lower.</span>
+<div class="experiment-evidence" markdown="1">
+
+Under the LLM-judged metric, the open-source 9B model improves over the 4B model on most datasets, with the largest gains on MuSiQue, FRAMES, and Bamboogle; HotpotQA is an exception, where 9B is slightly lower.
+
+</div>
 
 </details>
 
@@ -432,7 +449,11 @@ search 接收 query，并可设置 top_k、only_title 及 rrf、keywords、vecto
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Harder multi-hop datasets such as MuSiQue and FRAMES require roughly twice as many rounds and search calls as 2Wiki or PopQA, and their successful submission rates drop into the 66–73% range, indicating that many episodes end by hitting the round budget rather than by a successful answer submission.</span>
+<div class="experiment-evidence" markdown="1">
+
+Harder multi-hop datasets such as MuSiQue and FRAMES require roughly twice as many rounds and search calls as 2Wiki or PopQA, and their successful submission rates drop into the 66–73% range, indicating that many episodes end by hitting the round budget rather than by a successful answer submission.
+
+</div>
 
 </details>
 
@@ -460,8 +481,12 @@ search 接收 query，并可设置 top_k、only_title 及 rrf、keywords、vecto
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">FRAMES 824 11.68 9.46 1.50 66.26 114,771 39.8
-FRAMES 824 11.29 8.89 1.43 71.00 119,330 65.6</span>
+<div class="experiment-evidence" markdown="1">
+
+FRAMES 824 11.68 9.46 1.50 66.26 114,771 39.8
+FRAMES 824 11.29 8.89 1.43 71.00 119,330 65.6
+
+</div>
 
 </details>
 

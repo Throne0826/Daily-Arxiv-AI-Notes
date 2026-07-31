@@ -20,6 +20,123 @@ REQUIRED_HEADINGS = [
 ]
 
 
+_PROTECTED_MATH_RE = re.compile(
+    r"(```.*?```|`[^`\n]*`|\$\$.*?\$\$|\$(?:\\.|[^$\n])+\$|\\\(.*?\\\)|\\\[.*?\\\])",
+    re.DOTALL,
+)
+_MATH_ATOM = (
+    r"A-Za-z0-9\u0370-\u03ff\u1f00-\u1fff\u2100-\u214f"
+    r"\u2200-\u22ff\u2a00-\u2aff"
+)
+_INLINE_MATH_CANDIDATE_RE = re.compile(
+    rf"(?:\\[A-Za-z]+|[{_MATH_ATOM}])"
+    rf"[{_MATH_ATOM}\\_^{{}}()\[\],=+*/<>|.!:;%&\-]*"
+)
+_DECORATED_SYMBOL_RE = re.compile(
+    r"(?:^|[=+*/<>,(|\-])"
+    rf"(?:\\[A-Za-z]+|[{_MATH_ATOM}])"
+    r"(?:_[A-Za-z0-9]|_\{[^{}]{1,48}\}|\^[A-Za-z0-9]|\^\{[^{}]{1,48}\})"
+)
+_JOINING_MATH_COMMAND_RE = re.compile(
+    r"(?:\\(?:cup|cap|times|cdot|oplus|otimes|in|notin|mid|sim|approx|to|"
+    r"rightarrow|leftarrow|leq|geq|neq|pm|mp)|[=+*/<>|\-])$"
+)
+_ARGUMENT_COMMAND_RE = re.compile(
+    r"\\(?:mathbf|mathrm|mathcal|mathbb|mathsf|text|textsc|operatorname|boldsymbol|"
+    r"hat|widehat|bar|tilde|widetilde|vec|overline|underline|lVert|lvert|left)$"
+)
+_COMMAND_AT_END_RE = re.compile(r"\\[A-Za-z]+$")
+_SHORT_MATH_OPERAND_RE = re.compile(
+    rf"^(?:\\[A-Za-z]+|[{_MATH_ATOM}])"
+    r"(?:_[A-Za-z0-9]|_\{[^{}]{1,48}\}|\^[A-Za-z0-9]|\^\{[^{}]{1,48}\})?$"
+)
+_NESTED_SCRIPT_MATH_RE = re.compile(
+    rf"(?<![$A-Za-z0-9])"
+    rf"(?P<base>(?:\\[A-Za-z]+|[{_MATH_ATOM}])(?:[_^]\{{[^{{}}\n]+\}})*)"
+    r"(?P<script>[_^])\{\$(?P<body>[^$\n]+)\$\}"
+)
+
+
+def _unclosed_math_delimiters(expression: str) -> bool:
+    def balance(opening: str, closing: str) -> int:
+        return len(re.findall(rf"(?<!\\){re.escape(opening)}", expression)) - len(
+            re.findall(rf"(?<!\\){re.escape(closing)}", expression)
+        )
+
+    return any(balance(opening, closing) > 0 for opening, closing in (("{", "}"), ("(", ")"), ("[", "]")))
+
+
+def _looks_like_inline_math(expression: str) -> bool:
+    return bool(re.search(r"\\[A-Za-z]+", expression) or _DECORATED_SYMBOL_RE.search(expression))
+
+
+def _should_join_math_token(expression: str) -> bool:
+    return bool(
+        _unclosed_math_delimiters(expression)
+        or _JOINING_MATH_COMMAND_RE.search(expression)
+        or _ARGUMENT_COMMAND_RE.search(expression)
+    )
+
+
+def _normalize_unprotected_math(text: str) -> str:
+    matches = list(_INLINE_MATH_CANDIDATE_RE.finditer(text))
+    rendered: list[str] = []
+    cursor = 0
+    index = 0
+    while index < len(matches):
+        match = matches[index]
+        expression = match.group(0)
+        if not _looks_like_inline_math(expression):
+            index += 1
+            continue
+
+        start = match.start()
+        end = match.end()
+        next_index = index + 1
+        while next_index < len(matches):
+            next_match = matches[next_index]
+            gap = text[end : next_match.start()]
+            next_expression = next_match.group(0)
+            should_join = (
+                _should_join_math_token(expression)
+                or _looks_like_inline_math(next_expression)
+                or bool(
+                    _COMMAND_AT_END_RE.search(expression)
+                    and _SHORT_MATH_OPERAND_RE.fullmatch(next_expression)
+                )
+            )
+            if not gap.isspace() or not should_join:
+                break
+            expression += gap + next_expression
+            end = next_match.end()
+            next_index += 1
+
+        expression_body = expression.rstrip(".,:;!")
+        trailing = expression[len(expression_body) :]
+        rendered.append(text[cursor:start])
+        rendered.append(f"${expression_body}${trailing}")
+        cursor = end
+        index = next_index
+
+    rendered.append(text[cursor:])
+    return "".join(rendered)
+
+
+def _normalize_inline_math(value: Any) -> str:
+    """Wrap likely bare LaTeX fragments while preserving existing Markdown math."""
+    text = str(value or "")
+    text = _NESTED_SCRIPT_MATH_RE.sub(
+        lambda match: (
+            f"${match.group('base')}{match.group('script')}{{{match.group('body')}}}$"
+        ),
+        text,
+    )
+    parts = _PROTECTED_MATH_RE.split(text)
+    for index in range(0, len(parts), 2):
+        parts[index] = _normalize_unprotected_math(parts[index])
+    return "".join(parts)
+
+
 def slugify(title: str, arxiv_id: str, max_length: int = 100) -> str:
     slug = title.lower().replace("&", " and ")
     slug = re.sub(r"[^a-z0-9]+", "-", slug).strip("-")
@@ -36,7 +153,7 @@ def _list_items(
     empty: str = "- 原文未明确报告。",
     limit: int | None = None,
 ) -> str:
-    cleaned = [str(value).strip() for value in values if str(value).strip()]
+    cleaned = [_normalize_inline_math(str(value).strip()) for value in values if str(value).strip()]
     if limit is not None:
         cleaned = cleaned[:limit]
     return "\n".join(f"- {value}" for value in cleaned) if cleaned else empty
@@ -44,7 +161,7 @@ def _list_items(
 
 def _text(value: Any, empty: str = "原文未明确报告。") -> str:
     cleaned = str(value or "").strip()
-    return cleaned or empty
+    return _normalize_inline_math(cleaned or empty)
 
 
 def _object_items(value: Any) -> list[dict[str, Any]]:
@@ -67,8 +184,9 @@ def _concept_grid(
     for item in values:
         title = _text(item.get(title_key, ""), "未命名概念")
         detail = _text(item.get(detail_key, ""))
+        item_class = f"{css_class.removesuffix('-list')}-item"
         blocks.append(
-            f'<div class="{css_class[:-5]}item" markdown="1">\n\n'
+            f'<div class="{item_class}" markdown="1">\n\n'
             f"**{title}**\n\n{detail}\n\n</div>"
         )
     if not blocks:
@@ -116,7 +234,7 @@ def _method_steps(items: Any, limit: int = 4) -> str:
             '<div class="method-step__body" markdown="1">\n\n'
             f"#### {name}\n\n{operation}\n\n"
             '<div class="method-step__io" markdown="1">\n\n'
-            f"**输入**：{input_value}  \n**输出**：{output_value}\n\n</div>\n\n"
+            f"**输入**：{input_value}<br>\n**输出**：{output_value}\n\n</div>\n\n"
             f"**直观理解**：{plain}\n\n</div>\n\n</div>"
         )
     if not blocks:
@@ -171,7 +289,7 @@ def _equation_blocks(items: Any, limit: int = 2) -> str:
             f"#### {name}\n\n$$\n{latex}\n$$\n\n"
             f"**符号说明**\n\n{symbol_text}\n\n"
             '<div class="equation-explanation" markdown="1">\n\n'
-            f"**直观理解**：{plain}  \n**原文位置**：{source}\n\n</div>\n\n</div>"
+            f"**直观理解**：{plain}<br>\n**原文位置**：{source}\n\n</div>\n\n</div>"
         )
     if not blocks:
         return (
@@ -194,11 +312,11 @@ def _experiment_table(rows: list[dict[str, Any]], limit: int = 4) -> str:
         return "原文未明确报告，或自动提取阶段未获得可靠数据。"
     rendered = ["| 对比 / 设置 | 结果 | 怎么理解 | 原文位置与证据 |", "|---|---|---|---|"]
     for row in rows[:limit]:
-        setting = str(row.get("setting", "")).replace("|", "\\|")
-        result = str(row.get("result", "")).replace("|", "\\|")
-        explanation = str(row.get("plain_explanation", "")).replace("|", "\\|")
-        location = str(row.get("source_location", "")).replace("|", "\\|")
-        evidence = str(row.get("evidence_quote", "")).replace("|", "\\|")
+        setting = _text(row.get("setting", "")).replace("|", "\\|")
+        result = _text(row.get("result", "")).replace("|", "\\|")
+        explanation = _text(row.get("plain_explanation", "")).replace("|", "\\|")
+        location = _text(row.get("source_location", "")).replace("|", "\\|")
+        evidence = _normalize_inline_math(row.get("evidence_quote", "")).replace("|", "\\|")
         rendered.append(
             f"| {setting} | {result} | {explanation or '待核对。'} | "
             f"{location}<br><span class=\"experiment-evidence\">{evidence}</span> |"
@@ -213,13 +331,15 @@ def _experiment_results(rows: list[dict[str, Any]], limit: int = 3) -> str:
         result = _text(row.get("result", ""))
         explanation = _text(row.get("plain_explanation", ""), "该结果仍需结合原文语境解读。")
         location = _text(row.get("source_location", ""), "原文位置未明确报告")
-        evidence = str(row.get("evidence_quote", "")).strip()
+        evidence = _normalize_inline_math(str(row.get("evidence_quote", "")).strip())
         evidence_block = ""
         if evidence:
             evidence_block = (
                 '<details class="result-evidence" markdown="1">\n'
                 '<summary>核对原文证据</summary>\n\n'
-                f'<span class="experiment-evidence">{evidence}</span>\n\n'
+                '<div class="experiment-evidence" markdown="1">\n\n'
+                f'{evidence}\n\n'
+                '</div>\n\n'
                 "</details>"
             )
         blocks.append(
@@ -312,15 +432,15 @@ def render_note(
     for item in content.get("related_work", [])[:3]:
         if not isinstance(item, dict):
             continue
-        work = str(item.get("work", "")).strip()
-        relationship = str(item.get("relationship", "")).strip()
+        work = _text(item.get("work", ""), "")
+        relationship = _text(item.get("relationship", ""), "")
         if work:
             related.append(f"- **{work}**: {relationship or '关系待人工核验。'}")
 
     authors = ", ".join(paper.authors) if paper.authors else "原文元数据未获取"
     affiliations = "；".join(paper.affiliations) if paper.affiliations else "arXiv 元数据未标注"
     generated_at = datetime.now(timezone.utc).isoformat()
-    summary = str(content.get("one_sentence_summary", "原文未明确报告。")).strip()
+    summary = _text(content.get("one_sentence_summary", "原文未明确报告。"))
     plain_problem = _text(content.get("plain_language_problem", ""), summary)
     description = f"[arXiv {paper.arxiv_id}][{category_label}] {summary}"[:300]
     frontmatter = "\n".join(
@@ -358,7 +478,7 @@ def render_note(
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文]({paper.arxiv_url or f'https://arxiv.org/abs/{paper.arxiv_id}'}) · [PDF 下载]({paper.pdf_url or f'https://arxiv.org/pdf/{paper.arxiv_id}'}) · **关键词** {', '.join(keywords) if keywords else category_label}  
+[arXiv 原文]({paper.arxiv_url or f'https://arxiv.org/abs/{paper.arxiv_id}'}) · [PDF 下载]({paper.pdf_url or f'https://arxiv.org/pdf/{paper.arxiv_id}'}) · **关键词** {', '.join(keywords) if keywords else category_label}<br>
 {''.join(links)}
 
 </div>
@@ -530,8 +650,21 @@ def render_note(
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>{_list_items(setup.get('datasets', []), limit=3)}</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span>{_concept_grid(metrics, 'metric-list', 'name', 'detail', limit=3)}</div>
+<div markdown="1">
+
+<span class="paper-mini-label">数据与任务</span>
+
+{_list_items(setup.get('datasets', []), limit=3)}
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+{_concept_grid(metrics, 'metric-list', 'name', 'detail', limit=3)}
+
+</div>
 
 </div>
 
@@ -578,7 +711,7 @@ def render_note(
 <summary>生成与校验信息</summary>
 
 - 状态：`{generated.review_status}`
-- 分类理由：{classification.reason}
+- 分类理由：{_text(classification.reason)}
 - 全文指纹：`{generated.source_sha256}`
 - 注意：本页由 AI 辅助生成；数值、baseline、公式和相关工作必须对照原文复核。
 

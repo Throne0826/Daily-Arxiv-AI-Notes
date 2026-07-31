@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "llm_evaluation"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:24.997929+00:00"
+generated_at: "2026-07-30T10:14:52.639756+00:00"
 source_sha256: "223f53c089f7d19b3f8e8a80de7fef9d4311908cb03a77341078be7be91e44d3"
 tags:
   - "LLM 评测"
@@ -37,7 +37,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2607.26348v1) · [PDF 下载](https://arxiv.org/pdf/2607.26348v1) · **关键词** 大语言模型, 合成用户, 问卷模拟, 社会模拟, 评估基准, 人口统计条件预测, 刻板化, 负责任人工智能  
+[arXiv 原文](https://arxiv.org/abs/2607.26348v1) · [PDF 下载](https://arxiv.org/pdf/2607.26348v1) · **关键词** 大语言模型, 合成用户, 问卷模拟, 社会模拟, 评估基准, 人口统计条件预测, 刻板化, 负责任人工智能<br>
 
 
 </div>
@@ -86,21 +86,21 @@ tags:
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **合成用户（synthetic user）**
 
 由大语言模型扮演的虚拟受访者，模型在获得人口统计特征或人物设定后生成问卷答案。本文关心的不是回答是否像问卷，而是这些回答能否可靠替代真实人类回答并支持后续决策。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **人口统计条件预测**
 
 利用年龄、性别、国家等人口统计变量，预测某个群体或个体更可能选择的答案。本文将大模型与直接从留出的人类数据中估计“给定人口统计特征时答案如何分布”的朴素方法比较。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **个体保真度与聚合保真度**
 
@@ -125,28 +125,28 @@ tags:
 
 <div class="notation-list" markdown="1">
 
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$x$**
 
 某位真实受访者的人口统计特征组合，例如年龄、性别或国家；这是对文中“demographics”的简化记号。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$y$**
 
 受访者对某一道调查题的真实答案；对于 WVS 中的题目，它可以是具有顺序关系的类别。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$p_{\mathrm{human}}(y\mid x)$**
 
 根据留出的人类调查数据估计的条件答案分布，即具有特征 x 的真实人群回答 y 的概率，也是朴素人口统计基线的基础。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\hat{y}_{\mathrm{LLM}}$**
 
@@ -243,7 +243,7 @@ tags:
 
 <div class="method-step__io" markdown="1">
 
-**输入**：美国综合社会调查（General Social Survey）与世界价值观调查（World Values Survey）中的真实人口属性和问卷回答；后者覆盖 63 个国家。  
+**输入**：美国综合社会调查（General Social Survey）与世界价值观调查（World Values Survey）中的真实人口属性和问卷回答；后者覆盖 63 个国家。<br>
 **输出**：两个彼此独立但可在同一协议下分析的人类回答基准域。
 
 </div>
@@ -263,7 +263,7 @@ tags:
 
 <div class="method-step__io" markdown="1">
 
-**输入**：每位真实受访者的人口统计描述、相应调查问题，以及论文规定的调查模拟提示。  
+**输入**：每位真实受访者的人口统计描述、相应调查问题，以及论文规定的调查模拟提示。<br>
 **输出**：与真实受访者及问题相对应的模型预测答案、预测分布和无效输出记录。
 
 </div>
@@ -283,7 +283,7 @@ tags:
 
 <div class="method-step__io" markdown="1">
 
-**输入**：留出的人类调查数据、真实答案，以及各 LLM 的预测答案或预测分布。  
+**输入**：留出的人类调查数据、真实答案，以及各 LLM 的预测答案或预测分布。<br>
 **输出**：LLM 相对简单人口信息基线的个体级增益或损失，以及相应不确定性。
 
 </div>
@@ -303,7 +303,7 @@ tags:
 
 <div class="method-step__io" markdown="1">
 
-**输入**：真实人类回答、模型回答，以及政治倾向等人口或群体属性。  
+**输入**：真实人类回答、模型回答，以及政治倾向等人口或群体属性。<br>
 **输出**：各模型、调查域和问题—群体组合的人口过度决定程度及其编码稳健性。
 
 </div>
@@ -373,25 +373,36 @@ tags:
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- General Social Survey（GSS）：美国一般社会态度调查，用于检验单一国家内人口特征与社会态度之间的个体、总体及群体关系。原文节选未给出题目数、受访者总数或最终评估样本量。数据按受访者ID哈希奇偶划分：50%的“fit”折用于构建基线，“eval”折中的样本用于评估，保证同一受访者不会同时出现在两折。
-- World Values Survey（WVS）：覆盖63个国家的跨文化价值观调查；论文复用WorldValuesBench的题目集与量表，用来检验结论能否从美国社会态度迁移到跨国家价值观场景。其基线同样只在50%的“fit”折拟合并在独立“eval”折评估；原文节选未明确报告受访者总数、题目数和各国样本分布。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- General Social Survey（GSS）：美国一般社会态度调查，用于检验单一国家内人口特征与社会态度之间的个体、总体及群体关系。原文节选未给出题目数、受访者总数或最终评估样本量。数据按受访者ID哈希奇偶划分：50%的“fit”折用于构建基线，“eval”折中的样本用于评估，保证同一受访者不会同时出现在两折。
+- World Values Survey（WVS）：覆盖63个国家的跨文化价值观调查；论文复用WorldValuesBench的题目集与量表，用来检验结论能否从美国社会态度迁移到跨国家价值观场景。其基线同样只在50%的“fit”折拟合并在独立“eval”折评估；原文节选未明确报告受访者总数、题目数和各国样本分布。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **个体回答准确率及相对基线差值Δbase**
 
 准确率衡量模型预测与真实个体答案完全一致的比例；Δbase等于LLM准确率减去人口统计查表基线准确率，并通过配对bootstrap给出95%置信区间。它回答LLM是否增加了超出人口查表的个体预测信息，但严格精确匹配本身不反映序数答案之间距离。 （准确率越高越好，Δbase越大越好；Δbase为正才表示超过查表基线，置信区间跨越0则不能排除统计上的平局。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **平均Jensen–Shannon散度（JS）**
 
 比较LLM生成的答案分布与真实人群答案分布之间的差异，用于总体层面的分布拟合；该指标对称且有界，但较好的总体分布不能证明模型能预测具体个人，也可能掩盖群体结构失真。 （越低越好，因为0表示两个答案分布完全一致。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **人口统计过度决定指标Δη²及显著问题—群体对数量**
 
@@ -399,7 +410,9 @@ tags:
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -430,7 +443,11 @@ tags:
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">On GSS, the individual accuracy of every model is at or below the demographic lookup baseline (0.589).</span>
+<div class="experiment-evidence" markdown="1">
+
+On GSS, the individual accuracy of every model is at or below the demographic lookup baseline (0.589).
+
+</div>
 
 </details>
 
@@ -458,7 +475,11 @@ WVS上的差距显著扩大且全部为负。Style A中，Haiku 4.5、Sonnet 4.6
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">On WVS the gap is far larger and uniformly negative: under the single-answer prompt every model is</span>
+<div class="experiment-evidence" markdown="1">
+
+On WVS the gap is far larger and uniformly negative: under the single-answer prompt every model is
+
+</div>
 
 </details>
 
@@ -486,7 +507,11 @@ LLM不是简单地产生随机误差，而是系统性地把人口身份当成�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">A decision-impact analysis shows why this matters in practice: on a segment-targeting task the models inflate between-segment gaps two to fourfold, would direct a team to the wrong segment in half of U.S. and most cross-cultural cases, and manufacture segment splits that do not exist in real people.</span>
+<div class="experiment-evidence" markdown="1">
+
+A decision-impact analysis shows why this matters in practice: on a segment-targeting task the models inflate between-segment gaps two to fourfold, would direct a team to the wrong segment in half of U.S. and most cross-cultural cases, and manufacture segment splits that do not exist in real people.
+
+</div>
 
 </details>
 

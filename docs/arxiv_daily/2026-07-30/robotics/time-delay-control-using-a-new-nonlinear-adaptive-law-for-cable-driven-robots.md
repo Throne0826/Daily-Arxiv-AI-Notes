@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "robotics"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:24.978483+00:00"
+generated_at: "2026-07-30T10:14:52.633874+00:00"
 source_sha256: "85198c9fde085f278af0195450e120cdd51972836cfdcc11d757b860414c3316"
 tags:
   - "机器人 / 具身智能"
@@ -36,7 +36,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2607.26383v1) · [PDF 下载](https://arxiv.org/pdf/2607.26383v1) · **关键词** 缆索驱动机器人, 轨迹跟踪控制, 时延估计, 模型无关控制, 自适应控制, 分数阶非奇异终端滑模, 抖振抑制, 时变不确定性  
+[arXiv 原文](https://arxiv.org/abs/2607.26383v1) · [PDF 下载](https://arxiv.org/pdf/2607.26383v1) · **关键词** 缆索驱动机器人, 轨迹跟踪控制, 时延估计, 模型无关控制, 自适应控制, 分数阶非奇异终端滑模, 抖振抑制, 时变不确定性<br>
 
 
 </div>
@@ -85,21 +85,21 @@ tags:
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **时延估计（Time-Delay Estimation, TDE）**
 
 TDE利用上一采样时刻的控制输入和系统状态，近似当前未知动力学与外部扰动的合并影响，从而减少对精确机器人模型和参数辨识的依赖。其估计精度受采样频率与硬件性能限制，因此通常会留下需要鲁棒控制补偿的估计误差。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **滑模控制与抖振**
 
 滑模控制通过切换型控制作用把系统状态推向预先设计的误差流形，并使其沿该流形收敛，因而对模型不确定性和扰动较鲁棒。实际数字控制中的高速、不连续切换可能造成控制输入和机械系统的高频振荡，即“抖振”。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **分数阶非奇异终端滑模（FONTSM）**
 
@@ -211,7 +211,7 @@ TDE利用上一采样时刻的控制输入和系统状态，近似当前未知�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：期望关节轨迹 \(\mathbf q_d,\dot{\mathbf q}_d,\ddot{\mathbf q}_d\) 和实测关节状态 \(\mathbf q,\dot{\mathbf q}\)。  
+**输入**：期望关节轨迹 \(\mathbf q_d,\dot{\mathbf q}_d,\ddot{\mathbf q}_d\) 和实测关节状态 \(\mathbf q,\dot{\mathbf q}\)。<br>
 **输出**：每个关节的跟踪误差 \(e_i\) 和滑模变量 \(s_i\)。
 
 </div>
@@ -231,7 +231,7 @@ TDE利用上一采样时刻的控制输入和系统状态，近似当前未知�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：上一采样时刻的电机力矩 \(\boldsymbol\tau_m(t-l_s)\)、关节加速度 \(\ddot{\mathbf q}(t-l_s)\) 以及在线等效惯量矩阵 \(\hat{\mathbf M}\)。  
+**输入**：上一采样时刻的电机力矩 \(\boldsymbol\tau_m(t-l_s)\)、关节加速度 \(\ddot{\mathbf q}(t-l_s)\) 以及在线等效惯量矩阵 \(\hat{\mathbf M}\)。<br>
 **输出**：未建模动力学、耦合、重力、电机侧效应及外扰的合并估计 \(\hat{\mathbf V}\)。
 
 </div>
@@ -251,7 +251,7 @@ TDE利用上一采样时刻的控制输入和系统状态，近似当前未知�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：期望加速度 \(\ddot{\mathbf q}_d\)、误差相关项 \(\boldsymbol\xi(\mathbf e,\hat{\boldsymbol\theta})\)、滑模变量 \(\mathbf s\) 及在线参数 \(\hat{\mathbf M},\hat{\mathbf k}\)。  
+**输入**：期望加速度 \(\ddot{\mathbf q}_d\)、误差相关项 \(\boldsymbol\xi(\mathbf e,\hat{\boldsymbol\theta})\)、滑模变量 \(\mathbf s\) 及在线参数 \(\hat{\mathbf M},\hat{\mathbf k}\)。<br>
 **输出**：注入动力学命令 \(\mathbf u=\mathbf u_1+\mathbf u_2\)。
 
 </div>
@@ -271,7 +271,7 @@ TDE利用上一采样时刻的控制输入和系统状态，近似当前未知�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：各关节滑模变量 \(s_i\)、边界层 \(\Omega_i\)、更新状态 \(\hat\theta_i\) 及预设参数。  
+**输入**：各关节滑模变量 \(s_i\)、边界层 \(\Omega_i\)、更新状态 \(\hat\theta_i\) 及预设参数。<br>
 **输出**：当前采样时刻的电机力矩命令 \(\boldsymbol\tau_m\)，以及供下一周期使用的更新参数和历史数据。
 
 </div>
@@ -325,7 +325,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：第一行规定什么状态算“已经回到正确轨迹”；后续各行则把期望加速度、滑模纠偏、鲁棒切换补偿和上一周期估计的未知动力学合成为实际电机力矩。该结构的核心是：已知的轨迹信息直接控制，未知的机器人动力学交给TDE近似，剩余估计误差由切换项覆盖。  
+**直观理解**：第一行规定什么状态算“已经回到正确轨迹”；后续各行则把期望加速度、滑模纠偏、鲁棒切换补偿和上一周期估计的未知动力学合成为实际电机力矩。该结构的核心是：已知的轨迹信息直接控制，未知的机器人动力学交给TDE近似，剩余估计误差由切换项覆盖。<br>
 **原文位置**：第II-B节，式(11)、式(13)–(16)及式(15)后的 \(\xi_i\) 定义；TDE估计对应第II-A节式(5)。
 
 </div>
@@ -362,7 +362,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：当 \(|s_i|\) 超出边界层时，更新状态按幂律增长，使等效惯量和鲁棒增益提高；进入边界层后，更新状态下降，避免长期维持过大切换力。新增的可变指数进一步区分工作阶段：小 \(\hat\theta_i\) 时可令指数大于1以显著压低噪声增益，而较大 \(\hat\theta_i\) 时可令指数降至1或以下，从而保留或增强轨迹反向时的控制能力。  
+**直观理解**：当 \(|s_i|\) 超出边界层时，更新状态按幂律增长，使等效惯量和鲁棒增益提高；进入边界层后，更新状态下降，避免长期维持过大切换力。新增的可变指数进一步区分工作阶段：小 \(\hat\theta_i\) 时可令指数大于1以显著压低噪声增益，而较大 \(\hat\theta_i\) 时可令指数降至1或以下，从而保留或增强轨迹反向时的控制能力。<br>
 **原文位置**：第II-B节，式(17)–(19)。
 
 </div>
@@ -416,26 +416,37 @@ $$
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- 本文不使用公开数据集，而是在双关节绳驱机械臂上进行48 s实时轨迹跟踪实验。RMSE在24–48 s周期稳态区间计算，用于排除初始瞬态的主要影响；ITAE和ISCT在0–48 s完整区间计算，用于评价全过程收敛与控制代价。参考轨迹的具体函数、重复次数及训练/验证/测试划分在所给原文中未明确报告。
-- 自适应律比较使用实验II同一次运行得到的两个关节滑模面s_i和跟踪误差e_i作为所有候选自适应律的共同输入。这不是独立闭环控制数据集，而是固定输入条件下的增益演化对比，作用是尽量隔离自适应律结构本身的差异。
-- 鲁棒性实验在机械臂上附加50 g负载，以检验载荷变化下的稳健性和可重复性；但所给原文截取部分未包含该实验的定量结果、重复次数或统计波动。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- 本文不使用公开数据集，而是在双关节绳驱机械臂上进行48 s实时轨迹跟踪实验。RMSE在24–48 s周期稳态区间计算，用于排除初始瞬态的主要影响；ITAE和ISCT在0–48 s完整区间计算，用于评价全过程收敛与控制代价。参考轨迹的具体函数、重复次数及训练/验证/测试划分在所给原文中未明确报告。
+- 自适应律比较使用实验II同一次运行得到的两个关节滑模面$s_i$和跟踪误差$e_i$作为所有候选自适应律的共同输入。这不是独立闭环控制数据集，而是固定输入条件下的增益演化对比，作用是尽量隔离自适应律结构本身的差异。
+- 鲁棒性实验在机械臂上附加50 g负载，以检验载荷变化下的稳健性和可重复性；但所给原文截取部分未包含该实验的定量结果、重复次数或统计波动。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **RMSE（均方根跟踪误差）**
 
 衡量跟踪误差的典型幅值，对较大误差赋予更高权重。本文在24–48 s稳态区间计算，因此主要反映周期稳定运行时的跟踪精度。 （越低越好；较低值表示关节位置整体更接近参考轨迹，但不能单独说明最坏瞬时误差或控制能耗。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **ITAE（时间加权绝对误差积分）**
 
-定义为\(\mathrm{ITAE}_i=\int_0^{T_i}t|e_i|\,dt\)，其中e_i为关节i的跟踪误差，t为时间，T_i为评价区间长度。时间权重使实验后段仍未消失的误差受到更大惩罚，因而反映全过程收敛质量和持续误差。 （越低越好；较低值表示误差更快消退或长期残差更小，但该指标不能区分误差方向。）
+定义为\(\mathrm{ITAE}_i=\int_0^{T_i}t|e_i|\,dt\)，其中$e_i$为关节i的跟踪误差，t为时间，$T_i$为评价区间长度。时间权重使实验后段仍未消失的误差受到更大惩罚，因而反映全过程收敛质量和持续误差。 （越低越好；较低值表示误差更快消退或长期残差更小，但该指标不能区分误差方向。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **ISCT（控制转矩平方积分）**
 
@@ -443,7 +454,9 @@ $$
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -474,7 +487,11 @@ $$
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">For Joint 1, the proposed method reduces the RMSE from 0.5486 to 0.3592, corresponding to a 34.52% reduction, while the ITAE is reduced from 415.25 to 274.92, i.e., by 33.79%. Meanwhile, the ISCT decreases from 76.26 to 71.16, corresponding to a 6.69% reduction.</span>
+<div class="experiment-evidence" markdown="1">
+
+For Joint 1, the proposed method reduces the RMSE from 0.5486 to 0.3592, corresponding to a 34.52% reduction, while the ITAE is reduced from 415.25 to 274.92, i.e., by 33.79%. Meanwhile, the ISCT decreases from 76.26 to 71.16, corresponding to a 6.69% reduction.
+
+</div>
 
 </details>
 
@@ -502,7 +519,11 @@ $$
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">For Joint 2, the proposed method reduces the RMSE from 0.4261 to 0.2935, corresponding to a 31.11% reduction, while the ITAE decreases from 341.34 to 228.80, i.e., by 32.97%. The ISCT is also reduced from 40.70 to 33.47, corresponding to a 17.77% reduction.</span>
+<div class="experiment-evidence" markdown="1">
+
+For Joint 2, the proposed method reduces the RMSE from 0.4261 to 0.2935, corresponding to a 31.11% reduction, while the ITAE decreases from 341.34 to 228.80, i.e., by 32.97%. The ISCT is also reduced from 40.70 to 33.47, corresponding to a 17.77% reduction.
+
+</div>
 
 </details>
 
@@ -530,7 +551,11 @@ TDE误差与控制转矩的RMS比值在关节1和关节2上分别为0.0291和0.0
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">In the experiments, the RMS ratios are rRMS,1=0.0291 and rRMS,2=0.0306, indicating that the TDE mismatch is small in an energy sense compared with the control effort. The peak ratios are rMAX,1=0.1065 and rMAX,2=0.1004, which mainly occur during transient phases.</span>
+<div class="experiment-evidence" markdown="1">
+
+In the experiments, the RMS ratios are rRMS,1=0.0291 and rRMS,2=0.0306, indicating that the TDE mismatch is small in an energy sense compared with the control effort. The peak ratios are rMAX,1=0.1065 and rMAX,2=0.1004, which mainly occur during transient phases.
+
+</div>
 
 </details>
 
@@ -552,7 +577,7 @@ TDE误差与控制转矩的RMS比值在关节1和关节2上分别为0.0291和0.0
 **主要 baseline**
 
 - 文献[21]的基线控制方法：与所提方法共享相同平台、轨迹、采样周期及公共参数调节原则，是表I中闭环跟踪性能的直接基线，也用于判断新增非线性自适应指数项是否带来实际收益。
-- 文献[6]的自适应律：在实验III中接收与所提方法相同的s_i和e_i，仅调整该自适应律特有参数，用于比较不同增益更新结构的动态响应。
+- 文献[6]的自适应律：在实验III中接收与所提方法相同的$s_i$和$e_i$，仅调整该自适应律特有参数，用于比较不同增益更新结构的动态响应。
 - 文献[13]的自适应律：作为近期自适应增益方案之一，在固定输入条件下比较更新增益的响应速度、稳定性及噪声敏感性。
 - 文献[27]的自适应律：同样使用实验II记录的共同输入，旨在避免不同闭环轨迹或工况混淆自适应律本身的效果。所给截取未提供文献[6]、[13]、[27]的完整数值比较表。
 
@@ -563,7 +588,7 @@ TDE误差与控制转矩的RMS比值在关节1和关节2上分别为0.0291和0.0
 
 **实验实现**
 
-实验平台为双关节绳驱机械臂，采用MOONS ECU19058H24-S001电机、AQMD2403BLS-M驱动器、100∶1谐波减速器和分辨率0.009°的编码器。控制器通过MATLAB/Simulink Real-Time与NI PCI-6229板卡执行，确定性闭环采样频率为1 kHz；实时目标机为Intel G2120、2 GB RAM的工业PC。实验分为自适应机理分析、与文献[21]的闭环基线比较、固定s_i与e_i输入下的多种自适应律比较，以及附加50 g负载的鲁棒性测试。公平性控制包括相同平台、参考轨迹、采样间隔和评价标准；实验II对公共控制参数采用相同设置原则，实验III仅调整各文献方法特有参数。原文给出大量控制器增益，但未在截取内容中报告实验重复次数、置信区间、随机化顺序或显著性检验。
+实验平台为双关节绳驱机械臂，采用MOONS ECU19058H24-S001电机、AQMD2403BLS-M驱动器、100∶1谐波减速器和分辨率0.009°的编码器。控制器通过MATLAB/Simulink Real-Time与NI PCI-6229板卡执行，确定性闭环采样频率为1 kHz；实时目标机为Intel G2120、2 GB RAM的工业PC。实验分为自适应机理分析、与文献[21]的闭环基线比较、固定$s_i$与$e_i$输入下的多种自适应律比较，以及附加50 g负载的鲁棒性测试。公平性控制包括相同平台、参考轨迹、采样间隔和评价标准；实验II对公共控制参数采用相同设置原则，实验III仅调整各文献方法特有参数。原文给出大量控制器增益，但未在截取内容中报告实验重复次数、置信区间、随机化顺序或显著性检验。
 
 **关键消融**
 

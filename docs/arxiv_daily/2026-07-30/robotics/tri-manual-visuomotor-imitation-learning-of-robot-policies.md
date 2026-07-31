@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "robotics"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:25.037315+00:00"
+generated_at: "2026-07-30T10:14:52.657186+00:00"
 source_sha256: "805cc41f1613406669244277d1c14952d4c805a2671543b7d971be6e2016da79"
 tags:
   - "机器人 / 具身智能"
@@ -36,7 +36,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2607.25731v2) · [PDF 下载](https://arxiv.org/pdf/2607.25731v2) · **关键词** 三臂机器人, 视觉—运动模仿学习, 单人遥操作, 行为克隆, 成对模式切换, 示范重定时, Dependency-Aware Tri-Arm Scheduling, 同步多臂控制  
+[arXiv 原文](https://arxiv.org/abs/2607.25731v2) · [PDF 下载](https://arxiv.org/pdf/2607.25731v2) · **关键词** 三臂机器人, 视觉—运动模仿学习, 单人遥操作, 行为克隆, 成对模式切换, 示范重定时, Dependency-Aware Tri-Arm Scheduling, 同步多臂控制<br>
 
 
 </div>
@@ -85,21 +85,21 @@ tags:
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **视觉—运动模仿学习（visuomotor imitation learning）**
 
 模型从示范轨迹中学习视觉观测到机器人动作的映射，而不依赖人工设计的奖励函数。训练后的策略根据相机等传感器输入直接预测机械臂控制指令。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **行为克隆（behaviour cloning）**
 
 行为克隆把示范中的观测—动作对当作监督学习样本，要求策略复现记录动作。由于它通常也继承示范的全局时间线，接口造成的等待和串行执行可能被误学为任务本身所需的行为。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **成对模式切换（pairwise mode switching）**
 
@@ -124,28 +124,28 @@ tags:
 
 <div class="notation-list" markdown="1">
 
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\pi$**
 
 由示范数据训练得到的同步视觉—运动策略；根据当前观测联合预测三条机械臂的动作。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$o_t$**
 
 时刻 t 的视觉及其他传感器观测。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$a_t^{(i)}$**
 
 时刻 t 第 i 条机械臂的动作，其中 i 对应三条协作机械臂之一。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\tau$**
 
@@ -242,7 +242,7 @@ TriManPolicy是一条“采集—标注—重排—训练—部署”的三臂�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：操作者的两路连续控制输入，以及机器人三臂L、R、O的视觉、本体状态和夹爪状态。  
+**输入**：操作者的两路连续控制输入，以及机器人三臂L、R、O的视觉、本体状态和夹爪状态。<br>
 **输出**：原始演示集，其中每个时刻均含三臂同步格式的观测和动作，但动作时序可能受到操作者切换臂对的限制。
 
 </div>
@@ -262,7 +262,7 @@ TriManPolicy是一条“采集—标注—重排—训练—部署”的三臂�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：单条原始演示的视频与时间戳记录。  
+**输入**：单条原始演示的视频与时间戳记录。<br>
 **输出**：每条演示对应的有向无环图，其中节点记录原始区间、固定时长、占用机械臂和可选语义，边表示必须“前一片段完成后，后一片段才能开始”。
 
 </div>
@@ -282,7 +282,7 @@ TriManPolicy是一条“采集—标注—重排—训练—部署”的三臂�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：审核后的子任务图、各片段的原始持续时间和所需机械臂集合。  
+**输入**：审核后的子任务图、各片段的原始持续时间和所需机械臂集合。<br>
 **输出**：每条演示的最优重定时映射，即所有片段的新起止刻度及新的演示总时长。
 
 </div>
@@ -302,7 +302,7 @@ TriManPolicy是一条“采集—标注—重排—训练—部署”的三臂�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：原始的逐臂传感—动作消息，以及DATS给出的片段新位置。  
+**输入**：原始的逐臂传感—动作消息，以及DATS给出的片段新位置。<br>
 **输出**：新的同步三臂观测—动作序列，以及由其形成的长度为H的动作目标窗口。
 
 </div>
@@ -338,7 +338,7 @@ $$
 - $v_j$：第j个固定时长子任务节点。
 - $\mathcal{V}_n$：第n条演示中的全部子任务节点集合。
 - $s_j,e_j$：子任务j重新调度后的开始与结束整数刻度。
-- $d_j$：子任务j从原始演示保留下来的离散持续时间，满足e_j=s_j+d_j。
+- $d_j$：子任务j从原始演示保留下来的离散持续时间，满足$e_j=s_j+d_j$。
 - $\mathcal{P}_j$：子任务j经人工审核的前驱节点集合。
 - $\mathcal{A}$：机械臂资源集合\{L,R,O\}。
 - $\mathcal{Q}_{\alpha}$：所有占用机械臂α的调度区间集合。
@@ -347,7 +347,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：目标是在不缩短、不改写任何局部动作的情况下，把整条演示尽量排紧。前驱约束保护真实任务逻辑，资源互斥防止同一机械臂同时执行两个动作；二者之外的跨臂先后关系可以被放松，从而形成更合理的并行监督。  
+**直观理解**：目标是在不缩短、不改写任何局部动作的情况下，把整条演示尽量排紧。前驱约束保护真实任务逻辑，资源互斥防止同一机械臂同时执行两个动作；二者之外的跨臂先后关系可以被放松，从而形成更合理的并行监督。<br>
 **原文位置**：第III-D节，公式(8)；前驱约束和资源集合分别见公式(6)与公式(7)
 
 </div>
@@ -375,7 +375,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：原始条件与DATS条件优化完全相同的行为克隆目标，区别只在训练窗口中的监督内容。DATS会把彼此兼容的跨臂片段放入同一未来动作窗口，使策略学习同步进展，而非复制模式切换造成的等待。  
+**直观理解**：原始条件与DATS条件优化完全相同的行为克隆目标，区别只在训练窗口中的监督内容。DATS会把彼此兼容的跨臂片段放入同一未来动作窗口，使策略学习同步进展，而非复制模式切换造成的等待。<br>
 **原文位置**：第III-F节，公式(10)
 
 </div>
@@ -395,7 +395,7 @@ $$
 
 **1. 人工审核的子任务依赖图**
 
-节点v_j包含所需机械臂集合、原始起止时间、前驱集合和可选语义标签；调度只使用区间边界、机械臂集合和前驱ID，语义标签不进入优化目标。前驱边编码跨臂任务先决条件或需保留的顺序，机械臂集合则编码片段持续期间的资源占用。
+节点$v_j$包含所需机械臂集合、原始起止时间、前驱集合和可选语义标签；调度只使用区间边界、机械臂集合和前驱ID，语义标签不进入优化目标。前驱边编码跨臂任务先决条件或需保留的顺序，机械臂集合则编码片段持续期间的资源占用。
 
 > 直观理解：关键是区分“任务真的要求先后”和“因为操作者只有两路控制而碰巧先后”。如果两个片段没有依赖路径且使用不同机械臂，DATS便可重新安排它们；人工审核用于避免错误地并行化存在对象状态或支撑依赖的动作。
 
@@ -407,18 +407,18 @@ DATS把每个子任务建模为持续时间固定的整数区间，以三只机�
 
 **3. 动作分块同步三臂策略**
 
-Transformer策略以当前视觉和本体观测o_t为条件，一次预测未来H步的三臂联合动作序列；片段边界不作为输入，也不会重置动作块。原始数据与DATS数据采用相同网络、窗口索引规则、终端填充和损失掩码，因此主要变量是监督时间线及联合目标窗口的组成。
+Transformer策略以当前视觉和本体观测$o_t$为条件，一次预测未来H步的三臂联合动作序列；片段边界不作为输入，也不会重置动作块。原始数据与DATS数据采用相同网络、窗口索引规则、终端填充和损失掩码，因此主要变量是监督时间线及联合目标窗口的组成。
 
 > 直观理解：一次预测一段未来动作有助于表达连续协调。DATS让训练窗口更常出现真正可并行的三臂进展，而不是“一只手动作、其他手因界面限制而等待”的示范模式。
 
 **训练与推理**
 
-训练时，对每条模式切换演示先生成并人工审核子任务图，再以CP-SAT求解DATS。对原始片段内时间q，系统采用时间映射\phi_{n,j}(q)=\Delta t\,s_j^{\ast}+(q-\bar{s}_j)，即整体平移到新起点并保留片段内相对时间；多臂片段共享偏移，片段间使用初值或最近值保持。重建同步数据后，枚举所有有效长度H窗口，以当前观测预测未来H步三臂动作并优化行为克隆损失。
+训练时，对每条模式切换演示先生成并人工审核子任务图，再以CP-SAT求解DATS。对原始片段内时间q，系统采用时间映射$\phi_{n,j}(q)=\Delta t\,s_j^{\ast}+(q-\bar{s}_j)$，即整体平移到新起点并保留片段内相对时间；多臂片段共享偏移，片段间使用初值或最近值保持。重建同步数据后，枚举所有有效长度H窗口，以当前观测预测未来H步三臂动作并优化行为克隆损失。
 部署时，机器人提供物理上同步的实时图像和本体状态，策略直接输出同步三臂动作块并闭环执行。推理不访问控制模式、子任务标签、片段边界、依赖图或DATS求解器；因此DATS本质上是离线监督构造方法，而不是在线任务规划模块。该方法能否工作依赖一个关键假设：经图判定可组合的逐臂局部片段在新的并发上下文中仍具有物理和语义意义。
 
 **复现信息**
 
-时间以\Delta t=0.01秒离散；原始片段起点向下取整、终点向上取整，以保留其离散持续时间，舍入最多可能延长两个刻度，延长部分保持末值。调度使用Google OR-Tools 9.12的CP-SAT；图的自动检查覆盖结构合法性、正持续时间、无环性和机械臂标识，但任务依赖与支撑关系仍需人工审核。重定时不使用插值、逆运动学连接或边界处的新运动；图像和本体状态取最近时间样本，命令取不晚于输出时刻的最近样本，以维持动作采样的因果性。
+时间以$\Delta$ t=0.01秒离散；原始片段起点向下取整、终点向上取整，以保留其离散持续时间，舍入最多可能延长两个刻度，延长部分保持末值。调度使用Google OR-Tools 9.12的CP-SAT；图的自动检查覆盖结构合法性、正持续时间、无环性和机械臂标识，但任务依赖与支撑关系仍需人工审核。重定时不使用插值、逆运动学连接或边界处的新运动；图像和本体状态取最近时间样本，命令取不晚于输出时刻的最近样本，以维持动作采样的因果性。
 
 </details>
 
@@ -430,34 +430,47 @@ Transformer策略以当前视觉和本体观测o_t为条件，一次预测未来
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- 真实机器人三臂示范集：共237条处理后示范，覆盖TowelHang、BinTowel、ToteCards、BagTape、LidEraser和TrayWipe六项任务；各任务分别有47、30、50、30、30和50条示范。每项任务都包含一个机械臂建立或维持条件、另一个机械臂据此执行操作的耦合阶段。实验不使用独立测试数据集，而是在真实机器人上从带有数厘米物体位姿变化的匹配初始状态进行策略评测。
-- Raw时间线：保留双手遥操作和切换控制所记录的原始时间安排，作为策略训练的基准监督。它用于检验原始串行化示范是否会把人为等待复制到策略中。
-- DATS与Gap诊断时间线：DATS对Raw中的同一批局部动作片段进行依赖约束下的离线重排，并作为另一训练条件；Gap删除所有无标注片段活动的最大空闲区间，但保持原有片段顺序和重叠关系，仅用于离线诊断、不训练策略。三种时间线共享相同的动作片段样本，便于区分删空闲与重新组织跨臂监督的影响。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- 真实机器人三臂示范集：共237条处理后示范，覆盖TowelHang、BinTowel、ToteCards、BagTape、LidEraser和TrayWipe六项任务；各任务分别有47、30、50、30、30和50条示范。每项任务都包含一个机械臂建立或维持条件、另一个机械臂据此执行操作的耦合阶段。实验不使用独立测试数据集，而是在真实机器人上从带有数厘米物体位姿变化的匹配初始状态进行策略评测。
+- Raw时间线：保留双手遥操作和切换控制所记录的原始时间安排，作为策略训练的基准监督。它用于检验原始串行化示范是否会把人为等待复制到策略中。
+- DATS与Gap诊断时间线：DATS对Raw中的同一批局部动作片段进行依赖约束下的离线重排，并作为另一训练条件；Gap删除所有无标注片段活动的最大空闲区间，但保持原有片段顺序和重叠关系，仅用于离线诊断、不训练策略。三种时间线共享相同的动作片段样本，便于区分删空闲与重新组织跨臂监督的影响。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **任务成功数（Succ.）**
 
 每个任务、每种训练条件进行25次真实机器人试验，按任务特定完成标准统计成功次数；安全停止或超过10秒不可恢复的状态计为失败。该指标检验加速是否以牺牲任务完成可靠性为代价。 （越高越好，因为表示在固定试验次数中满足完整任务完成标准的次数更多。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **成功试验平均完成时间与时间降幅**
 
 从策略释放（预对齐后）到首次视觉上满足完成标准的时间，仅对成功试验计算均值和样本标准差；宏平均对六个任务的均值等权平均。它衡量成功执行时的协调效率，但排除失败试验，因此必须结合成功数解读。 （完成时间越低、相对Baseline的降幅越高越好，因为表示在成功条件下更快完成任务。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **共同目标窗口覆盖率（co-window coverage）**
 
-对第n条示范及时间线X，定义为ρ_n^X=|C_n^{H,X}|/|C_n|：C_n是允许并行安排的候选片段对，C_n^{H,X}是至少有一个长度为H的有效目标窗口同时包含该对两个片段样本的子集。论文使用H=100步、即2.0秒。该指标衡量有多少种合格跨臂片段对进入共同训练窗口，而非部署时并发动作的频率。 （越高通常越好，因为同步三臂策略可在更多动作块中同时看到兼容的跨臂目标；但它本身不是任务成功率，也不能单独证明实际协调更好。）
+对第n条示范及时间线X，定义为$ρ_n^X=|C_n^{H,X}|/|C_n|$：$C_n$是允许并行安排的候选片段对，$C_n^{H,X}$是至少有一个长度为H的有效目标窗口同时包含该对两个片段样本的子集。论文使用H=100步、即2.0秒。该指标衡量有多少种合格跨臂片段对进入共同训练窗口，而非部署时并发动作的频率。 （越高通常越好，因为同步三臂策略可在更多动作块中同时看到兼容的跨臂目标；但它本身不是任务成功率，也不能单独证明实际协调更好。）
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -488,7 +501,11 @@ DATS在六项任务的成功试验中均具有更短的平均完成时间，单�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">DATS-trained policies have lower mean completion time among successful trials on every task, with reductions between 31.3% and 49.9%. The unweighted macro-mean falls from 83.1 s to 47.8 s, a 42.5% reduction.</span>
+<div class="experiment-evidence" markdown="1">
+
+DATS-trained policies have lower mean completion time among successful trials on every task, with reductions between 31.3% and 49.9%. The unweighted macro-mean falls from 83.1 s to 47.8 s, a 42.5% reduction.
+
+</div>
 
 </details>
 
@@ -516,7 +533,11 @@ DATS共成功129/150次，Baseline成功126/150次；DATS在每项任务上的�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">DATS records 129 successes in 150 trials, compared with 126 for Baseline, with an equal or higher task-level count in all six tasks.</span>
+<div class="experiment-evidence" markdown="1">
+
+DATS records 129 successes in 150 trials, compared with 126 for Baseline, with an equal or higher task-level count in all six tasks.
+
+</div>
 
 </details>
 
@@ -544,7 +565,11 @@ DATS并非只把示范整体缩短，而是让更多可兼容的跨臂片段进�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">DATS increases co-window coverage over Raw and Gap on every task. The task macro-mean rises from 4.2% in Raw and 11.5% in Gap to 67.1% under DATS. The paired comparison in Fig. 6 shows higher co-window coverage under DATS than under Gap in all 237 processed episodes.</span>
+<div class="experiment-evidence" markdown="1">
+
+DATS increases co-window coverage over Raw and Gap on every task. The task macro-mean rises from 4.2% in Raw and 11.5% in Gap to 67.1% under DATS. The paired comparison in Fig. 6 shows higher co-window coverage under DATS than under Gap in all 237 processed episodes.
+
+</div>
 
 </details>
 

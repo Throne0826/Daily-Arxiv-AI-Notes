@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "robotics"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:25.482279+00:00"
+generated_at: "2026-07-30T10:14:52.802660+00:00"
 source_sha256: "97badbc27b0e0a188b66143b097f2bc64c38732293e7950679bb9288d31ab00b"
 tags:
   - "机器人 / 具身智能"
@@ -36,7 +36,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2504.17901v3) · [PDF 下载](https://arxiv.org/pdf/2504.17901v3) · **关键词** 任务与技能规划, 任务与运动规划, 层次化机器人规划, 黑盒技能, 异构技能, 运动学包络, 可组合交互原语, 长时程规划  
+[arXiv 原文](https://arxiv.org/abs/2504.17901v3) · [PDF 下载](https://arxiv.org/pdf/2504.17901v3) · **关键词** 任务与技能规划, 任务与运动规划, 层次化机器人规划, 黑盒技能, 异构技能, 运动学包络, 可组合交互原语, 长时程规划<br>
 
 
 </div>
@@ -85,21 +85,21 @@ tags:
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **符号任务规划（symbolic task planning）**
 
 它用谓词表示离散世界状态，并用带有前置条件和效果的高层动作搜索动作序列。其优点是适合长时程推理，但所得动作不能直接驱动机器人。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **运动规划（motion planning）**
 
 它在机器人的连续配置空间中寻找一条从初始配置到目标配置的无碰撞轨迹。它能验证几何可执行性，但难以单独处理长时程组合、感知反馈和持续接触等行为。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **任务与运动规划（TAMP）**
 
@@ -124,28 +124,28 @@ TAMP在符号动作搜索与连续运动规划之间交替，将每个高层动�
 
 <div class="notation-list" markdown="1">
 
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\mathcal{W}$**
 
 机器人与环境共同构成的系统配置空间；单个元素描述机器人和场景对象的连续状态。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\alpha$**
 
 抽象函数，把连续系统配置映射为由接地谓词组成的高层符号状态，例如由初始配置得到 \(s_i=\alpha(w_i)\)。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\mathcal{A}_{\alpha}$**
 
 定义在抽象符号关系上的高层机器人动作集合；经典TAMP假设其中每个动作均可通过运动规划执行，而本文要扩展到异构黑盒技能。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\Gamma$**
 
@@ -244,7 +244,7 @@ TASP（Task and Skill Planning）把长时程机器人问题建模为“符号�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：对象集合、机器人集合、物体与机器人位姿、机器人关节配置、附着关系、对象属性观测、初始状态、目标状态，以及已有机器人技能集合。  
+**输入**：对象集合、机器人集合、物体与机器人位姿、机器人关节配置、附着关系、对象属性观测、初始状态、目标状态，以及已有机器人技能集合。<br>
 **输出**：混合规划模型及可由规划器调用的参数化技能库。
 
 </div>
@@ -264,7 +264,7 @@ TASP（Task and Skill Planning）把长时程机器人问题建模为“符号�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：技能的完整启动条件与终止条件，其中可能同时包含机器人和物体位姿、机器人配置及颜色、温度、洁净度等非空间属性。  
+**输入**：技能的完整启动条件与终止条件，其中可能同时包含机器人和物体位姿、机器人配置及颜色、温度、洁净度等非空间属性。<br>
 **输出**：每个技能的启动运动学包络和终止运动学包络。
 
 </div>
@@ -284,7 +284,7 @@ TASP（Task and Skill Planning）把长时程机器人问题建模为“符号�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：原始技能、其运动学投影，以及当前场景中的机器人和物体状态。  
+**输入**：原始技能、其运动学投影，以及当前场景中的机器人和物体状态。<br>
 **输出**：具有“头部轨迹—技能策略—尾部轨迹”结构的可组合技能单元。
 
 </div>
@@ -304,7 +304,7 @@ TASP（Task and Skill Planning）把长时程机器人问题建模为“符号�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：CIP集合、初始符号状态、目标条件，以及场景几何和碰撞信息。  
+**输入**：CIP集合、初始符号状态、目标条件，以及场景几何和碰撞信息。<br>
 **输出**：每个高层动作均具有有效低层细化的长时程计划，即依次排列的头部轨迹、黑盒或运动规划技能、尾部轨迹。
 
 </div>
@@ -338,7 +338,7 @@ $$
 **符号说明**
 
 - $\mathcal{M}$：混合机器人规划问题。
-- $\mathcal{U}=\mathcal{O}\cup\mathcal{R}$：规划对象的全集，由对象集合\mathcal{O}和机器人集合\mathcal{R}组成。
+- $\mathcal{U}=\mathcal{O}\cup\mathcal{R}$：规划对象的全集，由对象集合$\mathcal{O}$和机器人集合$\mathcal{R}$组成。
 - $\mathcal{V}$：描述空间函数、机器人配置、附着关系和对象属性观测等内容的逻辑词汇表。
 - $\mathcal{X}$：包含连续几何信息和高层属性信息的环境状态空间。
 - $\mathcal{A}$：可用机器人技能的集合。
@@ -349,7 +349,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：该定义把目标规定为寻找一串技能，使系统从初态进入任一目标状态。它比传统TAMP更一般：动作不必都能化为关节空间中的运动规划，也可以是依赖反馈、持续接触或学习控制器的技能。  
+**直观理解**：该定义把目标规定为寻找一串技能，使系统从初态进入任一目标状态。它比传统TAMP更一般：动作不必都能化为关节空间中的运动规划，也可以是依赖反馈、持续接触或学习控制器的技能。<br>
 **原文位置**：Section III, Definition 3
 
 </div>
@@ -381,7 +381,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：该式给黑盒技能加上可由运动规划器求解的入口和出口。关键不是要求前一技能的终止集与后一技能的启动集相交，而是允许机器人先退出前一技能的局部区域，再在自由空间中移动到后一技能的启动包络。  
+**直观理解**：该式给黑盒技能加上可由运动规划器求解的入口和出口。关键不是要求前一技能的终止集与后一技能的启动集相交，而是允许机器人先退出前一技能的局部区域，再在自由空间中移动到后一技能的启动包络。<br>
 **原文位置**：Section IV-A, Definition 4
 
 </div>
@@ -390,7 +390,7 @@ $$
 
 <div class="paper-focus" markdown="1">
 
-**优化目标如何起作用**：不适用。TASP是规划与技能组合框架，所给章节没有定义端到端训练损失，也不要求联合训练已有技能；π_a可由行为克隆、强化学习、力控制、轨迹回放或运动规划预先获得，但其训练目标和训练数据均由各技能自身决定，原文未明确报告统一优化目标。TASP在线求解的是离散任务序列、技能参数、头尾端点和无碰撞运动细化的可行性，而非通过梯度最小化某个损失函数。
+**优化目标如何起作用**：不适用。TASP是规划与技能组合框架，所给章节没有定义端到端训练损失，也不要求联合训练已有技能；$π_a$可由行为克隆、强化学习、力控制、轨迹回放或运动规划预先获得，但其训练目标和训练数据均由各技能自身决定，原文未明确报告统一优化目标。TASP在线求解的是离散任务序列、技能参数、头尾端点和无碰撞运动细化的可行性，而非通过梯度最小化某个损失函数。
 
 </div>
 
@@ -401,7 +401,7 @@ $$
 
 **1. 对象中心技能与混合状态模型**
 
-环境由对象集合与机器人集合组成：物体和机器人具有SE(3)位姿，机器人还具有关节配置与物体附着集合，对象属性由分类器集合表示。技能a被建模为参数化option〈Θ_a, I_a, β_a, π_a〉，其中Θ_a是对象参数，I_a和β_a是一阶逻辑启动与终止条件，π_a是实际控制策略；策略可来自运动规划、行为克隆、强化学习、力控制或其他黑盒实现。
+环境由对象集合与机器人集合组成：物体和机器人具有SE(3)位姿，机器人还具有关节配置与物体附着集合，对象属性由分类器集合表示。技能a被建模为参数化option〈$Θ_a, I_a, β_a, π_a$〉，其中$Θ_a$是对象参数，$I_a$和$β_a$是一阶逻辑启动与终止条件，$π_a$是实际控制策略；策略可来自运动规划、行为克隆、强化学习、力控制或其他黑盒实现。
 
 > 直观理解：这一接口把技能的“什么时候能开始、什么时候算结束、执行时调用什么控制器”与其内部算法分开。因而规划器能够统一安排来源不同的技能，同时保留物体是否干净等非几何任务状态。
 
@@ -435,10 +435,23 @@ CIP在原技能接口上增加运动学投影λ、头部运动计划h和尾部�
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- 未使用标准离线数据集，也未报告训练集、验证集或测试集划分。第一项评测是KUKA双臂机器人的真实厨房操作场景：初始物体为刀、封闭的花生酱罐和面包片，目标是在面包上涂抹花生酱；该场景用于检验双臂系统能否串联运动规划与阻抗控制下的轨迹回放技能。
+<div markdown="1">
+
+<span class="paper-mini-label">数据与任务</span>
+
+- 未使用标准离线数据集，也未报告训练集、验证集或测试集划分。第一项评测是KUKA双臂机器人的真实厨房操作场景：初始物体为刀、封闭的花生酱罐和面包片，目标是在面包上涂抹花生酱；该场景用于检验双臂系统能否串联运动规划与阻抗控制下的轨迹回放技能。
 - 第二项评测是Boston Dynamics Spot的真实多房间移动操作场景：机器人需从抽屉中取得白板擦，穿过一扇会遮挡白板的门，将白板擦临时放到文件柜上，关门后再取回白板擦并擦除白板；该场景用于检验长时程、导航—操作交替及非单调任务规划。
-- 感知与环境模型来自现场采集，而非公开数据集。双臂平台使用RealSense D455、CNOS分割和FoundationPose进行物体六自由度位姿估计；Spot预先通过遥操作建立占据栅格地图，并用AprilTag估计物体位姿。门和抽屉等关节物体不提供完整运动学模型，而以技能执行前后的静态模型及技能运动包络表示。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span>原文未明确报告，或这里不需要额外前置概念。</div>
+- 感知与环境模型来自现场采集，而非公开数据集。双臂平台使用RealSense D455、CNOS分割和FoundationPose进行物体六自由度位姿估计；Spot预先通过遥操作建立占据栅格地图，并用AprilTag估计物体位姿。门和抽屉等关节物体不提供完整运动学模型，而以技能执行前后的静态模型及技能运动包络表示。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+原文未明确报告，或这里不需要额外前置概念。
+
+</div>
 
 </div>
 
@@ -469,7 +482,11 @@ CIP在原技能接口上增加运动学投影λ、头部运动计划h和尾部�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Finally, the robot executes Scoop(k0, j0) to scoop peanut butter onto the knife, then spreads it onto the bread using Spread(k0, b0) (Figs. 3(d) and 3(e)).</span>
+<div class="experiment-evidence" markdown="1">
+
+Finally, the robot executes Scoop(k0, j0) to scoop peanut butter onto the knife, then spreads it onto the bread using Spread(k0, b0) (Figs. 3(d) and 3(e)).
+
+</div>
 
 </details>
 
@@ -497,7 +514,11 @@ TASP生成的解包含14个高层动作，其中7个是GoTo导航技能，并与
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Given this task, the solution plan produced by our planner includes 14 high-level actions, seven of which are GoTo(?location) navigation skills alternating with manipulation skills.</span>
+<div class="experiment-evidence" markdown="1">
+
+Given this task, the solution plan produced by our planner includes 14 high-level actions, seven of which are GoTo(?location) navigation skills alternating with manipulation skills.
+
+</div>
 
 </details>
 
@@ -525,7 +546,11 @@ TASP生成的解包含14个高层动作，其中7个是GoTo导航技能，并与
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">The robot then runs CloseDoor(d1) to close the door and make the board accessible (Fig. 4(e)).</span>
+<div class="experiment-evidence" markdown="1">
+
+The robot then runs CloseDoor(d1) to close the door and make the board accessible (Fig. 4(e)).
+
+</div>
 
 </details>
 
@@ -556,7 +581,7 @@ TASP生成的解包含14个高层动作，其中7个是GoTo导航技能，并与
 
 **实验实现**
 
-每次实验的输入都是PDDL风格的符号规划问题〈𝒰, s_i, 𝒢〉，分别表示对象全集、初始符号状态和目标条件；低层初始状态由已知物体位姿与碰撞几何组成的运动学树表示。规划器需要产生可在机器人上执行并满足𝒢的技能序列。双臂平台由两台KUKA LBR iiwa 7 R800组成，提供Grasp、Open、Scoop和Spread四类技能，其中Grasp使用CBiRRT/OpenRAVE运动规划，其余技能采用物体相对的末端轨迹回放与阻抗控制。Spot提供七类技能：MoveIt!/OMPL实现的Pick与Place、A*和Spot SDK实现的GoTo、轨迹回放式OpenDrawer、力控制Erase、由真实示范训练的Action Chunking Transformer关门策略CloseDoor，以及由Gemini Robotics-ER 1.5检测门把手后调用Spot内置能力的黑盒OpenDoor。规划、学习策略控制和感知运行在配备RTX 4090的外部计算机上。原文仅报告两次真实机器人任务的定性执行过程，没有说明重复试验次数、成功率、规划时间、执行时间、失败次数或统计检验，也没有设置对照方法。
+每次实验的输入都是PDDL风格的符号规划问题〈𝒰, $s_i$, 𝒢〉，分别表示对象全集、初始符号状态和目标条件；低层初始状态由已知物体位姿与碰撞几何组成的运动学树表示。规划器需要产生可在机器人上执行并满足𝒢的技能序列。双臂平台由两台KUKA LBR iiwa 7 R800组成，提供Grasp、Open、Scoop和Spread四类技能，其中Grasp使用CBiRRT/OpenRAVE运动规划，其余技能采用物体相对的末端轨迹回放与阻抗控制。Spot提供七类技能：MoveIt!/OMPL实现的Pick与Place、A*和Spot SDK实现的GoTo、轨迹回放式OpenDrawer、力控制Erase、由真实示范训练的Action Chunking Transformer关门策略CloseDoor，以及由Gemini Robotics-ER 1.5检测门把手后调用Spot内置能力的黑盒OpenDoor。规划、学习策略控制和感知运行在配备RTX 4090的外部计算机上。原文仅报告两次真实机器人任务的定性执行过程，没有说明重复试验次数、成功率、规划时间、执行时间、失败次数或统计检验，也没有设置对照方法。
 
 **关键消融**
 

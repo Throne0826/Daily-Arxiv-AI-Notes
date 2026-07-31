@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "hallucination"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:24.857054+00:00"
+generated_at: "2026-07-30T10:14:52.587030+00:00"
 source_sha256: "3bffd443f266b455d1bdf23142594106620fc51be3c421b502f7e4befd53179d"
 tags:
   - "幻觉检测"
@@ -36,7 +36,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2607.26886v1) · [PDF 下载](https://arxiv.org/pdf/2607.26886v1) · **关键词** 医疗视觉—语言模型, 幻景效应, 人口统计偏差, 无图像诊断, 结构化输出, 保留式幻景, Jensen–Shannon散度  
+[arXiv 原文](https://arxiv.org/abs/2607.26886v1) · [PDF 下载](https://arxiv.org/pdf/2607.26886v1) · **关键词** 医疗视觉—语言模型, 幻景效应, 人口统计偏差, 无图像诊断, 结构化输出, 保留式幻景, Jensen–Shannon散度<br>
 
 
 </div>
@@ -85,21 +85,21 @@ tags:
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **视觉—语言模型（Vision-Language Model, VLM）**
 
 能够联合处理图像与文本并生成自然语言或结构化结果的模型。在本文设定中，模型被置于本应接收医学图像、实际却只收到文字提示的异常输入条件下。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **幻景效应（mirage effect）**
 
 指图像缺失时，VLM仍生成仿佛看过图像的视觉描述或医学诊断，而不是明确拒绝判断。本文研究的重点不是幻景是否发生，而是幻景产生的诊断分布依赖哪些人口统计文字。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **结构化输出与文本推理双通道**
 
@@ -124,28 +124,28 @@ tags:
 
 <div class="notation-list" markdown="1">
 
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$p(d\mid g)$**
 
 在仅给定人口统计描述g且图像缺失时，模型输出诊断d的经验分布；该符号用于概括本文比较的对象，并非原文明确给出的公式记号。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$g$**
 
 提示中的人口统计条件，例如年龄、种族与性别的组合。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$d$**
 
 模型在结构化诊断字段中返回的疾病类别或拒答结果。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\operatorname{JSD}$**
 
@@ -244,7 +244,7 @@ Jensen–Shannon散度，用于衡量两个诊断概率分布的差异；数值�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：三种模态短语：“chest X ray”“brain MRI”“skin mole”；人口变量年龄 {32, 65}、性别 {man, woman}、种族 {white, Black, brown}；以及不含人口描述的中性基线 D0。  
+**输入**：三种模态短语：“chest X ray”“brain MRI”“skin mole”；人口变量年龄 {32, 65}、性别 {man, woman}、种族 {white, Black, brown}；以及不含人口描述的中性基线 D0。<br>
 **输出**：除第一人称人口描述外尽量相同的 13 组提示；条件按“模态_年龄种族性别”编码，例如 derm_65wm。
 
 </div>
@@ -264,7 +264,7 @@ Jensen–Shannon散度，用于衡量两个诊断概率分布的差异；数值�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：上述提示、三个提供商的模型接口，以及包含七个必填字段的 JSON 模式。  
+**输入**：上述提示、三个提供商的模型接口，以及包含七个必填字段的 JSON 模式。<br>
 **输出**：可逐条检查的结构化响应，其中诊断字段与自由文本推理彼此分离。
 
 </div>
@@ -284,7 +284,7 @@ Jensen–Shannon散度，用于衡量两个诊断概率分布的差异；数值�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：模型生成的自由形式 primary_diagnosis 字符串、null 值、推理文本和 image_present 字段。  
+**输入**：模型生成的自由形式 primary_diagnosis 字符串、null 值、推理文本和 image_present 字段。<br>
 **输出**：每个条件下由疾病类别与拒绝类别构成的频数/概率分布，以及“承认缺图但填诊断”“未承认缺图且填诊断”“干净拒绝”等行为标签。
 
 </div>
@@ -304,7 +304,7 @@ Jensen–Shannon散度，用于衡量两个诊断概率分布的差异；数值�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：每个模型、医学领域和人口条件的诊断分布，以及对应的中性 D0 分布。  
+**输入**：每个模型、医学领域和人口条件的诊断分布，以及对应的中性 D0 分布。<br>
 **输出**：每个条件的 JSD、置信区间、超过预注册 0.10 阈值的计数、释义与种子噪声基线、名词敏感性结果，以及拒绝率是否依赖人口描述的统计证据。
 
 </div>
@@ -378,26 +378,37 @@ E2 预注册地改写 Claude 胸片 D0，因全部拒绝而退化；E2b 事后�
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- 胸部X光探针集：不是基于真实影像的数据集，而是无图输入的受控审计条件；包含中性基线D0以及年龄、种族、性别组成的12个人口统计单元。每个模型在每个单元生成100条记录，用于检验人口属性是否改变胸部疾病诊断。
-- 脑MRI探针集：同样不附带图像，采用D0与12个人口统计条件，每单元每模型100次查询；用于检验模型是否会把人口属性映射到多发性硬化、脑膜瘤、胶质瘤等不同脑部诊断。
-- 皮肤科探针集：围绕皮肤痣或皮肤病灶提问但不提供图像，并使用相同的人口统计设计；既检验黑色素瘤、良性痣等诊断的分布变化，也用于测试提示词“skin mole”与“skin lesion”的敏感性。文中称全部审计共有11,700条记录，但所给章节未明确报告训练集、验证集或测试集划分；该研究属于重复查询式行为审计，而非训练后预测评测。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- 胸部X光探针集：不是基于真实影像的数据集，而是无图输入的受控审计条件；包含中性基线D0以及年龄、种族、性别组成的12个人口统计单元。每个模型在每个单元生成100条记录，用于检验人口属性是否改变胸部疾病诊断。
+- 脑MRI探针集：同样不附带图像，采用D0与12个人口统计条件，每单元每模型100次查询；用于检验模型是否会把人口属性映射到多发性硬化、脑膜瘤、胶质瘤等不同脑部诊断。
+- 皮肤科探针集：围绕皮肤痣或皮肤病灶提问但不提供图像，并使用相同的人口统计设计；既检验黑色素瘤、良性痣等诊断的分布变化，也用于测试提示词“skin mole”与“skin lesion”的敏感性。文中称全部审计共有11,700条记录，但所给章节未明确报告训练集、验证集或测试集划分；该研究属于重复查询式行为审计，而非训练后预测评测。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **人口统计条件相对D0的Jensen–Shannon divergence（JSD，底数2）**
 
 比较某个人口统计单元与中性基线的完整输出分布差异，分布中包括拒答和各疾病诊断。JSD可以同时被“拒答变成诊断”以及“诊断疾病发生改变”推高；作者预注册的关注阈值为0.10。 （作为偏移或失效指标时越低越好，因为较低值表示加入人口描述后输出分布更接近中性基线；但低JSD不保证模型正确，也可能只是两个条件都稳定拒答或都以相似方式编造。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **编造率（fabrication rate）**
 
 在没有图像时，结构化诊断字段仍被填入疾病的记录比例。它直接衡量模型是否越过应当拒答的边界，而不能单独判断所填疾病受哪一种人口属性驱动。 （越低越好；在本实验的无图条件下，理想行为是明确拒答且不输出具体结构化诊断。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **条件编造JSD（within-fabrication JSD）**
 
@@ -405,7 +416,9 @@ E2 预注册地改写 Claude 胸片 D0，因全部拒绝而退化；E2b 事后�
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -436,7 +449,11 @@ E2 预注册地改写 Claude 胸片 D0，因全部拒绝而退化；E2b 事后�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">The cell with the highest JSD is Claude Opus 4.7 on dermatology under derm_65wm: every neutral-prompt record is a refusal, and adding “I am a 65-year-old white man.” yields 94% Melanoma (bootstrapped JSD 0.834, 95% CI [0.741,0.929]).</span>
+<div class="experiment-evidence" markdown="1">
+
+The cell with the highest JSD is Claude Opus 4.7 on dermatology under derm_65wm: every neutral-prompt record is a refusal, and adding “I am a 65-year-old white man.” yields 94% Melanoma (bootstrapped JSD 0.834, 95% CI [0.741,0.929]).
+
+</div>
 
 </details>
 
@@ -464,7 +481,11 @@ GPT-5.4的失效并非只发生在个别触发条件：它普遍愿意在无图�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">GPT-5.4 fabricates on 36/36 factorial cells (median JSD 0.314; max 0.590 on xray_32bm and xray_32bf, both Sarcoidosis-dominated); the within-fabrication JSD on the max cell is 1.000, so GPT-5.4’s signal is a shift in which disease is named, given that a diagnosis is emitted.</span>
+<div class="experiment-evidence" markdown="1">
+
+GPT-5.4 fabricates on 36/36 factorial cells (median JSD 0.314; max 0.590 on xray_32bm and xray_32bf, both Sarcoidosis-dominated); the within-fabrication JSD on the max cell is 1.000, so GPT-5.4’s signal is a shift in which disease is named, given that a diagnosis is emitted.
+
+</div>
 
 </details>
 
@@ -492,7 +513,11 @@ Claude仅在6/36个人口统计单元编造，但最大JSD达0.834；Gemini的JS
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">An audit that reads only the natural-language response would log 66% of Claude’s fabricating records as refusals, while a pipeline reading the structured diagnosis field would receive a demographically structured diagnosis from the same records.</span>
+<div class="experiment-evidence" markdown="1">
+
+An audit that reads only the natural-language response would log 66% of Claude’s fabricating records as refusals, while a pipeline reading the structured diagnosis field would receive a demographically structured diagnosis from the same records.
+
+</div>
 
 </details>
 

@@ -3,6 +3,7 @@ from pathlib import Path
 
 from daily_arxiv_notes.models import Classification, GeneratedNote, Paper
 from daily_arxiv_notes.render import (
+    _normalize_inline_math,
     render_category_index,
     render_categories_master,
     render_daily_index,
@@ -242,6 +243,104 @@ def test_fenced_latex_is_normalized_and_symbols_remain_math() -> None:
     assert "```latex" not in markdown
     assert "$$\n\\mathcal{L}=\\mathbb{E}[x]\n$$" in markdown
     assert "$D_t$" in markdown
+
+
+def test_bare_inline_latex_is_delimited_without_touching_code_names() -> None:
+    prose = (
+        "形成 D=D_{\\mathrm{task}}\\cup D_{\\mathrm{harm}}，"
+        "保留 s(x)\\in\\{\\mathrm{task},\\mathrm{harm}\\}，"
+        "并按 T_d\\in\\{\\textsc{raw},\\textsc{self}\\} 渲染；"
+        "防御者无需观察 T_a，字段 is_reflected 保持原样。"
+    )
+
+    normalized = _normalize_inline_math(prose)
+
+    assert "$D=D_{\\mathrm{task}}\\cup D_{\\mathrm{harm}}$" in normalized
+    assert "$s(x)\\in\\{\\mathrm{task},\\mathrm{harm}\\}$" in normalized
+    assert "$T_d\\in\\{\\textsc{raw},\\textsc{self}\\}$" in normalized
+    assert "$T_a$" in normalized
+    assert "is_reflected" in normalized
+    assert "$is_reflected$" not in normalized
+
+
+def test_existing_inline_math_is_not_double_wrapped() -> None:
+    value = "$D_{\\mathrm{task}}$ 与 \\(T_d\\) 已经带有定界符。"
+
+    assert _normalize_inline_math(value) == value
+
+
+def test_inline_math_keeps_spaced_expressions_together() -> None:
+    examples = {
+        "X\\in\\mathbb{R}^{n\\times d}": "$X\\in\\mathbb{R}^{n\\times d}$",
+        "p_t=\\pi_\\theta(\\cdot\\mid x_{<t})": "$p_t=\\pi_\\theta(\\cdot\\mid x_{<t})$",
+        "\\mathbf A_n^*": "$\\mathbf A_n^*$",
+        "Ω_{\\mathrm{BEV}}": "$Ω_{\\mathrm{BEV}}$",
+        "V\\rightarrow\\mathbf{L}\\rightarrow A": "$V\\rightarrow\\mathbf{L}\\rightarrow A$",
+        "d_i=(p_i,s_i,ℓ_i)": "$d_i=(p_i,s_i,ℓ_i)$",
+        "h_o=[h_o^c,h_o^a,h_o^i]^⊤": "$h_o=[h_o^c,h_o^a,h_o^i]^⊤$",
+        "S_{50\\%}": "$S_{50\\%}$",
+        "S_{50\\%}^{$32\\times64$}": "$S_{50\\%}^{32\\times64}$",
+        "\\hat y_i": "$\\hat y_i$",
+        "\\lVert v_{k,c}\\rVert_2^2": "$\\lVert v_{k,c}\\rVert_2^2$",
+        "λ_u L_{FM}^u+Σ_m λ_m L_{FM}^m": "$λ_u L_{FM}^u+Σ_m λ_m L_{FM}^m$",
+        "\\Delta t s_j^*": "$\\Delta t s_j^*$",
+    }
+
+    for source, expected in examples.items():
+        assert _normalize_inline_math(source) == expected
+
+
+def test_concept_and_metric_items_use_styled_class_names() -> None:
+    markdown = render_note(
+        Paper(arxiv_id="2607.00003", title="Reliable Learned Verifiers"),
+        Classification(
+            relevant=True,
+            primary_category="llm_alignment",
+            categories=["llm_alignment"],
+        ),
+        generated_note(),
+        taxonomy(),
+    )
+
+    assert 'class="concept-item"' in markdown
+    assert 'class="notation-item"' in markdown
+    assert 'class="metric-item"' in markdown
+    assert 'class="conceptitem"' not in markdown
+    assert '<span class="paper-mini-label">数据与任务</span>\n\n-' in markdown
+
+
+def test_inline_math_is_normalized_in_related_work_tables_and_evidence() -> None:
+    note = generated_note()
+    note.content["related_work"][0]["work"] = "\\pi_{0.5}\\text{-DROID}"
+    note.content["experiments"]["ablations"] = [
+        {
+            "setting": "移除 F_set",
+            "result": "H_train 下降",
+            "plain_explanation": "比较符号指标。",
+            "source_location": "Table 2",
+            "evidence_quote": "N(k_{2}\\delta)\\rho",
+        }
+    ]
+    note.content["experiments"]["main_results"][0]["evidence_quote"] = (
+        "N(k_{2}\\delta)\\rho"
+    )
+
+    markdown = render_note(
+        Paper(arxiv_id="2607.00003", title="Reliable Learned Verifiers"),
+        Classification(
+            relevant=True,
+            primary_category="llm_alignment",
+            categories=["llm_alignment"],
+        ),
+        note,
+        taxonomy(),
+    )
+
+    assert "$\\pi_{0.5}\\text{-DROID}$" in markdown
+    assert "$F_set$" in markdown
+    assert "$H_train$" in markdown
+    assert "$N(k_{2}\\delta)\\rho$" in markdown
+    assert '<div class="experiment-evidence" markdown="1">' in markdown
 
 
 def test_daily_and_category_indexes_include_every_matching_category() -> None:

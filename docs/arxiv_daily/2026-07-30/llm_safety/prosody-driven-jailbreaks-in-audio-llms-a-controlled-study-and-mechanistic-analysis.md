@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "llm_safety"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:24.876081+00:00"
+generated_at: "2026-07-30T10:14:52.595137+00:00"
 source_sha256: "0f4f01eb0b23cd9adbfdb85b37154a025f331db00a7d048744c999973d0e7cc1"
 tags:
   - "LLM 安全"
@@ -36,7 +36,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2607.26541v1) · [PDF 下载](https://arxiv.org/pdf/2607.26541v1) · **关键词** 音频大语言模型, 音频越狱, 语音韵律, 匹配文本, 副语言信息, 黑盒安全评测, PJ-Break, AdvAudio-Prosody  
+[arXiv 原文](https://arxiv.org/abs/2607.26541v1) · [PDF 下载](https://arxiv.org/pdf/2607.26541v1) · **关键词** 音频大语言模型, 音频越狱, 语音韵律, 匹配文本, 副语言信息, 黑盒安全评测, PJ-Break, AdvAudio-Prosody<br>
 
 
 </div>
@@ -85,21 +85,21 @@ tags:
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **音频大语言模型（Audio LLM）**
 
 能够直接接收语音或其他音频并生成回答的基础模型。它不仅可能理解转写出的词语，还可能利用说话人的情绪、语速和音质等非文字线索。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **韵律与副语言信息**
 
 韵律指音高、响度、节奏和时长等协同变化；副语言信息还包括音质、情绪和交际意图等不由字面文本直接表达的信号。本文的“speech-delivery preset”可能同时改变多个声学属性，因而不是对单一声学变量的严格操控。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **音频越狱**
 
@@ -124,21 +124,21 @@ tags:
 
 <div class="notation-list" markdown="1">
 
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$Q$**
 
 针对每个有害指令种子所允许的查询次数，即固定攻击预算。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$Q=1$**
 
 每个种子仅测试一种表达条件一次，用于估计单个预设自身的越狱效果。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$Q=6$**
 
@@ -237,7 +237,7 @@ PJ-Break是一套面向音频大语言模型的黑盒安全评测方法，核心
 
 <div class="method-step__io" markdown="1">
 
-**输入**：来自AdvBench和HarmBench的100条种子指令，覆盖暴力、非法活动、仇恨言论、自伤、错误信息和隐私侵犯六类风险。  
+**输入**：来自AdvBench和HarmBench的100条种子指令，覆盖暴力、非法活动、仇恨言论、自伤、错误信息和隐私侵犯六类风险。<br>
 **输出**：按风险类别组织、可进行逐种子配对比较的固定文本集合。
 
 </div>
@@ -257,7 +257,7 @@ PJ-Break是一套面向音频大语言模型的黑盒安全评测方法，核心
 
 <div class="method-step__io" markdown="1">
 
-**输入**：每条固定种子文本，以及Neutral、Panic、Anger、Commanding、Fast、Whisper六种预设。  
+**输入**：每条固定种子文本，以及Neutral、Panic、Anger、Commanding、Fast、Whisper六种预设。<br>
 **输出**：AdvAudio-Prosody的六条件配对音频，其中五个条件构成同说话人比较，Commanding被明确标记为说话人身份部分混杂的条件。
 
 </div>
@@ -277,7 +277,7 @@ PJ-Break是一套面向音频大语言模型的黑盒安全评测方法，核心
 
 <div class="method-step__io" markdown="1">
 
-**输入**：TTS生成的全部候选音频。  
+**输入**：TTS生成的全部候选音频。<br>
 **输出**：通过质量控制的配对评测面板；Qwen2-Audio主要结果使用共享的95条post-QC种子。
 
 </div>
@@ -297,7 +297,7 @@ PJ-Break是一套面向音频大语言模型的黑盒安全评测方法，核心
 
 <div class="method-step__io" markdown="1">
 
-**输入**：通过质检的各条件音频和目标Audio LLM。  
+**输入**：通过质检的各条件音频和目标Audio LLM。<br>
 **输出**：单预设攻击结果、六查询种子覆盖率、同声线敏感性结果及文本—韵律消融结果。
 
 </div>
@@ -371,26 +371,37 @@ PJ-Break是一套面向音频大语言模型的黑盒安全评测方法，核心
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- AdvAudio-Prosody：作者构建的600样本音频安全评测基准，包含经过声学属性验证的不同语音表达预设，用于研究转写文本不变时韵律变化造成的越狱风险。原文节选未明确报告其训练、验证和测试划分；该基准在本文中承担攻击评测集而非模型训练集的角色。
-- 主评测种子面板：初始包含100条恶意指令种子，经一次统一质量控制后保留95条。删除项包括3条转写不匹配（词错误率至少5%）、1条音频质量失败和1条重复内容。该固定面板用于Qwen2-Audio核心比较、GPT-4o的PJ-Break评测及共享面板上的配对显著性检验。
-- 人工校准子集：从表3主要比较样本中按危害类别分层抽取200个样本，由3名人工标注者判断是否有害。它用于校准自动裁判体系，而不是替代整个测试集上的人工审核。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- AdvAudio-Prosody：作者构建的600样本音频安全评测基准，包含经过声学属性验证的不同语音表达预设，用于研究转写文本不变时韵律变化造成的越狱风险。原文节选未明确报告其训练、验证和测试划分；该基准在本文中承担攻击评测集而非模型训练集的角色。
+- 主评测种子面板：初始包含100条恶意指令种子，经一次统一质量控制后保留95条。删除项包括3条转写不匹配（词错误率至少5%）、1条音频质量失败和1条重复内容。该固定面板用于Qwen2-Audio核心比较、GPT-4o的PJ-Break评测及共享面板上的配对显著性检验。
+- 人工校准子集：从表3主要比较样本中按危害类别分层抽取200个样本，由3名人工标注者判断是否有害。它用于校准自动裁判体系，而不是替代整个测试集上的人工审核。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **音频级攻击成功率（Audio-level ASR）**
 
 把每个渲染后的音频视为一次独立试验，统计单一语音预设诱导模型产生有害回答的比例。它适合比较Panic、Anger、Fast和Neutral等单次渲染条件。 （对攻击者而言越高越强，因为更高表示一次给定语音表达更容易绕过安全机制；对防御者而言则越低越好。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **种子级best-of-six成功率**
 
 对每条恶意指令固定生成并查询6种韵律版本，只要任意一个版本得到有害回答，该种子即计为成功。该指标衡量固定六查询池能够覆盖多少不同指令，而不是某一种语音的单次成功概率。 （对攻击者而言越高越好，因为它表示固定查询预算下至少一种韵律奏效的种子更多；但不能直接与Q=1控制条件或查询数更大的best-of-N方法等同比较。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **Fleiss’ κ与Cohen’s κ一致性**
 
@@ -398,7 +409,9 @@ Fleiss’ κ衡量多名人工标注者之间超越随机水平的一致性，Co
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -429,7 +442,11 @@ Fleiss’ κ衡量多名人工标注者之间超越随机水平的一致性，Co
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">On the exact post-QC Qwen2-Audio panel, the Q=1 Panic (38/95), Anger (35/95), and Fast (32/95) presets are all well above Neutral (4/95).</span>
+<div class="experiment-evidence" markdown="1">
+
+On the exact post-QC Qwen2-Audio panel, the Q=1 Panic (38/95), Anger (35/95), and Fast (32/95) presets are all well above Neutral (4/95).
+
+</div>
 
 </details>
 
@@ -457,7 +474,11 @@ Fleiss’ κ衡量多名人工标注者之间超越随机水平的一致性，Co
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">The fixed six-query pool covers 44/95 Qwen2-Audio seeds and 15/95 GPT-4o seeds and exceeds a matched-budget StyleBreak reimplementation (27/95) on Qwen2-Audio.</span>
+<div class="experiment-evidence" markdown="1">
+
+The fixed six-query pool covers 44/95 Qwen2-Audio seeds and 15/95 GPT-4o seeds and exceeds a matched-budget StyleBreak reimplementation (27/95) on Qwen2-Audio.
+
+</div>
 
 </details>
 
@@ -485,7 +506,11 @@ Fleiss’ κ衡量多名人工标注者之间超越随机水平的一致性，Co
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">PJ-Break clearly exceeds transcript-preserving controls and the matched-budget StyleBreak reimplementation on Qwen2-Audio, and a paired McNemar test on the shared retained panel confirms the gain over StyleBreak (p<0.001).</span>
+<div class="experiment-evidence" markdown="1">
+
+PJ-Break clearly exceeds transcript-preserving controls and the matched-budget StyleBreak reimplementation on Qwen2-Audio, and a paired McNemar test on the shared retained panel confirms the gain over StyleBreak (p<0.001).
+
+</div>
 
 </details>
 

@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "llm_safety"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:25.649754+00:00"
+generated_at: "2026-07-30T10:14:52.855439+00:00"
 source_sha256: "e8e1e3b8853321df2fabcc9126cfc0d11ac5dab3f569035b48c9fae78c25e41f"
 tags:
   - "LLM 安全"
@@ -35,7 +35,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2607.26389v1) · [PDF 下载](https://arxiv.org/pdf/2607.26389v1) · **关键词** 涌现失配, 大五人格, 人格向量, 激活方向, 机制可解释性, 模型微调  
+[arXiv 原文](https://arxiv.org/abs/2607.26389v1) · [PDF 下载](https://arxiv.org/pdf/2607.26389v1) · **关键词** 涌现失配, 大五人格, 人格向量, 激活方向, 机制可解释性, 模型微调<br>
 
 
 </div>
@@ -84,21 +84,21 @@ tags:
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **涌现失配（Emergent Misalignment, EM）**
 
 指模型在狭窄、有缺陷的任务数据上微调后，在与该任务无关的场景中出现广泛有害、欺骗或敌意行为。关键问题是：局部训练缺陷为何会传播为一致而普遍的行为变化。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **残差流与激活方向**
 
 残差流是 Transformer 各层传递和更新内部表征的主要向量空间；一个“激活方向”是在该空间中与某种概念或行为变化相关的向量。将回答的内部激活投影到该方向上，可得到该特征在回答中的相对表达强度。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **大五人格（Big Five）**
 
@@ -123,32 +123,32 @@ tags:
 
 <div class="notation-list" markdown="1">
 
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$v_t$**
 
 人格特质 t 的激活方向，即对应特质高水平回答与低水平回答的平均层激活之差；本文称为人格向量。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$t \in \{O,C,E,A,N\}$**
 
 大五人格维度：开放性 O、尽责性 C、外向性 E、宜人性 A 和神经质 N。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$h_\ell(x)$**
 
-模型处理回答或文本 x 时，在第 \ell 层残差流中的激活表征；引言指出测量效果在以第 20 层为中心的中间层带最强。
+模型处理回答或文本 x 时，在第 $\ell$ 层残差流中的激活表征；引言指出测量效果在以第 20 层为中心的中间层带最强。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\langle h_\ell(x),v_t\rangle$**
 
-文本 x 的激活在特质向量 v_t 上的投影分数，用作该文本表达特质 t 强弱的内部测量。
+文本 x 的激活在特质向量 $v_t$ 上的投影分数，用作该文本表达特质 t 强弱的内部测量。
 
 </div>
 
@@ -242,7 +242,7 @@ tags:
 
 <div class="method-step__io" markdown="1">
 
-**输入**：每个大五人格特质 t 的低、中、高三级 TMK 描述，以及固定的 30 个与该特质相关的问题。  
+**输入**：每个大五人格特质 t 的低、中、高三级 TMK 描述，以及固定的 30 个与该特质相关的问题。<br>
 **输出**：按特质和干预等级组织的提示—回答对，以及各回答在模型每一层、每个响应 token 位置的残差流激活。
 
 </div>
@@ -262,8 +262,8 @@ tags:
 
 <div class="method-step__io" markdown="1">
 
-**输入**：三级干预生成的回答、LLM 评审给出的特质表达分数与连贯性分数，以及回答 token 的残差流激活。  
-**输出**：每个特质 t、每一层 ℓ 的人格方向 v_t^(ℓ)，以及任意回答沿该方向的标量投影分数 p_t^(ℓ)。
+**输入**：三级干预生成的回答、LLM 评审给出的特质表达分数与连贯性分数，以及回答 token 的残差流激活。<br>
+**输出**：每个特质 t、每一层 ℓ 的人格方向 $v_t^(ℓ)$，以及任意回答沿该方向的标量投影分数 $p_t^(ℓ)$。
 
 </div>
 
@@ -282,7 +282,7 @@ tags:
 
 <div class="method-step__io" markdown="1">
 
-**输入**：固定的人格向量、未参与向量提取的低中高回答，以及独立 BIG5-CHAT 中各特质的高、低人格对话。  
+**输入**：固定的人格向量、未参与向量提取的低中高回答，以及独立 BIG5-CHAT 中各特质的高、低人格对话。<br>
 **输出**：每根人格向量的序数校准、效应大小、跨语料迁移能力和收敛／区分效度；结合逐层分半余弦稳定性与迁移 AUC，确定统一读取层。
 
 </div>
@@ -302,7 +302,7 @@ tags:
 
 <div class="method-step__io" markdown="1">
 
-**输入**：八类任务中配对的正常／失配语料、在两种语料上分别进行 LoRA 微调的模型、固定中性问题集及已验证的人格向量。  
+**输入**：八类任务中配对的正常／失配语料、在两种语料上分别进行 LoRA 微调的模型、固定中性问题集及已验证的人格向量。<br>
 **输出**：每类训练数据的五维人格签名，以及微调造成的行为层人格位移和文本评审人格位移。
 
 </div>
@@ -345,7 +345,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：先把一句回答跨 token 汇总成一个内部表示，再用高、低人格回答的中心差定义方向。新回答沿这个方向的投影把高维激活压缩成一个可比较的连续人格分数；论文统一在预先确定的第 20 层读取。  
+**直观理解**：先把一句回答跨 token 汇总成一个内部表示，再用高、低人格回答的中心差定义方向。新回答沿这个方向的投影把高维激活压缩成一个可比较的连续人格分数；论文统一在预先确定的第 20 层读取。<br>
 **原文位置**：§3.1，公式 (1)、(4)、(5)
 
 </div>
@@ -365,13 +365,13 @@ $$
 - $c$：一种失配类别或任务领域。
 - $t\in\mathcal{T}=\{\mathrm{O},\mathrm{C},\mathrm{E},\mathrm{A},\mathrm{N}\}$：大五人格中的开放性、尽责性、外向性、宜人性或神经质。
 - $\mathcal{D}_{c,\mathrm{mis}},\mathcal{D}_{c,\mathrm{norm}}$：类别 c 中相互匹配的失配语料与正常语料。
-- $\overline{p_t}(\mathcal{D})$：语料集合 \mathcal{D} 内所有样本在特质 t 方向上的平均投影。
+- $\overline{p_t}(\mathcal{D})$：语料集合 $\mathcal{D}$ 内所有样本在特质 t 方向上的平均投影。
 - $\Delta_{c,t}$：类别 c 的失配语料相对正常语料在特质 t 上的平均位移。
 - $s_c$：将五个特质位移排列而成的类别 c 的五维人格签名。
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：每个维度都用匹配正常语料作基准，再观察失配语料向高人格端还是低人格端移动。五个差值合起来保留了失配的结构，例如可区分“高外向、低尽责”与笼统的一维不安全分数。  
+**直观理解**：每个维度都用匹配正常语料作基准，再观察失配语料向高人格端还是低人格端移动。五个差值合起来保留了失配的结构，例如可区分“高外向、低尽责”与笼统的一维不安全分数。<br>
 **原文位置**：§3.3 Data signature，公式 (9)
 
 </div>
@@ -391,7 +391,7 @@ $$
 
 **1. 行为实现过滤器**
 
-LLM 评审分别给出 0–100 的目标特质表达分数 s_trait 和连贯性分数 s_coh；以 τ=50 保留 s_trait>τ 且 s_coh≥τ 的高等级回答，以及 s_trait<τ 且 s_coh≥τ 的低等级回答。
+LLM 评审分别给出 0–100 的目标特质表达分数 $s_trait$ 和连贯性分数 $s_coh$；以 τ=50 保留 $s_trait>τ$ 且 $s_coh≥τ$ 的高等级回答，以及 $s_trait<τ$ 且 $s_coh≥τ$ 的低等级回答。
 
 > 直观理解：该模块避免人格方向只编码“系统提示写了什么”，而要求回答真正表现出相应人格。评审器只负责清洗提取样本，方向的外部有效性仍需由独立 BIG5-CHAT 验证。
 
@@ -426,26 +426,37 @@ LLM 评审分别给出 0–100 的目标特质表达分数 s_trait 和连贯性�
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- 分级干预数据：围绕大五人格的开放性（O）、尽责性（C）、外向性（E）、宜人性（A）和神经质（N）设置低、中、高三级指令，用于提取和校准人格向量。向量由高、低两极提取，中等级不参与提取，因而可作为检验连续有序性的留出条件。GPT-4.1-mini按0–100分评估回答中实际表现出的人格特质与连贯性，判定中点为50。
-- BIG5-CHAT：独立构建的约10万段、具有人类人格依据的大五人格对话语料，与论文用于诱导人格的TMK流程无关。实验对每项人格选取200段高特质和200段低特质对话，在不重新拟合人格向量的情况下进行零样本迁移；另以五维投影作为输入，在该数据集内进行五折交叉验证的逻辑回归读出。
-- 失配语料：包含八类正常/失配配对数据，其中显性有害类为evil、sycophancy、hallucination和insecure code，答案错误类为math、medical、opinion和GSM8K mistakes；每类又有较轻与较强失配划分。微调实验选用evil、medical mistakes和sycophancy三类语料，并在与训练领域无关的固定中性问题上测试，以区分跨领域的涌现失配与对训练主题的直接复现。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- 分级干预数据：围绕大五人格的开放性（O）、尽责性（C）、外向性（E）、宜人性（A）和神经质（N）设置低、中、高三级指令，用于提取和校准人格向量。向量由高、低两极提取，中等级不参与提取，因而可作为检验连续有序性的留出条件。GPT-4.1-mini按0–100分评估回答中实际表现出的人格特质与连贯性，判定中点为50。
+- BIG5-CHAT：独立构建的约10万段、具有人类人格依据的大五人格对话语料，与论文用于诱导人格的TMK流程无关。实验对每项人格选取200段高特质和200段低特质对话，在不重新拟合人格向量的情况下进行零样本迁移；另以五维投影作为输入，在该数据集内进行五折交叉验证的逻辑回归读出。
+- 失配语料：包含八类正常/失配配对数据，其中显性有害类为evil、sycophancy、hallucination和insecure code，答案错误类为math、medical、opinion和GSM8K mistakes；每类又有较轻与较强失配划分。微调实验选用evil、medical mistakes和sycophancy三类语料，并在与训练领域无关的固定中性问题上测试，以区分跨领域的涌现失配与对训练主题的直接复现。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **Cohen's d**
 
 两个条件投影均值差的标准化效应量。文中用于衡量高、低人格条件的分离、BIG5-CHAT高低标签的区分，以及失配语料相对正常语料的人格位移；绝对值表示分离强度，符号表示变化方向。 （校准和同特质迁移时绝对值越大，说明区分越清晰；分析失配签名时没有统一的越高越好，正负号及跨类别、跨模型的一致性更重要。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **AUC**
 
 按人格投影分数对高、低特质样本排序的能力；0.5近似随机，1表示完全可分。零样本AUC不在BIG5-CHAT上拟合，因而直接检验固定向量的外部迁移。 （越高越好，因为高特质对话应比低特质对话获得更高的对应向量投影。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **相关系数r**
 
@@ -453,7 +464,9 @@ LLM 评审分别给出 0–100 的目标特质表达分数 s_trait 和连贯性�
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -484,7 +497,11 @@ LLM 评审分别给出 0–100 的目标特质表达分数 s_trait 和连贯性�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">The held-out medium level is the decisive evidence for gradedness, and it lands strictly between the poles in all ten model–trait cells.</span>
+<div class="experiment-evidence" markdown="1">
+
+The held-out medium level is the decisive evidence for gradedness, and it lands strictly between the poles in all ten model–trait cells.
+
+</div>
 
 </details>
 
@@ -512,7 +529,11 @@ LLM 评审分别给出 0–100 的目标特质表达分数 s_trait 和连贯性�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">The boxed diagonal is the largest entry in every row—each trait is read most strongly by its own vector.</span>
+<div class="experiment-evidence" markdown="1">
+
+The boxed diagonal is the largest entry in every row—each trait is read most strongly by its own vector.
+
+</div>
 
 </details>
 
@@ -540,7 +561,11 @@ LLM 评审分别给出 0–100 的目标特质表达分数 s_trait 和连贯性�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Fine-tuning imprints the same profile, shifting the model's generations along the corresponding signature, with r = 0.83 using activation-based measurements and r = 0.90 using a text-based judge, while also shifting internal activations with r = 0.69.</span>
+<div class="experiment-evidence" markdown="1">
+
+Fine-tuning imprints the same profile, shifting the model's generations along the corresponding signature, with r = 0.83 using activation-based measurements and r = 0.90 using a text-based judge, while also shifting internal activations with r = 0.69.
+
+</div>
 
 </details>
 
@@ -580,7 +605,7 @@ LLM 评审分别给出 0–100 的目标特质表达分数 s_trait 和连贯性�
 
 | 对比 / 设置 | 结果 | 怎么理解 | 原文位置与证据 |
 |---|---|---|---|
-| 留出中等级，不使用其样本提取人格向量 | 低、中、高平均投影在全部10个组合中严格递增。例如Qwen开放性为1.56、19.97、25.69，Llama开放性为1.64、4.43、5.47；中等级的位置没有被向量提取目标直接约束。 | 该设计隔离了“连续尺度”是否只是训练构造的结果：若方向只能记住两极，中等级未必位于中间。全部组合有序支持向量捕捉了渐变特征，但仅有三个干预等级，尚不能证明整条尺度线性或等距。 | Appendix G.1，Table A2<br><span class="experiment-evidence">The medium level is held out of extraction, so nothing constrains where it lands, yet \bar{p}[\mathrm{low}]<\bar{p}[\mathrm{med}]<\bar{p}[\mathrm{high}] holds in all ten cells.</span> |
+| 留出中等级，不使用其样本提取人格向量 | 低、中、高平均投影在全部10个组合中严格递增。例如Qwen开放性为1.56、19.97、25.69，Llama开放性为1.64、4.43、5.47；中等级的位置没有被向量提取目标直接约束。 | 该设计隔离了“连续尺度”是否只是训练构造的结果：若方向只能记住两极，中等级未必位于中间。全部组合有序支持向量捕捉了渐变特征，但仅有三个干预等级，尚不能证明整条尺度线性或等距。 | Appendix G.1，Table A2<br><span class="experiment-evidence">The medium level is held out of extraction, so nothing constrains where it lands, yet $\bar{p}[\mathrm{low}]<\bar{p}[\mathrm{med}]<\bar{p}[\mathrm{high}]$ holds in all ten cells.</span> |
 | 跨层读取与中层带稳定性检查 | 校准效应峰值在全部10个组合中均位于第20或25层；平均校准效应在Qwen第20层为4.26、在第25层为4.08，在Llama第20层为2.49、第25层为2.54。第16–24层的迁移AUC距峰值均不超过0.03，稳定性至少为0.89；到最终第28层时，稳定性继续升高，但迁移AUC降至Qwen 0.908、Llama 0.822。 | 这一检查隔离了结论是否依赖任意挑选某一层。中层带内重读基本不改变结论，说明结果不是第20层的偶然现象；末层出现“内部稳定性更高而外部迁移更差”的分离，也表明仅凭向量自身稳定不能选择最具外部效度的读取层。 | Appendix G.1，Tables A3–A4<br><span class="experiment-evidence">Outside the band the two signals diverge: stability keeps climbing to 0.982 (Qwen) and 0.938 (Llama) at layer 28 while transfer falls to 0.908 and 0.822 at the final layer.</span> |
 
 **定性案例**

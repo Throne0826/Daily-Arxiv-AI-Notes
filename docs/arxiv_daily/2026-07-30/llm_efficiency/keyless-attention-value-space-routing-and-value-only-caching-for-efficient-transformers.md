@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "llm_efficiency"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:25.080169+00:00"
+generated_at: "2026-07-30T10:14:52.675465+00:00"
 source_sha256: "c8e690fa03abdbe36fca73fe3582fa363710b1966e0b9ad3a2676500f8aa3c01"
 tags:
   - "LLM 效率"
@@ -34,7 +34,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2606.21848v2) · [PDF 下载](https://arxiv.org/pdf/2606.21848v2) · **关键词** Keyless Attention, Value-Only Cache, 值空间路由, KV缓存, 自回归推理, 注意力因子分解  
+[arXiv 原文](https://arxiv.org/abs/2606.21848v2) · [PDF 下载](https://arxiv.org/pdf/2606.21848v2) · **关键词** Keyless Attention, Value-Only Cache, 值空间路由, KV缓存, 自回归推理, 注意力因子分解<br>
 
 
 </div>
@@ -83,21 +83,21 @@ tags:
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **缩放点积注意力（Scaled Dot-Product Attention）**
 
 模型用查询Q与各位置的键K计算匹配分数，经归一化后作为权重，对值V进行加权汇总。直观地说，K负责判断“去哪里找”，V负责提供“取回什么内容”。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **自回归解码与KV缓存**
 
 自回归模型每次根据已有词元生成下一个词元；KV缓存保存各层对历史词元已计算出的K和V，避免后续步骤重复计算。其代价是缓存容量随上下文、批量、层数和注意力头数量持续增长，并产生显著的内存访问开销。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **值空间路由（Value-Space Routing）**
 
@@ -122,28 +122,28 @@ tags:
 
 <div class="notation-list" markdown="1">
 
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$Q$**
 
 查询表示，由当前词元的隐藏状态投影得到，用于发起对历史位置的信息检索。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$K$**
 
 标准注意力中的键表示，与Q计算匹配分数；Keyless Attention将其从注意力计算和缓存中取消。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$V$**
 
 值表示，承载被注意力权重汇总的内容；本文推理时只缓存该表示。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$m$**
 
@@ -222,7 +222,7 @@ tags:
 
 <div class="paper-section-deck" markdown="1">
 
-Keyless Attention 将标准注意力中彼此独立的“键路由”和“值检索”改写为同一值空间内的路由与检索。给定隐藏状态 X，训练时先通过 W^Q 和专用值路由矩阵 W^R 得到与值空间兼容的查询，再以 XW^V 同时充当被匹配和被聚合的表示；因此不再生成 K=XW^K。自回归推理时将 W^QW^R 预先合并为有效查询投影，只缓存历史值向量，输出仍是按注意力权重加权的值之和。
+Keyless Attention 将标准注意力中彼此独立的“键路由”和“值检索”改写为同一值空间内的路由与检索。给定隐藏状态 X，训练时先通过 $W^Q$ 和专用值路由矩阵 $W^R$ 得到与值空间兼容的查询，再以 XW^V 同时充当被匹配和被聚合的表示；因此不再生成 K=XW^K。自回归推理时将 $W^QW^R$ 预先合并为有效查询投影，只缓存历史值向量，输出仍是按注意力权重加权的值之和。
 
 </div>
 
@@ -236,12 +236,12 @@ Keyless Attention 将标准注意力中彼此独立的“键路由”和“值�
 
 #### 1. 输入表示与值投影
 
-使用 W^V 将每个位置映射为 V=XW^V，其中 d 为隐藏维度、n 为序列长度。V 不仅是最终聚合的内容，也直接参与注意力路由。
+使用 $W^V$ 将每个位置映射为 V=XW^V，其中 d 为隐藏维度、n 为序列长度。V 不仅是最终聚合的内容，也直接参与注意力路由。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：一层 Transformer 的序列隐藏状态 X\in\mathbb{R}^{n\times d}；自回归解码时可仅输入当前 token 的隐藏状态，并读取此前缓存。  
-**输出**：值表示矩阵 V；解码时，当前值 v_{n+1} 被追加到历史 Value-Only Cache。
+**输入**：一层 Transformer 的序列隐藏状态 $X\in\mathbb{R}^{n\times d}$；自回归解码时可仅输入当前 token 的隐藏状态，并读取此前缓存。<br>
+**输出**：值表示矩阵 V；解码时，当前值 $v_{n+1}$ 被追加到历史 Value-Only Cache。
 
 </div>
 
@@ -256,16 +256,16 @@ Keyless Attention 将标准注意力中彼此独立的“键路由”和“值�
 
 #### 2. 查询到值空间的路由
 
-训练时计算 Q_R=XW^QW^R，使查询进入与 V 可直接点积的空间。W^R 替代原有 W^K 的路由功能，但训练参数量仍保留三组投影 W^Q、W^R、W^V。
+训练时计算 $Q_R=XW^QW^R$，使查询进入与 V 可直接点积的空间。$W^R$ 替代原有 $W^K$ 的路由功能，但训练参数量仍保留三组投影 $W^Q$、$W^R$、$W^V$。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：隐藏状态 X、查询投影 W^Q 和值路由投影 W^R。  
-**输出**：值空间兼容查询 Q_R。
+**输入**：隐藏状态 X、查询投影 $W^Q$ 和值路由投影 $W^R$。<br>
+**输出**：值空间兼容查询 $Q_R$。
 
 </div>
 
-**直观理解**：W^R 像一个转接器：它不再为历史内容另做一套“索引卡”，而是把查询转换成能够直接搜索值向量的形式。
+**直观理解**：$W^R$ 像一个转接器：它不再为历史内容另做一套“索引卡”，而是把查询转换成能够直接搜索值向量的形式。
 
 </div>
 
@@ -276,11 +276,11 @@ Keyless Attention 将标准注意力中彼此独立的“键路由”和“值�
 
 #### 3. 值空间打分与内容聚合
 
-计算缩放点积 Q_RV^\top/\sqrt{d_k}，经 softmax 得到位置权重，再用这些权重聚合同一个 V。多头注意力中各头独立执行该过程并拼接输出；MQA 或 GQA 则让多个查询头共享一个值头或一组值头。
+计算缩放点积 $Q_RV^\top/\sqrt{d_k}$，经 softmax 得到位置权重，再用这些权重聚合同一个 V。多头注意力中各头独立执行该过程并拼接输出；MQA 或 GQA 则让多个查询头共享一个值头或一组值头。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：值空间查询 Q_R 和值矩阵 V。  
+**输入**：值空间查询 $Q_R$ 和值矩阵 V。<br>
 **输出**：注意力层的上下文表示。
 
 </div>
@@ -296,11 +296,11 @@ Keyless Attention 将标准注意力中彼此独立的“键路由”和“值�
 
 #### 4. 推理解耦与 Value-Only Cache
 
-部署前预计算 \tilde{W}^Q=W^QW^R；每个解码步只生成当前有效查询和当前值，将当前值写入缓存，并令查询与全部缓存值计算注意力。由于历史键不再构造、存储或读取，缓存由 K、V 两部分缩减为 V 一部分。
+部署前预计算 $\tilde{W}^Q=W^QW^R$；每个解码步只生成当前有效查询和当前值，将当前值写入缓存，并令查询与全部缓存值计算注意力。由于历史键不再构造、存储或读取，缓存由 K、V 两部分缩减为 V 一部分。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：训练完成的 W^Q、W^R、W^V，以及逐步增长的历史值缓存。  
+**输入**：训练完成的 $W^Q$、$W^R$、$W^V$，以及逐步增长的历史值缓存。<br>
 **输出**：当前 token 的注意力输出和更新后的仅值缓存。
 
 </div>
@@ -337,12 +337,12 @@ $$
 - $W^Q$：查询投影矩阵，将隐藏状态映射到查询表示。
 - $W^R$：值路由投影矩阵，将查询进一步映射到可与值直接匹配的空间。
 - $W^V$：值投影矩阵；XW^V 既用于计算路由分数，也作为加权聚合的内容。
-- $d_k=d/N_h$：每个注意力头的维度，N_h 为注意力头数；平方根缩放用于控制点积幅度。
+- $d_k=d/N_h$：每个注意力头的维度，$N_h$ 为注意力头数；平方根缩放用于控制点积幅度。
 - $\mathrm{softmax}(\cdot)$：沿可被关注的位置将打分归一化为注意力权重；自回归模型中还需配合因果掩码。
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：括号内先用转换后的查询与所有值计算相关性，softmax 把相关性变成读取比例，最后按比例汇总同一组值。相较 QKV 注意力，等式中没有 XW^K，因此历史 token 无须产生或缓存键。  
+**直观理解**：括号内先用转换后的查询与所有值计算相关性，softmax 把相关性变成读取比例，最后按比例汇总同一组值。相较 QKV 注意力，等式中没有 XW^K，因此历史 token 无须产生或缓存键。<br>
 **原文位置**：第 2.1 节，公式 (2)
 
 </div>
@@ -362,13 +362,13 @@ $$
 - $h$：注意力头索引。
 - $V^*$：需要实际写入缓存的 r 维潜在值表示。
 - $W^V_{h,\mathrm{pre}}\in\mathbb{R}^{d\times r}$：将隐藏状态压缩到潜在维度 r 的值投影。
-- $W^V_{h,\mathrm{post}}\in\mathbb{R}^{r\times d_k}$：将聚合后的潜在值扩展回每头维度 d_k 的投影。
+- $W^V_{h,\mathrm{post}}\in\mathbb{R}^{r\times d_k}$：将聚合后的潜在值扩展回每头维度 $d_k$ 的投影。
 - $Q_h^*$：吸收值扩展矩阵后、可直接与潜在缓存 V^* 匹配的查询。
-- $r$：潜在缓存维度；当 r<d_k 时，缓存小于直接保存每头值向量。
+- $r$：潜在缓存维度；当 $r<d_k$ 时，缓存小于直接保存每头值向量。
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：该式先在压缩空间中完成匹配和聚合，最后才把结果恢复到正常的头维度。它是基础 Value-Only Cache 的可选进一步压缩，而不是 Keyless Attention 成立所必需的步骤。  
+**直观理解**：该式先在压缩空间中完成匹配和聚合，最后才把结果恢复到正常的头维度。它是基础 Value-Only Cache 的可选进一步压缩，而不是 Keyless Attention 成立所必需的步骤。<br>
 **原文位置**：第 3 节“Multihead with Latent Value-only Cache”，公式 (15)
 
 </div>
@@ -377,7 +377,7 @@ $$
 
 <div class="paper-focus" markdown="1">
 
-**优化目标如何起作用**：节选未给出新的专用损失函数；Keyless Attention 作为注意力层替换件，仍由模型原有任务损失 \mathcal{L} 端到端训练，因此不能据此补写具体语言建模交叉熵形式。其优化差异来自计算图：W^R 的梯度通过 V=XW^V 依赖值投影，W^V 的梯度则同时接收注意力打分路径和输出聚合路径的信号。作者据此提出隐式正则化假设，同时明确指出这种耦合可能减慢收敛。
+**优化目标如何起作用**：节选未给出新的专用损失函数；Keyless Attention 作为注意力层替换件，仍由模型原有任务损失 $\mathcal{L}$ 端到端训练，因此不能据此补写具体语言建模交叉熵形式。其优化差异来自计算图：$W^R$ 的梯度通过 V=XW^V 依赖值投影，$W^V$ 的梯度则同时接收注意力打分路径和输出聚合路径的信号。作者据此提出隐式正则化假设，同时明确指出这种耦合可能减慢收敛。
 
 </div>
 
@@ -388,33 +388,33 @@ $$
 
 **1. 值空间路由投影**
 
-核心双线性打分矩阵由标准注意力的 \Omega=W^Q(W^K)^\top 改为 \Omega=W^QW^R(W^V)^\top，因子分解深度由 2 增至 3。W^QW^R 的秩不超过 d_k；单头且 W^V 满秩时，论文证明存在唯一有效查询投影可复现标准注意力的打分矩阵，多头情形则还要求每头标准打分矩阵的相应列空间包含于该头 W^V 的列空间。
+核心双线性打分矩阵由标准注意力的 $\Omega=W^Q(W^K)^\top$ 改为 $\Omega=W^QW^R(W^V)^\top$，因子分解深度由 2 增至 3。$W^QW^R$ 的秩不超过 $d_k$；单头且 $W^V$ 满秩时，论文证明存在唯一有效查询投影可复现标准注意力的打分矩阵，多头情形则还要求每头标准打分矩阵的相应列空间包含于该头 $W^V$ 的列空间。
 
-> 直观理解：额外的 W^R 不是另一份需要缓存的 token 表示，而是模型权重中的查询变换。它保留专门学习“如何查找”的能力，同时把查找目标约束为真正要读取的值。
+> 直观理解：额外的 $W^R$ 不是另一份需要缓存的 token 表示，而是模型权重中的查询变换。它保留专门学习“如何查找”的能力，同时把查找目标约束为真正要读取的值。
 
 **2. 路由—检索梯度耦合**
 
-由于 V=XW^V 同时进入注意力分数和输出聚合，W^R 的梯度显式依赖 V，而 W^V 的梯度又通过打分项依赖 Q_R=XW^QW^R。作者将这种相互依赖称为 gradient entanglement，并假设它可作为隐式正则化、减少路由对语料共现模式的独立特化，但也指出这会使优化更困难、收敛慢于常规注意力。
+由于 V=XW^V 同时进入注意力分数和输出聚合，$W^R$ 的梯度显式依赖 V，而 $W^V$ 的梯度又通过打分项依赖 $Q_R=XW^QW^R$。作者将这种相互依赖称为 gradient entanglement，并假设它可作为隐式正则化、减少路由对语料共现模式的独立特化，但也指出这会使优化更困难、收敛慢于常规注意力。
 
 > 直观理解：路由器和内容表示不能各自独立学习：一方改变后，另一方下一步面对的目标也会改变。正面作用可能是限制过拟合，代价则是训练协调更困难；其中正则化解释是作者假设，而非形式化保证。
 
 **3. 适配多头共享方式的仅值缓存**
 
-MHA 为每个头保存独立 V_h；MQA 让所有查询头共享一个 V；GQA 让同组查询头共享 V_g。Keyless 机制只移除与相应值缓存配对的键缓存，因此可叠加在 MHA、MQA、GQA 以及潜在值压缩设计上。
+MHA 为每个头保存独立 $V_h$；MQA 让所有查询头共享一个 V；GQA 让同组查询头共享 $V_g$。Keyless 机制只移除与相应值缓存配对的键缓存，因此可叠加在 MHA、MQA、GQA 以及潜在值压缩设计上。
 
 > 直观理解：无论模型给每个头一份值，还是让若干头共享值，都可以只保存值而不保存键。具体总缓存大小仍取决于值头或值组的数量。
 
 **训练与推理**
 
-训练时，从随机初始化或目标架构的从头初始化配置出发，将每个标准键投影 W^K 替换为权重矩阵 W^R；前向计算依次形成 XW^QW^R、XW^V、注意力权重和加权值输出，再由原任务损失联合更新 W^Q、W^R、W^V 及模型其余参数。虽然不再产生键表示，但仍保留三组可学习投影，因此方法的重点是改变注意力因子化和缓存内容，而不是简单删去一组训练参数。
+训练时，从随机初始化或目标架构的从头初始化配置出发，将每个标准键投影 $W^K$ 替换为权重矩阵 $W^R$；前向计算依次形成 XW^QW^R、XW^V、注意力权重和加权值输出，再由原任务损失联合更新 $W^Q$、$W^R$、$W^V$ 及模型其余参数。虽然不再产生键表示，但仍保留三组可学习投影，因此方法的重点是改变注意力因子化和缓存内容，而不是简单删去一组训练参数。
 
-推理前把 W^Q 与 W^R 合并成 \tilde{W}^Q=W^QW^R。自回归第 n+1 步生成当前查询 q_{n+1} 和值 v_{n+1}，把 v_{n+1} 追加到由 v_1,\ldots,v_n 构成的缓存；随后用 q_{n+1} 与全部缓存值点积并 softmax，输出其加权和。由此无需构造、写入和读取历史键；论文声称相对对应的常规 KV 缓存，内存占用和内存访问开销均减少 50%，但这一比例针对移除键这一部分，若叠加 MQA、GQA 或潜在压缩，绝对缓存规模还取决于共享方式与潜在维度。
+推理前把 $W^Q$ 与 $W^R$ 合并成 $\tilde{W}^Q=W^QW^R$。自回归第 n+1 步生成当前查询 $q_{n+1}$ 和值 $v_{n+1}$，把 $v_{n+1}$ 追加到由 $v_1,\ldots,v_n$ 构成的缓存；随后用 $q_{n+1}$ 与全部缓存值点积并 softmax，输出其加权和。由此无需构造、写入和读取历史键；论文声称相对对应的常规 KV 缓存，内存占用和内存访问开销均减少 50%，但这一比例针对移除键这一部分，若叠加 MQA、GQA 或潜在压缩，绝对缓存规模还取决于共享方式与潜在维度。
 
 **复现信息**
 
 公平实现的关键是保持原架构的头共享模式：普通 MHA 每头配置独立值缓存；Qwen2 1.5B 的 12 个查询头、2 个 KV 头采用 GQA，Keyless 版本使用 2 个值路由头，同时令相关查询侧投影按查询头独立；Llama 3.2 1B 的 32 个查询头、8 个 KV 头同样使用 8 个值路由头和按查询头独立的查询侧投影。这样做是为了在共享值表示时仍保留各查询头特有的路由能力，而不是把所有查询头也强制共享。
 
-推理实现应在加载或部署阶段缓存合成矩阵 \tilde{W}^Q，避免每个 token 连续执行 W^Q 与 W^R 两次投影；缓存管理器只分配和追加 V 或可选的 V^*。潜在缓存中的压缩矩阵和扩展矩阵可以按头、按组或全头共享，复现时必须明确这一选择及 r，因为它们直接决定参数共享和缓存复杂度。
+推理实现应在加载或部署阶段缓存合成矩阵 $\tilde{W}^Q$，避免每个 token 连续执行 $W^Q$ 与 $W^R$ 两次投影；缓存管理器只分配和追加 V 或可选的 V^*。潜在缓存中的压缩矩阵和扩展矩阵可以按头、按组或全头共享，复现时必须明确这一选择及 r，因为它们直接决定参数共享和缓存复杂度。
 
 </details>
 
@@ -426,26 +426,37 @@ MHA 为每个头保存独立 V_h；MQA 让所有查询头共享一个 V；GQA �
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- WikiText-103：主要语言建模数据集。受 GPU 显存限制，实验使用其中 3000 万 token 的子集，从头训练五个模型；原文未明确报告训练集、验证集的具体 token 划分。它用于比较训练动态、最佳验证损失、困惑度、过拟合趋势及因子化深度消融。
-- 五个零样本常识与问答基准：HellaSwag、ARC-Challenge、StoryCloze、SciQ 和 BoolQ，使用 36 层 GPT-2 模型评估准确率。它们分别覆盖常识续写、科学考试问答、故事结局、科学问答和布尔问答，用于检验语言建模结果能否迁移到下游任务；原文节选未明确报告各基准的样本规模。
-- 推理效率测试工作负载：以 Qwen2-1.5B 的 GQA 架构为测试平台，设置 512、2048 和 8192 token 的 prefill 上下文，batch size 为 1，每次生成 256 token。它不是训练数据集，而是专门用于测量解码吞吐与缓存显存的标准化输入配置。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- WikiText-103：主要语言建模数据集。受 GPU 显存限制，实验使用其中 3000 万 token 的子集，从头训练五个模型；原文未明确报告训练集、验证集的具体 token 划分。它用于比较训练动态、最佳验证损失、困惑度、过拟合趋势及因子化深度消融。
+- 五个零样本常识与问答基准：HellaSwag、ARC-Challenge、StoryCloze、SciQ 和 BoolQ，使用 36 层 GPT-2 模型评估准确率。它们分别覆盖常识续写、科学考试问答、故事结局、科学问答和布尔问答，用于检验语言建模结果能否迁移到下游任务；原文节选未明确报告各基准的样本规模。
+- 推理效率测试工作负载：以 Qwen2-1.5B 的 GQA 架构为测试平台，设置 512、2048 和 8192 token 的 prefill 上下文，batch size 为 1，每次生成 256 token。它不是训练数据集，而是专门用于测量解码吞吐与缓存显存的标准化输入配置。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **验证损失与困惑度（PPL）**
 
 验证损失衡量模型对未见文本赋予正确概率的能力；困惑度通常是平均交叉熵的指数形式，可理解为模型预测下一个 token 时的平均不确定性。最佳检查点比较主要能力，最佳点后的变化则反映过拟合稳健性。 （越低越好，因为较低值表示模型对真实后续 token 分配了更高概率。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **零样本准确率**
 
 不针对目标任务继续训练，直接计算五个下游基准中回答正确的比例，用于检验所学表示和语言能力能否迁移。 （越高越好，因为表示正确完成的测试样本比例更大。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **解码吞吐与注意力缓存大小**
 
@@ -453,7 +464,9 @@ MHA 为每个头保存独立 V_h；MQA 让所有查询头共享一个 V；GQA �
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -484,7 +497,11 @@ Keyless 在五个模型中的四个达到或优于标准 QKV 的最佳困惑度�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Experiments across five models and four architectures show that Keyless Attention matches or outperforms standard QKV attention in perplexity on four of five models.</span>
+<div class="experiment-evidence" markdown="1">
+
+Experiments across five models and four architectures show that Keyless Attention matches or outperforms standard QKV attention in perplexity on four of five models.
+
+</div>
 
 </details>
 
@@ -512,7 +529,11 @@ QVV(3) 在 HellaSwag 和 StoryCloze 上显著优于 QKV，单侧 Welch t 检验�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">A one-sided Welch’s t-test shows that QVV(3) significantly improves performance on HellaSwag (p=0.004) and StoryCloze (p=0.007), while achieving comparable performance on ARC-Challenge (p=0.475) and BoolQ (p=0.086).</span>
+<div class="experiment-evidence" markdown="1">
+
+A one-sided Welch’s t-test shows that QVV(3) significantly improves performance on HellaSwag (p=0.004) and StoryCloze (p=0.007), while achieving comparable performance on ARC-Challenge (p=0.475) and BoolQ (p=0.086).
+
+</div>
 
 </details>
 
@@ -540,7 +561,11 @@ QVV(3) 在 HellaSwag 和 StoryCloze 上显著优于 QKV，单侧 Welch t 检验�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Figure 4 (right panel) shows the corresponding KV cache size: since Keyless stores only value states, it reduces cache memory by exactly 50% at every context length (e.g., 0.118 vs. 0.236 GB at 8192 tokens).</span>
+<div class="experiment-evidence" markdown="1">
+
+Figure 4 (right panel) shows the corresponding KV cache size: since Keyless stores only value states, it reduces cache memory by exactly 50% at every context length (e.g., 0.118 vs. 0.236 GB at 8192 tokens).
+
+</div>
 
 </details>
 
@@ -563,7 +588,7 @@ QVV(3) 在 HellaSwag 和 StoryCloze 上显著优于 QKV，单侧 Welch t 检验�
 **主要 baseline**
 
 - 标准 QKV Attention，即分别投影 query、key、value，并在自回归推理中缓存 key 和 value。它是最直接的基线，因为实验让模型仅在注意力机制上不同，可以隔离删除 key 表示的影响。
-- QVV(2)，即没有价值空间路由矩阵 W^R 的 KV-sharing 方法，key 与 value 实际共享同一表示。它用于判断收益究竟来自简单共享，还是来自专门学习的价值空间路由。
+- QVV(2)，即没有价值空间路由矩阵 $W^R$ 的 KV-sharing 方法，key 与 value 实际共享同一表示。它用于判断收益究竟来自简单共享，还是来自专门学习的价值空间路由。
 - QKV(3)，即在标准 QKV 注意力的 query 路径中额外加入一个投影矩阵。它控制了投影深度与附加参数因素，用于判断 QVV 的表现是否仅由更深的线性因子化造成。
 - QVV(4) 与 QVV(4ReLU)：前者比 QVV(3) 多一个线性权重矩阵，后者还插入 ReLU 非线性。二者用于检验继续加深因子化是否必要，以及线性结构本身是否重要。
 
@@ -574,13 +599,13 @@ QVV(3) 在 HellaSwag 和 StoryCloze 上显著优于 QKV，单侧 Welch t 检验�
 
 **实验实现**
 
-所有模型均通过 Hugging Face Transformers 实现，并在单张 NVIDIA A100-SXM4-80GB GPU 上从头训练；AdamW 学习率为 10^-4、weight decay 为 0.01。GPT-2 使用线性学习率衰减和 5% warmup，Pythia、Qwen2 与 Llama 使用余弦衰减和 5% 线性 warmup。主要 GPT-2 比较覆盖 12 层 280M 与 36 层 557M 模型，每个设置以三个随机种子训练 10 个 epoch，并报告均值和标准差；前者用 FP32、后者用 FP16。跨架构实验加入 Pythia 410M、Qwen2 1.5B 和 Llama 3.2 1B，覆盖 learned absolute、partial RoPE、full RoPE，顺序/并行残差以及 MHA/GQA。下游实验采用 36 层 GPT-2 做零样本评估，并以单侧 Welch t 检验比较方法。效率测试在 Qwen2-1.5B GQA 上进行，三个上下文长度均取三个随机种子的平均值；推理前将 Keyless 的连续查询投影 W^Q 与 W^R 融合，以避免额外查询投影开销。
+所有模型均通过 Hugging Face Transformers 实现，并在单张 NVIDIA A100-SXM4-80GB GPU 上从头训练；AdamW 学习率为 10^-4、weight decay 为 0.01。GPT-2 使用线性学习率衰减和 5% warmup，Pythia、Qwen2 与 Llama 使用余弦衰减和 5% 线性 warmup。主要 GPT-2 比较覆盖 12 层 280M 与 36 层 557M 模型，每个设置以三个随机种子训练 10 个 epoch，并报告均值和标准差；前者用 FP32、后者用 FP16。跨架构实验加入 Pythia 410M、Qwen2 1.5B 和 Llama 3.2 1B，覆盖 learned absolute、partial RoPE、full RoPE，顺序/并行残差以及 MHA/GQA。下游实验采用 36 层 GPT-2 做零样本评估，并以单侧 Welch t 检验比较方法。效率测试在 Qwen2-1.5B GQA 上进行，三个上下文长度均取三个随机种子的平均值；推理前将 Keyless 的连续查询投影 $W^Q$ 与 $W^R$ 融合，以避免额外查询投影开销。
 
 **关键消融**
 
 | 对比 / 设置 | 结果 | 怎么理解 | 原文位置与证据 |
 |---|---|---|---|
-| 有无专用价值空间路由：QVV(2) 对比 QVV(3)/QVV(4)，12 层 GPT-2、WikiText-103 | 没有 W^R 的 QVV(2) 验证损失劣于标准 QKV(2)；加入路由的 QVV(3) 和 QVV(4) 则在最佳验证损失上匹配 QKV(2) 与 QKV(3)，且最佳 epoch 后的过拟合较弱。 | 该对比隔离了专用价值空间路由，而不是笼统比较“无 key”与“有 key”。结果支持作者主张：仅让 key 和 value 共享表示会损失效果，路由矩阵能从 value 表示中学习适合注意力匹配的方向。不过节选没有报告消融的具体损失值或误差范围，效果大小需回查图 3。 | 第 5.3 节，图 3<br><span class="experiment-evidence">QVV(2) achieves worse validation loss than the QKV(2) baseline, while QVV(3) and QVV(4) match QKV(2) and QKV(3) at best validation loss.</span> |
+| 有无专用价值空间路由：QVV(2) 对比 QVV(3)/QVV(4)，12 层 GPT-2、WikiText-103 | 没有 $W^R$ 的 QVV(2) 验证损失劣于标准 QKV(2)；加入路由的 QVV(3) 和 QVV(4) 则在最佳验证损失上匹配 QKV(2) 与 QKV(3)，且最佳 epoch 后的过拟合较弱。 | 该对比隔离了专用价值空间路由，而不是笼统比较“无 key”与“有 key”。结果支持作者主张：仅让 key 和 value 共享表示会损失效果，路由矩阵能从 value 表示中学习适合注意力匹配的方向。不过节选没有报告消融的具体损失值或误差范围，效果大小需回查图 3。 | 第 5.3 节，图 3<br><span class="experiment-evidence">QVV(2) achieves worse validation loss than the QKV(2) baseline, while QVV(3) and QVV(4) match QKV(2) and QKV(3) at best validation loss.</span> |
 | 线性因子化深度与非线性：QVV(3)、QVV(4)、QVV(4ReLU) | QVV(4ReLU) 表现最差；纯线性的 QVV(3) 与 QVV(4) 表现相近，而 QVV(4) 多需一个权重矩阵，因此作者选择 QVV(3) 作为最佳效率—性能折中。 | 该消融检验收益是否来自任意增加网络深度。ReLU 版本变差，说明路由路径并非越复杂越好；在本数据集上，额外线性层也没有带来清晰收益。作者将此解释为 ReLU 破坏线性因子化的隐式正则化，但实验只展示相关现象，尚未直接验证该因果机制。 | 第 5.3 节，图 3<br><span class="experiment-evidence">Since QVV(3) and QVV(4) perform comparably while QVV(4) requires one additional weight matrix, QVV(3) offers the best efficiency–performance trade-off for this dataset.</span> |
 
 **定性案例**

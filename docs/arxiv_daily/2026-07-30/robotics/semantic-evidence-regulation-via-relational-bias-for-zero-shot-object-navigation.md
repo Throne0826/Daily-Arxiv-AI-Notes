@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "robotics"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:25.185871+00:00"
+generated_at: "2026-07-30T10:14:52.705258+00:00"
 source_sha256: "dc2f4accd514403d3e3153c51597983990b75b3841c5edb35a23641111d9669f"
 tags:
   - "机器人 / 具身智能"
@@ -34,7 +34,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2606.10348v3) · [PDF 下载](https://arxiv.org/pdf/2606.10348v3) · **关键词** 具身智能, 零样本目标物体导航, 开放词汇感知, 语义证据调节, 关系偏置, 前沿探索  
+[arXiv 原文](https://arxiv.org/abs/2606.10348v3) · [PDF 下载](https://arxiv.org/pdf/2606.10348v3) · **关键词** 具身智能, 零样本目标物体导航, 开放词汇感知, 语义证据调节, 关系偏置, 前沿探索<br>
 
 
 </div>
@@ -83,21 +83,21 @@ SER-Nav将零样本目标导航从“依据语义线索选择搜索位置”改�
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **零样本目标物体导航**
 
 智能体接收目标类别名称，在此前未见的环境中通过移动和视觉观测寻找该类物体，而不依赖针对当前环境或目标类别重新训练的策略。任务同时考察目标发现、环境探索、路径规划和停止决策。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **开放词汇感知**
 
 利用视觉—语言模型或开放词汇检测器，依据文本类别识别不局限于固定训练标签集合的物体。它扩大了可搜索目标的范围，但容易受到误检、漏检和相似类别混淆影响。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **前沿选择与语义先验**
 
@@ -191,7 +191,7 @@ SER-Nav将零样本目标导航从“依据语义线索选择搜索位置”改�
 
 <div class="paper-section-deck" markdown="1">
 
-SER-Nav 是一个无需任务训练、也无需在线大语言模型推理的零样本三维室内目标导航框架。输入是每个离散时刻的第一视角观测 o_t、目标类别 g、当前地图与候选前沿；系统先用开放词汇感知获得物体位置、标签和置信度，再通过跨视角多标签竞争把噪声检测聚合成物体级证据。随后，它依据目标相关、上下文共现和视觉相似关系，分别在局部关系图中传播激活偏置与抑制偏置，用二者和路径代价共同修正前沿分数；只有当候选目标证据超过可靠性阈值时，智能体才从探索切换为目标接近，否则继续访问得分最高的前沿。
+SER-Nav 是一个无需任务训练、也无需在线大语言模型推理的零样本三维室内目标导航框架。输入是每个离散时刻的第一视角观测 $o_t$、目标类别 g、当前地图与候选前沿；系统先用开放词汇感知获得物体位置、标签和置信度，再通过跨视角多标签竞争把噪声检测聚合成物体级证据。随后，它依据目标相关、上下文共现和视觉相似关系，分别在局部关系图中传播激活偏置与抑制偏置，用二者和路径代价共同修正前沿分数；只有当候选目标证据超过可靠性阈值时，智能体才从探索切换为目标接近，否则继续访问得分最高的前沿。
 
 </div>
 
@@ -205,11 +205,11 @@ SER-Nav 是一个无需任务训练、也无需在线大语言模型推理的零
 
 #### 1. 构造目标中心的类别—动作关系
 
-为每个类别 ℓ 分配三维角色向量 b_g(ℓ)=[c_g(ℓ),a_g(ℓ),i_g(ℓ)]^⊤：目标及同义词承担承诺与激活角色，上下文类别承担激活角色，视觉相似类别承担抑制角色。
+为每个类别 ℓ 分配三维角色向量 $b_g(ℓ)=[c_g(ℓ),a_g(ℓ),i_g(ℓ)]^⊤$：目标及同义词承担承诺与激活角色，上下文类别承担激活角色，视觉相似类别承担抑制角色。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：目标类别 g，以及目标同义词、上下文共现类别和视觉相似干扰类别组成的关系集合。  
+**输入**：目标类别 g，以及目标同义词、上下文共现类别和视觉相似干扰类别组成的关系集合。<br>
 **输出**：将开放词汇类别标签映射为目标承诺、正向激活和负向抑制三类可执行证据的关系表。
 
 </div>
@@ -229,8 +229,8 @@ SER-Nav 是一个无需任务训练、也无需在线大语言模型推理的零
 
 <div class="method-step__io" markdown="1">
 
-**输入**：在线检测序列 d_i=(p_i,s_i,ℓ_i)，其中 p_i 是投影到二维地图的位置，s_i 是检测置信度，ℓ_i 是预测类别。  
-**输出**：每个物体 o 的证据向量 h_o=[h_o^c,h_o^a,h_o^i]^⊤，分别表示目标承诺、激活和抑制强度。
+**输入**：在线检测序列 $d_i=(p_i,s_i,ℓ_i)$，其中 $p_i$ 是投影到二维地图的位置，$s_i$ 是检测置信度，$ℓ_i$ 是预测类别。<br>
+**输出**：每个物体 o 的证据向量 $h_o=[h_o^c,h_o^a,h_o^i]^⊤$，分别表示目标承诺、激活和抑制强度。
 
 </div>
 
@@ -245,12 +245,12 @@ SER-Nav 是一个无需任务训练、也无需在线大语言模型推理的零
 
 #### 3. 在局部关系图上传播激活与抑制
 
-构建包含物体证据节点、上下文假设节点、负证据节点和候选前沿的局部图，并使用传播半径 R 内随距离指数衰减的核函数传递证据。目标或上下文证据形成 A_t(f)，干扰物与未找到可靠目标的访问失败形成 I_t(f)；失败抑制会随时间衰减，并可被新的连续证据覆盖。
+构建包含物体证据节点、上下文假设节点、负证据节点和候选前沿的局部图，并使用传播半径 R 内随距离指数衰减的核函数传递证据。目标或上下文证据形成 $A_t(f)$，干扰物与未找到可靠目标的访问失败形成 $I_t(f)$；失败抑制会随时间衰减，并可被新的连续证据覆盖。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：物体级证据、上下文物体、视觉相似干扰物、访问失败记录、二维地图位置及候选前沿集合 F_t。  
-**输出**：每个候选前沿 f 的动态激活值 A_t(f) 与抑制值 I_t(f)。
+**输入**：物体级证据、上下文物体、视觉相似干扰物、访问失败记录、二维地图位置及候选前沿集合 $F_t$。<br>
+**输出**：每个候选前沿 f 的动态激活值 $A_t(f)$ 与抑制值 $I_t(f)$。
 
 </div>
 
@@ -269,7 +269,7 @@ SER-Nav 是一个无需任务训练、也无需在线大语言模型推理的零
 
 <div class="method-step__io" markdown="1">
 
-**输入**：基础语义响应 S_t^0(f)、激活 A_t(f)、抑制 I_t(f)、归一化路径代价 C̄_t(f)，以及各物体的目标承诺证据 h_{o,t}^c。  
+**输入**：基础语义响应 $S_t^0(f)$、激活 $A_t(f)$、抑制 $I_t(f)$、归一化路径代价 C̄_t(f)，以及各物体的目标承诺证据 $h_{o,t}^c$。<br>
 **输出**：当前时刻的探索目标或目标承诺动作，以及最终的逐步离散导航行为。
 
 </div>
@@ -314,7 +314,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：目标或上下文证据提高前沿吸引力，干扰证据、失败记忆和较长路程降低其优先级。采用除法意味着抑制与成本不仅是固定扣分，而会按当前证据强度共同压低不可信或代价高的候选。  
+**直观理解**：目标或上下文证据提高前沿吸引力，干扰证据、失败记忆和较长路程降低其优先级。采用除法意味着抑制与成本不仅是固定扣分，而会按当前证据强度共同压低不可信或代价高的候选。<br>
 **原文位置**：式 (11)–(12)，Bias-conditioned Exploration and Target Commitment
 
 </div>
@@ -343,7 +343,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：系统先找出最像真实目标的物体，但不立即追踪；只有其累计证据越过阈值才切换到接近策略。这一硬门控将弱线索用于引导探索、将强证据用于行动承诺，从而减少误检导致的过早追逐。  
+**直观理解**：系统先找出最像真实目标的物体，但不立即追踪；只有其累计证据越过阈值才切换到接近策略。这一硬门控将弱线索用于引导探索、将强证据用于行动承诺，从而减少误检导致的过早追逐。<br>
 **原文位置**：式 (13)–(14)，Bias-conditioned Exploration and Target Commitment
 
 </div>
@@ -363,7 +363,7 @@ $$
 
 **1. 多标签物体—角色竞争**
 
-对物体簇 o 的每个候选标签 ℓ 计算 ρ_o(ℓ)=m_o(ℓ)r_o(ℓ)，其中 m_o 表示跨视角累计支持，r_o 表示聚合置信可靠性；选取 ℓ_o^*=argmax_ℓρ_o(ℓ)，再将归一化强度映射为 h_o=r_o b_g(ℓ_o^*)。
+对物体簇 o 的每个候选标签 ℓ 计算 $ρ_o(ℓ)=m_o(ℓ)r_o(ℓ)$，其中 $m_o$ 表示跨视角累计支持，$r_o$ 表示聚合置信可靠性；选取 $ℓ_o^*=argmax_ℓρ_o(ℓ)$，再将归一化强度映射为 $h_o=r_o b_g(ℓ_o^*)$。
 
 > 直观理解：该模块把“单帧标签”改成“经多次观察后胜出的身份”，从源头降低开放词汇检测的标签抖动和一次性误判。
 
@@ -375,7 +375,7 @@ $$
 
 **3. 可靠性感知承诺门**
 
-从当前物体集合中选择 h_{o,t}^c 最大的候选，仅当其值不低于阈值 θ 时启用目标接近策略，否则继续执行偏置条件的前沿探索。
+从当前物体集合中选择 $h_{o,t}^c$ 最大的候选，仅当其值不低于阈值 θ 时启用目标接近策略，否则继续执行偏置条件的前沿探索。
 
 > 直观理解：它把“值得继续搜”与“已经确认到可以直接接近”分开，防止上下文线索或不稳定检测过早触发追踪与停止。
 
@@ -397,26 +397,37 @@ $$
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- HM3Dv1：Habitat 中的标准 ObjectNav 基准，包含20个场景、2,000个导航回合和6类目标。它用于检验方法在较少场景但较多回合设置下的成功率与路径效率。
-- HM3Dv2：包含36个场景、1,000个导航回合和6类目标；正文还明确将其验证集用于消融实验。相较 HM3Dv1，其场景更多，是本文主要的组件分析与总体性能评估平台。
-- MP3D：包含11个场景、2,195个导航回合和21类目标。其目标类别数量明显更多，用于检验 SER-Nav 面对更丰富目标语义时的泛化性与竞争力。原文节选未明确说明三个基准的具体数据划分细节。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- HM3Dv1：Habitat 中的标准 ObjectNav 基准，包含20个场景、2,000个导航回合和6类目标。它用于检验方法在较少场景但较多回合设置下的成功率与路径效率。
+- HM3Dv2：包含36个场景、1,000个导航回合和6类目标；正文还明确将其验证集用于消融实验。相较 HM3Dv1，其场景更多，是本文主要的组件分析与总体性能评估平台。
+- MP3D：包含11个场景、2,195个导航回合和21类目标。其目标类别数量明显更多，用于检验 SER-Nav 面对更丰富目标语义时的泛化性与竞争力。原文节选未明确说明三个基准的具体数据划分细节。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **SR（Success Rate，成功率）**
 
 衡量导航回合最终被 Habitat 判定为成功的比例；本文采用距离目标满足0.2米有效范围并执行 Stop 的成功判据。SR主要回答“是否找到并正确停止”，不体现成功路径是否绕远。 （越高越好，因为表示更多回合能够成功到达目标并正确停止。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **SPL（Success weighted by Path Length，路径长度加权成功率）**
 
 在成功与否的基础上进一步考虑实际路径相对有效路径的长度，用于同时评价任务完成率和路径效率。仅提高SR但产生大量绕行时，SPL未必同步提高。 （越高越好，因为高值通常意味着既能成功，又能以更高效的路径完成导航。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **SoftSPL**
 
@@ -424,7 +435,9 @@ $$
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -455,7 +468,11 @@ SER-Nav 获得74.5%的SR和36.8%的SPL；相较同为免训练、零样本且无
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Compared with VLFM, which is also training-free, zero-shot, and does not rely on online LLM reasoning, SER-Nav improves SR by 10.9 points and SPL by 4.3 points on HM3Dv2.</span>
+<div class="experiment-evidence" markdown="1">
+
+Compared with VLFM, which is also training-free, zero-shot, and does not rely on online LLM reasoning, SER-Nav improves SR by 10.9 points and SPL by 4.3 points on HM3Dv2.
+
+</div>
 
 </details>
 
@@ -483,7 +500,11 @@ HM3Dv1上的结果表明，该方法的收益并非只出现在主要消融所�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">SER-Nav achieves the better performance on HM3Dv2 and HM3Dv1, obtaining 74.5 SR and 36.8 SPL on HM3Dv2, and 60.5 SR and 32.1 SPL on HM3Dv1.</span>
+<div class="experiment-evidence" markdown="1">
+
+SER-Nav achieves the better performance on HM3Dv2 and HM3Dv1, obtaining 74.5 SR and 36.8 SPL on HM3Dv2, and 60.5 SR and 32.1 SPL on HM3Dv1.
+
+</div>
 
 </details>
 
@@ -511,7 +532,11 @@ MP3D包含21类目标，因此该结论意在说明关系决策层可扩展到�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">On MP3D, SER-Nav achieves competitive performance without online LLM reasoning.</span>
+<div class="experiment-evidence" markdown="1">
+
+On MP3D, SER-Nav achieves competitive performance without online LLM reasoning.
+
+</div>
 
 </details>
 

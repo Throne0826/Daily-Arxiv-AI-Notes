@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "robotics"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:25.455170+00:00"
+generated_at: "2026-07-30T10:14:52.793509+00:00"
 source_sha256: "0f1fb0e160e037c8809a5fd5583d34bacafc4dae0264222fe80e604c2462428d"
 tags:
   - "机器人 / 具身智能"
@@ -36,7 +36,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2607.27205v1) · [PDF 下载](https://arxiv.org/pdf/2607.27205v1) · **关键词** 视觉—语言—动作模型, 语言条件机器人操作, 直接视觉—语言交互, 双向交叉注意力, 连续动作分块, 实时推理  
+[arXiv 原文](https://arxiv.org/abs/2607.27205v1) · [PDF 下载](https://arxiv.org/pdf/2607.27205v1) · **关键词** 视觉—语言—动作模型, 语言条件机器人操作, 直接视觉—语言交互, 双向交叉注意力, 连续动作分块, 实时推理<br>
 **代码**: [https://github.com/H-EmbodVis/TurboVLA](https://github.com/H-EmbodVis/TurboVLA)  
 
 </div>
@@ -77,7 +77,7 @@ TurboVLA质疑以大语言模型为执行核心的主流VLA架构，提出让视
 
 <div class="paper-section-deck" markdown="1">
 
-视觉—语言—动作模型（Vision-Language-Action, VLA）面向语言条件机器人操作：策略依据当前视觉观测和自然语言指令生成机器人动作。主流方案采用以大语言模型（LLM）为核心的间接路径 V\rightarrow\mathbf{L}\rightarrow A：先把视觉特征投影到语言模型的表示空间，再由语言模型融合图像与指令，最后生成动作或将融合表示交给连续动作解码器。这种结构可利用大规模预训练得到的语义知识，但机器人每次调用策略都要经过参数量庞大的语言模型，因而带来显著的计算、显存和时延开销。本文关注的不是开放式对话或自主任务分解，而是指令已经给定后的执行级连续控制，并考察是否能通过视觉与语言特征直接交互来取代LLM中心接口。
+视觉—语言—动作模型（Vision-Language-Action, VLA）面向语言条件机器人操作：策略依据当前视觉观测和自然语言指令生成机器人动作。主流方案采用以大语言模型（LLM）为核心的间接路径 $V\rightarrow\mathbf{L}\rightarrow A$：先把视觉特征投影到语言模型的表示空间，再由语言模型融合图像与指令，最后生成动作或将融合表示交给连续动作解码器。这种结构可利用大规模预训练得到的语义知识，但机器人每次调用策略都要经过参数量庞大的语言模型，因而带来显著的计算、显存和时延开销。本文关注的不是开放式对话或自主任务分解，而是指令已经给定后的执行级连续控制，并考察是否能通过视觉与语言特征直接交互来取代LLM中心接口。
 
 </div>
 
@@ -85,21 +85,21 @@ TurboVLA质疑以大语言模型为执行核心的主流VLA架构，提出让视
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **视觉—语言—动作模型（VLA）**
 
 一种把视觉观测、自然语言任务描述和机器人控制统一起来的策略模型。其目标是让机器人根据“看见什么”和“被要求做什么”决定下一步动作。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **交叉注意力（cross-attention）**
 
 一种让一个模态的特征主动查询另一个模态信息的机制，例如让图像区域查询指令中与其相关的词语。双向交叉注意力同时进行“语言指导视觉”和“视觉修正语言”，从而建立细粒度对应关系。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **连续动作分块（continuous action chunk）**
 
@@ -113,7 +113,7 @@ TurboVLA质疑以大语言模型为执行核心的主流VLA架构，提出让视
 
 **论文具体研究什么**
 
-在第 n 次策略调用时，模型接收视觉观测 \mathcal{O}_n、自然语言任务指令 x，并可结合当前机器人状态 s_n；输出为连续动作序列块 \hat{\mathbf{A}}_n，用于执行语言条件操作。传统设定先计算 \widetilde{Z}_n^v=P_v(E_v(\mathcal{O}_n))，再通过 H_n^L=F_L([\widetilde{Z}_n^v;\operatorname{Tok}(x)]) 获得LLM中心的多模态表示，动作预测依赖该表示。本文所针对的设置假定指令已明确操作意图，因此执行策略主要需要判断当前视觉证据应如何转化为动作，而不必承担开放式语言生成或自主任务分解；由此可将问题改写为直接的 \mathbf{V}+\mathbf{L}\rightarrow A 映射。
+在第 n 次策略调用时，模型接收视觉观测 $\mathcal{O}_n$、自然语言任务指令 x，并可结合当前机器人状态 $s_n$；输出为连续动作序列块 $\hat{\mathbf{A}}_n$，用于执行语言条件操作。传统设定先计算 $\widetilde{Z}_n^v=P_v(E_v(\mathcal{O}_n))$，再通过 $H_n^L=F_L([\widetilde{Z}_n^v;\operatorname{Tok}(x)])$ 获得LLM中心的多模态表示，动作预测依赖该表示。本文所针对的设置假定指令已明确操作意图，因此执行策略主要需要判断当前视觉证据应如何转化为动作，而不必承担开放式语言生成或自主任务分解；由此可将问题改写为直接的 $\mathbf{V}+\mathbf{L}\rightarrow A$ 映射。
 
 </div>
 
@@ -124,28 +124,28 @@ TurboVLA质疑以大语言模型为执行核心的主流VLA架构，提出让视
 
 <div class="notation-list" markdown="1">
 
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\mathcal{O}_n$**
 
 第 n 次策略调用时的视觉观测。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$x$**
 
 描述目标操作任务的自然语言指令。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$s_n$**
 
 第 n 次调用时的机器人自身状态，供动作解码器进行状态条件化。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\hat{\mathbf{A}}_n$**
 
@@ -157,7 +157,7 @@ TurboVLA质疑以大语言模型为执行核心的主流VLA架构，提出让视
 
 **直接相关的工作**
 
-- **OpenVLA / RT-2**: 二者代表LLM中心的自回归VLA：将机器人动作表示为离散词元，并基于语言模型表示按顺序生成。它们既保留大型语言模型的计算开销，又承担逐词元动作解码的串行成本，是本文所对比的传统 V\rightarrow\mathbf{L}\rightarrow A 路径。
+- **OpenVLA / RT-2**: 二者代表LLM中心的自回归VLA：将机器人动作表示为离散词元，并基于语言模型表示按顺序生成。它们既保留大型语言模型的计算开销，又承担逐词元动作解码的串行成本，是本文所对比的传统 $V\rightarrow\mathbf{L}\rightarrow A$ 路径。
 - **Grounding DINO**: 该视觉定位模型利用直接的跨模态交互建立文本概念与图像内容之间的细粒度对应。TurboVLA借鉴其高效视觉—语言交互思路，但将交互后的特征用于连续机器人动作预测，而非目标定位。
 
 </details>
@@ -244,8 +244,8 @@ TurboVLA将传统的“视觉先进入大语言模型、再生成动作”的 V�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：任务指令 x、当前时刻 n 的 K 路相机图像 I_n^{(1)},\ldots,I_n^{(K)}，以及机器人状态 s_n。  
-**输出**：语言序列 Z^l、拼接后的多视角视觉序列 Z_n^v，以及状态序列 Z_n^s。
+**输入**：任务指令 x、当前时刻 n 的 K 路相机图像 $I_n^{(1)},\ldots,I_n^{(K)}$，以及机器人状态 $s_n$。<br>
+**输出**：语言序列 $Z^l$、拼接后的多视角视觉序列 $Z_n^v$，以及状态序列 $Z_n^s$。
 
 </div>
 
@@ -264,8 +264,8 @@ TurboVLA将传统的“视觉先进入大语言模型、再生成动作”的 V�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：视觉特征 V_n^0=Z_n^v 与语言特征 L_n^0=Z^l。  
-**输出**：最终视觉流 V_n^N 和语言流 L_n^N，并拼接为动作就绪表示 Z_n^{vl}=[V_n^N;L_n^N]。
+**输入**：视觉特征 $V_n^0=Z_n^v$ 与语言特征 $L_n^0=Z^l$。<br>
+**输出**：最终视觉流 $V_n^N$ 和语言流 $L_n^N$，并拼接为动作就绪表示 $Z_n^{vl}=[V_n^N;L_n^N]$。
 
 </div>
 
@@ -280,12 +280,12 @@ TurboVLA将传统的“视觉先进入大语言模型、再生成动作”的 V�
 
 #### 融合机器人状态并并行动作解码
 
-ACT 风格的轻量 Transformer 解码器以 [Z_n^{vl};Z_n^s] 为上下文，同时解码全部 H 个动作查询，不进行动作离散化或逐词元自回归生成。
+ACT 风格的轻量 Transformer 解码器以 [$Z_n^{vl};Z_n^s]$ 为上下文，同时解码全部 H 个动作查询，不进行动作离散化或逐词元自回归生成。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：跨模态表示 Z_n^{vl}、机器人状态特征 Z_n^s，以及 H 个可学习动作查询 Q_a=[q_1,\ldots,q_H]。  
-**输出**：连续动作块 \hat{\mathbf A}_n\in\mathbb R^{H\times d_a}，其中每一行对应一个未来时间步的 d_a 维机器人动作。
+**输入**：跨模态表示 $Z_n^{vl}$、机器人状态特征 $Z_n^s$，以及 H 个可学习动作查询 $Q_a=[q_1,\ldots,q_H]$。<br>
+**输出**：连续动作块 $\hat{\mathbf A}_n\in\mathbb R^{H\times d_a}$，其中每一行对应一个未来时间步的 $d_a$ 维机器人动作。
 
 </div>
 
@@ -304,8 +304,8 @@ ACT 风格的轻量 Transformer 解码器以 [Z_n^{vl};Z_n^s] 为上下文，同
 
 <div class="method-step__io" markdown="1">
 
-**输入**：专家示范中的观测、指令、机器人状态及对应的 H 步专家动作块 \mathbf A_n^*。  
-**输出**：学习得到参数化策略 D_\theta，并在部署时输出可执行的未来动作序列。
+**输入**：专家示范中的观测、指令、机器人状态及对应的 H 步专家动作块 $\mathbf A_n^*$。<br>
+**输出**：学习得到参数化策略 $D_\theta$，并在部署时输出可执行的未来动作序列。
 
 </div>
 
@@ -342,14 +342,14 @@ $$
 - $L_n^0=Z^l$：进入交互模块前的逐词元指令特征序列。
 - $\ell$：融合层索引。
 - $N$：双向视觉—语言融合层的总数。
-- $\operatorname{FusionLayer}_{\ell}$：第 \ell 个融合层，包含层归一化、双向交叉注意力、模态专属前馈网络、残差连接。
-- $V_n^\ell,L_n^\ell$：经过第 \ell 层后更新的视觉流和语言流。
+- $\operatorname{FusionLayer}_{\ell}$：第 $\ell$ 个融合层，包含层归一化、双向交叉注意力、模态专属前馈网络、残差连接。
+- $V_n^\ell,L_n^\ell$：经过第 $\ell$ 层后更新的视觉流和语言流。
 - $Z_n^{vl}$：将最终视觉流与语言流沿序列维拼接得到的动作就绪多模态表示。
 - $[\,;\,]$：特征序列拼接操作。
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：每一层都让视觉与语言互相读取对方的信息，而不是把两个独立特征直接交给动作模块。多层迭代完成任务词语与场景区域的逐步对齐，最终保留两条流供动作解码器使用。  
+**直观理解**：每一层都让视觉与语言互相读取对方的信息，而不是把两个独立特征直接交给动作模块。多层迭代完成任务词语与场景区域的逐步对齐，最终保留两条流供动作解码器使用。<br>
 **原文位置**：第4.2节，公式(7)与公式(8)
 
 </div>
@@ -367,18 +367,18 @@ $$
 **符号说明**
 
 - $\hat{\mathbf A}_n$：模型在时刻 n 预测的完整连续动作块。
-- $D_\theta$：参数为 \theta 的轻量 ACT 风格 Transformer 动作解码器。
+- $D_\theta$：参数为 $\theta$ 的轻量 ACT 风格 Transformer 动作解码器。
 - $Q_a$：由 H 个可学习动作查询构成的查询序列。
 - $q_h$：用于预测动作块中第 h 个时间位置的可学习查询。
 - $Z_n^{vl}$：双向视觉—语言交互后得到的任务条件化多模态特征。
-- $Z_n^s$：当前机器人状态 s_n 经轻量状态编码器产生的特征。
+- $Z_n^s$：当前机器人状态 $s_n$ 经轻量状态编码器产生的特征。
 - $H$：一次预测覆盖的动作步数，即动作视界或动作块长度。
 - $d_a$：单步连续机器人动作的维度。
-- $\mathbb R^{H\times d_a}$：输出包含 H 个 d_a 维实值动作。
+- $\mathbb R^{H\times d_a}$：输出包含 H 个 $d_a$ 维实值动作。
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：H 个查询同时从任务相关场景特征和当前机器人状态中提取控制信息，因此一次前向传播即可得到整段连续动作。它直接消除了动作离散化和逐步生成的计算链路，是低延迟设计的重要组成部分。  
+**直观理解**：H 个查询同时从任务相关场景特征和当前机器人状态中提取控制信息，因此一次前向传播即可得到整段连续动作。它直接消除了动作离散化和逐步生成的计算链路，是低延迟设计的重要组成部分。<br>
 **原文位置**：第4.3节，公式(9)
 
 </div>
@@ -387,7 +387,7 @@ $$
 
 <div class="paper-focus" markdown="1">
 
-**优化目标如何起作用**：TurboVLA使用专家示范进行行为克隆。对时刻 n 的专家动作块 \mathbf A_n^*=[a_{n,1}^*,\ldots,a_{n,H}^*]，以预测动作块 \hat{\mathbf A}_n 与专家动作块之间的 L1 损失训练策略；该损失按元素惩罚连续动作的绝对误差，并通过反向传播优化编码器、交互模块和动作解码器参数。原文明确说明“不需要辅助语言建模目标”，但所给章节没有展示L1目标的完整公式或归约方式，因此不额外构造方程。
+**优化目标如何起作用**：TurboVLA使用专家示范进行行为克隆。对时刻 n 的专家动作块 $\mathbf A_n^*=[a_{n,1}^*,\ldots,a_{n,H}^*]$，以预测动作块 $\hat{\mathbf A}_n$ 与专家动作块之间的 L1 损失训练策略；该损失按元素惩罚连续动作的绝对误差，并通过反向传播优化编码器、交互模块和动作解码器参数。原文明确说明“不需要辅助语言建模目标”，但所给章节没有展示L1目标的完整公式或归约方式，因此不额外构造方程。
 
 </div>
 
@@ -398,7 +398,7 @@ $$
 
 **1. 紧凑的模态专属编码器**
 
-文本侧采用 BERT 等轻量编码器并保留 N_l 个词元表示；视觉侧对 K 路相机分别编码，投影到维度 d 后加入视图内位置嵌入 E_{pos}^{(i)} 和相机标识 e_{view}^{(i)}，再沿序列维拼接。状态编码器 f_{state} 独立产生 N_s 个状态特征，不进入视觉—语言交互模块。
+文本侧采用 BERT 等轻量编码器并保留 $N_l$ 个词元表示；视觉侧对 K 路相机分别编码，投影到维度 d 后加入视图内位置嵌入 $E_{pos}^{(i)}$ 和相机标识 $e_{view}^{(i)}$，再沿序列维拼接。状态编码器 $f_{state}$ 独立产生 $N_s$ 个状态特征，不进入视觉—语言交互模块。
 
 > 直观理解：该设计只保留执行级操作所需的信息，不承担开放式文本生成或高层任务规划，从而避免大型语言模型产生的参数、激活显存和注意力计算开销。把状态推迟到动作解码阶段，也让跨模态模块专注于寻找与指令相关的场景内容。
 
@@ -410,7 +410,7 @@ $$
 
 **3. 连续动作块解码器**
 
-ACT 风格 Transformer 解码器使用 H 个可学习查询，每个查询对应动作块中的一个时间位置，并共同关注视觉—语言表示与机器人状态；输出维度为 H\times d_a。所有动作位置并行预测，因此无需将连续控制量量化成动作词元，也无需自回归解码。
+ACT 风格 Transformer 解码器使用 H 个可学习查询，每个查询对应动作块中的一个时间位置，并共同关注视觉—语言表示与机器人状态；输出维度为 $H\times d_a$。所有动作位置并行预测，因此无需将连续控制量量化成动作词元，也无需自回归解码。
 
 > 直观理解：该模块直接回答未来若干步“怎么动”，避免逐个动作生成造成的串行延迟。动作块长度 H 控制时间覆盖范围：过短难以表达连续技能，过长则增加一次预测整段轨迹的难度。
 
@@ -434,26 +434,37 @@ ACT 风格 Transformer 解码器使用 H 个可学习查询，每个查询对应
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- LIBERO：包含LIBERO-Object、LIBERO-Spatial、LIBERO-Goal和LIBERO-Long四个套件，每套10个语言条件操作任务，共40个任务。实验使用OpenVLA发布的修改版no_noops RLDS数据，将四套数据混合训练为一个模型；每个任务进行50次 rollout，共计2000次试验。其作用是同时检验单臂策略的物体识别、空间关系理解、目标条件执行和长时序操作能力。
-- RoboTwin 2.0：包含50个需要双臂协调的语言条件操作任务。受计算预算限制，训练只采用官方clean demonstrations，不使用随机场景数据；每个任务在clean setting下评估100次，并汇报50个任务的平均成功率。该基准用于检验架构能否扩展到14维双臂绝对关节位置控制和多任务联合学习，但不能充分衡量对场景随机化的鲁棒性。
-- 真实机器人数据：使用AgileX Piper平台，覆盖grab roller、move playing card away、press stapler和stack three bowls四项任务。每项任务采集65条遥操作示范，共4×65条；策略从LIBERO预训练检查点初始化，再微调12.5k步。每项任务测试40次，用于考察真实视觉噪声、视角变化、物体定位及闭环执行能力。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- LIBERO：包含LIBERO-Object、LIBERO-Spatial、LIBERO-Goal和LIBERO-Long四个套件，每套10个语言条件操作任务，共40个任务。实验使用OpenVLA发布的修改版no_noops RLDS数据，将四套数据混合训练为一个模型；每个任务进行50次 rollout，共计2000次试验。其作用是同时检验单臂策略的物体识别、空间关系理解、目标条件执行和长时序操作能力。
+- RoboTwin 2.0：包含50个需要双臂协调的语言条件操作任务。受计算预算限制，训练只采用官方clean demonstrations，不使用随机场景数据；每个任务在clean setting下评估100次，并汇报50个任务的平均成功率。该基准用于检验架构能否扩展到14维双臂绝对关节位置控制和多任务联合学习，但不能充分衡量对场景随机化的鲁棒性。
+- 真实机器人数据：使用AgileX Piper平台，覆盖grab roller、move playing card away、press stapler和stack three bowls四项任务。每项任务采集65条遥操作示范，共4×65条；策略从LIBERO预训练检查点初始化，再微调12.5k步。每项任务测试40次，用于考察真实视觉噪声、视角变化、物体定位及闭环执行能力。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **任务成功率**
 
 成功完成指定语言条件操作任务的试验比例，是所有仿真与真实场景的主要任务性能指标。它直接衡量最终任务是否完成，但不能单独说明动作轨迹质量、失败类型或安全性。 （越高越好，因为更高比例表示策略在更多独立试验中完成了任务。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **推理延迟**
 
 从输入多模态观测到生成一个动作块，或生成等价数量的自回归动作token所需的时间；在RTX 4090、batch size为1下测量。它近似反映在线策略的控制响应速度。 （越低越好，因为更短延迟通常允许更高控制频率和更及时的闭环反馈。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **推理显存**
 
@@ -461,7 +472,9 @@ ACT 风格 Transformer 解码器使用 H 个可学习查询，每个查询对应
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -492,7 +505,11 @@ ACT 风格 Transformer 解码器使用 H 个可学习查询，每个查询对应
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">On LIBERO, TurboVLA achieves 97.7% average success with only 0.2B parameters, 31.2 ms inference latency, and 0.9 GB inference VRAM on a consumer-grade RTX 4090, matching or outperforming substantially larger VLA policies.</span>
+<div class="experiment-evidence" markdown="1">
+
+On LIBERO, TurboVLA achieves 97.7% average success with only 0.2B parameters, 31.2 ms inference latency, and 0.9 GB inference VRAM on a consumer-grade RTX 4090, matching or outperforming substantially larger VLA policies.
+
+</div>
 
 </details>
 
@@ -520,7 +537,11 @@ ACT 风格 Transformer 解码器使用 H 个可学习查询，每个查询对应
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">On LIBERO, TurboVLA achieves 97.7% average success with only 0.2B parameters, 31.2 ms inference latency, and 0.9 GB inference VRAM on a consumer-grade RTX 4090, matching or outperforming substantially larger VLA policies.</span>
+<div class="experiment-evidence" markdown="1">
+
+On LIBERO, TurboVLA achieves 97.7% average success with only 0.2B parameters, 31.2 ms inference latency, and 0.9 GB inference VRAM on a consumer-grade RTX 4090, matching or outperforming substantially larger VLA policies.
+
+</div>
 
 </details>
 
@@ -548,7 +569,11 @@ ACT 风格 Transformer 解码器使用 H 个可学习查询，每个查询对应
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">On LIBERO, TurboVLA achieves 97.7% average success with only 0.2B parameters, 31.2 ms inference latency, and 0.9 GB inference VRAM on a consumer-grade RTX 4090, matching or outperforming substantially larger VLA policies.</span>
+<div class="experiment-evidence" markdown="1">
+
+On LIBERO, TurboVLA achieves 97.7% average success with only 0.2B parameters, 31.2 ms inference latency, and 0.9 GB inference VRAM on a consumer-grade RTX 4090, matching or outperforming substantially larger VLA policies.
+
+</div>
 
 </details>
 

@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "robotics"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:25.102071+00:00"
+generated_at: "2026-07-30T10:14:52.679805+00:00"
 source_sha256: "86438b21bf0f7e56d161b8c2832e2f9c6286435d8e468f70138eb620d6e067da"
 tags:
   - "机器人 / 具身智能"
@@ -39,7 +39,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2606.25765v2) · [PDF 下载](https://arxiv.org/pdf/2606.25765v2) · **关键词** 四足机器人, 镂空楼梯, 视觉引导运动, 深度强化学习, 部分可观测性, 时空记忆, 深度传感器建模, 仿真到现实迁移, 主动感知, 精确落脚  
+[arXiv 原文](https://arxiv.org/abs/2606.25765v2) · [PDF 下载](https://arxiv.org/pdf/2606.25765v2) · **关键词** 四足机器人, 镂空楼梯, 视觉引导运动, 深度强化学习, 部分可观测性, 时空记忆, 深度传感器建模, 仿真到现实迁移, 主动感知, 精确落脚<br>
 **项目页**: [https://sivan666666.github.io/StairMaster/](https://sivan666666.github.io/StairMaster/)  
 
 </div>
@@ -88,21 +88,21 @@ StairMaster旨在让四足机器人依靠强化学习、抗噪深度感知与时
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **深度强化学习（Deep Reinforcement Learning, DRL）**
 
 机器人通过与仿真环境反复交互，根据奖励信号学习从观测到动作的控制策略，而不必为每一级台阶手工编写步态规则。本文训练的是端到端楼梯攀爬策略，并将仿真中学到的策略直接部署到真实机器人。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **部分可观测性与时空记忆**
 
 机器人当前看到的单帧图像不能完整反映环境，例如踏板经过机身下方后会离开前向相机视野，因此策略需要记住过去观测，并结合机器人自身运动推断地形当前位于何处。所谓时空记忆不仅保留时间序列信息，还要维持地形结构与机器人位置变化之间的空间对应关系。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **仿真到现实迁移（Sim-to-Real）**
 
@@ -127,7 +127,7 @@ StairMaster旨在让四足机器人依靠强化学习、抗噪深度感知与时
 
 <div class="notation-list" markdown="1">
 
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$r_{\text{pitch}}$**
 
@@ -225,7 +225,7 @@ StairMaster将空心楼梯攀爬建模为从机载本体感知与第一视角深
 
 <div class="method-step__io" markdown="1">
 
-**输入**：机器人本体观测 o_t=[\omega_t,g_t,c_t,\theta_t,\dot{\theta}_t,a_{t-1}]^T，以及仅训练时可用的特权地形高度图；其中观测包含机身角速度、机身坐标系投影重力、速度指令、12维关节位置、12维关节速度和上一时刻12维动作。  
+**输入**：机器人本体观测 $o_t=[\omega_t,g_t,c_t,\theta_t,\dot{\theta}_t,a_{t-1}]^T$，以及仅训练时可用的特权地形高度图；其中观测包含机身角速度、机身坐标系投影重力、速度指令、12维关节位置、12维关节速度和上一时刻12维动作。<br>
 **输出**：能够利用完整地形信息产生专家目标关节动作的教师策略。
 
 </div>
@@ -245,7 +245,7 @@ CNN提取深度特征，MLP编码本体状态；以本体特征为查询、视�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：模拟生成并注入传感器伪影的当前深度图 D_t、本体观测 o_t，以及教师策略给出的专家动作。  
+**输入**：模拟生成并注入传感器伪影的当前深度图 $D_t$、本体观测 $o_t$，以及教师策略给出的专家动作。<br>
 **输出**：无需特权高度图、可从机载观测生成目标关节动作的初始学生策略。
 
 </div>
@@ -265,7 +265,7 @@ CNN提取深度特征，MLP编码本体状态；以本体特征为查询、视�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：蒸馏后的学生网络、带随机化的空心楼梯环境、噪声深度图、本体观测和上一时刻循环状态。  
+**输入**：蒸馏后的学生网络、带随机化的空心楼梯环境、噪声深度图、本体观测和上一时刻循环状态。<br>
 **输出**：适用于零样本实体部署的最终视觉运动策略。
 
 </div>
@@ -285,7 +285,7 @@ CNN提取深度特征，MLP编码本体状态；以本体特征为查询、视�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：实体机器人预处理后的实时深度图、当前本体观测，以及SRU保存的历史隐藏状态和细胞状态。  
+**输入**：实体机器人预处理后的实时深度图、当前本体观测，以及SRU保存的历史隐藏状态和细胞状态。<br>
 **输出**：每个控制时刻的12维目标关节动作，以及供下一时刻使用的更新后时空记忆。
 
 </div>
@@ -328,7 +328,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：第一行根据当前看到的地形决定历史记忆的哪些部分仍与当前空间位置相符；第二行先对旧记忆进行门控，再按LSTM规则与当前特征融合。这样可以抑制因视角变化而失效的信息，同时保留已经进入相机盲区但仍影响落脚的踏板结构。  
+**直观理解**：第一行根据当前看到的地形决定历史记忆的哪些部分仍与当前空间位置相符；第二行先对旧记忆进行门控，再按LSTM规则与当前特征融合。这样可以抑制因视角变化而失效的信息，同时保留已经进入相机盲区但仍影响落脚的踏板结构。<br>
 **原文位置**：METHOD—Visuospatial Encoder Architecture—Spatio-Temporal Memory with Spatial-Aware LSTM，式(1)–(2)
 
 </div>
@@ -358,7 +358,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：俯仰项在接近楼梯后奖励机身朝向前方第二级踏板，一方面改善腿部跨越高台阶的工作空间，另一方面让相机更早看到上方结构；距离阈值避免机器人仍在平地时过早抬头。其余两项形成两层落脚约束：足的摆动轨迹不能穿入空洞，真正接触踏板时又不能踩得太靠近边缘，从而把策略推向更高的抬腿轨迹和更居中的落脚点。  
+**直观理解**：俯仰项在接近楼梯后奖励机身朝向前方第二级踏板，一方面改善腿部跨越高台阶的工作空间，另一方面让相机更早看到上方结构；距离阈值避免机器人仍在平地时过早抬头。其余两项形成两层落脚约束：足的摆动轨迹不能穿入空洞，真正接触踏板时又不能踩得太靠近边缘，从而把策略推向更高的抬腿轨迹和更居中的落脚点。<br>
 **原文位置**：METHOD—Customized Reward Design for Hollow Stairs，式(3)–(5)
 
 </div>
@@ -378,13 +378,13 @@ $$
 
 **1. 多模态交叉注意力编码器**
 
-CNN将最新深度帧 D_t 编码为稠密视觉特征图 f_v，MLP将本体观测 o_t 编码为特征 f_p。多头交叉注意力以 f_p 为query、以 f_v 为key和value，生成随机器人当前运动学状态变化的融合特征 f_t，使网络优先聚合与当前姿态和落脚需求相关的稀疏台阶边缘。
+CNN将最新深度帧 $D_t$ 编码为稠密视觉特征图 $f_v$，MLP将本体观测 $o_t$ 编码为特征 $f_p$。多头交叉注意力以 $f_p$ 为query、以 $f_v$ 为key和value，生成随机器人当前运动学状态变化的融合特征 $f_t$，使网络优先聚合与当前姿态和落脚需求相关的稀疏台阶边缘。
 
 > 直观理解：直接拼接深度与状态会把大量墙面、空洞或噪声像素一并交给控制器；交叉注意力相当于用“机器人此刻怎样站立、准备怎样运动”去询问图像中哪些位置最值得关注。它解决的是当前帧的信息筛选问题，而不是长期记忆问题。
 
 **2. 空间感知循环单元（SRU）**
 
-SRU基于LSTM，在更新循环状态前由当前融合特征 f_t 预测空间变换门 s_t，并用该门逐元素调制上一时刻的隐藏状态 h_{t-1} 与细胞状态 c_{t-1}。该机制在不显式输入自运动估计的情况下，对历史地形特征进行隐式空间对齐，使已离开前视相机视野的踏板信息仍可参与后续动作生成。
+SRU基于LSTM，在更新循环状态前由当前融合特征 $f_t$ 预测空间变换门 $s_t$，并用该门逐元素调制上一时刻的隐藏状态 $h_{t-1}$ 与细胞状态 $c_{t-1}$。该机制在不显式输入自运动估计的情况下，对历史地形特征进行隐式空间对齐，使已离开前视相机视野的踏板信息仍可参与后续动作生成。
 
 > 直观理解：前置相机看到某级踏板时，后腿通常还没有踩到它；等后腿需要落脚时，该踏板可能已经处于机身下方的视觉盲区。SRU像一张会随机器人移动而自动调整的短期地图，避免普通循环网络把不同视角下的位置简单混在一起。
 
@@ -413,19 +413,30 @@ SRU基于LSTM，在更新循环状态前由当前融合特征 f_t 预测空间�
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- 平地基准环境：用于检查策略是否在普通连续地面上保持基本运动能力。原文未提供独立数据集、训练/测试划分或具体地形规模；每种方法在该地形上评估1000个回合。
-- 标准化空心楼梯环境：具有踏板间空隙的主要目标场景，用于测试腿部避陷、结构感知和精确落脚能力。成功条件是机器人到达顶部平台的最终航点；每种方法评估1000个回合。原文未明确报告楼梯尺寸与测试实例数量。
-- 随机混合楼梯环境：连续踏板的高度随机生成，且相邻踏板之间具有随机水平间隙，用于测试策略对未固定几何结构的空间推理与着地点控制。每种方法评估1000个回合；原文未明确报告随机参数范围及训练集与测试集是否分离。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- 平地基准环境：用于检查策略是否在普通连续地面上保持基本运动能力。原文未提供独立数据集、训练/测试划分或具体地形规模；每种方法在该地形上评估1000个回合。
+- 标准化空心楼梯环境：具有踏板间空隙的主要目标场景，用于测试腿部避陷、结构感知和精确落脚能力。成功条件是机器人到达顶部平台的最终航点；每种方法评估1000个回合。原文未明确报告楼梯尺寸与测试实例数量。
+- 随机混合楼梯环境：连续踏板的高度随机生成，且相邻踏板之间具有随机水平间隙，用于测试策略对未固定几何结构的空间推理与着地点控制。每种方法评估1000个回合；原文未明确报告随机参数范围及训练集与测试集是否分离。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **Success Rate（成功率）**
 
 在空心楼梯试验中，机器人成功到达顶部平台最终航点的回合比例；它衡量完整完成任务的可靠性，而不是只跨过若干台阶的局部进展。 （越高越好，因为更高比例表示策略更经常完成整段楼梯。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **Average Reached Steps（平均到达台阶比例）**
 
@@ -433,7 +444,9 @@ SRU基于LSTM，在更新循环状态前由当前融合特征 f_t 预测空间�
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -464,7 +477,11 @@ SRU基于LSTM，在更新循环状态前由当前融合特征 f_t 预测空间�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">In comparison experiments, our method outperforms others in all metrics.</span>
+<div class="experiment-evidence" markdown="1">
+
+In comparison experiments, our method outperforms others in all metrics.
+
+</div>
 
 </details>
 
@@ -492,7 +509,11 @@ SRU基于LSTM，在更新循环状态前由当前融合特征 f_t 预测空间�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">In comparison experiments, our method outperforms others in all metrics.</span>
+<div class="experiment-evidence" markdown="1">
+
+In comparison experiments, our method outperforms others in all metrics.
+
+</div>
 
 </details>
 
@@ -520,7 +541,11 @@ SRU基于LSTM，在更新循环状态前由当前融合特征 f_t 预测空间�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">In comparison experiments, our method outperforms others in all metrics.</span>
+<div class="experiment-evidence" markdown="1">
+
+In comparison experiments, our method outperforms others in all metrics.
+
+</div>
 
 </details>
 
@@ -559,7 +584,7 @@ SRU基于LSTM，在更新循环状态前由当前融合特征 f_t 预测空间�
 | 对比 / 设置 | 结果 | 怎么理解 | 原文位置与证据 |
 |---|---|---|---|
 | 去除Cross-Attention与SRU：以直接特征拼接替代Cross-Attention，并以标准两层LSTM替代SRU | 该变体已被纳入消融比较，但所给节选未明确报告其成功率、平均到达台阶比例或相对完整模型的下降幅度。 | 该消融联合移除了结构化视觉融合和空间感知时序记忆，用来测试完整感知—记忆模块是否优于简单拼接加通用LSTM。由于一次同时改变两个组件，即使性能下降，也只能说明二者的组合有效，不能分别归因于Cross-Attention或SRU；单独的“w/o SRU”变体才有助于进一步拆分贡献。 | Simulation Comparison and Ablation Study；数值据称见Table 1，但所给节选未包含表格行<br><span class="experiment-evidence">Ours w/o CA & SRU: Our method with Cross-Attention replaced by direct feature concatenation and SRU replaced by a standard two-layer LSTM.</span> |
-| 不使用空心间隙惩罚与楼梯边缘惩罚的落脚奖励消融（Ours w/o r_foothold） | 该变体删除 r_hollow 与 r_edge，但所给节选未明确报告删除后任何指标的数值变化。 | 该消融针对精确落脚机制：r_hollow抑制脚落入空隙，r_edge抑制踩在踏板边缘。若完整模型显著更好，可支持几何风险感知奖励对安全落脚有贡献；但由于两项惩罚被同时删除，不能判断哪一项更关键。 | Simulation Comparison and Ablation Study；数值据称见Table 1，但所给节选未包含表格行<br><span class="experiment-evidence">Ours w/o r_foothold: Our method without the hollow-gap penalty r_hollow and the stair-edge penalty r_edge.</span> |
+| 不使用空心间隙惩罚与楼梯边缘惩罚的落脚奖励消融（Ours w/o $r_foothold$） | 该变体删除 $r_hollow$ 与 $r_edge$，但所给节选未明确报告删除后任何指标的数值变化。 | 该消融针对精确落脚机制：$r_hollow$抑制脚落入空隙，$r_edge$抑制踩在踏板边缘。若完整模型显著更好，可支持几何风险感知奖励对安全落脚有贡献；但由于两项惩罚被同时删除，不能判断哪一项更关键。 | Simulation Comparison and Ablation Study；数值据称见Table 1，但所给节选未包含表格行<br><span class="experiment-evidence">Ours w/o $r_foothold$: Our method without the hollow-gap penalty $r_hollow$ and the stair-edge penalty $r_edge$.</span> |
 
 **定性案例**
 

@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "llm_alignment"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:25.055323+00:00"
+generated_at: "2026-07-30T10:14:52.665492+00:00"
 source_sha256: "d9a72645821981870eb5095b9d31e84c037b920cf3396d387f26d0b12106813c"
 tags:
   - "对齐 / RLHF"
@@ -36,7 +36,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2607.26094v1) · [PDF 下载](https://arxiv.org/pdf/2607.26094v1) · **关键词** 基于人类反馈的强化学习, 大语言模型对齐, 奖励塑形, 元学习, 势函数塑形, 策略不变性  
+[arXiv 原文](https://arxiv.org/abs/2607.26094v1) · [PDF 下载](https://arxiv.org/pdf/2607.26094v1) · **关键词** 基于人类反馈的强化学习, 大语言模型对齐, 奖励塑形, 元学习, 势函数塑形, 策略不变性<br>
 
 
 </div>
@@ -85,21 +85,21 @@ tags:
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **基于人类反馈的强化学习（RLHF）**
 
 RLHF利用人类对回答的偏好训练奖励模型，再优化语言模型，使其生成更符合这些偏好的回答。训练通常还加入相对参考策略的 KL 惩罚，以限制模型行为发生过大偏移。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **奖励塑形（Reward Shaping）**
 
 奖励塑形是在原始奖励之外加入辅助信号，使策略更容易判断哪些行为值得鼓励。若辅助项设计不当，它也可能改变模型真正追求的目标，因此需要结构性约束。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **势函数奖励塑形（Potential-Based Reward Shaping）**
 
@@ -124,28 +124,28 @@ RLHF利用人类对回答的偏好训练奖励模型，再优化语言模型，�
 
 <div class="notation-list" markdown="1">
 
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\pi_\theta(y\mid x)=\prod_{t=1}^{|y|}\pi_\theta(y_t\mid x,y_{<t})$**
 
 参数为 \(\theta\) 的自回归语言模型策略；给定提示 \(x\) 后，完整回答 \(y\) 的概率等于各位置词元条件概率的乘积。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$R_{\mathrm{base},\psi}(x,y)$**
 
 参数为 \(\psi\) 的基础奖励模型，对提示 \(x\) 与回答 \(y\) 的匹配质量给出标量评价。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\max_\theta\mathbb{E}_{x\sim D,\,y\sim\pi_\theta(\cdot\mid x)}\left[R_{\mathrm{base}}(x,y)-\beta\,\mathrm{KL}(\pi_\theta\|\pi_{\mathrm{ref}})\right]$**
 
 标准 RLHF 优化目标：提高期望基础奖励，同时以强度 \(\beta\) 惩罚当前策略与参考策略之间的 KL 偏离；来源为 Preliminaries 的公式（1）。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\Phi(s,s')=\gamma\phi(s')-\phi(s)$**
 
@@ -239,11 +239,11 @@ MeRLa 是一个先学习奖励塑形、再执行常规 RLHF 的两阶段框架�
 
 #### 构造跨任务元学习样本
 
-对每个辅助任务采样提示和回答偏好对，并用冻结参考模型的倒数第二层提取提示嵌入 h_x 与回答嵌入 h_y。基础奖励模型同时为回答提供原始质量信号。
+对每个辅助任务采样提示和回答偏好对，并用冻结参考模型的倒数第二层提取提示嵌入 $h_x$ 与回答嵌入 $h_y$。基础奖励模型同时为回答提供原始质量信号。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：辅助任务分布 \mathcal{T}=\{\tau_1,\ldots,\tau_M\}、各任务提示 x、偏好回答 y^{+} 与拒绝回答 y^{-}、基础奖励模型 R_{\mathrm{base},\psi} 及参考策略 \pi_{\mathrm{ref}}。  
+**输入**：辅助任务分布 $\mathcal{T}=\{\tau_1,\ldots,\tau_M\}$、各任务提示 x、偏好回答 $y^{+}$ 与拒绝回答 $y^{-}$、基础奖励模型 $R_{\mathrm{base},\psi}$ 及参考策略 $\pi_{\mathrm{ref}}$。<br>
 **输出**：表示稳定的跨任务训练批次，以及每个回答对应的基础奖励。
 
 </div>
@@ -259,12 +259,12 @@ MeRLa 是一个先学习奖励塑形、再执行常规 RLHF 的两阶段框架�
 
 #### 计算任务感知的复合奖励
 
-将 h_x、h_y 和差分 h_y-h_x 拼接后输入两层 MLP，得到标量塑形值 \Phi(x,y;\phi)，再按权重 \alpha 加到基础奖励上。塑形还可按生成前缀分解为逐词势差，以对应潜在函数奖励塑形。
+将 $h_x$、$h_y$ 和差分 $h_y-h_x$ 拼接后输入两层 MLP，得到标量塑形值 $\Phi(x,y;\phi)$，再按权重 $\alpha$ 加到基础奖励上。塑形还可按生成前缀分解为逐词势差，以对应潜在函数奖励塑形。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：冻结编码器产生的 h_x、h_y，以及基础奖励 R_{\mathrm{base},\psi}(x,y)。  
-**输出**：复合奖励 \hat{R}(x,y;\phi,\psi)。
+**输入**：冻结编码器产生的 $h_x$、$h_y$，以及基础奖励 $R_{\mathrm{base},\psi}(x,y)$。<br>
+**输出**：复合奖励 $\hat{R}(x,y;\phi,\psi)$。
 
 </div>
 
@@ -279,12 +279,12 @@ MeRLa 是一个先学习奖励塑形、再执行常规 RLHF 的两阶段框架�
 
 #### 元学习塑形函数
 
-联合最小化任务判别损失、负熵正则和保守损失，并通过梯度下降更新塑形参数 \phi。任务损失要求偏好回答得分更高，熵项防止奖励退化为常数，保守项惩罚其偏离势函数形式。
+联合最小化任务判别损失、负熵正则和保守损失，并通过梯度下降更新塑形参数 $\phi$。任务损失要求偏好回答得分更高，熵项防止奖励退化为常数，保守项惩罚其偏离势函数形式。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：各辅助任务中的复合奖励、偏好标签，以及逐词势函数投影 \Phi_{\mathrm{pb}}。  
-**输出**：跨辅助任务学习得到并随后冻结的参数 \phi^{*}。
+**输入**：各辅助任务中的复合奖励、偏好标签，以及逐词势函数投影 $\Phi_{\mathrm{pb}}$。<br>
+**输出**：跨辅助任务学习得到并随后冻结的参数 $\phi^{*}$。
 
 </div>
 
@@ -299,12 +299,12 @@ MeRLa 是一个先学习奖励塑形、再执行常规 RLHF 的两阶段框架�
 
 #### 使用元塑形奖励执行 RLHF
 
-当前策略生成回答后，系统计算基础奖励与塑形奖励之和，并加入相对参考策略的 KL 惩罚；随后用 GRPO、PPO 或 DAPO 等在线 RLHF 优化器更新 \theta，而不再更新 \phi^{*}。
+当前策略生成回答后，系统计算基础奖励与塑形奖励之和，并加入相对参考策略的 KL 惩罚；随后用 GRPO、PPO 或 DAPO 等在线 RLHF 优化器更新 $\theta$，而不再更新 $\phi^{*}$。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：目标训练提示集 D、当前策略 \pi_\theta、冻结参考策略 \pi_{\mathrm{ref}}、基础奖励模型和冻结塑形函数 \Phi(\cdot;\phi^{*})。  
-**输出**：在复合奖励指导下训练完成的对齐策略 \pi_\theta。
+**输入**：目标训练提示集 D、当前策略 $\pi_\theta$、冻结参考策略 $\pi_{\mathrm{ref}}$、基础奖励模型和冻结塑形函数 $\Phi(\cdot;\phi^{*})$。<br>
+**输出**：在复合奖励指导下训练完成的对齐策略 $\pi_\theta$。
 
 </div>
 
@@ -340,7 +340,7 @@ $$
 - $\mathcal{L}_{\mathrm{meta}}$：汇总全部辅助任务及正则项的元学习总损失。
 - $M$：辅助任务的数量。
 - $i$：辅助任务索引。
-- $\mathcal{L}_{\mathrm{task}}^{(i)}$：第 i 个任务上的偏好判别损失，促使复合奖励给予 y^{+} 高于 y^{-} 的分数。
+- $\mathcal{L}_{\mathrm{task}}^{(i)}$：第 i 个任务上的偏好判别损失，促使复合奖励给予 $y^{+}$ 高于 $y^{-}$ 的分数。
 - $\mathcal{L}_{\mathrm{ent}}$：负熵正则项；最小化它等价于提高批内复合奖励分布的熵，防止输出坍缩为常数。
 - $\mathcal{L}_{\mathrm{con}}$：保守损失，度量塑形输出与基于势函数的投影之间的平方偏差。
 - $\lambda_1$：熵正则的权重。
@@ -348,7 +348,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：该目标在三个要求之间折中：能识别每个任务中的优劣回答、产生非退化且信息丰富的奖励、同时不要明显偏离保证策略不变性的势函数结构。它是第一阶段唯一更新 \phi 的总目标，得到的 \phi^{*} 在部署阶段保持冻结。  
+**直观理解**：该目标在三个要求之间折中：能识别每个任务中的优劣回答、产生非退化且信息丰富的奖励、同时不要明显偏离保证策略不变性的势函数结构。它是第一阶段唯一更新 $\phi$ 的总目标，得到的 $\phi^{*}$ 在部署阶段保持冻结。<br>
 **原文位置**：Method，Meta-Learning Objective，Equation (5)
 
 </div>
@@ -371,8 +371,8 @@ $$
 - $x$：输入提示。
 - $y$：当前策略针对提示生成的回答。
 - $\pi_{\theta}(\cdot\mid x)$：给定提示 x 时当前自回归语言模型的回答分布。
-- $R_{\mathrm{base},\psi}$：参数为 \psi 的基础奖励模型。
-- $\alpha$：塑形奖励强度，原文规定 \alpha\in[0,1]。
+- $R_{\mathrm{base},\psi}$：参数为 $\psi$ 的基础奖励模型。
+- $\alpha$：塑形奖励强度，原文规定 $\alpha\in[0,1]$。
 - $\Phi$：任务感知的奖励塑形函数。
 - $\phi^{*}$：元学习结束后冻结的塑形参数。
 - $\beta$：KL 偏离惩罚的权重。
@@ -381,7 +381,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：部署时，策略最大化“基础奖励＋任务塑形奖励”，同时因偏离参考模型而付出 KL 代价。塑形项提供更密集或更有区分度的学习方向，KL 项限制过度偏移；若 \Phi 严格采用势函数形式，则理论上只改变学习路径而不改变基础奖励定义的最优策略。  
+**直观理解**：部署时，策略最大化“基础奖励＋任务塑形奖励”，同时因偏离参考模型而付出 KL 代价。塑形项提供更密集或更有区分度的学习方向，KL 项限制过度偏移；若 $\Phi$ 严格采用势函数形式，则理论上只改变学习路径而不改变基础奖励定义的最优策略。<br>
 **原文位置**：由 Method 的 Equation (2) 代入 Deployment: RLHF with Meta-Shaped Rewards 的 Equation (9)
 
 </div>
@@ -390,8 +390,8 @@ $$
 
 <div class="paper-focus" markdown="1">
 
-**优化目标如何起作用**：第一阶段固定基础奖励模型和参考编码器，仅对塑形参数 \phi 做梯度下降。每个辅助任务的判别损失采用二选一的 softmax 交叉熵，要求偏好回答 y^{+} 的复合奖励高于拒绝回答 y^{-}；负熵项扩大批内奖励分布的有效区分度；保守项通过与逐词势函数分解的最小二乘投影比较，限制塑形信号改变原奖励排序的能力。原文理论保证针对严格满足势函数分解的 \Phi，而实际网络通过 \mathcal{L}_{\mathrm{con}} 近似该条件，因此应将实际方法理解为受控近似，而非无条件的严格策略不变。
-第二阶段冻结 \phi^{*}，只优化策略参数 \theta。每轮从 D 采样提示，由 \pi_\theta 生成回答，计算复合奖励和 KL 惩罚，再交给 GRPO、PPO 或 DAPO 更新策略；其中 GRPO 是论文主要采用的骨干优化器。原文还提到谱归一化和梯度范数形式的漂移正则用于控制塑形网络敏感度，但它们没有出现在给出的 Equation (5) 总目标中，二者如何与元目标合并的细节原文摘录未明确报告。
+**优化目标如何起作用**：第一阶段固定基础奖励模型和参考编码器，仅对塑形参数 $\phi$ 做梯度下降。每个辅助任务的判别损失采用二选一的 softmax 交叉熵，要求偏好回答 $y^{+}$ 的复合奖励高于拒绝回答 $y^{-}$；负熵项扩大批内奖励分布的有效区分度；保守项通过与逐词势函数分解的最小二乘投影比较，限制塑形信号改变原奖励排序的能力。原文理论保证针对严格满足势函数分解的 $\Phi$，而实际网络通过 $\mathcal{L}_{\mathrm{con}}$ 近似该条件，因此应将实际方法理解为受控近似，而非无条件的严格策略不变。
+第二阶段冻结 $\phi^{*}$，只优化策略参数 $\theta$。每轮从 D 采样提示，由 $\pi_\theta$ 生成回答，计算复合奖励和 KL 惩罚，再交给 GRPO、PPO 或 DAPO 更新策略；其中 GRPO 是论文主要采用的骨干优化器。原文还提到谱归一化和梯度范数形式的漂移正则用于控制塑形网络敏感度，但它们没有出现在给出的 Equation (5) 总目标中，二者如何与元目标合并的细节原文摘录未明确报告。
 
 </div>
 
@@ -402,31 +402,31 @@ $$
 
 **1. 轻量奖励塑形网络**
 
-塑形函数采用 \Phi(x,y;\phi)=\mathrm{MLP}_{\phi}(h_x\oplus h_y\oplus(h_y-h_x))。网络是隐藏维度为 256、使用 SiLU 激活的两层 MLP，参数量少于 1M；输入来自基础 LLM 倒数第二层，输出为一个标量。
+塑形函数采用 $\Phi(x,y;\phi)=\mathrm{MLP}_{\phi}(h_x\oplus h_y\oplus(h_y-h_x))$。网络是隐藏维度为 256、使用 SiLU 激活的两层 MLP，参数量少于 1M；输入来自基础 LLM 倒数第二层，输出为一个标量。
 
 > 直观理解：该模块学习基础奖励没有表达充分的任务相关差异。拼接提示、回答及二者差分，使它既能看到各自内容，也能判断回答相对提示的偏移。
 
 **2. 冻结参考编码器与漂移控制**
 
-h_x 和 h_y 由冻结的 \pi_{\mathrm{ref}} 提取，而不是由持续更新的 \pi_\theta 提取；塑形 MLP 还采用谱归一化以限制其 Lipschitz 常数。固定编码器使同一输入的表示漂移为零，并将塑形学习与策略更新解耦。
+$h_x$ 和 $h_y$ 由冻结的 $\pi_{\mathrm{ref}}$ 提取，而不是由持续更新的 $\pi_\theta$ 提取；塑形 MLP 还采用谱归一化以限制其 Lipschitz 常数。固定编码器使同一输入的表示漂移为零，并将塑形学习与策略更新解耦。
 
 > 直观理解：如果用正在训练的策略提取特征，同一句话在不同训练阶段可能得到不同坐标，固定塑形器的输出便会无故变化。冻结编码器相当于固定评分标尺，使奖励变化主要反映回答变化，而非内部表示漂移。
 
 **3. 近似势函数约束**
 
-回答级塑形被表示或投影为 \Phi(x,y;\phi)=\sum_{t=1}^{|y|}[\gamma\varphi_\phi(x,y_{\le t})-\varphi_\phi(x,y_{<t})]，并通过最小二乘得到势函数空间中的投影 \Phi_{\mathrm{pb}}；保守损失惩罚 \Phi 与该投影之间的平方偏差。若分解被严格满足，逐步势差会望远镜式相消，从而保持基础奖励对应的最优策略；实际训练只保证近似满足，因此仍可能存在残差偏差。
+回答级塑形被表示或投影为 $\Phi(x,y;\phi)=\sum_{t=1}^{|y|}[\gamma\varphi_\phi(x,y_{\le t})-\varphi_\phi(x,y_{<t})]$，并通过最小二乘得到势函数空间中的投影 $\Phi_{\mathrm{pb}}$；保守损失惩罚 $\Phi$ 与该投影之间的平方偏差。若分解被严格满足，逐步势差会望远镜式相消，从而保持基础奖励对应的最优策略；实际训练只保证近似满足，因此仍可能存在残差偏差。
 
 > 直观理解：这项设计让附加奖励更像沿途路标：它可以告诉模型下一步是否更接近目标，却原则上不应换掉终点。保守损失就是防止路标本身变成一个新的、可能被钻空子的目标。
 
 **训练与推理**
 
-完整训练分为两个阶段。元学习阶段遍历 M 个辅助任务：采样 x 和 (y^{+},y^{-})，由冻结参考模型提取 h_x、h_y，计算基础奖励与塑形奖励，累计任务判别、熵和保守损失，然后以学习率 \eta_\phi 更新 \phi；完成 T_{\mathrm{meta}} 个周期后得到并冻结 \phi^{*}。RLHF 部署阶段进行 T_{\mathrm{rl}} 个周期：从目标分布 D 采样提示，当前策略自回归生成回答，固定塑形器与基础奖励模型共同给出复合奖励，再通过选定的在线 RLHF 算法更新 \theta。
-最终推理时仅需使用训练完成的策略 \pi_\theta 生成回答；塑形网络服务于训练奖励计算，而不是文本生成过程本身。原文算法返回的是 aligned policy \pi_\theta，未说明推理阶段必须继续运行基础奖励模型或塑形网络。
+完整训练分为两个阶段。元学习阶段遍历 M 个辅助任务：采样 x 和 ($y^{+},y^{-})$，由冻结参考模型提取 $h_x$、$h_y$，计算基础奖励与塑形奖励，累计任务判别、熵和保守损失，然后以学习率 $\eta_\phi$ 更新 $\phi$；完成 $T_{\mathrm{meta}}$ 个周期后得到并冻结 $\phi^{*}$。RLHF 部署阶段进行 $T_{\mathrm{rl}}$ 个周期：从目标分布 D 采样提示，当前策略自回归生成回答，固定塑形器与基础奖励模型共同给出复合奖励，再通过选定的在线 RLHF 算法更新 $\theta$。
+最终推理时仅需使用训练完成的策略 $\pi_\theta$ 生成回答；塑形网络服务于训练奖励计算，而不是文本生成过程本身。原文算法返回的是 aligned policy $\pi_\theta$，未说明推理阶段必须继续运行基础奖励模型或塑形网络。
 
 **复现信息**
 
 塑形网络为两层 MLP，隐藏维度 256，激活函数为 SiLU，新增参数少于 1M；输入是冻结参考模型倒数第二层产生的提示嵌入、回答嵌入及二者差分。参考模型本来就用于标准 RLHF 的 KL 惩罚，因此作者称冻结编码器不增加额外模型内存；但提取塑形输入及运行 MLP 仍涉及计算开销，摘录未给出具体吞吐量。
-塑形强度满足 \alpha\in[0,1]，网络采用谱归一化限制 Lipschitz 常数；势函数投影通过对逐词势差分解做最小二乘获得。主要部署优化器为 GRPO，方法也声明兼容 PPO 和 DAPO。元学习任务组成、\alpha、\beta、\lambda_1、\lambda_2、学习率、批量大小、训练周期、势函数投影的具体求解过程，以及提示与回答嵌入的池化方式在所给摘录中均未明确报告。
+塑形强度满足 $\alpha\in[0,1]$，网络采用谱归一化限制 Lipschitz 常数；势函数投影通过对逐词势差分解做最小二乘获得。主要部署优化器为 GRPO，方法也声明兼容 PPO 和 DAPO。元学习任务组成、$\alpha$、$\beta$、$\lambda_1$、$\lambda_2$、学习率、批量大小、训练周期、势函数投影的具体求解过程，以及提示与回答嵌入的池化方式在所给摘录中均未明确报告。
 
 </details>
 
@@ -438,26 +438,37 @@ h_x 和 h_y 由冻结的 \pi_{\mathrm{ref}} 提取，而不是由持续更新的
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- UltraFeedback：用于训练显式奖励模型，并作为各比较方法共享的偏好数据来源；采用何种划分、样本规模及辅助元任务的具体构造，所给原文未明确报告。
-- AlpacaEval 2.0：测试单轮指令遵循能力；使用 GPT-4-Turbo 作为裁判，报告长度控制胜率，以降低较长回答天然占优造成的偏差。评测样本规模和划分在所给原文中未明确报告。
-- MT-Bench、MATH 与 IFEval：分别测试多轮对话、数学推理和具有可验证约束的指令遵循。受列表数量限制合并列示；三者的评测规模、划分及 MATH/IFEval 的具体评分协议在所给原文中未明确报告。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- UltraFeedback：用于训练显式奖励模型，并作为各比较方法共享的偏好数据来源；采用何种划分、样本规模及辅助元任务的具体构造，所给原文未明确报告。
+- AlpacaEval 2.0：测试单轮指令遵循能力；使用 GPT-4-Turbo 作为裁判，报告长度控制胜率，以降低较长回答天然占优造成的偏差。评测样本规模和划分在所给原文中未明确报告。
+- MT-Bench、MATH 与 IFEval：分别测试多轮对话、数学推理和具有可验证约束的指令遵循。受列表数量限制合并列示；三者的评测规模、划分及 MATH/IFEval 的具体评分协议在所给原文中未明确报告。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **AlpacaEval 2.0 长度控制胜率（LC win rate）**
 
 由 GPT-4-Turbo 比较模型回答并进行长度校正后，模型回答胜出的比例；主要衡量开放式指令遵循质量，同时减少回答长度对裁判偏好的干扰。 （越高越好，因为更高比例表示在长度因素受控后，回答更常被裁判偏好。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **MT-Bench 分数**
 
 基于模型裁判的多轮对话质量评分，用于考察回答质量及跨轮次保持上下文和完成任务的能力。 （越高越好，因为更高分表示多轮对话的综合质量更优。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **训练奖励方差**
 
@@ -465,7 +476,9 @@ h_x 和 h_y 由冻结的 \pi_{\mathrm{ref}} 提取，而不是由持续更新的
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -496,7 +509,11 @@ h_x 和 h_y 由冻结的 \pi_{\mathrm{ref}} 提取，而不是由持续更新的
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">MeRLa (GRPO backbone) achieves 90.8% LC win rate on AlpacaEval 2.0, outperforming DAPO by 3.9 points. Gains are consistent across all benchmarks: +0.33 on MT-Bench, +5.6% on MATH, and +3.9% on IFEval, all statistically significant (p < 0.05, paired t-test).</span>
+<div class="experiment-evidence" markdown="1">
+
+MeRLa (GRPO backbone) achieves 90.8% LC win rate on AlpacaEval 2.0, outperforming DAPO by 3.9 points. Gains are consistent across all benchmarks: +0.33 on MT-Bench, +5.6% on MATH, and +3.9% on IFEval, all statistically significant (p < 0.05, paired t-test).
+
+</div>
 
 </details>
 
@@ -524,7 +541,11 @@ MeRLa 在前 150 个训练步骤内达到最终奖励的 90%，DAPO 需要 250 �
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">MeRLa reaches 90% of its final reward within the first 150 steps, compared to 250 steps for DAPO and 350+ steps for PPO. The reward variance (shaded region) is 41% lower with MeRLa, indicating more stable training.</span>
+<div class="experiment-evidence" markdown="1">
+
+MeRLa reaches 90% of its final reward within the first 150 steps, compared to 250 steps for DAPO and 350+ steps for PPO. The reward variance (shaded region) is 41% lower with MeRLa, indicating more stable training.
+
+</div>
 
 </details>
 
@@ -552,7 +573,11 @@ MeRLa 在前 150 个训练步骤内达到最终奖励的 90%，DAPO 需要 250 �
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">The base reward model produces a wide, bimodal distribution with high variance (σ=0.80). Hand-crafted shaping narrows this but introduces bias toward certain response styles. MeRLa achieves the most desirable distribution: higher mean (μ=1.1 vs. 0.8), lower variance (σ=0.35), and better separation between high and low-quality responses.</span>
+<div class="experiment-evidence" markdown="1">
+
+The base reward model produces a wide, bimodal distribution with high variance (σ=0.80). Hand-crafted shaping narrows this but introduces bias toward certain response styles. MeRLa achieves the most desirable distribution: higher mean (μ=1.1 vs. 0.8), lower variance (σ=0.35), and better separation between high and low-quality responses.
+
+</div>
 
 </details>
 

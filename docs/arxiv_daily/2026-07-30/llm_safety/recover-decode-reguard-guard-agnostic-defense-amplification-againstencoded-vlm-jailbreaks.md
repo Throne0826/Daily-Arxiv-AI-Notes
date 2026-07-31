@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "llm_safety"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:24.917856+00:00"
+generated_at: "2026-07-30T10:14:52.610374+00:00"
 source_sha256: "9db7c2d7d5d6afdc7089102bb145b3b114e79a317ec59844930b5297973195cc"
 tags:
   - "LLM 安全"
@@ -37,7 +37,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2607.26574v1) · [PDF 下载](https://arxiv.org/pdf/2607.26574v1) · **关键词** 视觉—语言模型安全, 编码越狱, 黑盒安全分类器, 解码缺口, 表示迁移攻击, 恢复与解码, 攻击集成, 安全—可用性权衡  
+[arXiv 原文](https://arxiv.org/abs/2607.26574v1) · [PDF 下载](https://arxiv.org/pdf/2607.26574v1) · **关键词** 视觉—语言模型安全, 编码越狱, 黑盒安全分类器, 解码缺口, 表示迁移攻击, 恢复与解码, 攻击集成, 安全—可用性权衡<br>
 
 
 </div>
@@ -86,21 +86,21 @@ tags:
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **黑盒安全分类器（guard）**
 
 位于用户输入与目标VLM之间的独立安全判别器，通常只输出允许或拒绝，而不要求访问或修改目标模型内部参数。其模型无关性便于部署，但若不能理解输入所用的编码形式，就可能漏掉语义上有害的请求。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **解码缺口（decode gap）**
 
 同一有害意图以明文出现时会被拦截，换成代码、符号系统、密码或图像文字后却能绕过分类器，这种表面形式识别与真实语义识别之间的差距即为解码缺口。问题并非载荷消失，而是guard看到的表示不适合直接判断。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **攻击集成与best-of-suite评估**
 
@@ -125,21 +125,21 @@ tags:
 
 <div class="notation-list" markdown="1">
 
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\mathrm{ASR}$**
 
 攻击成功率（attack-success rate），表示有害行为成功绕过防御并使目标模型产生攻击者所求结果的比例。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\mathrm{ASR}_{\mathrm{ens}}$**
 
 攻击集成的best-of-suite成功率：对每个行为，只要攻击集合中至少一种攻击成功，就将其记为被攻破。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\mathrm{ORR}$**
 
@@ -237,7 +237,7 @@ tags:
 
 <div class="method-step__io" markdown="1">
 
-**输入**：请求 x=(t,v) 中的图像通道 v；若请求仅含文本，则 v 为空。  
+**输入**：请求 x=(t,v) 中的图像通道 v；若请求仅含文本，则 v 为空。<br>
 **输出**：图像内容的文本转写 ρ，或纯文本场景下的空结果。
 
 </div>
@@ -257,7 +257,7 @@ tags:
 
 <div class="method-step__io" markdown="1">
 
-**输入**：原始文本通道 t 与图像转写 ρ。  
+**输入**：原始文本通道 t 与图像转写 ρ。<br>
 **输出**：解码前的统一文本表示 r。
 
 </div>
@@ -277,7 +277,7 @@ M 使用固定 decode 指令把 r 改写为明文负载 d=M.decode(r)，随后 G
 
 <div class="method-step__io" markdown="1">
 
-**输入**：统一文本表示 r、目标 VLM M 与安全分类器 G。  
+**输入**：统一文本表示 r、目标 VLM M 与安全分类器 G。<br>
 **输出**：通过审查的明文语义 d，或固定拒绝回复。
 
 </div>
@@ -297,7 +297,7 @@ M 使用固定 decode 指令把 r 改写为明文负载 d=M.decode(r)，随后 G
 
 <div class="method-step__io" markdown="1">
 
-**输入**：解码前表示 r、首次审查结果、reguard 开关，以及原始请求 x。  
+**输入**：解码前表示 r、首次审查结果、reguard 开关，以及原始请求 x。<br>
 **输出**：固定拒绝回复，或目标 VLM 对原始输入生成的最终回答。
 
 </div>
@@ -339,7 +339,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：这组关系描述预处理主链路：有图像就先转写，再把所有文本证据汇总，最后把特殊编码改述成直接语义。其核心目的不是生成回答，而是构造更适合安全分类器判断的输入视图。  
+**直观理解**：这组关系描述预处理主链路：有图像就先转写，再把所有文本证据汇总，最后把特殊编码改述成直接语义。其核心目的不是生成回答，而是构造更适合安全分类器判断的输入视图。<br>
 **原文位置**：第4节 Method，Algorithm 1，第1—3行
 
 </div>
@@ -366,7 +366,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：判定规则采用保守的双视图策略：解码结果暴露真实意图，解码前文本保留可能被改写删除的形式信号。值得注意的是，d 只用于安全判断，最终生成仍读取 x，因此系统不会把自动改写文本当成用户原始任务直接执行。  
+**直观理解**：判定规则采用保守的双视图策略：解码结果暴露真实意图，解码前文本保留可能被改写删除的形式信号。值得注意的是，d 只用于安全判断，最终生成仍读取 x，因此系统不会把自动改写文本当成用户原始任务直接执行。<br>
 **原文位置**：第4节 Method，Algorithm 1，第4—10行；Figure 1
 
 </div>
@@ -420,25 +420,36 @@ $$
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- HarmBench：取100个有害行为作为安全测试集；每个行为分别实例化为11种攻击表示，共11×100个成功生成的编码样本。它用于测量目标VLM是否实际完成有害任务，而不只是识别输入是否含有恶意意图。
-- OR-Bench-Hard：取100个良性请求测量过度拒绝，并包含文本与图像变体。其作用是检验防御在增强安全性的同时是否错误阻断正常请求；无防御时文本和图像拒绝率分别为38%和15%，平均良性拒绝基线为26%。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- HarmBench：取100个有害行为作为安全测试集；每个行为分别实例化为11种攻击表示，共11×100个成功生成的编码样本。它用于测量目标VLM是否实际完成有害任务，而不只是识别输入是否含有恶意意图。
+- OR-Bench-Hard：取100个良性请求测量过度拒绝，并包含文本与图像变体。其作用是检验防御在增强安全性的同时是否错误阻断正常请求；无防御时文本和图像拒绝率分别为38%和15%，平均良性拒绝基线为26%。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **Ensemble ASR（best-of-11攻击成功率）**
 
-对每个有害行为，只要11种攻击中任意一种使目标完成有害任务，就将该行为计为攻破；形式为 \mathrm{ASR}_{\mathrm{ens}}=\frac{1}{|B|}\sum_{b\in B}\max_{a\in\mathcal{A}}s_a(b)，其中B是行为集合，\mathcal{A}是攻击集合，s_a(b)表示攻击a是否攻破行为b。这模拟攻击者按行为选择最有效编码，而非随机使用某一种攻击。 （越低越好，因为它衡量固定攻击菜单下防御留下的联合攻击面；增加攻击种类只可能提高该指标，因此当前结果仍是攻击成功率的下界。）
+对每个有害行为，只要11种攻击中任意一种使目标完成有害任务，就将该行为计为攻破；形式为 $\mathrm{ASR}_{\mathrm{ens}}=\frac{1}{|B|}\sum_{b\in B}\max_{a\in\mathcal{A}}s_a(b)$，其中B是行为集合，$\mathcal{A}$是攻击集合，$s_a(b)$表示攻击a是否攻破行为b。这模拟攻击者按行为选择最有效编码，而非随机使用某一种攻击。 （越低越好，因为它衡量固定攻击菜单下防御留下的联合攻击面；增加攻击种类只可能提高该指标，因此当前结果仍是攻击成功率的下界。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **Per-attack mean ASR**
 
 先分别计算每种攻击的成功率，再对11种攻击取平均。它用于观察单类攻击是否被压低，但不同攻击可能攻破不同的行为，因此不能代表部署中的最佳攻击者。 （越低越好；但论文发现它比ensemble ASR约低3.5倍，所以仅凭该指标容易高估防御效果。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **Benign over-refusal（良性过度拒绝率）**
 
@@ -446,7 +457,9 @@ $$
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -477,7 +490,11 @@ $$
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Undefended, the eleven-attack ensemble breaks 89% (Qwen) / 91% (InternVL3) of behaviors; against the best single guard it still breaks 71% (Qwen) / 81% (InternVL3) (Appendix D).</span>
+<div class="experiment-evidence" markdown="1">
+
+Undefended, the eleven-attack ensemble breaks 89% (Qwen) / 91% (InternVL3) of behaviors; against the best single guard it still breaks 71% (Qwen) / 81% (InternVL3) (Appendix D).
+
+</div>
 
 </details>
 
@@ -505,7 +522,11 @@ $$
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">At the ensemble level the benefit is only partial: the strongest guard-plus-amplifier still leaves 65% (Qwen) / 63% (InternVL3) (Appendix D, middle bars).</span>
+<div class="experiment-evidence" markdown="1">
+
+At the ensemble level the benefit is only partial: the strongest guard-plus-amplifier still leaves 65% (Qwen) / 63% (InternVL3) (Appendix D, middle bars).
+
+</div>
 
 </details>
 
@@ -533,7 +554,11 @@ reguard是安全改善最一致的模块，因为它保留了解码前可能被�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">For the four well-calibrated guards the gain is bought at a steep utility cost: benign over-refusal rises to 81–87% (Qwen, three guards) / 86–92% (InternVL3, the three guards measured on its benign axis), with ThinkGuard likewise paying 45→66% (Figure 2).</span>
+<div class="experiment-evidence" markdown="1">
+
+For the four well-calibrated guards the gain is bought at a steep utility cost: benign over-refusal rises to 81–87% (Qwen, three guards) / 86–92% (InternVL3, the three guards measured on its benign axis), with ThinkGuard likewise paying 45→66% (Figure 2).
+
+</div>
 
 </details>
 

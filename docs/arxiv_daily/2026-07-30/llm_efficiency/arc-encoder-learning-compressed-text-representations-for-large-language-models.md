@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "llm_efficiency"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:25.408320+00:00"
+generated_at: "2026-07-30T10:14:52.778519+00:00"
 source_sha256: "9d21f1ee222b0d052efa001762c2da7e0973ef669752c720f347d9a7a6bf7ae0"
 tags:
   - "LLM 效率"
@@ -38,7 +38,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2510.20535v2) · [PDF 下载](https://arxiv.org/pdf/2510.20535v2) · **关键词** 大型语言模型, 上下文压缩, 软压缩, 连续文本表示, 冻结解码器, 池化 token, 上下文学习, 长上下文扩展  
+[arXiv 原文](https://arxiv.org/abs/2510.20535v2) · [PDF 下载](https://arxiv.org/pdf/2510.20535v2) · **关键词** 大型语言模型, 上下文压缩, 软压缩, 连续文本表示, 冻结解码器, 池化 token, 上下文学习, 长上下文扩展<br>
 **代码**: [https://github.com/kyutai-labs/ARC-Encoder](https://github.com/kyutai-labs/ARC-Encoder)  **项目页**: [https://huggingface.co/collections/kyutai/arc-encoders-68ee18787301407d60a57047](https://huggingface.co/collections/kyutai/arc-encoders-68ee18787301407d60a57047)  
 
 </div>
@@ -87,21 +87,21 @@ ARC-Encoder旨在不修改目标大语言模型的前提下，将长文本压缩
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **上下文压缩（context compression）**
 
 将原始长文本变成更短的输入，同时尽量保留回答问题或继续生成所需的信息。其直接目的，是减少解码器处理的序列长度，从而降低注意力计算与推理成本。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **软压缩（soft compression）与连续表示**
 
 软压缩不必保留可读文本，而是用编码器把多个 token 的信息汇聚成少量稠密向量。ARC-Encoder 输出的这类向量被放在解码器嵌入矩阵之后，替代对应原文 token 的嵌入。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **冻结解码器（frozen decoder）**
 
@@ -126,18 +126,18 @@ ARC-Encoder旨在不修改目标大语言模型的前提下，将长文本压缩
 
 <div class="notation-list" markdown="1">
 
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$x$**
 
-池化或压缩因子；编码器输出的连续表示数量约为原始文本 token 数的 1/x，文中典型取值为 x\in\{4,8\}。
+池化或压缩因子；编码器输出的连续表示数量约为原始文本 token 数的 1/x，文中典型取值为 $x\in\{4,8\}$。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$x\times$**
 
-表示相对于原始 token 序列的长度压缩倍数；例如 4\times 池化意味着约每四个原始 token 对应一个压缩表示。
+表示相对于原始 token 序列的长度压缩倍数；例如 $4\times$ 池化意味着约每四个原始 token 对应一个压缩表示。
 
 </div>
 
@@ -231,7 +231,7 @@ ARC-Encoder采用“可训练压缩器＋冻结解码器”的端到端结构。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：长度为n的文本token序列及其初始嵌入。  
+**输入**：长度为n的文本token序列及其初始嵌入。<br>
 **输出**：包含上下文信息的长度为n的隐藏状态序列。
 
 </div>
@@ -251,7 +251,7 @@ ARC-Encoder采用“可训练压缩器＋冻结解码器”的端到端结构。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：编码器前部各层处理后的隐藏状态，以及目标池化因子x。  
+**输入**：编码器前部各层处理后的隐藏状态，以及目标池化因子x。<br>
 **输出**：长度由n缩短至约n/x的压缩隐藏状态序列。
 
 </div>
@@ -271,7 +271,7 @@ ARC-Encoder采用“可训练压缩器＋冻结解码器”的端到端结构。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：池化后的编码器隐藏状态，以及当前目标解码器要求的词嵌入维度。  
+**输入**：池化后的编码器隐藏状态，以及当前目标解码器要求的词嵌入维度。<br>
 **输出**：可直接作为目标解码器输入嵌入的连续压缩表示。
 
 </div>
@@ -291,7 +291,7 @@ ARC-Encoder采用“可训练压缩器＋冻结解码器”的端到端结构。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：压缩连续表示、任务特殊标记，以及任务模板中可能存在的未压缩查询、示例或答案前缀。  
+**输入**：压缩连续表示、任务特殊标记，以及任务模板中可能存在的未压缩查询、示例或答案前缀。<br>
 **输出**：重构文本、自然文本续写或下游任务答案。
 
 </div>
@@ -363,26 +363,37 @@ ARC-Encoder采用“可训练压缩器＋冻结解码器”的端到端结构。
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- 短上下文问答组：Natural Questions、TriviaQA、HotpotQA distractor和SQuAD。实验用NV-Embed v2从Atlas的Wikipedia切块中检索Top-5段落，以模拟RAG；平均文档长度随解码器分词器而异，约为133至185词元，但FLORES之外的HotpotQA表中长度约1285至1479词元。评测训练集被明确排除在微调数据之外，用于检验跨数据集泛化，而不是记忆基准训练样本。
-- 短上下文生成组：FLORES覆盖英语到丹麦语、法语、德语和西班牙语四个翻译方向；CNN-DailyMail用于摘要。所有任务采用5-shot，每个示例由文档、问题或任务指令、答案组成，并压缩每个示例中的上下文。FLORES文本很短，平均不足30词元，因此也用于暴露固定数量记忆令牌方法可能实际扩张输入的问题。
-- 长上下文组：ZeroSCROLLS中的NarrativeQA、QASPER、GovReport和QM-Sum验证集，分别检验长文问答与长文摘要。推理时原始上下文最多截断到32k词元，再按块并行压缩；长上下文微调数据则由Wikipedia切块、PG-19书籍和RedPajama中的ArXiv论文合成，每个上下文最多分为32个、每个1024词元的块。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- 短上下文问答组：Natural Questions、TriviaQA、HotpotQA distractor和SQuAD。实验用NV-Embed v2从Atlas的Wikipedia切块中检索Top-5段落，以模拟RAG；平均文档长度随解码器分词器而异，约为133至185词元，但FLORES之外的HotpotQA表中长度约1285至1479词元。评测训练集被明确排除在微调数据之外，用于检验跨数据集泛化，而不是记忆基准训练样本。
+- 短上下文生成组：FLORES覆盖英语到丹麦语、法语、德语和西班牙语四个翻译方向；CNN-DailyMail用于摘要。所有任务采用5-shot，每个示例由文档、问题或任务指令、答案组成，并压缩每个示例中的上下文。FLORES文本很短，平均不足30词元，因此也用于暴露固定数量记忆令牌方法可能实际扩张输入的问题。
+- 长上下文组：ZeroSCROLLS中的NarrativeQA、QASPER、GovReport和QM-Sum验证集，分别检验长文问答与长文摘要。推理时原始上下文最多截断到32k词元，再按块并行压缩；长上下文微调数据则由Wikipedia切块、PG-19书籍和RedPajama中的ArXiv论文合成，每个上下文最多分为32个、每个1024词元的块。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **Exact Match（EM）**
 
 问答预测经小写化、空白修正并移除标点和冠词后，与参考答案完全一致时记为1，否则为0。它强调答案格式和内容均准确，作者用它避免指令模型仅复述上下文却获得虚高评价。 （越高越好，因为更高比例的样本与标准答案严格匹配；但它不会给语义等价、措辞不同的答案部分得分。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **BLEU**
 
 衡量机器翻译输出与参考译文之间的词片段重合度；论文报告英语到四种欧洲语言方向的平均BLEU。 （越高越好，表示与参考译文的局部表达更接近，但不等同于完整的人类翻译质量判断。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **F1与ROUGE-L**
 
@@ -390,7 +401,9 @@ ARC-Encoder采用“可训练压缩器＋冻结解码器”的端到端结构。
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -421,8 +434,12 @@ ARC-Encoder采用“可训练压缩器＋冻结解码器”的端到端结构。
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">ARC4-Encoder M 4× - 39.0 68.9 45.1 71.1 31.0 23.8 46.5
-ARC4-Encoder L 4× - 39.7 70.1 46.9 74.0 33.7 23.7 48.0</span>
+<div class="experiment-evidence" markdown="1">
+
+ARC4-Encoder M 4× - 39.0 68.9 45.1 71.1 31.0 23.8 46.5
+ARC4-Encoder L 4× - 39.7 70.1 46.9 74.0 33.7 23.7 48.0
+
+</div>
 
 </details>
 
@@ -450,7 +467,11 @@ ARC4-Encoder L 4× - 39.7 70.1 46.9 74.0 33.7 23.7 48.0</span>
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">We report results in Tab. 1, showing that on average, the common encoder, ARC-Encoder⊗, loses less than 1.0 point compared to its specialized counterparts.</span>
+<div class="experiment-evidence" markdown="1">
+
+We report results in Tab. 1, showing that on average, the common encoder, ARC-Encoder⊗, loses less than 1.0 point compared to its specialized counterparts.
+
+</div>
 
 </details>
 
@@ -478,11 +499,15 @@ ARC在NarrativeQA和QASPER上的F1分别为27.5和28.3，高于CEPED的20.5和19
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Models Max. Tokens NQA Qspr GvRp QM-Sum
+<div class="experiment-evidence" markdown="1">
+
+Models Max. Tokens NQA Qspr GvRp QM-Sum
 Llama2 Chat 4k 16.1 17.2 15.7 19.8
 + CEPED 2k+30k 20.5 19.7 12.7 19.7
 Llama2-32k Instruct 32k 14.2 16.4 17.8 17.6
-ARC8-Encoder + Llama2 Chat 4k (32k//8) 27.5 28.3 14.1 19.1</span>
+ARC8-Encoder + Llama2 Chat 4k (32k//8) 27.5 28.3 14.1 19.1
+
+</div>
 
 </details>
 

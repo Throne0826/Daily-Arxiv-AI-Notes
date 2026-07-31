@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "robotics"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:25.131190+00:00"
+generated_at: "2026-07-30T10:14:52.689525+00:00"
 source_sha256: "2127afbf2109d822dfc7014c325af5424e530cae80eb0886140b016166acde3e"
 tags:
   - "机器人 / 具身智能"
@@ -35,7 +35,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2606.18426v2) · [PDF 下载](https://arxiv.org/pdf/2606.18426v2) · **关键词** 视觉—语言—动作模型, 移动机器人导航, 第一视角视频, 几何轨迹监督, 单目三维重建, 流匹配, 障碍物避让  
+[arXiv 原文](https://arxiv.org/abs/2606.18426v2) · [PDF 下载](https://arxiv.org/pdf/2606.18426v2) · **关键词** 视觉—语言—动作模型, 移动机器人导航, 第一视角视频, 几何轨迹监督, 单目三维重建, 流匹配, 障碍物避让<br>
 
 
 </div>
@@ -84,21 +84,21 @@ VEGA将无动作标签的第一视角视频转化为带多模态目标和避障�
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **视觉—语言—动作模型（Vision-Language-Action, VLA）**
 
 VLA将视觉观察和语言或其他目标条件映射为机器人动作，并借助视觉语言预训练获得物体与场景的语义理解能力。在本文中，动作不是单步控制量，而是机器人局部坐标系内的一段未来路径。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **流匹配（Flow Matching）**
 
 流匹配学习一个随时间变化的向量场，把高斯噪声逐渐变换成目标轨迹样本。它能够表示同一目标下的多种合理路径，例如从障碍物左侧或右侧绕行，而不是被迫输出一条平均轨迹。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **单目几何重建（Monocular Geometry Reconstruction）**
 
@@ -112,7 +112,7 @@ VLA将视觉观察和语言或其他目标条件映射为机器人动作，并�
 
 **论文具体研究什么**
 
-给定野外采集、无动作标签的第一视角导航视频，训练阶段首先从单目 RGB 帧估计局部三维点图，并据此构造可用于避障规划的场景几何；随后从场景中采样文本目标、图像区域目标或空间航点目标，为每个目标生成位于机器人局部坐标系中的障碍感知轨迹分布，并以这些合成轨迹监督导航 VLA。学习到的策略以当前 RGB 观察 I_t 和目标 g 为输入，输出长度由预测时域 H 决定的动作块或局部轨迹 \mathbf{a}_{t:t+H}。问题假设单目模型能够提供足以支持局部规划的近似尺度化三维结构；推理时不再使用地图、距离场或在线轨迹优化，而是从噪声出发积分所学向量场，直接生成目标条件轨迹。
+给定野外采集、无动作标签的第一视角导航视频，训练阶段首先从单目 RGB 帧估计局部三维点图，并据此构造可用于避障规划的场景几何；随后从场景中采样文本目标、图像区域目标或空间航点目标，为每个目标生成位于机器人局部坐标系中的障碍感知轨迹分布，并以这些合成轨迹监督导航 VLA。学习到的策略以当前 RGB 观察 $I_t$ 和目标 g 为输入，输出长度由预测时域 H 决定的动作块或局部轨迹 $\mathbf{a}_{t:t+H}$。问题假设单目模型能够提供足以支持局部规划的近似尺度化三维结构；推理时不再使用地图、距离场或在线轨迹优化，而是从噪声出发积分所学向量场，直接生成目标条件轨迹。
 
 </div>
 
@@ -123,28 +123,28 @@ VLA将视觉观察和语言或其他目标条件映射为机器人动作，并�
 
 <div class="notation-list" markdown="1">
 
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$I_t$**
 
-时刻 t 的 RGB 视觉观察；其图像尺寸可写为 I_t\in\mathbb{R}^{H\times W\times 3}。
+时刻 t 的 RGB 视觉观察；其图像尺寸可写为 $I_t\in\mathbb{R}^{H\times W\times 3}$。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$g$**
 
 导航目标条件，可表示为语言描述、图像中的目标区域或空间航点。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\pi_\theta(\mathbf{a}_{t:t+H}\mid I_t,g)$**
 
-参数为 \theta 的导航 VLA；在观察 I_t 和目标 g 条件下，预测从 t 到 t+H 的动作块或局部轨迹。
+参数为 $\theta$ 的导航 VLA；在观察 $I_t$ 和目标 g 条件下，预测从 t 到 t+H 的动作块或局部轨迹。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$P_t(u,v)=[X\;Y\;Z]^T$**
 
@@ -237,11 +237,11 @@ VEGA把无标签第一视角网络视频转化为可训练导航策略的几何�
 
 #### 视频采样与局部几何恢复
 
-按固定帧率均匀采样视频，将每个RGB帧 I_t 视为一个独立局部场景，并用MoGe-2恢复相机坐标系下的稠密度量点图 P_t。通过RANSAC拟合局部地面，将点图旋转到以地面为xy平面、z轴向上的机器人局部坐标系。
+按固定帧率均匀采样视频，将每个RGB帧 $I_t$ 视为一个独立局部场景，并用MoGe-2恢复相机坐标系下的稠密度量点图 $P_t$。通过RANSAC拟合局部地面，将点图旋转到以地面为xy平面、z轴向上的机器人局部坐标系。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：无标签的步行游览、骑行等第一视角导航视频。  
+**输入**：无标签的步行游览、骑行等第一视角导航视频。<br>
 **输出**：经过地面校准、具有近似度量尺度的局部三维点图。
 
 </div>
@@ -261,7 +261,7 @@ VEGA把无标签第一视角网络视频转化为可训练导航策略的几何�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：校准后的三维点图以及机器人周围的局部鸟瞰区域 Ω_{\mathrm{BEV}}。  
+**输入**：校准后的三维点图以及机器人周围的局部鸟瞰区域 $Ω_{\mathrm{BEV}}$。<br>
 **输出**：可见性感知的BEV占据表示及局部ESDF几何代价图。
 
 </div>
@@ -281,8 +281,8 @@ VEGA把无标签第一视角网络视频转化为可训练导航策略的几何�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：RGB帧、MoGe-2点图和已知自由空间集合。  
-**输出**：对齐的目标三元组 (g_j^{\mathrm{text}},g_j^{\mathrm{box}},g_j^{\mathrm{wp}})，以及额外的自由空间航点目标。
+**输入**：RGB帧、MoGe-2点图和已知自由空间集合。<br>
+**输出**：对齐的目标三元组 ($g_j^{\mathrm{text}},g_j^{\mathrm{box}},g_j^{\mathrm{wp}})$，以及额外的自由空间航点目标。
 
 </div>
 
@@ -301,8 +301,8 @@ MPPI在机器人动力学下滚动生成候选轨迹，并综合目标接近、�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：每个二维航点目标、局部ESDF和非完整机器人运动模型。  
-**输出**：每个目标对应的参考航点轨迹，以及训练集合 \mathcal{D}_t=\{(I_t,g_j,m_j,\hat{\mathbf y}_{t:t+H,j})\}_{j=1}^{K_t}。
+**输入**：每个二维航点目标、局部ESDF和非完整机器人运动模型。<br>
+**输出**：每个目标对应的参考航点轨迹，以及训练集合 $\mathcal{D}_t=\{(I_t,g_j,m_j,\hat{\mathbf y}_{t:t+H,j})\}_{j=1}^{K_t}$。
 
 </div>
 
@@ -343,7 +343,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：正值表示当前位置已知可通行，数值越大通常意味着离障碍越远；负值表示位置被占据或尚未观察，规划器应避开。该定义使MPPI能用同一张连续代价图同时检查碰撞和衡量安全间距。  
+**直观理解**：正值表示当前位置已知可通行，数值越大通常意味着离障碍越远；负值表示位置被占据或尚未观察，规划器应避开。该定义使MPPI能用同一张连续代价图同时检查碰撞和衡量安全间距。<br>
 **原文位置**：式(6)，第4.1.1节 Geometry Recovery and Visibility-Aware ESDF Construction
 
 </div>
@@ -365,13 +365,13 @@ $$
 - $\mathbf y_0$：与目标轨迹同维、从标准高斯分布采样的初始噪声。
 - $\tau$：从噪声状态0到数据状态1的连续插值时间。
 - $\mathbf y_\tau$：噪声轨迹与目标轨迹在时间 τ 的线性插值状态。
-- $v_\theta(\mathbf y_\tau,\tau,I_t,g)$：在图像观察 I_t 和目标 g 条件下，模型对插值状态变化方向的预测向量场。
+- $v_\theta(\mathbf y_\tau,\tau,I_t,g)$：在图像观察 $I_t$ 和目标 g 条件下，模型对插值状态变化方向的预测向量场。
 - $\mathbf y_1-\mathbf y_0$：线性插值路径对应的真实恒定速度方向。
 - $\mathbb E$：对训练轨迹、噪声和插值时间采样求期望。
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：训练随机取一条教师轨迹和一份噪声，在两者之间选取中间状态，要求模型预测把噪声推向教师轨迹的正确方向。学会这一向量场后，推理阶段可从随机噪声逐步积分到一条符合当前图像与目标的导航轨迹，因此能够表示同一任务的多种可行路径。  
+**直观理解**：训练随机取一条教师轨迹和一份噪声，在两者之间选取中间状态，要求模型预测把噪声推向教师轨迹的正确方向。学会这一向量场后，推理阶段可从随机噪声逐步积分到一条符合当前图像与目标的导航轨迹，因此能够表示同一任务的多种可行路径。<br>
 **原文位置**：式(2)与式(3)，第3.2节 Flow Matching for Trajectory Prediction；用于第4.2节的航点动作专家
 
 </div>
@@ -380,7 +380,7 @@ $$
 
 <div class="paper-focus" markdown="1">
 
-**优化目标如何起作用**：优化目标是最小化条件流匹配损失 \mathcal L_{\mathrm{FM}}(\theta)：把MPPI依据训练期几何生成的航点轨迹作为目标分布样本，回归从高斯噪声到这些轨迹的条件向量场。图像 I_t 与目标 g 共同限定应生成哪一类轨迹，因此优化不仅学习一般运动形状，也将目标趋近、避碰和障碍间距等规划偏好从MPPI轨迹蒸馏进视觉策略；原文节选未给出额外辅助损失或各MPPI代价项的具体权重。
+**优化目标如何起作用**：优化目标是最小化条件流匹配损失 $\mathcal L_{\mathrm{FM}}(\theta)$：把MPPI依据训练期几何生成的航点轨迹作为目标分布样本，回归从高斯噪声到这些轨迹的条件向量场。图像 $I_t$ 与目标 g 共同限定应生成哪一类轨迹，因此优化不仅学习一般运动形状，也将目标趋近、避碰和障碍间距等规划偏好从MPPI轨迹蒸馏进视觉策略；原文节选未给出额外辅助损失或各MPPI代价项的具体权重。
 
 </div>
 
@@ -391,7 +391,7 @@ $$
 
 **1. 可见性感知ESDF几何监督模块**
 
-该模块由MoGe-2单目度量点图、RANSAC地面拟合、障碍高度过滤、BEV栅格化和射线追踪组成。它显式区分 \mathcal X_{\mathrm{free}}、\mathcal X_{\mathrm{occ}} 与 \mathcal X_{\mathrm{unk}}，并把未知空间与障碍空间一并设为负ESDF区域。
+该模块由MoGe-2单目度量点图、RANSAC地面拟合、障碍高度过滤、BEV栅格化和射线追踪组成。它显式区分 $\mathcal X_{\mathrm{free}}$、$\mathcal X_{\mathrm{occ}}$ 与 $\mathcal X_{\mathrm{unk}}$，并把未知空间与障碍空间一并设为负ESDF区域。
 
 > 直观理解：单纯深度图难以直接告诉规划器路径是否安全；ESDF把三维观察压缩成地面上的“安全余量地图”，既支持碰撞判断，也能鼓励轨迹与障碍保持距离。
 
@@ -409,11 +409,11 @@ Florence-2提供物体语义和图像框，MoGe-2提供框内像素对应的三�
 
 **训练与推理**
 
-训练数据生成阶段：采样视频帧，恢复并校准单目几何，建立区分自由、占据和未知空间的ESDF；检测物体并对齐文本、图像框和二维航点，同时采样自由空间航点；随后为每个目标运行MPPI，得到完整无碰轨迹或安全推进的最佳部分轨迹。模型训练阶段：根据目标模态分别编码文本、图像区域或航点，将其与当前RGB视觉上下文输入流匹配动作专家；采样教师轨迹 \mathbf y_1、噪声 \mathbf y_0 和时间 τ，构造 \mathbf y_τ 并最小化向量场均方误差。推理阶段：仅输入当前RGB观察和指定目标，从标准高斯噪声初始化轨迹，将条件向量场从 τ=0 数值积分至 τ=1，输出机器人局部坐标系中的 H 个二维航点；训练时使用的MoGe-2、ESDF和MPPI不进入策略推理流程。
+训练数据生成阶段：采样视频帧，恢复并校准单目几何，建立区分自由、占据和未知空间的ESDF；检测物体并对齐文本、图像框和二维航点，同时采样自由空间航点；随后为每个目标运行MPPI，得到完整无碰轨迹或安全推进的最佳部分轨迹。模型训练阶段：根据目标模态分别编码文本、图像区域或航点，将其与当前RGB视觉上下文输入流匹配动作专家；采样教师轨迹 $\mathbf y_1$、噪声 $\mathbf y_0$ 和时间 τ，构造 $\mathbf y_τ$ 并最小化向量场均方误差。推理阶段：仅输入当前RGB观察和指定目标，从标准高斯噪声初始化轨迹，将条件向量场从 τ=0 数值积分至 τ=1，输出机器人局部坐标系中的 H 个二维航点；训练时使用的MoGe-2、ESDF和MPPI不进入策略推理流程。
 
 **复现信息**
 
-复现方法所需的关键组件包括：MoGe-2用于单帧度量点图恢复，RANSAC用于地面拟合，障碍高度过滤与射线追踪用于构造可见性感知BEV/ESDF，Florence-2用于物体标签和边界框提取，MPPI用于非完整动力学下的目标条件轨迹生成。策略采用π₀.₅式预训练视觉语言骨干和流匹配动作专家，并参考OmniVLA的多目标模态设计：视觉编码器冻结，航点目标编码器可训练，输出维度为 H×2。固定视频采样帧率、BEV范围与分辨率、高度阈值 z_{\min},z_{\max}、MPPI采样配置及各代价权重在所给正文节选中均未明确报告，作者指向附录8.2和8.3提供进一步细节。
+复现方法所需的关键组件包括：MoGe-2用于单帧度量点图恢复，RANSAC用于地面拟合，障碍高度过滤与射线追踪用于构造可见性感知BEV/ESDF，Florence-2用于物体标签和边界框提取，MPPI用于非完整动力学下的目标条件轨迹生成。策略采用π₀.₅式预训练视觉语言骨干和流匹配动作专家，并参考OmniVLA的多目标模态设计：视觉编码器冻结，航点目标编码器可训练，输出维度为 H×2。固定视频采样帧率、BEV范围与分辨率、高度阈值 $z_{\min},z_{\max}$、MPPI采样配置及各代价权重在所给正文节选中均未明确报告，作者指向附录8.2和8.3提供进一步细节。
 
 </details>
 
@@ -425,25 +425,36 @@ Florence-2提供物体语义和图像框，MoGe-2提供框内像素对应的三�
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- VEGA-Bench：作者构建的导航VLA基准，包含25万场景以及约500万个导航目标，并为目标配套场景几何信息。其作用是大规模、可重复地评估目标推进、碰撞避免和障碍物净空；当前节选未明确报告训练/验证/测试划分。
-- 真实世界导航试验：用于检验仿真式基准上的改进能否迁移到物理环境。图3展示了三个包含静态与动态障碍物的导航场景，但当前节选未明确报告完整试验规模、场地构成、机器人平台、目标距离阈值或重复次数。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- VEGA-Bench：作者构建的导航VLA基准，包含25万场景以及约500万个导航目标，并为目标配套场景几何信息。其作用是大规模、可重复地评估目标推进、碰撞避免和障碍物净空；当前节选未明确报告训练/验证/测试划分。
+- 真实世界导航试验：用于检验仿真式基准上的改进能否迁移到物理环境。图3展示了三个包含静态与动态障碍物的导航场景，但当前节选未明确报告完整试验规模、场地构成、机器人平台、目标距离阈值或重复次数。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **目标到达能力**
 
 VEGA-Bench采用平均归一化目标进展，即机器人到目标距离的减少量除以初始距离；真实世界采用成功率，即最终停在目标规定距离阈值内的试验比例。两种指标分别衡量轨迹是否朝目标有效推进，以及物理试验是否真正到达目标附近。 （越高越好，因为更高的归一化进展表示更接近目标，更高的成功率表示更多试验满足到达条件。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **碰撞率**
 
 在VEGA-Bench中，进入被占据、未知或越界ESDF区域的轨迹所占比例；ESDF是带符号欧氏距离场，用于表示位置与最近障碍物的距离。在真实世界中，该指标统计发生物理接触或触发安全干预的试验比例。 （越低越好，因为它直接反映策略进入危险区域或需要人工/系统介入的频率。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **障碍物净空**
 
@@ -451,7 +462,9 @@ VEGA-Bench采用平均归一化目标进展，即机器人到目标距离的减�
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -482,7 +495,11 @@ VEGA-Bench采用平均归一化目标进展，即机器人到目标距离的减�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Our evaluation shows that VEGA achieves competitive goal progress while reducing collisions by 33.0% and improving obstacle clearance by 17.9% over the strongest baseline on VEGABench, while improving success by at least 150.0%, reducing collisions by at least 66.7%, and improving obstacle clearance by at least 60.0% in real-world trials.</span>
+<div class="experiment-evidence" markdown="1">
+
+Our evaluation shows that VEGA achieves competitive goal progress while reducing collisions by 33.0% and improving obstacle clearance by 17.9% over the strongest baseline on VEGABench, while improving success by at least 150.0%, reducing collisions by at least 66.7%, and improving obstacle clearance by at least 60.0% in real-world trials.
+
+</div>
 
 </details>
 
@@ -510,7 +527,11 @@ VEGA-Bench采用平均归一化目标进展，即机器人到目标距离的减�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Our evaluation shows that VEGA achieves competitive goal progress while reducing collisions by 33.0% and improving obstacle clearance by 17.9% over the strongest baseline on VEGABench, while improving success by at least 150.0%, reducing collisions by at least 66.7%, and improving obstacle clearance by at least 60.0% in real-world trials.</span>
+<div class="experiment-evidence" markdown="1">
+
+Our evaluation shows that VEGA achieves competitive goal progress while reducing collisions by 33.0% and improving obstacle clearance by 17.9% over the strongest baseline on VEGABench, while improving success by at least 150.0%, reducing collisions by at least 66.7%, and improving obstacle clearance by at least 60.0% in real-world trials.
+
+</div>
 
 </details>
 
@@ -538,7 +559,11 @@ VEGA-Bench采用平均归一化目标进展，即机器人到目标距离的减�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Our evaluation shows that VEGA achieves competitive goal progress while reducing collisions by 33.0% and improving obstacle clearance by 17.9% over the strongest baseline on VEGABench, while improving success by at least 150.0%, reducing collisions by at least 66.7%, and improving obstacle clearance by at least 60.0% in real-world trials.</span>
+<div class="experiment-evidence" markdown="1">
+
+Our evaluation shows that VEGA achieves competitive goal progress while reducing collisions by 33.0% and improving obstacle clearance by 17.9% over the strongest baseline on VEGABench, while improving success by at least 150.0%, reducing collisions by at least 66.7%, and improving obstacle clearance by at least 60.0% in real-world trials.
+
+</div>
 
 </details>
 
@@ -562,7 +587,7 @@ VEGA-Bench采用平均归一化目标进展，即机器人到目标距离的减�
 
 - OmniVLA：作者称其为当前先进的导航VLA之一，因此用于比较VEGA与专门面向导航任务的视觉—语言—动作策略。
 - NaVILA：另一种先进导航VLA，用于判断VEGA的几何轨迹监督是否优于已有导航VLA训练路线。
-- π_{0.5}：能够执行移动操作的通用VLA。评测使用其底盘线速度和角速度输出生成导航轨迹，因而检验专门学习的VEGA相对于通用具身策略的优势。
+- $π_{0.5}$：能够执行移动操作的通用VLA。评测使用其底盘线速度和角速度输出生成导航轨迹，因而检验专门学习的VEGA相对于通用具身策略的优势。
 
 **实验想回答的问题**
 
@@ -571,7 +596,7 @@ VEGA-Bench采用平均归一化目标进展，即机器人到目标距离的减�
 
 **实验实现**
 
-评测将VEGA与OmniVLA、NaVILA和π_{0.5}比较；对π_{0.5}使用其线速度与角速度控制底盘并形成导航轨迹。VEGA-Bench中的碰撞依据轨迹是否进入占据、未知或越界的ESDF区域判定；真实试验则以物理接触或安全干预判定。图3以黄色星形标出目标，以勾号表示成功到达，以X表示碰撞或失败。当前节选未明确报告各模型检查点、输入分辨率、推理频率、轨迹执行时域、成功距离阈值、统计置信区间及显著性检验。
+评测将VEGA与OmniVLA、NaVILA和$π_{0.5}$比较；对$π_{0.5}$使用其线速度与角速度控制底盘并形成导航轨迹。VEGA-Bench中的碰撞依据轨迹是否进入占据、未知或越界的ESDF区域判定；真实试验则以物理接触或安全干预判定。图3以黄色星形标出目标，以勾号表示成功到达，以X表示碰撞或失败。当前节选未明确报告各模型检查点、输入分辨率、推理频率、轨迹执行时域、成功距离阈值、统计置信区间及显著性检验。
 
 **关键消融**
 

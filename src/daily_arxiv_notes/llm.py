@@ -265,6 +265,11 @@ intuitive Chinese explanation. For a survey, dataset paper, or method without a 
 empty equations list instead of inventing one. Never invent metrics, baselines, datasets, equations, URLs,
 venues, or conclusions.
 
+In every prose field, enclose inline mathematical notation in single dollar delimiters, for example
+`$D_{\\mathrm{task}}$`, `$s(x)\\in\\{\\mathrm{task},\\mathrm{harm}\\}$`, and `$T_d$`. Never leave LaTeX
+commands, subscripts, or superscripts bare in prose. The `latex` value inside an equations item and each
+notation `symbol` are the only exceptions: keep those values free of surrounding dollar delimiters.
+
 Every numerical claim in a main-result or ablation row must include a short verbatim evidence quote and its
 table, figure, or section location when available. Evidence quotes must be copied from the supplied source in
 the source language. If the source does not report something, write '原文未明确报告'. Clearly separate author

@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "llm_evaluation"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:25.777691+00:00"
+generated_at: "2026-07-30T10:14:52.901613+00:00"
 source_sha256: "92d60b674d1405eda4f854d3b5bbdeb8cc564c494a25f0fc7dcec9afe37c6997"
 tags:
   - "LLM 评测"
@@ -37,7 +37,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2607.25589v1) · [PDF 下载](https://arxiv.org/pdf/2607.25589v1) · **关键词** 医学影像人工智能, 视觉—语言模型, 胸部X线, 可复现性审计, DICOM渲染, 提示词溯源, 工件一致性, 研究完整性  
+[arXiv 原文](https://arxiv.org/abs/2607.25589v1) · [PDF 下载](https://arxiv.org/pdf/2607.25589v1) · **关键词** 医学影像人工智能, 视觉—语言模型, 胸部X线, 可复现性审计, DICOM渲染, 提示词溯源, 工件一致性, 研究完整性<br>
 **项目页**: [https://doi.org/10.5281/zenodo.21629849](https://doi.org/10.5281/zenodo.21629849)  
 
 </div>
@@ -86,21 +86,21 @@ tags:
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **视觉—语言模型（Vision-Language Model, VLM）**
 
 能够联合处理图像与文本输入并生成文本等输出的模型；在本文场景中，模型接收胸部X线影像和提示词，输出自由文本报告。审计检查的是这些历史调用及其工件，而不是重新评价或调用模型。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **DICOM渲染与MONOCHROME1**
 
 DICOM是医学影像及其元数据的标准格式，原始像素必须依据头信息正确转换为模型可见图像。MONOCHROME1规定较小像素值应显示得更亮，因此遗漏极性反转会使明暗关系颠倒，改变模型实际接收的视觉输入。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **配对统计分析**
 
@@ -125,21 +125,21 @@ DICOM是医学影像及其元数据的标准格式，原始像素必须依据头
 
 <div class="notation-list" markdown="1">
 
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$(\mathrm{case},\mathrm{finding})$**
 
 病例与影像征象组成的显式复合键，用于确保不同模型或提示条件下的二元标签在同一分析单元上正确配对。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$Q$**
 
 Cochran's Q检验统计量，用于比较三个或更多相关二元条件；其数值依赖共同完整的配对分析队列。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$p$**
 
@@ -237,7 +237,7 @@ Cochran's Q检验统计量，用于比较三个或更多相关二元条件；其
 
 <div class="method-step__io" markdown="1">
 
-**输入**：保存下来的项目状态，以及协议、源文件、运行记录、分析代码、论文源文件和公开归档包等历史材料。  
+**输入**：保存下来的项目状态，以及协议、源文件、运行记录、分析代码、论文源文件和公开归档包等历史材料。<br>
 **输出**：按结果和状态组织的审计证据链，以及每项主张应接受何种材料验证的判定规则。
 
 </div>
@@ -257,7 +257,7 @@ Cochran's Q检验统计量，用于比较三个或更多相关二元条件；其
 
 <div class="method-step__io" markdown="1">
 
-**输入**：预期提示词、源代码中的提示词定义、实际请求文本与运行时绑定、模型端点信息、所选检查及视图、DICOM属性、渲染代码和渲染后图像。  
+**输入**：预期提示词、源代码中的提示词定义、实际请求文本与运行时绑定、模型端点信息、所选检查及视图、DICOM属性、渲染代码和渲染后图像。<br>
 **输出**：逐次调用的提示词—模型—图像身份映射，以及标签与实际内容不一致、视图或渲染不合规等偏差记录。
 
 </div>
@@ -277,7 +277,7 @@ Cochran's Q检验统计量，用于比较三个或更多相关二元条件；其
 
 <div class="method-step__io" markdown="1">
 
-**输入**：原始响应文件、字节数、请求ID、结束状态、自动标签提取结果、缺失信息，以及各条件下的病例与影像学发现记录。  
+**输入**：原始响应文件、字节数、请求ID、结束状态、自动标签提取结果、缺失信息，以及各条件下的病例与影像学发现记录。<br>
 **输出**：响应完整性清单、提取过程偏差、缺失模式，以及可用于配对统计的键控二元矩阵或无法可靠配对的记录。
 
 </div>
@@ -297,7 +297,7 @@ Cochran's Q检验统计量，用于比较三个或更多相关二元条件；其
 
 <div class="method-step__io" markdown="1">
 
-**输入**：键控分析表、统计代码、论文当前与历史源文件、表格和图形派生物、仓库或归档版本、清单、DOI及发布时间。  
+**输入**：键控分析表、统计代码、论文当前与历史源文件、表格和图形派生物、仓库或归档版本、清单、DOI及发布时间。<br>
 **输出**：从分析输入到统计结果、论文表述和公开文件的传播图，以及过时数值、名称、表格或图形仍残留在发布包中的差异清单。
 
 </div>
@@ -367,26 +367,37 @@ Cochran's Q检验统计量，用于比较三个或更多相关二元条件；其
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- 审计对象是一个保存下来的MIMIC-CXR胸片VLM试点：原计划从30项研究构成的富集样本出发，比较5个VLM家族和两种报告提示条件；实际30项研究来自28名患者。其作用不是重新估计临床性能，而是核对计划、执行记录、自动标签矩阵和发布物之间的一致性。
-- 统计重建使用归档的自动标签矩阵；共同完整队列包含369个完整的病例发现块。该矩阵只反映既有自动标签流程，不能替代人工临床金标准，也不能恢复未被正确执行的提示词比较。
-- 参考实现还使用合成请求和本地发布工件测试契约守卫，包括提示词路由、输出对账、分析矩阵及发布清单检查；这些测试用于验证审计控制能否发现结构性错误，而不是评价VLM诊断能力。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- 审计对象是一个保存下来的MIMIC-CXR胸片VLM试点：原计划从30项研究构成的富集样本出发，比较5个VLM家族和两种报告提示条件；实际30项研究来自28名患者。其作用不是重新估计临床性能，而是核对计划、执行记录、自动标签矩阵和发布物之间的一致性。
+- 统计重建使用归档的自动标签矩阵；共同完整队列包含369个完整的病例发现块。该矩阵只反映既有自动标签流程，不能替代人工临床金标准，也不能恢复未被正确执行的提示词比较。
+- 参考实现还使用合成请求和本地发布工件测试契约守卫，包括提示词路由、输出对账、分析矩阵及发布清单检查；这些测试用于验证审计控制能否发现结构性错误，而不是评价VLM诊断能力。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **调用完成度**
 
 非空报告数相对于计划模型—提示词调用数的比例，并要求区分空输出、传输失败、安全阻断、无效响应和长度受限等终止状态。 （在请求身份和终止状态均可核验的前提下越高越好；但非空输出只说明调用产出了文本，不代表提示词、图像或模型身份正确。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **Cochran's Q**
 
 用于同一批配对样本上比较三个或更多相关二元条件总体差异的统计量。本文用它检查统一完整队列后总体检验是否改变。 （不存在简单的越高越好；较大的Q通常表示条件间差异证据更强，但只有在队列、标签和条件身份有效时才具有科学解释。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **McNemar检验及Holm校正后的p值**
 
@@ -394,7 +405,9 @@ McNemar检验比较两个条件在同一病例上的不一致二元结果；Holm
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -425,7 +438,11 @@ McNemar检验比较两个条件在同一病例上的不一致二元结果；Holm
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Of 300 planned model-prompt calls, 297 yielded nonempty reports.</span>
+<div class="experiment-evidence" markdown="1">
+
+Of 300 planned model-prompt calls, 297 yielded nonempty reports.
+
+</div>
 
 </details>
 
@@ -453,7 +470,11 @@ McNemar检验比较两个条件在同一病例上的不一致二元结果；Holm
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Sixty Claude calls labeled A/B were executed with the same C prompt.</span>
+<div class="experiment-evidence" markdown="1">
+
+Sixty Claude calls labeled A/B were executed with the same C prompt.
+
+</div>
 
 </details>
 
@@ -481,7 +502,11 @@ DICOM原文件完好不等于模型输入正确。MONOCHROME1要求按其光度�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Four MONOCHROME1 images were rendered without required polarity inversion, dataset split membership was not retained, and the unvalidated extractor truncated five reports to 4000 characters.</span>
+<div class="experiment-evidence" markdown="1">
+
+Four MONOCHROME1 images were rendered without required polarity inversion, dataset split membership was not retained, and the unvalidated extractor truncated five reports to 4000 characters.
+
+</div>
 
 </details>
 

@@ -6,7 +6,7 @@ announcement_date: "2026-07-29"
 primary_category: "robotics"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:24.220285+00:00"
+generated_at: "2026-07-30T10:14:52.351705+00:00"
 source_sha256: "90059f0ee42ea3e3d8b482a6910be699e22d4f6c61a79d1dbed61f68c2c10cae"
 tags:
   - "机器人 / 具身智能"
@@ -36,7 +36,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2607.18060v2) · [PDF 下载](https://arxiv.org/pdf/2607.18060v2) · **关键词** 长时程机器人规划, 异构策略编排, 能力感知任务分解, 策略路由, 跨策略分布失配, 策略衔接, 多模态执行记忆, 零样本机器人执行  
+[arXiv 原文](https://arxiv.org/abs/2607.18060v2) · [PDF 下载](https://arxiv.org/pdf/2607.18060v2) · **关键词** 长时程机器人规划, 异构策略编排, 能力感知任务分解, 策略路由, 跨策略分布失配, 策略衔接, 多模态执行记忆, 零样本机器人执行<br>
 
 
 </div>
@@ -85,21 +85,21 @@ RoboHarness通过执行记忆刻画不同机器人策略的适用边界，并在
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **长时程机器人规划**
 
 将一个需要许多连续步骤才能完成的机器人目标分解为子任务，并持续选择和执行合适动作。其难点不仅是单步成功，还包括保持指令一致性、逻辑顺序和误差不随多次执行累积。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **异构机器人策略**
 
 指架构、输入输出接口、训练方式和适用条件不同的控制系统，例如VLA、RL策略与TAMP系统。它们各有优势，但不能默认共享状态表示、能力边界或可直接衔接的执行条件。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **跨策略分布失配**
 
@@ -211,7 +211,7 @@ RoboHarness 将彼此独立开发的异构机器人策略包装为可调用的�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：高层任务指令 I、视觉观测、估计物体位姿、机器人状态及中间执行结果。  
+**输入**：高层任务指令 I、视觉观测、估计物体位姿、机器人状态及中间执行结果。<br>
 **输出**：面向规划的结构化证据，包括场景可靠性、候选策略的语义与视觉匹配程度、状态兼容性和输入质量。
 
 </div>
@@ -231,7 +231,7 @@ RoboHarness 将彼此独立开发的异构机器人策略包装为可调用的�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：结构化理解证据、策略库 Π、各策略的策略卡、历史成功与失败统计及任务指令 I。  
+**输入**：结构化理解证据、策略库 Π、各策略的策略卡、历史成功与失败统计及任务指令 I。<br>
 **输出**：子任务—策略配对序列，以及需要进行跨策略桥接的位置。
 
 </div>
@@ -251,7 +251,7 @@ RoboHarness 将彼此独立开发的异构机器人策略包装为可调用的�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：下一子任务指令、当前观测，以及保存成功执行轨迹的策略相关记忆库。  
+**输入**：下一子任务指令、当前观测，以及保存成功执行轨迹的策略相关记忆库。<br>
 **输出**：与下一策略、下一子任务和当前场景相关的锚点节点及其相邻轨迹片段。
 
 </div>
@@ -271,8 +271,8 @@ RoboHarness 将彼此独立开发的异构机器人策略包装为可调用的�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：当前策略执行后的机器人状态、检索到的锚点及其前后状态、下一策略和可用运动规划器。  
-**输出**：桥接轨迹 b_t 及位于下一策略经验分布内的交接状态，随后启动下一策略。
+**输入**：当前策略执行后的机器人状态、检索到的锚点及其前后状态、下一策略和可用运动规划器。<br>
+**输出**：桥接轨迹 $b_t$ 及位于下一策略经验分布内的交接状态，随后启动下一策略。
 
 </div>
 
@@ -313,7 +313,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：该式把“下一策略是否熟悉这个状态”近似为“它是否靠近相关成功轨迹中的状态”。进度模型即使对远离数据的状态给出高分，也不能将其作为交接目标，从而抑制分布外外推带来的不可靠决策。  
+**直观理解**：该式把“下一策略是否熟悉这个状态”近似为“它是否靠近相关成功轨迹中的状态”。进度模型即使对远离数据的状态给出高分，也不能将其作为交接目标，从而抑制分布外外推带来的不可靠决策。<br>
 **原文位置**：第 4.2.2 节，Spatial distribution construction
 
 </div>
@@ -340,7 +340,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：目标不是机械地回到某个历史姿态，而是在“下一策略熟悉”“运动上可达”和“相对锚点已有正向进度”的状态中，选择进度高且移动成本低的交接点。随后运动规划器负责生成从当前状态到该目标的无碰撞可执行轨迹。  
+**直观理解**：目标不是机械地回到某个历史姿态，而是在“下一策略熟悉”“运动上可达”和“相对锚点已有正向进度”的状态中，选择进度高且移动成本低的交接点。随后运动规划器负责生成从当前状态到该目标的无碰撞可执行轨迹。<br>
 **原文位置**：第 4.2.2 节，Bridge trajectory generation
 
 </div>
@@ -349,7 +349,7 @@ $$
 
 <div class="paper-focus" markdown="1">
 
-**优化目标如何起作用**：RoboHarness 没有一个用于端到端联合训练全部异构策略的统一损失函数；其核心是推理时编排和局部优化。Memory Bridge 使用检索轨迹中的状态—进度对 (\mathbf{s}_{i,j},y_{i,j})=(\mathbf{s}(n_{i,j}),j\Delta t) 临时训练轻量级进度估计器，再求解受记忆支持与运动可达性约束的交接目标优化。底层策略保留各自既有训练方式；出现持续失败时，系统可调用 SIMPACT、PDDLLM 等现成适配方法，但节选未给出这些方法在本文中的具体训练损失。
+**优化目标如何起作用**：RoboHarness 没有一个用于端到端联合训练全部异构策略的统一损失函数；其核心是推理时编排和局部优化。Memory Bridge 使用检索轨迹中的状态—进度对 ($\mathbf{s}_{i,j},y_{i,j})=(\mathbf{s}(n_{i,j}),j\Delta$ t) 临时训练轻量级进度估计器，再求解受记忆支持与运动可达性约束的交接目标优化。底层策略保留各自既有训练方式；出现持续失败时，系统可调用 SIMPACT、PDDLLM 等现成适配方法，但节选未给出这些方法在本文中的具体训练损失。
 
 </div>
 
@@ -372,7 +372,7 @@ $$
 
 **3. Memory Bridge**
 
-Memory Bridge 围绕检索锚点向前、向后扩展 l 个时间步，以时间偏移 jΔt 作为局部进度监督，拟合轻量级状态进度函数 f_score,t。它只接受距离检索状态集合不超过 ε 的状态作为可靠交接目标，并在运动规划器可达的候选中权衡进度与运动代价；桥接本身由现成运动规划策略完成。
+Memory Bridge 围绕检索锚点向前、向后扩展 l 个时间步，以时间偏移 jΔt 作为局部进度监督，拟合轻量级状态进度函数 $f_score,t$。它只接受距离检索状态集合不超过 ε 的状态作为可靠交接目标，并在运动规划器可达的候选中权衡进度与运动代价；桥接本身由现成运动规划策略完成。
 
 > 直观理解：不同策略即使分别能完成相邻子任务，也可能因启动状态分布不一致而无法直接串联。该模块利用下一策略的成功轨迹估计其“熟悉区域”，无需联合重训两套策略即可把当前状态送入该区域。
 
@@ -382,7 +382,7 @@ Memory Bridge 围绕检索锚点向前、向后扩展 l 个时间步，以时间
 
 **复现信息**
 
-公平理解该方法所需的关键实现条件有三点。第一，系统依赖可生成文本和视觉嵌入的编码器、能够访问机器人状态的轨迹记忆，以及一个用于生成桥接轨迹的现成运动规划策略；异构策略不必共享动作表示。第二，分层检索包含文本候选数 K_{\mathrm{text}} 和视觉候选数 K_{\mathrm{vis}}，桥接还涉及轨迹扩展半径 l、支持阈值 \epsilon、运动代价权重 \lambda_{\mathrm{motion}} 和接受条件，这些参数可通过自演化中的网格搜索调整，但所给节选未报告具体取值。第三，原文在第 4.2.2 节将下一策略的检索写为 \operatorname{Retrieve}_{\mathcal{M+1}}(g_{t+1},o_t)，该下标在节选中存在记号歧义；结合问题定义中的策略专属记忆 \mathcal{M}_i 和上下文，应理解为从下一策略相关记忆中检索，但复现时仍需核对论文原版公式或代码。
+公平理解该方法所需的关键实现条件有三点。第一，系统依赖可生成文本和视觉嵌入的编码器、能够访问机器人状态的轨迹记忆，以及一个用于生成桥接轨迹的现成运动规划策略；异构策略不必共享动作表示。第二，分层检索包含文本候选数 $K_{\mathrm{text}}$ 和视觉候选数 $K_{\mathrm{vis}}$，桥接还涉及轨迹扩展半径 l、支持阈值 $\epsilon$、运动代价权重 $\lambda_{\mathrm{motion}}$ 和接受条件，这些参数可通过自演化中的网格搜索调整，但所给节选未报告具体取值。第三，原文在第 4.2.2 节将下一策略的检索写为 $\operatorname{Retrieve}_{\mathcal{M+1}}(g_{t+1},o_t)$，该下标在节选中存在记号歧义；结合问题定义中的策略专属记忆 $\mathcal{M}_i$ 和上下文，应理解为从下一策略相关记忆中检索，但复现时仍需核对论文原版公式或代码。
 
 </details>
 
@@ -394,26 +394,37 @@ Memory Bridge 围绕检索锚点向前、向后扩展 l 个时间步，以时间
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- LIBERO：公开的语言条件机器人操作基准，用于检验一般任务遵循能力。实验采用原始LIBERO任务；原文未明确报告本节所用测试任务数、数据划分或每项任务的重复次数。
-- LIBERO-Plus：在LIBERO基础上加入七类分布外扰动，用于检验系统的分布外鲁棒性，以及其能否识别组成策略随执行情境变化的能力边界。文中还在仅保留π0.5与TAMP的受控设置下，比较π0.5的独立成功率和实际调用比例。
-- LIBERO-LoHo：零样本长时程规划基准，任务平均时程约为原始LIBERO的四倍，包含相互依赖的子任务，用于检验任务分解、互补能力组合及跨策略交接。原文未明确报告本节的数据划分与重复试验次数。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- LIBERO：公开的语言条件机器人操作基准，用于检验一般任务遵循能力。实验采用原始LIBERO任务；原文未明确报告本节所用测试任务数、数据划分或每项任务的重复次数。
+- LIBERO-Plus：在LIBERO基础上加入七类分布外扰动，用于检验系统的分布外鲁棒性，以及其能否识别组成策略随执行情境变化的能力边界。文中还在仅保留π0.5与TAMP的受控设置下，比较π0.5的独立成功率和实际调用比例。
+- LIBERO-LoHo：零样本长时程规划基准，任务平均时程约为原始LIBERO的四倍，包含相互依赖的子任务，用于检验任务分解、互补能力组合及跨策略交接。原文未明确报告本节的数据划分与重复试验次数。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **成功率（Success Rate）**
 
 完整满足任务目标的试验比例，强调所有依赖子任务均完成，因此对长时程任务中的单点失败和策略交接失败较敏感。 （越高越好，因为它直接表示端到端完整完成任务的可靠性。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **进度分数（Progress Score）**
 
 衡量长时程任务中已完成目标或子任务的程度；即使最终任务失败，也能区分完全未执行与已完成大部分步骤的系统。原文节选未给出其精确计算公式。 （越高越好，因为它表示系统完成了更多任务进程，但高进度不等同于最终成功。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **策略调用比例（Policy Invocation Ratio）**
 
@@ -421,7 +432,9 @@ Memory Bridge 围绕检索锚点向前、向后扩展 l 个时间步，以时间
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -452,7 +465,11 @@ RoboHarness在每项任务上均取得最佳结果，平均进度分数为97.5%�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">RoboHarness achieves the best result on every task, with an average progress score of 97.5% and an average success rate of 95.2%, outperforming all baselines.</span>
+<div class="experiment-evidence" markdown="1">
+
+RoboHarness achieves the best result on every task, with an average progress score of 97.5% and an average success rate of 95.2%, outperforming all baselines.
+
+</div>
 
 </details>
 
@@ -480,7 +497,11 @@ RoboHarness的平均成功率达到93.2%，在七类扰动中的六类排名第�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">RoboHarness achieves the highest average success rate of 93.2% and ranks first in six of the seven categories.</span>
+<div class="experiment-evidence" markdown="1">
+
+RoboHarness achieves the highest average success rate of 93.2% and ranks first in six of the seven categories.
+
+</div>
 
 </details>
 
@@ -508,7 +529,11 @@ RoboHarness的平均成功率达到93.2%，在七类扰动中的六类排名第�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Re-hiding blocks caused the largest degradation, reducing success from 86.7% to 66.7%, as repeated exploration and replanning frequently exceeded the time limit. RoboHarness retained 80.0% success after a partially completed structure was dismantled, demonstrating online reactivity and replanning. Under 5%–10% random errors in object-pose estimates, it achieved 73.3% success, showing tolerance to moderate perception errors. Distracting blocks had minimal effect, with success remaining at 86.7%, indicating robust identification of task-relevant objects.</span>
+<div class="experiment-evidence" markdown="1">
+
+Re-hiding blocks caused the largest degradation, reducing success from 86.7% to 66.7%, as repeated exploration and replanning frequently exceeded the time limit. RoboHarness retained 80.0% success after a partially completed structure was dismantled, demonstrating online reactivity and replanning. Under 5%–10% random errors in object-pose estimates, it achieved 73.3% success, showing tolerance to moderate perception errors. Distracting blocks had minimal effect, with success remaining at 86.7%, indicating robust identification of task-relevant objects.
+
+</div>
 
 </details>
 

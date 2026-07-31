@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "llm_safety"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:24.838245+00:00"
+generated_at: "2026-07-30T10:14:52.578266+00:00"
 source_sha256: "c80de25044bc417c0305004250c2b5d1dd32ba691459d8b695ff08c8e9b07960"
 tags:
   - "LLM 安全"
@@ -36,7 +36,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2607.27081v1) · [PDF 下载](https://arxiv.org/pdf/2607.27081v1) · **关键词** 大语言模型安全, 安全再对齐, 微调供应链攻击, 提示模板不匹配, 知识蒸馏, 下游能力保持  
+[arXiv 原文](https://arxiv.org/abs/2607.27081v1) · [PDF 下载](https://arxiv.org/pdf/2607.27081v1) · **关键词** 大语言模型安全, 安全再对齐, 微调供应链攻击, 提示模板不匹配, 知识蒸馏, 下游能力保持<br>
 
 
 </div>
@@ -85,21 +85,21 @@ tags:
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **安全对齐与安全再对齐**
 
 安全对齐是让模型遵循人类意图并拒绝有害请求；安全再对齐则是在后续微调破坏这种行为后，对受损模型进行修复。本文的核心约束是修复安全性的同时保留受损模型已经获得的专业技能。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **提示模板不匹配**
 
 提示模板指组织系统提示、用户请求及角色标记的具体格式；同一危险问题放入不同模板后，模型行为可能明显变化。攻击者与防御者使用不同模板时，在防御模板下看似成功的修复可能仍会在攻击模板或新系统提示下失效。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **知识蒸馏与输出概率分布**
 
@@ -124,28 +124,28 @@ tags:
 
 <div class="notation-list" markdown="1">
 
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$K$**
 
 top-K KL 蒸馏中保留并比较的候选词数量；所给章节未明确报告 K 的具体取值。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$p_{\mathrm{safe}}$**
 
 便于描述问题而采用的记号，表示原始对齐模型对下一输出词的概率分布，即安全教师所携带的拒答先验；原文节选未给出这一符号。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$p_{\mathrm{task}}$**
 
 便于描述问题而采用的记号，表示受攻击微调模型的下一词概率分布，其中保留下游技能，但也可能包含有害服从行为；原文节选未给出这一符号。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\mathrm{ASR}$**
 
@@ -239,16 +239,16 @@ ROPD（Routing-based On-Policy Distillation，基于路由的在策略蒸馏）�
 
 #### 构造双教师与初始化学生
 
-冻结安全教师 \pi_{\mathrm{safe}}=M_0 和任务教师 \pi_{\mathrm{task}}=M_a，并用 M_a 的参数初始化可训练学生 \pi_\theta。
+冻结安全教师 $\pi_{\mathrm{safe}}=M_0$ 和任务教师 $\pi_{\mathrm{task}}=M_a$，并用 $M_a$ 的参数初始化可训练学生 $\pi_\theta$。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：原始安全对齐模型 M_0，以及由任务语料和有害语料联合微调得到的失配模型 M_a。  
+**输入**：原始安全对齐模型 $M_0$，以及由任务语料和有害语料联合微调得到的失配模型 $M_a$。<br>
 **输出**：两个固定的概率分布参照源，以及一个已经具备下游技能、等待安全修复的学生模型。
 
 </div>
 
-**直观理解**：安全教师知道何时拒绝，任务教师保留攻击后模型学到的专业能力；从 M_a 出发可避免重新学习整个任务。
+**直观理解**：安全教师知道何时拒绝，任务教师保留攻击后模型学到的专业能力；从 $M_a$ 出发可避免重新学习整个任务。
 
 </div>
 
@@ -259,11 +259,11 @@ ROPD（Routing-based On-Policy Distillation，基于路由的在策略蒸馏）�
 
 #### 混合数据并统一渲染
 
-形成 D=D_{\mathrm{task}}\cup D_{\mathrm{harm}}，为每个样本保留来源标签 s(x)\in\{\mathrm{task},\mathrm{harm}\}，并在使用时统一按 T_d 渲染；防御者无需观察攻击模板 T_a。
+形成 $D=D_{\mathrm{task}}\cup D_{\mathrm{harm}}$，为每个样本保留来源标签 $s(x)\in\{\mathrm{task},\mathrm{harm}\}$，并在使用时统一按 $T_d$ 渲染；防御者无需观察攻击模板 $T_a$。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：任务数据 D_{\mathrm{task}}、含有害提示的安全数据 D_{\mathrm{harm}}，以及防御模板 T_d\in\{\textsc{raw},\textsc{self}\}。  
+**输入**：任务数据 $D_{\mathrm{task}}$、含有害提示的安全数据 $D_{\mathrm{harm}}$，以及防御模板 $T_d\in\{\textsc{raw},\textsc{self}\}$。<br>
 **输出**：带来源标签、采用同一防御模板表示的训练批次。
 
 </div>
@@ -279,11 +279,11 @@ ROPD（Routing-based On-Policy Distillation，基于路由的在策略蒸馏）�
 
 #### 按来源路由蒸馏目标
 
-任务样本路由至 \pi_{\mathrm{task}}，有害样本路由至 \pi_{\mathrm{safe}}，从而为每个词位置 t 生成教师目标分布 q_t。
+任务样本路由至 $\pi_{\mathrm{task}}$，有害样本路由至 $\pi_{\mathrm{safe}}$，从而为每个词位置 t 生成教师目标分布 $q_t$。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：渲染后的样本 x、其来源标签 s(x)，以及两个教师在每个位置给出的下一词分布。  
+**输入**：渲染后的样本 x、其来源标签 s(x)，以及两个教师在每个位置给出的下一词分布。<br>
 **输出**：与样本目标相匹配的逐词教师概率分布。
 
 </div>
@@ -299,12 +299,12 @@ ROPD（Routing-based On-Policy Distillation，基于路由的在策略蒸馏）�
 
 #### top-K 概率匹配与参数更新
 
-保留 q_t 中概率最大的 K 个词，将其余词合并为一个尾部概率桶，计算压缩后的 KL 损失；对样本内词位置和数据集取平均，并以梯度下降更新学生参数。
+保留 $q_t$ 中概率最大的 K 个词，将其余词合并为一个尾部概率桶，计算压缩后的 KL 损失；对样本内词位置和数据集取平均，并以梯度下降更新学生参数。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：教师分布 q_t、学生分布 p_t=\pi_\theta(\cdot\mid x_{<t})、超参数 K、学习率 \eta 和训练轮数 E。  
-**输出**：经若干轮训练后得到重对齐模型 \pi_\theta。
+**输入**：教师分布 $q_t$、学生分布 $p_t=\pi_\theta(\cdot\mid x_{<t})$、超参数 K、学习率 $\eta$ 和训练轮数 E。<br>
+**输出**：经若干轮训练后得到重对齐模型 $\pi_\theta$。
 
 </div>
 
@@ -337,14 +337,14 @@ $$
 **符号说明**
 
 - $q_t(\cdot)$：位置 t 上用于监督学生的教师下一词概率分布。
-- $\pi_{\mathrm{task}}$：冻结的任务教师，默认取遭攻击但保留下游技能的模型 M_a。
-- $\pi_{\mathrm{safe}}$：冻结的安全教师，即原始安全对齐模型 M_0。
+- $\pi_{\mathrm{task}}$：冻结的任务教师，默认取遭攻击但保留下游技能的模型 $M_a$。
+- $\pi_{\mathrm{safe}}$：冻结的安全教师，即原始安全对齐模型 $M_0$。
 - $x_{<t}$：生成位置 t 之前的全部上下文词元。
 - $s(x)$：样本 x 的来源标签，取 task 或 harm。
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：该式是 ROPD 的核心路由规则：专业数据保持遭攻击模型已有的技能分布，有害数据则改向原始模型的安全分布靠拢。由于监督对象是输出概率分布而非某个固定模板下的硬答案，作者认为安全信号对攻击模板的依赖更弱。  
+**直观理解**：该式是 ROPD 的核心路由规则：专业数据保持遭攻击模型已有的技能分布，有害数据则改向原始模型的安全分布靠拢。由于监督对象是输出概率分布而非某个固定模板下的硬答案，作者认为安全信号对攻击模板的依赖更弱。<br>
 **原文位置**：第 3.2 节，公式 (1)
 
 </div>
@@ -362,7 +362,7 @@ $$
 **符号说明**
 
 - $\ell_t$：位置 t 上的 top-K KL 蒸馏损失。
-- $\mathcal{K}_t$：教师分布 q_t 中概率最大的 K 个词元的索引集合。
+- $\mathcal{K}_t$：教师分布 $q_t$ 中概率最大的 K 个词元的索引集合。
 - $v$：词表中的一个候选词元。
 - $q_t(v)$：所选教师在位置 t 对词元 v 分配的概率。
 - $p_t(v)=\pi_\theta(v\mid x_{<t})$：学生模型在相同上下文下对词元 v 分配的概率。
@@ -374,7 +374,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：第一项要求学生在教师最看好的 K 个词上复制其相对概率，第二项要求学生为所有其他词保留相近的总概率；总体目标再对每条序列的词位置以及整个数据集取平均。最小化该目标，就是同时在有害输入上缩小学生与安全模型的分布差异、在任务输入上缩小学生与技能模型的分布差异。  
+**直观理解**：第一项要求学生在教师最看好的 K 个词上复制其相对概率，第二项要求学生为所有其他词保留相近的总概率；总体目标再对每条序列的词位置以及整个数据集取平均。最小化该目标，就是同时在有害输入上缩小学生与安全模型的分布差异、在任务输入上缩小学生与技能模型的分布差异。<br>
 **原文位置**：第 3.2 节，公式 (2) 与公式 (3)；此处合并呈现同一优化目标
 
 </div>
@@ -383,7 +383,7 @@ $$
 
 <div class="paper-focus" markdown="1">
 
-**优化目标如何起作用**：训练时，根据公式 (1) 为每个样本选择冻结教师，再计算公式 (2) 所定义的逐词 top-K KL 损失，并按公式 (3) 聚合。学生从 M_a 初始化，使用更新式 \theta\leftarrow\theta-\eta\nabla_\theta\mathcal{L}(\theta) 迭代 E 轮；任务样本的损失将参数锚定在原有专业能力附近，有害样本的损失则把预测拉向 M_0 的拒答分布。这里的“on-policy”体现在学生持续以自身当前分布 p_t 参与蒸馏比较，但原文所示算法仍在给定混合语料及其上下文上计算目标，并未描述额外的在线采样或强化学习步骤。
+**优化目标如何起作用**：训练时，根据公式 (1) 为每个样本选择冻结教师，再计算公式 (2) 所定义的逐词 top-K KL 损失，并按公式 (3) 聚合。学生从 $M_a$ 初始化，使用更新式 $\theta\leftarrow\theta-\eta\nabla_\theta\mathcal{L}(\theta)$ 迭代 E 轮；任务样本的损失将参数锚定在原有专业能力附近，有害样本的损失则把预测拉向 $M_0$ 的拒答分布。这里的“on-policy”体现在学生持续以自身当前分布 $p_t$ 参与蒸馏比较，但原文所示算法仍在给定混合语料及其上下文上计算目标，并未描述额外的在线采样或强化学习步骤。
 
 </div>
 
@@ -394,7 +394,7 @@ $$
 
 **1. 双教师职责分离**
 
-安全教师是未经攻击的 M_0，仅为有害样本提供拒答概率分布；任务教师默认直接复用 M_a，仅为任务样本提供专业技能分布。教师均冻结，只有从 M_a 初始化的学生参数 \theta 被更新。
+安全教师是未经攻击的 $M_0$，仅为有害样本提供拒答概率分布；任务教师默认直接复用 $M_a$，仅为任务样本提供专业技能分布。教师均冻结，只有从 $M_a$ 初始化的学生参数 $\theta$ 被更新。
 
 > 直观理解：单靠安全教师可能在消除伤害时遗忘技能，而单靠遭攻击模型又无法恢复安全；两位教师分别约束两种行为，使安全修复不必通过大幅扰动全部能力来实现。
 
@@ -412,11 +412,11 @@ $$
 
 **训练与推理**
 
-训练阶段：准备 D_{\mathrm{task}} 与 D_{\mathrm{harm}}，选择防御模板 T_d，将两类数据按该模板渲染；冻结 M_0 与 M_a 两个教师，用 M_a 初始化学生；逐批读取样本来源，路由到对应教师，计算所有位置的 top-K KL 损失并仅更新学生。推理阶段：丢弃两个教师和训练路由，只部署最终学生 \pi_\theta，按选定的部署模板自回归生成；因此推理不需要判断输入属于 task 还是 harm，也不增加双教师前向开销。需要注意，重对齐和验收模板一致时的安全性不能保证跨系统提示不变，部署模板被切换仍可能导致攻击成功率回升。
+训练阶段：准备 $D_{\mathrm{task}}$ 与 $D_{\mathrm{harm}}$，选择防御模板 $T_d$，将两类数据按该模板渲染；冻结 $M_0$ 与 $M_a$ 两个教师，用 $M_a$ 初始化学生；逐批读取样本来源，路由到对应教师，计算所有位置的 top-K KL 损失并仅更新学生。推理阶段：丢弃两个教师和训练路由，只部署最终学生 $\pi_\theta$，按选定的部署模板自回归生成；因此推理不需要判断输入属于 task 还是 harm，也不增加双教师前向开销。需要注意，重对齐和验收模板一致时的安全性不能保证跨系统提示不变，部署模板被切换仍可能导致攻击成功率回升。
 
 **复现信息**
 
-复现方法所必需的设置包括：教师均冻结；学生由失配模型 M_a 初始化；训练混合任务数据和安全数据；防御模板只能由防御者选择，无需知道攻击模板；使用教师分布的 top-K 词元及一个聚合尾部桶计算 KL。算法 1 将 K、训练轮数 E 和学习率 \eta 作为显式超参数；所给消融实验采用 2 轮、学习率 2\times10^{-5}、top-50 KL，但节选未说明这是否是全部主实验的统一配置。默认任务教师直接复用 M_a，以避免额外训练；干净任务教师可作为效果更强但成本更高的替代方案。
+复现方法所必需的设置包括：教师均冻结；学生由失配模型 $M_a$ 初始化；训练混合任务数据和安全数据；防御模板只能由防御者选择，无需知道攻击模板；使用教师分布的 top-K 词元及一个聚合尾部桶计算 KL。算法 1 将 K、训练轮数 E 和学习率 $\eta$ 作为显式超参数；所给消融实验采用 2 轮、学习率 $2\times10^{-5}$、top-50 KL，但节选未说明这是否是全部主实验的统一配置。默认任务教师直接复用 $M_a$，以避免额外训练；干净任务教师可作为效果更强但成本更高的替代方案。
 
 </details>
 
@@ -428,19 +428,30 @@ $$
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- SQL文本到查询任务：采用Gao et al. (2024)所述SQL数据，用于检验模型在安全重对齐后能否保留结构化查询生成能力；任务指标为完全匹配。原文节选未给出该数据集的正式名称、训练/验证/测试规模或具体划分。
-- SAMSum：对话摘要数据集，用于检验安全修复是否损害长对话信息压缩与摘要能力；以ROUGE类文本重叠分数评估。原文节选未报告本实验采用的具体训练、验证和测试样本数。
-- NL2Bash与BeaverTails共同构成能力—安全评测：NL2Bash检验自然语言到Shell命令的合成能力；攻击者将每个任务语料与1,500条BeaverTails有害样本混合微调，并使用另外700条留出的BeaverTails提示计算攻击成功率。任务数据和有害数据均先保存为原始输入—输出对，再在加载时分别套用raw、self或attack模板，以独立控制攻击、修复和评测模板。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- SQL文本到查询任务：采用Gao et al. (2024)所述SQL数据，用于检验模型在安全重对齐后能否保留结构化查询生成能力；任务指标为完全匹配。原文节选未给出该数据集的正式名称、训练/验证/测试规模或具体划分。
+- SAMSum：对话摘要数据集，用于检验安全修复是否损害长对话信息压缩与摘要能力；以ROUGE类文本重叠分数评估。原文节选未报告本实验采用的具体训练、验证和测试样本数。
+- NL2Bash与BeaverTails共同构成能力—安全评测：NL2Bash检验自然语言到Shell命令的合成能力；攻击者将每个任务语料与1,500条BeaverTails有害样本混合微调，并使用另外700条留出的BeaverTails提示计算攻击成功率。任务数据和有害数据均先保存为原始输入—输出对，再在加载时分别套用raw、self或attack模板，以独立控制攻击、修复和评测模板。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **下游任务分数**
 
 衡量安全修复后专业技能的保留程度；SQL采用完全匹配，SAMSum采用ROUGE类文本重叠，NL2Bash采用命令准确率。各任务分数含义不同，不能直接跨数据集比较绝对值。 （越高越好，因为更高分表示修复后仍能正确完成对应专业任务。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **ASR（Attack Success Rate，攻击成功率）**
 
@@ -448,7 +459,9 @@ $$
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -479,7 +492,11 @@ $$
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Our results demonstrate that when baseline defenses face template mismatches, often accompanied by severe degradation in downstream task performance.</span>
+<div class="experiment-evidence" markdown="1">
+
+Our results demonstrate that when baseline defenses face template mismatches, often accompanied by severe degradation in downstream task performance.
+
+</div>
 
 </details>
 
@@ -507,7 +524,11 @@ $$
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">In contrast, ROPD substantially mitigates template-mismatch risks, maintaining superior robustness in both defense effectiveness and capability preservation.</span>
+<div class="experiment-evidence" markdown="1">
+
+In contrast, ROPD substantially mitigates template-mismatch risks, maintaining superior robustness in both defense effectiveness and capability preservation.
+
+</div>
 
 </details>
 
@@ -535,7 +556,11 @@ $$
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">While our analysis indicates ROPD is not entirely immune to template shifts, its performance degradation is negligible compared to existing methods, establishing a new standard for robust LLM realignment.</span>
+<div class="experiment-evidence" markdown="1">
+
+While our analysis indicates ROPD is not entirely immune to template shifts, its performance degradation is negligible compared to existing methods, establishing a new standard for robust LLM realignment.
+
+</div>
 
 </details>
 

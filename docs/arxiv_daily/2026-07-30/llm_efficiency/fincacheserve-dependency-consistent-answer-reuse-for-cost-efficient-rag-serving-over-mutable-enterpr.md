@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "llm_efficiency"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:25.812170+00:00"
+generated_at: "2026-07-30T10:14:52.915024+00:00"
 source_sha256: "13ef891662e64af5c7944f460592deb782f284b3f86a87771421a56939cb7389"
 tags:
   - "LLM 效率"
@@ -35,7 +35,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2607.26076v1) · [PDF 下载](https://arxiv.org/pdf/2607.26076v1) · **关键词** 检索增强生成, 大语言模型服务, 答案缓存, 可变企业文档, 依赖一致性, 缓存失效, GPU 成本  
+[arXiv 原文](https://arxiv.org/abs/2607.26076v1) · [PDF 下载](https://arxiv.org/pdf/2607.26076v1) · **关键词** 检索增强生成, 大语言模型服务, 答案缓存, 可变企业文档, 依赖一致性, 缓存失效, GPU 成本<br>
 
 
 </div>
@@ -84,21 +84,21 @@ FinCacheServe通过把生成答案与文档版本、证据、工具输出及模�
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **检索增强生成（RAG）**
 
 RAG 在生成回答前先从外部文档库检索相关证据，并将证据连同问题输入大语言模型。它能让回答依据企业私有或持续更新的资料，但也使回答正确性依赖于检索结果及源文档版本。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **答案缓存（answer cache）**
 
 答案缓存保存已经生成的最终自然语言回答；后续请求若满足复用条件，可直接返回该回答并省去模型的预填充和解码。它不同于 KV 缓存或前缀缓存，后两者只加速模型内部执行，通常不能完全取消模型调用。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **依赖一致性与失效传播**
 
@@ -212,7 +212,7 @@ FinCacheServe将RAG生成的答案视为带有完整依赖关系的“服务对�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：用户查询q、模型标识m、解码配置θ，以及可解析出的公司、报告期、问题类型、文档范围和工具需求。  
+**输入**：用户查询q、模型标识m、解码配置θ，以及可解析出的公司、报告期、问题类型、文档范围和工具需求。<br>
 **输出**：可用于精确索引或签名桶检索的规范化请求签名。
 
 </div>
@@ -228,11 +228,11 @@ FinCacheServe将RAG生成的答案视为带有完整依赖关系的“服务对�
 
 #### 2. 检索解析与候选答案查找
 
-系统解析检索结果E_r及来源文档D_r，并在精确索引和金融签名桶中查找候选答案；每个候选项携带引用文档、证据块、版本和其他依赖记录。
+系统解析检索结果$E_r$及来源文档$D_r$，并在精确索引和金融签名桶中查找候选答案；每个候选项携带引用文档、证据块、版本和其他依赖记录。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：规范化请求、检索缓存、FAISS向量索引、当前文档集合及其版本元数据。  
+**输入**：规范化请求、检索缓存、FAISS向量索引、当前文档集合及其版本元数据。<br>
 **输出**：当前请求的证据依赖，以及一个较小的候选缓存答案集合。
 
 </div>
@@ -252,7 +252,7 @@ FinCacheServe将RAG生成的答案视为带有完整依赖关系的“服务对�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：候选缓存项c、请求签名s(r)、当前文档版本、当前证据指纹、工具指纹、模型标识和解码配置。  
+**输入**：候选缓存项c、请求签名s(r)、当前文档版本、当前证据指纹、工具指纹、模型标识和解码配置。<br>
 **输出**：通过门控时直接输出缓存答案；未通过时输出缓存未命中及拒绝原因，并进入生成路径。
 
 </div>
@@ -272,7 +272,7 @@ FinCacheServe将RAG生成的答案视为带有完整依赖关系的“服务对�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：未命中的请求、检索证据、必要的工具输出，以及指定的模型和解码配置。  
+**输入**：未命中的请求、检索证据、必要的工具输出，以及指定的模型和解码配置。<br>
 **输出**：新生成的答案，以及一个与全部生成依赖绑定的答案缓存项。
 
 </div>
@@ -318,7 +318,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：该式合并了原文式(2)至式(6)：所有条件是逻辑“且”关系，因此任何一个依赖不一致都必须回退到重新生成。它规定的是可审计的依赖新鲜度合同，而不是答案真实性判据；即使全部条件通过，答案质量仍需另行审计。  
+**直观理解**：该式合并了原文式(2)至式(6)：所有条件是逻辑“且”关系，因此任何一个依赖不一致都必须回退到重新生成。它规定的是可审计的依赖新鲜度合同，而不是答案真实性判据；即使全部条件通过，答案质量仍需另行审计。<br>
 **原文位置**：第3节，式(2)–(6)
 
 </div>
@@ -345,7 +345,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：收益项把预计复用频率与可节省的生成成本相乘，三个惩罚项分别对应空间占用、依赖范围和失效风险。容量耗尽时淘汰U(c)/M(c)最低的条目，即优先移除“单位空间价值”最小的答案；该策略只决定保存什么，不会让未通过一致性门的答案获得复用资格。  
+**直观理解**：收益项把预计复用频率与可节省的生成成本相乘，三个惩罚项分别对应空间占用、依赖范围和失效风险。容量耗尽时淘汰U(c)/M(c)最低的条目，即优先移除“单位空间价值”最小的答案；该策略只决定保存什么，不会让未通过一致性门的答案获得复用资格。<br>
 **原文位置**：第4.5节，式(7)
 
 </div>
@@ -403,26 +403,37 @@ $$
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- SEC 衍生财务文档工作负载：请求覆盖流动性、收入、利润率、债务、风险、现金流、申报变化和比率分析等类别，并带有公司、期间、文档范围及来源版本信息。主要托管轨迹含 2,230 个请求，使用 Qwen2.5-7B，用于完整统计提供商侧 LLM 调用及依赖过期输出；另有 208 请求的释义/更新压力集，用来显式制造相同意图、改写请求和申报文件更新。
-- 32B operator suite：三次托管种子运行共 544 个请求，使用 Qwen2.5-32B，主要用于与较强安全缓存基线进行比较。其归档轨迹还用于容量与 SLO 重放：容量实验预热 120 个请求，并在五条归档轨迹上重放 895 个测量请求和 110 次文件更新。
-- 受控安全与元数据压力集：金融近碰撞套件含 2,376 个探针，覆盖发行人、期间、申报范围、查询族、工具与证据漂移、模型和生成参数变化以及文档版本更新；交错查询/更新压力测试在每个设置中执行 4,096 次查询和 512 次更新，并扩展到 100k 缓存条目，用于检验缓存契约边界、并发一致性及后端可扩展性。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- SEC 衍生财务文档工作负载：请求覆盖流动性、收入、利润率、债务、风险、现金流、申报变化和比率分析等类别，并带有公司、期间、文档范围及来源版本信息。主要托管轨迹含 2,230 个请求，使用 Qwen2.5-7B，用于完整统计提供商侧 LLM 调用及依赖过期输出；另有 208 请求的释义/更新压力集，用来显式制造相同意图、改写请求和申报文件更新。
+- 32B operator suite：三次托管种子运行共 544 个请求，使用 Qwen2.5-32B，主要用于与较强安全缓存基线进行比较。其归档轨迹还用于容量与 SLO 重放：容量实验预热 120 个请求，并在五条归档轨迹上重放 895 个测量请求和 110 次文件更新。
+- 受控安全与元数据压力集：金融近碰撞套件含 2,376 个探针，覆盖发行人、期间、申报范围、查询族、工具与证据漂移、模型和生成参数变化以及文档版本更新；交错查询/更新压力测试在每个设置中执行 4,096 次查询和 512 次更新，并扩展到 100k 缓存条目，用于检验缓存契约边界、并发一致性及后端可扩展性。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **LLM skip rate（LLM 调用跳过率）**
 
 无需再次执行生成模型的请求比例，直接反映答案复用减少 GPU 密集型生成工作的能力。 （在依赖新鲜度相同的前提下越高越好；若高跳过率伴随过期输出，则不能视为可部署收益。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **Dependency-stale outputs（依赖过期输出数或比例）**
 
 答案命中时，其文档版本、检索证据、工具输出、模型身份或生成配置已不再满足原缓存契约的请求数量或占比。 （越低越好，理想值为零；论文报告的是实验中“观测到的”过期输出，零观测不等于对所有真实输入的形式化正确性证明。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **SLO-constrained goodput 与每千次 fresh SLO success 的 GPU-sec/Wh**
 
@@ -430,7 +441,9 @@ Goodput 只计入无错误、依赖新鲜且在时延预算内完成的请求；
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -461,7 +474,11 @@ FinCacheServe 跳过 1,188 次 LLM 调用，即 53.27%，同时观测到 0 个�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">FinCacheServe skips 1,188 of 2,230 LLM calls (53.27%) with zero observed dependency-stale outputs.</span>
+<div class="experiment-evidence" markdown="1">
+
+FinCacheServe skips 1,188 of 2,230 LLM calls (53.27%) with zero observed dependency-stale outputs.
+
+</div>
 
 </details>
 
@@ -489,7 +506,11 @@ FinCacheServe 的跳过率为 53.31%，95% 置信区间为 [49.11%, 57.46%]，�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">FinCacheServe skips 290 of 544 requests (53.31%, 95% CI [49.11, 57.46]) with zero observed dependency-stale outputs.</span>
+<div class="experiment-evidence" markdown="1">
+
+FinCacheServe skips 290 of 544 requests (53.31%, 95% CI [49.11, 57.46]) with zero observed dependency-stale outputs.
+
+</div>
 
 </details>
 
@@ -517,7 +538,11 @@ FinCacheServe 达到 53.31% 的依赖新鲜 goodput，单位 1,000 次依赖新�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">At 450 W, FinCacheServe uses 2.80 Wh per 1,000 fresh SLO successes, compared with 5.03 Wh for versioned semantic caching and 11.15 Wh for grounded-style reuse.</span>
+<div class="experiment-evidence" markdown="1">
+
+At 450 W, FinCacheServe uses 2.80 Wh per 1,000 fresh SLO successes, compared with 5.03 Wh for versioned semantic caching and 11.15 Wh for grounded-style reuse.
+
+</div>
 
 </details>
 

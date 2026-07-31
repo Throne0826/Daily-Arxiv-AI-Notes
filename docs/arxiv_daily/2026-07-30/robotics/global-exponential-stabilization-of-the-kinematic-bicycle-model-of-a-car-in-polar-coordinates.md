@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "robotics"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:25.625110+00:00"
+generated_at: "2026-07-30T10:14:52.846960+00:00"
 source_sha256: "d94c73246af2f57cc54aabc96e56305598ed6d452da587aee1edf32be601d7f9"
 tags:
   - "机器人 / 具身智能"
@@ -35,7 +35,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2607.26442v1) · [PDF 下载](https://arxiv.org/pdf/2607.26442v1) · **关键词** 运动学自行车模型, 非完整系统, 极坐标控制, 距离归一化坐标, Brockett 条件, 全局指数输出稳定, 自动停车  
+[arXiv 原文](https://arxiv.org/abs/2607.26442v1) · [PDF 下载](https://arxiv.org/pdf/2607.26442v1) · **关键词** 运动学自行车模型, 非完整系统, 极坐标控制, 距离归一化坐标, Brockett 条件, 全局指数输出稳定, 自动停车<br>
 
 
 </div>
@@ -84,21 +84,21 @@ tags:
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **运动学自行车模型（kinematic bicycle model）**
 
 它用单个等效前轮和单个等效后轮描述汽车的平面位置、朝向与转向几何，忽略轮胎动力学等高速效应，适合停车速度。本文采用纵向加速度和转向角作为输入，因此模型带有漂移项，不属于可直接化为链式形式的无漂移版本。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **非完整约束与 Brockett 障碍**
 
 非完整约束表示车辆不能瞬时向任意方向运动，例如汽车不能直接横移；系统虽可通过前后行驶与转向到达目标，却未必能由平滑、时不变的状态反馈稳定。Brockett 条件揭示了这种拓扑限制，也是本文改用具有奇异性的极坐标而非直接在笛卡尔坐标中设计控制器的原因。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **全局指数输出稳定**
 
@@ -123,28 +123,28 @@ tags:
 
 <div class="notation-list" markdown="1">
 
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$(x,y,\theta,\phi)$**
 
 车辆相对停车目标的笛卡尔构型：平面位置 (x,y)、车身朝向 θ 与原图所记转向变量 ϕ。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$(0,0,0,0)$**
 
 期望停车构型，即车辆位于原点、朝向和转向构型均与目标对齐。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$(\rho,\delta,\gamma,\varphi)$**
 
 由笛卡尔构型变换得到的极坐标状态；ρ 表示相对目标的距离，其余变量描述车辆朝向、目标视线及转向之间的角度关系。节选未逐一定义 δ、γ、φ 的精确符号约定。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$(x,y,\theta,\phi)\mapsto(\rho,\delta,\gamma,\varphi)$**
 
@@ -243,7 +243,7 @@ tags:
 
 <div class="method-step__io" markdown="1">
 
-**输入**：车辆笛卡尔状态 \((x,y,\theta,v)\)、轴距 \(L\)，以及输入纵向加速度 \(a\) 和实际前轮转角 \(\phi\)。  
+**输入**：车辆笛卡尔状态 \((x,y,\theta,v)\)、轴距 \(L\)，以及输入纵向加速度 \(a\) 和实际前轮转角 \(\phi\)。<br>
 **输出**：定义在 \(\mathcal S=\{\rho>0\}\times\mathbb R^3\) 上的状态 \((\rho,\delta,\gamma,v)\) 及辅助输入 \((a,\varphi)\)。
 
 </div>
@@ -263,7 +263,7 @@ tags:
 
 <div class="method-step__io" markdown="1">
 
-**输入**：极坐标状态 \((\rho,\delta,gamma,v)\) 和设计增益 \(k_2>0\)。  
+**输入**：极坐标状态 \((\rho,\delta,gamma,v)\) 和设计增益 \(k_2>0\)。<br>
 **输出**：以 \(z\) 为下一层误差的级联动力学，其中 \(z=0\) 对应视线角跟随稳定极角所需的虚拟目标。
 
 </div>
@@ -283,7 +283,7 @@ tags:
 
 <div class="method-step__io" markdown="1">
 
-**输入**：状态 \((\rho,\delta,z,v)\)、增益 \(k_1>0\)，以及 \(N(s)=\sqrt{1+s^2}\)。  
+**输入**：状态 \((\rho,\delta,z,v)\)、增益 \(k_1>0\)，以及 \(N(s)=\sqrt{1+s^2}\)。<br>
 **输出**：状态 \((\rho,\delta,z,\hat v)\) 的反步中间系统，以及可继续设计的输入 \((\tilde a,\varphi)\)。
 
 </div>
@@ -303,7 +303,7 @@ tags:
 
 <div class="method-step__io" markdown="1">
 
-**输入**：中间状态 \((\rho,delta,z,hat v)\) 和输入 \((\tilde a,varphi)\)。  
+**输入**：中间状态 \((\rho,delta,z,hat v)\) 和输入 \((\tilde a,varphi)\)。<br>
 **输出**：在 \(\mathcal S\) 上演化的归一化状态 \((\rho,ar\u0007delta,ar z,ar v)\)，以及留待最终反馈设计的辅助输入 \((\hat a,	ilde	u0007varphi)\)。
 
 </div>
@@ -353,7 +353,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：距离变化由速度在目标视线方向上的投影决定，方位角和视线角的变化则含有 \(v/rho\)，因此接近目标时会出现显著耦合。车辆只有在 \(v\neq0\) 时才能借助转向改变航向，这正是后续不能把方向控制与速度控制简单分开的原因。  
+**直观理解**：距离变化由速度在目标视线方向上的投影决定，方位角和视线角的变化则含有 \(v/rho\)，因此接近目标时会出现显著耦合。车辆只有在 \(v\neq0\) 时才能借助转向改变航向，这正是后续不能把方向控制与速度控制简单分开的原因。<br>
 **原文位置**：第 II 节，式（2a）—（2d）；输入变换位于式（2）之前
 
 </div>
@@ -388,7 +388,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：前两行给方向和速度分别指定随状态变化的理想值，后三行再检查这些误差相对于剩余距离是否足够小。若只要求原角度和速度趋于零，它们可能在距离耗尽前下降得不够快；归一化坐标专门排除了这种不符合真实停车过程的尺度失配。  
+**直观理解**：前两行给方向和速度分别指定随状态变化的理想值，后三行再检查这些误差相对于剩余距离是否足够小。若只要求原角度和速度趋于零，它们可能在距离耗尽前下降得不够快；归一化坐标专门排除了这种不符合真实停车过程的尺度失配。<br>
 **原文位置**：第 III-A 节式（9）、（10）、（12）；第 III-B 节式（15）—（17）
 
 </div>
@@ -442,8 +442,21 @@ $$
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- 原文未明确报告。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span>原文未明确报告，或这里不需要额外前置概念。</div>
+<div markdown="1">
+
+<span class="paper-mini-label">数据与任务</span>
+
+- 原文未明确报告。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+原文未明确报告，或这里不需要额外前置概念。
+
+</div>
 
 </div>
 
@@ -474,7 +487,11 @@ $$
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">These trajectories clearly exhibit human-like parallel parking behavior.</span>
+<div class="experiment-evidence" markdown="1">
+
+These trajectories clearly exhibit human-like parallel parking behavior.
+
+</div>
 
 </details>
 
@@ -502,7 +519,11 @@ $$
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Furthermore, by (12), the speed v is attracted to the positive manifold N(k_{2}\delta)\rho, which causes the feedback to favor forward motion.</span>
+<div class="experiment-evidence" markdown="1">
+
+Furthermore, by (12), the speed v is attracted to the positive manifold $N(k_{2}\delta)\rho$, which causes the feedback to favor forward motion.
+
+</div>
 
 </details>
 
@@ -530,7 +551,11 @@ Fig. 4 中的控制输入保持平滑，并满足预先规定的输入边界。
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">The inputs in Fig. 4 remain smooth and satisfy the prescribed bounds.</span>
+<div class="experiment-evidence" markdown="1">
+
+The inputs in Fig. 4 remain smooth and satisfy the prescribed bounds.
+
+</div>
 
 </details>
 

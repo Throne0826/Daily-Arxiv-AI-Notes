@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "llm_efficiency"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:25.568909+00:00"
+generated_at: "2026-07-30T10:14:52.832043+00:00"
 source_sha256: "78ca15a6ac558d9f9760a2abbbbabecac11ccb1779ed0ecfbe14afe821c8d223"
 tags:
   - "LLM 效率"
@@ -36,7 +36,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2607.26515v1) · [PDF 下载](https://arxiv.org/pdf/2607.26515v1) · **关键词** 大语言模型强化学习后训练, RLVR, 端到端 FP4, HiFloat4, rollout 激活量化, rollout–training mismatch, 激活下溢  
+[arXiv 原文](https://arxiv.org/abs/2607.26515v1) · [PDF 下载](https://arxiv.org/pdf/2607.26515v1) · **关键词** 大语言模型强化学习后训练, RLVR, 端到端 FP4, HiFloat4, rollout 激活量化, rollout–training mismatch, 激活下溢<br>
 
 
 </div>
@@ -85,21 +85,21 @@ tags:
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **rollout 策略与训练策略**
 
 rollout 策略根据提示逐 token 采样回答，训练策略则重新评估这些回答并根据奖励更新参数。两者数值精度或行为分布不一致时，训练所评估的轨迹可能偏离实际生成轨迹，形成 rollout–training mismatch。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **FP4 量化与激活下溢**
 
 FP4 用约 4 位浮点格式表示计算中的数值，范围和分辨率都明显小于 BF16；若少数激活离群值拉大共享动态范围，大量普通值可能被舍入为零，这称为下溢。HiF4 使用三级分层缩放改善有限比特下的动态范围与分辨率，而 MXFP4 对每个数据块使用一个共享尺度。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **RLVR 与策略梯度**
 
@@ -213,7 +213,7 @@ LLM强化学习后训练每轮都包含自回归采样和参数更新；推理�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：当前策略参数中的线性层权重 W_ℓ，以及由提示词和已生成 token 形成的层输入激活 X_ℓ。  
+**输入**：当前策略参数中的线性层权重 W_ℓ，以及由提示词和已生成 token 形成的层输入激活 X_ℓ。<br>
 **输出**：FP4 权重、FP4 激活及标准 FP4 线性投影结果。
 
 </div>
@@ -233,7 +233,7 @@ LLM强化学习后训练每轮都包含自回归采样和参数更新；推理�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：rollout 线性层的原激活 X_ℓ、其 FP4 近似 Q(X_ℓ)以及量化权重 Q(W_ℓ)。  
+**输入**：rollout 线性层的原激活 X_ℓ、其 FP4 近似 Q(X_ℓ)以及量化权重 Q(W_ℓ)。<br>
 **输出**：满足硬件友好稀疏模式的 FP4 残差激活 S(Q(ΔX_ℓ))。
 
 </div>
@@ -253,8 +253,8 @@ LLM强化学习后训练每轮都包含自回归采样和参数更新；推理�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：标准 FP4 主激活、稀疏 FP4 残差、量化权重，以及训练提示词 q。  
-**输出**：回答组 {o_1,…,o_G}、对应奖励以及生成这些 token 的旧 rollout 策略信息。
+**输入**：标准 FP4 主激活、稀疏 FP4 残差、量化权重，以及训练提示词 q。<br>
+**输出**：回答组 {$o_1$,…,$o_G}$、对应奖励以及生成这些 token 的旧 rollout 策略信息。
 
 </div>
 
@@ -273,7 +273,7 @@ GRPO 在组内归一化奖励以得到 token 级优势，通过当前策略与�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：同一提示词下的 G 个回答、组内奖励、旧策略概率和当前训练策略概率。  
+**输入**：同一提示词下的 G 个回答、组内奖励、旧策略概率和当前训练策略概率。<br>
 **输出**：更新后的全量 FP4 策略参数。
 
 </div>
@@ -320,7 +320,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：该目标先对每个回答的 token 更新贡献取平均，再对同组回答平均。min 与 clip 共同限制新旧策略概率比带来的收益，保留有利更新的同时抑制过大的策略跳变；原文说明实际目标另含 KL 惩罚项，但此处公式未展开。  
+**直观理解**：该目标先对每个回答的 token 更新贡献取平均，再对同组回答平均。min 与 clip 共同限制新旧策略概率比带来的收益，保留有利更新的同时抑制过大的策略跳变；原文说明实际目标另含 KL 惩罚项，但此处公式未展开。<br>
 **原文位置**：第3节 Preliminaries，公式(2)
 
 </div>
@@ -348,7 +348,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：第一项是原有 FP4 线性层，第二项用相同量化权重把部分激活量化误差投影到输出空间并加回。若 S 为恒等函数，校正项是完整的第二次稠密 FP4 乘法；采用 50% 结构化稀疏后，只计算作者认为最重要且适合稀疏内核处理的残差信息。  
+**直观理解**：第一项是原有 FP4 线性层，第二项用相同量化权重把部分激活量化误差投影到输出空间并加回。若 S 为恒等函数，校正项是完整的第二次稠密 FP4 乘法；采用 50% 结构化稀疏后，只计算作者认为最重要且适合稀疏内核处理的残差信息。<br>
 **原文位置**：第4.3节，公式(3)与公式(5)的合并表达；核心投影见公式(5)
 
 </div>
@@ -380,7 +380,7 @@ HiF4 在 64 元素块上采用三级层次缩放：第一级缩放器为 E6M2，
 
 **3. 硬件友好残差稀疏函数**
 
-作者比较三种 50% 稀疏实例：S_{50\%} 保留 L2 范数最大的 50% 通道；S_{2:4} 在每连续 4 个元素中保留绝对值最大的 2 个；S_{50\%}^{32\times64} 保留 L2 范数最大的半数 32×64 块。令 S 为恒等映射则得到带第二次稠密 FP4 GEMM 的 Rollout-ResQ-Dense。
+作者比较三种 50% 稀疏实例：$S_{50\%}$ 保留 L2 范数最大的 50% 通道；$S_{2:4}$ 在每连续 4 个元素中保留绝对值最大的 2 个；$S_{50\%}^{32\times64}$ 保留 L2 范数最大的半数 32×64 块。令 S 为恒等映射则得到带第二次稠密 FP4 GEMM 的 Rollout-ResQ-Dense。
 
 > 直观理解：三种模式分别按整条通道、四元素小组和矩形块筛选误差，以匹配不同稀疏矩阵乘法内核；目的不是减少模型参数，而是让 rollout 的纠错项比完整第二次乘法便宜。
 
@@ -392,9 +392,9 @@ HiF4 在 64 元素块上采用三级层次缩放：第一级缩放器为 E6M2，
 
 **复现信息**
 
-量化格式采用 HiF4 或 MXFP4：前者以 64 元素为块并使用三级缩放，后者以 32 元素为块、共享 E8M0 块尺度且元素为 FP4 E2M1。默认残差稀疏率为 50%，比较通道级 S_{50\%}、硬件支持的 S_{2:4} 和 32×64 块级 S_{50\%}^{32\times64}；S 为恒等函数时是 Dense 版本。
+量化格式采用 HiF4 或 MXFP4：前者以 64 元素为块并使用三级缩放，后者以 32 元素为块、共享 E8M0 块尺度且元素为 FP4 E2M1。默认残差稀疏率为 50%，比较通道级 $S_{50\%}$、硬件支持的 $S_{2:4}$ 和 32×64 块级 $S_{50\%}^{32\times64}$；S 为恒等函数时是 Dense 版本。
 
-Qwen2.5-3B 与 Qwen2.5-Math-7B 的策略学习率均为 1×10^{-6}，组大小 G 均为 16，优化器均为 AdamW；训练批量分别为 32 和 128，最大提示长度分别为 512 和 2048，最大回答长度分别为 1024 和 4096。两者的 (ε_low,ε_high) 分别为 (0.2,0.2) 与 (0.2,0.28)，并统一使用阈值 5.0 的 token 级截断重要性采样；原文报告相应实验约需 100 GB/10 小时和 370 GB/20 小时，但未在节选中给出具体加速器型号、并行配置或稀疏内核实测速度。
+Qwen2.5-3B 与 Qwen2.5-Math-7B 的策略学习率均为 1×10^{-6}，组大小 G 均为 16，优化器均为 AdamW；训练批量分别为 32 和 128，最大提示长度分别为 512 和 2048，最大回答长度分别为 1024 和 4096。两者的 ($ε_low,ε_high)$ 分别为 (0.2,0.2) 与 (0.2,0.28)，并统一使用阈值 5.0 的 token 级截断重要性采样；原文报告相应实验约需 100 GB/10 小时和 370 GB/20 小时，但未在节选中给出具体加速器型号、并行配置或稀疏内核实测速度。
 
 </details>
 
@@ -406,19 +406,30 @@ Qwen2.5-3B 与 Qwen2.5-Math-7B 的策略学习率均为 1×10^{-6}，组大小 G
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- GSM8K：用于Qwen2.5-3B的GRPO训练；GSM8K-test作为同分布留出测试集。原文未明确报告训练样本规模、具体训练划分或测试样本数。
-- DAPO-Math-17K：用于Qwen2.5-Math-7B的GRPO训练，代表更困难的数学推理任务。实验设置段一度写作“DAPO-Math-17B”，但第5.3节及表3写作“DAPO-Math-17K”，命名存在原文内部不一致；具体规模与划分原文未明确报告。
-- 跨分布数学评测集合：Qwen2.5-3B在Math-500上评测；Qwen2.5-Math-7B在AIME-2024、AIME-2025、AMC-2023和Math-500上评测。它们用于检验强化学习训练所得能力能否迁移到未作为训练任务报告的不同数学竞赛与解题基准，而不只是记住训练分布。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- GSM8K：用于Qwen2.5-3B的GRPO训练；GSM8K-test作为同分布留出测试集。原文未明确报告训练样本规模、具体训练划分或测试样本数。
+- DAPO-Math-17K：用于Qwen2.5-Math-7B的GRPO训练，代表更困难的数学推理任务。实验设置段一度写作“DAPO-Math-17B”，但第5.3节及表3写作“DAPO-Math-17K”，命名存在原文内部不一致；具体规模与划分原文未明确报告。
+- 跨分布数学评测集合：Qwen2.5-3B在Math-500上评测；Qwen2.5-Math-7B在AIME-2024、AIME-2025、AMC-2023和Math-500上评测。它们用于检验强化学习训练所得能力能否迁移到未作为训练任务报告的不同数学竞赛与解题基准，而不只是记住训练分布。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **Mean@1**
 
 Qwen2.5-3B采用贪心解码时单次回答的平均准确率，反映模型在确定性生成协议下直接解对问题的比例。 （越高越好，因为更高数值表示更多问题在一次生成中得到正确答案。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **Mean@32**
 
@@ -426,7 +437,9 @@ Qwen2.5-Math-7B对每道题采样32个回答后得到的平均准确率；它衡
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -457,7 +470,11 @@ BF16准确率为86.96；朴素HiF4和MXFP4分别为82.03和73.31，对BF16的差
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">By contrast, Rollout-ResQ-S2:4 reduces these gaps to 1.06% and 5.31% on GSM8K-test for HiF4 and MXFP4, respectively.</span>
+<div class="experiment-evidence" markdown="1">
+
+By contrast, Rollout-ResQ-S2:4 reduces these gaps to 1.06% and 5.31% on GSM8K-test for HiF4 and MXFP4, respectively.
+
+</div>
 
 </details>
 
@@ -485,7 +502,11 @@ Rollout-ResQ的改进不仅出现在训练任务的留出测试集，也能迁�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">On Math500, under HiF4, Rollout-ResQ-S50%32×64 achieves the highest accuracy (55.8%), followed by other Rollout-ResQ variants.</span>
+<div class="experiment-evidence" markdown="1">
+
+On Math500, under HiF4, Rollout-ResQ-S50%32×64 achieves the highest accuracy (55.8%), followed by other Rollout-ResQ variants.
+
+</div>
 
 </details>
 
@@ -513,7 +534,11 @@ Rollout-ResQ的改进不仅出现在训练任务的留出测试集，也能迁�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">In contrast, Rollout-ResQ-S2:4 narrows the gaps to BF16 to 6.56%, 3.54%, 8.75%, and 5.64%, respectively, with Rollout-ResQ-Dense performs slightly better on AIME25 and Math500.</span>
+<div class="experiment-evidence" markdown="1">
+
+In contrast, Rollout-ResQ-S2:4 narrows the gaps to BF16 to 6.56%, 3.54%, 8.75%, and 5.64%, respectively, with Rollout-ResQ-Dense performs slightly better on AIME25 and Math500.
+
+</div>
 
 </details>
 

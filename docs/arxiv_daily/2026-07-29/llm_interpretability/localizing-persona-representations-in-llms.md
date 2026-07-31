@@ -6,7 +6,7 @@ announcement_date: "2026-07-29"
 primary_category: "llm_interpretability"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:24.099871+00:00"
+generated_at: "2026-07-30T10:14:52.305873+00:00"
 source_sha256: "5b7268cd524f099bd2c789bb04b50e8096445d5c4464ac1613b0c920671c2052"
 tags:
   - "LLM 机制与可解释性"
@@ -41,7 +41,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2505.24539v4) · [PDF 下载](https://arxiv.org/pdf/2505.24539v4) · **关键词** 大语言模型可解释性, 人格设定, 内部表示, 层激活, 表示空间, 主成分分析, 政治信念, 伦理价值, 大五人格, 仅解码器式 Transformer  
+[arXiv 原文](https://arxiv.org/abs/2505.24539v4) · [PDF 下载](https://arxiv.org/pdf/2505.24539v4) · **关键词** 大语言模型可解释性, 人格设定, 内部表示, 层激活, 表示空间, 主成分分析, 政治信念, 伦理价值, 大五人格, 仅解码器式 Transformer<br>
 
 
 </div>
@@ -90,21 +90,21 @@ tags:
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **人格设定（persona）**
 
 指用自然语言刻画的假想个体身份、人格特征、价值观或信念，例如“高度宜人”或“信奉功利主义”。它作为输入语境，可引导模型采用相应立场、语气或行为方式生成文本。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **层激活表示（layer activation representation）**
 
 输入经过 Transformer 某一层后会形成一组数值向量，概括模型在该层对输入信息的内部处理结果。本文将这些激活向量视为人格信息可能被编码的表示空间，而不是把模型输出文本直接当作内部机制的证据。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **主成分分析（PCA）**
 
@@ -217,7 +217,7 @@ Transformer逐层把提示转换成预测下一个词所需的表示，因此人
 
 <div class="method-step__io" markdown="1">
 
-**输入**：Perez et al. (2023)生成的人格陈述、matchingbehavior或notmatchingbehavior标签，以及模型生成的标签置信度。  
+**输入**：Perez et al. (2023)生成的人格陈述、matchingbehavior或notmatchingbehavior标签，以及模型生成的标签置信度。<br>
 **输出**：14个二组对照的人格数据集，每个数据集包含600条陈述。
 
 </div>
@@ -237,8 +237,8 @@ Transformer逐层把提示转换成预测下一个词所需的表示，因此人
 
 <div class="method-step__io" markdown="1">
 
-**输入**：筛选后的人格陈述，以及Llama3-8B-Instruct、Granite-7B-Instruct和Mistral-7B-Instruct。  
-**输出**：对每个模型、人格维度、标签组和网络层得到一组4096维句子表征，其中matchingbehavior表征记为e^{+}，notmatchingbehavior表征记为e^{-}。
+**输入**：筛选后的人格陈述，以及Llama3-8B-Instruct、Granite-7B-Instruct和Mistral-7B-Instruct。<br>
+**输出**：对每个模型、人格维度、标签组和网络层得到一组4096维句子表征，其中matchingbehavior表征记为$e^{+}$，notmatchingbehavior表征记为$e^{-}$。
 
 </div>
 
@@ -253,11 +253,11 @@ Transformer逐层把提示转换成预测下一个词所需的表示，因此人
 
 #### 在联合主成分空间中比较两组表征
 
-在联合集合e^{+}\cup e^{-}上计算主成分分析，将两组向量投影到同一个低维主成分空间，分别得到q^{+}与q^{-}；随后把二者视为两个已知标签的簇，计算多种聚类距离或分离度指标。
+在联合集合$e^{+}\cup e^{-}$上计算主成分分析，将两组向量投影到同一个低维主成分空间，分别得到$q^{+}$与$q^{-}$；随后把二者视为两个已知标签的簇，计算多种聚类距离或分离度指标。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：某一模型、某一人格维度和某一层上的两组高维向量e^{+}与e^{-}。  
+**输入**：某一模型、某一人格维度和某一层上的两组高维向量$e^{+}$与$e^{-}$。<br>
 **输出**：该人格维度在该层上的多项组间差异分数，以及可用于跨层比较的低维表示。
 
 </div>
@@ -277,7 +277,7 @@ Transformer逐层把提示转换成预测下一个词所需的表示，因此人
 
 <div class="method-step__io" markdown="1">
 
-**输入**：每个模型中14个人格维度在32层上的聚类距离和分离度结果。  
+**输入**：每个模型中14个人格维度在32层上的聚类距离和分离度结果。<br>
 **输出**：每个模型和人格维度的强表征层候选，供第二级激活定位分析使用。
 
 </div>
@@ -325,7 +325,7 @@ Transformer逐层把提示转换成预测下一个词所需的表示，因此人
 
 **3. PCA联合降维与簇分离模块**
 
-对每一层和每一人格维度，PCA在e^{+}\cup e^{-}上联合拟合，保证q^{+}与q^{-}处于同一主成分坐标系；随后将两组视作两个簇并计算若干聚类距离与评分。原文脚注报告所分析主成分的解释方差比例在14个维度上为0.657至0.898，但当前摘录没有给出保留主成分数、全部指标定义及聚合规则。
+对每一层和每一人格维度，PCA在$e^{+}\cup e^{-}$上联合拟合，保证$q^{+}$与$q^{-}$处于同一主成分坐标系；随后将两组视作两个簇并计算若干聚类距离与评分。原文脚注报告所分析主成分的解释方差比例在14个维度上为0.657至0.898，但当前摘录没有给出保留主成分数、全部指标定义及聚合规则。
 
 > 直观理解：联合拟合很关键：若正负样本各自建立坐标系，两组位置就不能直接比较。聚类分数在这里不是发现未知类别，而是量化已知两组隐藏表示分得有多开。
 
@@ -337,7 +337,7 @@ Level 1按层比较matchingbehavior与notmatchingbehavior的表征差异，回�
 
 **训练与推理**
 
-整个研究属于离线推理与事后表征分析。对每个人格维度，先把matchingbehavior和notmatchingbehavior陈述分别输入模型；输入通过自定义聊天模板被格式化为system消息，然后仅执行一次完整前向传播。作者不要求模型生成回答，而是从全部32层读取最后词元的隐藏状态，因此一条陈述在一个模型上产生32个4096维向量。随后以“模型×人格维度×层”为分析单位，在正负样本的联合激活上拟合PCA并投影得到q^{+}和q^{-}，通过聚类距离与分离度随层变化的曲线识别人格信号最强的层。选层后进入层内激活定位和跨人格重叠分析，但当前摘录未给出其完整计算流程，故原文未明确报告可复现的第二级推理步骤。
+整个研究属于离线推理与事后表征分析。对每个人格维度，先把matchingbehavior和notmatchingbehavior陈述分别输入模型；输入通过自定义聊天模板被格式化为system消息，然后仅执行一次完整前向传播。作者不要求模型生成回答，而是从全部32层读取最后词元的隐藏状态，因此一条陈述在一个模型上产生32个4096维向量。随后以“模型×人格维度×层”为分析单位，在正负样本的联合激活上拟合PCA并投影得到$q^{+}$和$q^{-}$，通过聚类距离与分离度随层变化的曲线识别人格信号最强的层。选层后进入层内激活定位和跨人格重叠分析，但当前摘录未给出其完整计算流程，故原文未明确报告可复现的第二级推理步骤。
 
 **复现信息**
 
@@ -353,26 +353,37 @@ Level 1按层比较matchingbehavior与notmatchingbehavior的表征差异，回�
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- 人格句子集合：包含14个人格维度，每个维度均有 matchingbehavior（正例）和 notmatchingbehavior（负例）句子。它用于逐层比较 q_+ 与 q_- 的表示分离度，并验证显著激活能否检测某句是否符合指定人格。原文节选未明确报告数据集名称、每类样本量及训练/验证划分。
-- Personality（人格特质）主题：涵盖宜人性、尽责性、开放性、外向性和神经质等维度，用于考察五类人格特质的正负句表示分离，以及同主题人格之间显著激活的共享与独有程度。
-- Ethics（伦理理论）主题：涵盖道德相对主义、道德虚无主义、功利主义、德性伦理和义务论等人格，用于检验概念相近的伦理立场是否共用较多内部激活。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- 人格句子集合：包含14个人格维度，每个维度均有 matchingbehavior（正例）和 notmatchingbehavior（负例）句子。它用于逐层比较 q_+ 与 q_- 的表示分离度，并验证显著激活能否检测某句是否符合指定人格。原文节选未明确报告数据集名称、每类样本量及训练/验证划分。
+- Personality（人格特质）主题：涵盖宜人性、尽责性、开放性、外向性和神经质等维度，用于考察五类人格特质的正负句表示分离，以及同主题人格之间显著激活的共享与独有程度。
+- Ethics（伦理理论）主题：涵盖道德相对主义、道德虚无主义、功利主义、德性伦理和义务论等人格，用于检验概念相近的伦理立场是否共用较多内部激活。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **Silhouette Score（SH，轮廓系数）**
 
 同时衡量 q_+ 与 q_- 各自的簇内紧密程度和两簇之间的分离程度；值越大，样本越接近本簇而远离另一簇。 （越高越好，因为更高值表示两类表示更紧凑且更易区分。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **Calinski-Harabasz Score（CH）**
 
 比较簇间离散度与簇内离散度，用来判断正负人格表示是否形成清楚而紧凑的两组。 （越高越好，因为较大的簇间差异和较小的簇内差异会提高该值。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **Euclidean Distance（ED，欧氏距离）**
 
@@ -380,7 +391,9 @@ Level 1按层比较matchingbehavior与notmatchingbehavior的表征差异，回�
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -411,7 +424,11 @@ Level 1按层比较matchingbehavior与notmatchingbehavior的表征差异，回�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Across the models, the largest distances are found in the later layers (20–31).</span>
+<div class="experiment-evidence" markdown="1">
+
+Across the models, the largest distances are found in the later layers (20–31).
+
+</div>
 
 </details>
 
@@ -439,7 +456,11 @@ Level 1按层比较matchingbehavior与notmatchingbehavior的表征差异，回�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Most measures indicate that the final layer of Llama3 achieves the strongest separation.</span>
+<div class="experiment-evidence" markdown="1">
+
+Most measures indicate that the final layer of Llama3 achieves the strongest separation.
+
+</div>
 
 </details>
 
@@ -452,7 +473,7 @@ Level 1按层比较matchingbehavior与notmatchingbehavior的表征差异，回�
 
 <div class="result-value" markdown="1">
 
-14个人格均获得较高检测性能：精确率范围约为0.778（nihil）至0.999（consc），召回率范围约为0.76（neuro）至0.998（agree）。这验证了 Deep Scan 找到的 O_{S^*} 确实包含可用于区分指定人格正负句的信息。
+14个人格均获得较高检测性能：精确率范围约为0.778（nihil）至0.999（consc），召回率范围约为0.76（neuro）至0.998（agree）。这验证了 Deep Scan 找到的 $O_{S^*}$ 确实包含可用于区分指定人格正负句的信息。
 
 </div>
 
@@ -467,7 +488,11 @@ Level 1按层比较matchingbehavior与notmatchingbehavior的表征差异，回�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">We find high precision and recall for all 14 personas, with the precision ranging from 0.778 (nihil) to 0.999 (consc) and recall from 0.76 (neuro) to 0.998 (agree).</span>
+<div class="experiment-evidence" markdown="1">
+
+We find high precision and recall for all 14 personas, with the precision ranging from 0.778 (nihil) to 0.999 (consc) and recall from 0.76 (neuro) to 0.998 (agree).
+
+</div>
 
 </details>
 
@@ -500,7 +525,7 @@ Level 1按层比较matchingbehavior与notmatchingbehavior的表征差异，回�
 
 **实验实现**
 
-实验提取每个输入句子在每一解码层的最后一个 token 表示，并对 q_+、q_- 表示做 PCA；随后以轮廓系数、CH、DB、欧氏中心距离等指标比较各层分离度。层编号从简单输入层0到最终层31。跨模型结果显示后部层最可分，因此后续定位集中于 Llama3 最后一层的4096维激活。作者使用 Deep Scan 多次搜索最能指示目标人格的激活集合 O_{S^*}，再利用对应样本集合 X_{S^*} 计算检测精确率和召回率。表2报告100次独立 Deep Scan 运行和200个随机测试样本的均值±标准差；PCA与聚类结果通常按5个随机种子平均。最后通过集合交、并及 Upset 图统计显著激活在人格内、人格间和主题间的重叠。原文节选未明确报告提示模板、句子总数、PCA保留维数之外的全部超参数或统计显著性检验。
+实验提取每个输入句子在每一解码层的最后一个 token 表示，并对 q_+、q_- 表示做 PCA；随后以轮廓系数、CH、DB、欧氏中心距离等指标比较各层分离度。层编号从简单输入层0到最终层31。跨模型结果显示后部层最可分，因此后续定位集中于 Llama3 最后一层的4096维激活。作者使用 Deep Scan 多次搜索最能指示目标人格的激活集合 $O_{S^*}$，再利用对应样本集合 $X_{S^*}$ 计算检测精确率和召回率。表2报告100次独立 Deep Scan 运行和200个随机测试样本的均值±标准差；PCA与聚类结果通常按5个随机种子平均。最后通过集合交、并及 Upset 图统计显著激活在人格内、人格间和主题间的重叠。原文节选未明确报告提示模板、句子总数、PCA保留维数之外的全部超参数或统计显著性检验。
 
 **关键消融**
 

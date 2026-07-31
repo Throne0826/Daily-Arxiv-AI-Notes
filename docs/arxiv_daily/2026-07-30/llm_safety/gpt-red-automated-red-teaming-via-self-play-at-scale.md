@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "llm_safety"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:25.755000+00:00"
+generated_at: "2026-07-30T10:14:52.895544+00:00"
 source_sha256: "11ce03c2593bea4c70903b7a3335a88caea47b58bcc3d436c391892e3df95532"
 tags:
   - "LLM 安全"
@@ -37,7 +37,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2607.26115v1) · [PDF 下载](https://arxiv.org/pdf/2607.26115v1) · **关键词** 大语言模型安全, 自动化红队, 提示注入, 内容政策越狱, 指令层级, 对抗训练, 强化学习, 对抗鲁棒性  
+[arXiv 原文](https://arxiv.org/abs/2607.26115v1) · [PDF 下载](https://arxiv.org/pdf/2607.26115v1) · **关键词** 大语言模型安全, 自动化红队, 提示注入, 内容政策越狱, 指令层级, 对抗训练, 强化学习, 对抗鲁棒性<br>
 
 
 </div>
@@ -86,21 +86,21 @@ tags:
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **提示注入（Prompt Injection）**
 
 攻击者提供与可信指令冲突的文本，试图让模型忽略系统或开发者意图。直接注入来自用户消息；间接注入则藏在网页、检索文档或工具输出等第三方内容中。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **指令层级（Instruction Hierarchy, IH）**
 
 模型输入被划分为系统、开发者、用户和工具响应等不同权限级别；发生冲突时，模型应优先遵循更高权限指令。该机制是同时防御直接与间接提示注入的基本行为规范。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **自动化红队与对抗训练**
 
@@ -214,7 +214,7 @@ GPT-Red 是一个以大语言模型为核心的智能体式红队攻击器，目
 
 <div class="method-step__io" markdown="1">
 
-**输入**：一个能力任务对应的对话、初始虚拟文件系统、防御模型，以及可被攻击者控制的消息或工具返回区域。  
+**输入**：一个能力任务对应的对话、初始虚拟文件系统、防御模型，以及可被攻击者控制的消息或工具返回区域。<br>
 **输出**：一个包含正常任务、高优先级约束、攻击位置、攻击目标和目标防御模型的可执行红队实例。
 
 </div>
@@ -234,7 +234,7 @@ GPT-Red 是一个以大语言模型为核心的智能体式红队攻击器，目
 
 <div class="method-step__io" markdown="1">
 
-**输入**：红队实例、攻击目标、可用的终端工具，以及对当前防御模型的查询接口。  
+**输入**：红队实例、攻击目标、可用的终端工具，以及对当前防御模型的查询接口。<br>
 **输出**：经过多次交互式测试和修改后选定的最终攻击消息或消息序列。
 
 </div>
@@ -254,7 +254,7 @@ GPT-Red 是一个以大语言模型为核心的智能体式红队攻击器，目
 
 <div class="method-step__io" markdown="1">
 
-**输入**：攻击器提交的最终攻击、原始环境状态、预定插入位置和防御器尚未完成的正常任务。  
+**输入**：攻击器提交的最终攻击、原始环境状态、预定插入位置和防御器尚未完成的正常任务。<br>
 **输出**：一条用于判定攻击成败、任务完成情况并进行强化学习的正式防御器 rollout。
 
 </div>
@@ -274,7 +274,7 @@ GPT-Red 是一个以大语言模型为核心的智能体式红队攻击器，目
 
 <div class="method-step__io" markdown="1">
 
-**输入**：攻击器 rollout、正式防御器 rollout、环境专用成功判据，以及由多个不同防御模型构成的训练群体。  
+**输入**：攻击器 rollout、正式防御器 rollout、环境专用成功判据，以及由多个不同防御模型构成的训练群体。<br>
 **输出**：不断增强且策略更具多样性的 GPT-Red，以及对提示注入更稳健的防御模型检查点。
 
 </div>
@@ -348,26 +348,37 @@ GPT-Red 是一个以大语言模型为核心的智能体式红队攻击器，目
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- 2025 Q4 Indirect Prompt Injection（IPI）Challenge场景：包含多种对抗目标与环境，且与GPT-Red的训练环境不同；论文使用内部镜像开展自动化红队评测，并允许GPT-Red访问defender_model工具和完整智能体工具。其作用是测试对未见场景、对抗目标和工具框架的迁移能力。原文未明确报告场景数量、样本规模及精确划分。
-- IPI 2025 Challenge人类攻击数据集：由基于函数调用的人类提示注入攻击组成，用于比较GPT-Red与人类红队攻击，并检验GPT-5.6对真实人类攻击的防御能力。原文未明确报告数据规模；对GPT-5.6的复测属于完全留出的人类攻击评估。
-- IH-Challenge指令层级数据集：用于受控自博弈实验，初始攻击者为内部helpful-only模型，防御者为较小的GPT-5系列模型。实验跟踪攻击成功率和留出防御鲁棒性，用来研究训练动态、攻击者是否遗忘旧能力，以及可训练攻击者相对冻结攻击者的作用。原文未明确报告任务数和数据划分规模。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- 2025 Q4 Indirect Prompt Injection（IPI）Challenge场景：包含多种对抗目标与环境，且与GPT-Red的训练环境不同；论文使用内部镜像开展自动化红队评测，并允许GPT-Red访问defender_model工具和完整智能体工具。其作用是测试对未见场景、对抗目标和工具框架的迁移能力。原文未明确报告场景数量、样本规模及精确划分。
+- IPI 2025 Challenge人类攻击数据集：由基于函数调用的人类提示注入攻击组成，用于比较GPT-Red与人类红队攻击，并检验GPT-5.6对真实人类攻击的防御能力。原文未明确报告数据规模；对GPT-5.6的复测属于完全留出的人类攻击评估。
+- IH-Challenge指令层级数据集：用于受控自博弈实验，初始攻击者为内部helpful-only模型，防御者为较小的GPT-5系列模型。实验跟踪攻击成功率和留出防御鲁棒性，用来研究训练动态、攻击者是否遗忘旧能力，以及可训练攻击者相对冻结攻击者的作用。原文未明确报告任务数和数据划分规模。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **攻击成功率（Attack Success Rate, ASR）**
 
 成功诱导防御模型违反原任务或提示注入约束的攻击尝试占比；在训练动态中，它反映当前攻击者相对当前或历史防御者的有效性。 （评价攻击者时越高越好，因为表示更多尝试成功；评价防御者时越低越好，因为表示更少攻击能够突破。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **防御成功率／提示注入鲁棒性**
 
 防御者抵抗注入并继续完成原始任务的比例；论文对若干留出攻击、数据集和领域报告平均防御成功率。 （越高越好，因为模型既需忽略恶意指令，也需维持原任务执行。该指标可能受标签噪声、任务歧义和奖励噪声影响。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **过度拒绝（overrefusal）倾向**
 
@@ -375,7 +386,9 @@ GPT-Red 是一个以大语言模型为核心的智能体式红队攻击器，目
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -406,7 +419,11 @@ GPT-Red 是一个以大语言模型为核心的智能体式红队攻击器，目
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">When prompted to generate a single attack, GPT-5.5 roughly matches human red-teamers, while placing it in a harness with query access to the defender enables even more effective attacks.</span>
+<div class="experiment-evidence" markdown="1">
+
+When prompted to generate a single attack, GPT-5.5 roughly matches human red-teamers, while placing it in a harness with query access to the defender enables even more effective attacks.
+
+</div>
 
 </details>
 
@@ -434,7 +451,11 @@ GPT-Red 是一个以大语言模型为核心的智能体式红队攻击器，目
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Despite these attacks representing a very strong hold-out set, robustness climbs to greater than 50% and reaches as high at 89%.</span>
+<div class="experiment-evidence" markdown="1">
+
+Despite these attacks representing a very strong hold-out set, robustness climbs to greater than 50% and reaches as high at 89%.
+
+</div>
 
 </details>
 
@@ -462,7 +483,11 @@ GPT-Red 是一个以大语言模型为核心的智能体式红队攻击器，目
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">We see clear monotonic gains in robustness over time, with ASR below 4% for GPT-5.6.</span>
+<div class="experiment-evidence" markdown="1">
+
+We see clear monotonic gains in robustness over time, with ASR below 4% for GPT-5.6.
+
+</div>
 
 </details>
 

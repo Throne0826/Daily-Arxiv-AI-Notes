@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "llm_interpretability"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:25.334883+00:00"
+generated_at: "2026-07-30T10:14:52.753890+00:00"
 source_sha256: "3ef27fd4e30402c3d72d5ec2ec0b0a164bb0ccdac5bb98529f3aa8912ed2297f"
 tags:
   - "LLM 机制与可解释性"
@@ -35,7 +35,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2601.06599v3) · [PDF 下载](https://arxiv.org/pdf/2601.06599v3) · **关键词** 大语言模型可解释性, 真值向量, 残差流激活, 上下文利用, 表征几何, 线性方向  
+[arXiv 原文](https://arxiv.org/abs/2601.06599v3) · [PDF 下载](https://arxiv.org/pdf/2601.06599v3) · **关键词** 大语言模型可解释性, 真值向量, 残差流激活, 上下文利用, 表征几何, 线性方向<br>
 
 
 </div>
@@ -84,21 +84,21 @@ tags:
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **残差流激活（residual-stream activation）**
 
 Transformer各层会把中间计算结果累积到一个共享表示中，称为残差流；本文具体使用每层MLP之后的残差流激活。可将它理解为模型在某一层处理当前输入时形成的高维内部状态。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **真值向量（truth vector）**
 
 真值向量是激活空间中区分真实陈述与虚假陈述的方向，本文通过真实样本与虚假样本激活表示的均值差来获得这一方向。向量越长，表示两类样本在该方向上的平均分离越明显。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **线性探测与几何表征**
 
@@ -112,7 +112,7 @@ Transformer各层会把中间计算结果累积到一个共享表示中，称为
 
 **论文具体研究什么**
 
-对每个陈述 k，研究分别构造带上下文与不带上下文的输入，并改变提示中的候选选择，从而得到可按真实或虚假标签分组的样本。模型生成第一个回答词元时，研究者在每一层提取MLP后的残差流激活，再分别计算无上下文真值向量 v_{k,nc} 与有上下文真值向量 v_{k,c}。输出不是对陈述真假的一次预测，而是两类逐层几何量：二者夹角用于衡量上下文是否旋转了真假区分方向，范数平方之比用于衡量上下文是否放大或压缩了真实与虚假表示之间的分离。该设定默认残差流中的真假差异可用线性方向近似，并聚焦内部表征而非模型最终输出行为。
+对每个陈述 k，研究分别构造带上下文与不带上下文的输入，并改变提示中的候选选择，从而得到可按真实或虚假标签分组的样本。模型生成第一个回答词元时，研究者在每一层提取MLP后的残差流激活，再分别计算无上下文真值向量 $v_{k,nc}$ 与有上下文真值向量 $v_{k,c}$。输出不是对陈述真假的一次预测，而是两类逐层几何量：二者夹角用于衡量上下文是否旋转了真假区分方向，范数平方之比用于衡量上下文是否放大或压缩了真实与虚假表示之间的分离。该设定默认残差流中的真假差异可用线性方向近似，并聚焦内部表征而非模型最终输出行为。
 
 </div>
 
@@ -123,32 +123,32 @@ Transformer各层会把中间计算结果累积到一个共享表示中，称为
 
 <div class="notation-list" markdown="1">
 
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$k$**
 
 被分析的陈述或陈述实例索引。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$v_{k,nc}$**
 
 陈述 k 在无上下文条件下，由真实与虚假样本激活差异得到的真值向量；nc表示no context。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$v_{k,c}$**
 
 陈述 k 在加入上下文条件下得到的真值向量；c表示context。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\theta$**
 
-v_{k,nc} 与 v_{k,c} 之间的夹角，用于度量加入上下文后的方向变化；文中还以 \lVert v_{k,c}\rVert_2^2/\lVert v_{k,nc}\rVert_2^2 表示相对幅度变化。
+$v_{k,nc}$ 与 $v_{k,c}$ 之间的夹角，用于度量加入上下文后的方向变化；文中还以 $\lVert v_{k,c}\rVert_2^2/\lVert v_{k,nc}\rVert_2^2$ 表示相对幅度变化。
 
 </div>
 
@@ -242,7 +242,7 @@ v_{k,nc} 与 v_{k,c} 之间的夹角，用于度量加入上下文后的方向�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：数据集中的陈述、对应上下文及真值标签。  
+**输入**：数据集中的陈述、对应上下文及真值标签。<br>
 **输出**：同一陈述对应的支持-有上下文、反驳-有上下文、支持-无上下文和反驳-无上下文四个提示。
 
 </div>
@@ -262,7 +262,7 @@ v_{k,nc} 与 v_{k,c} 之间的夹角，用于度量加入上下文后的方向�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：四类受控提示与待分析的语言模型。  
+**输入**：四类受控提示与待分析的语言模型。<br>
 **输出**：每条陈述在四种提示条件下的逐层激活向量。
 
 </div>
@@ -282,8 +282,8 @@ v_{k,nc} 与 v_{k,c} 之间的夹角，用于度量加入上下文后的方向�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：四种条件下的逐层激活以及数据集真值标签。  
-**输出**：无上下文真值向量 v^{(l)}_{k,\mathrm{nc}} 与有上下文真值向量 v^{(l)}_{k,\mathrm{c}}。
+**输入**：四种条件下的逐层激活以及数据集真值标签。<br>
+**输出**：无上下文真值向量 $v^{(l)}_{k,\mathrm{nc}}$ 与有上下文真值向量 $v^{(l)}_{k,\mathrm{c}}$。
 
 </div>
 
@@ -302,7 +302,7 @@ v_{k,nc} 与 v_{k,c} 之间的夹角，用于度量加入上下文后的方向�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：每条陈述、每一层的有上下文与无上下文真值向量。  
+**输入**：每条陈述、每一层的有上下文与无上下文真值向量。<br>
 **输出**：每个数据集、每一模型层的平均方向变化与平均相对幅度曲线，以及交叉条件下的相对幅度分析量。
 
 </div>
@@ -347,7 +347,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：两式都用“真实激活减虚假激活”来定义真假分离方向，区别只在于输入是否包含上下文。比较这两个向量即可把上下文的作用表示为激活空间中的几何变换。  
+**直观理解**：两式都用“真实激活减虚假激活”来定义真假分离方向，区别只在于输入是否包含上下文。比较这两个向量即可把上下文的作用表示为激活空间中的几何变换。<br>
 **原文位置**：第 3 节 Methodology，Truth Vectors from Residual Stream Activations，式 (2)–(3)
 
 </div>
@@ -373,7 +373,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：第一式通过归一化点积求夹角：角度越大，加入上下文后模型内部的真实性方向改变越明显。第二式比较有、无上下文时真值向量的平方长度，值大于 1 表示上下文扩大真假表征的分离，值小于 1 表示分离减弱；需注意，原文叙述和图 3 将其称为 L2 距离比，但式 (6) 明确写为平方范数之比，复现时应核对作者实现。  
+**直观理解**：第一式通过归一化点积求夹角：角度越大，加入上下文后模型内部的真实性方向改变越明显。第二式比较有、无上下文时真值向量的平方长度，值大于 1 表示上下文扩大真假表征的分离，值小于 1 表示分离减弱；需注意，原文叙述和图 3 将其称为 L2 距离比，但式 (6) 明确写为平方范数之比，复现时应核对作者实现。<br>
 **原文位置**：第 3 节 Methodology，Calculating Theta and Relative Magnitude，式 (4) 与式 (6)
 
 </div>
@@ -415,7 +415,7 @@ $$
 
 **复现信息**
 
-公平比较依赖三项关键控制：支持与反驳生成的首个词元都固定为“)”；Choice 中的选项顺序随机化，以减少位置偏差；激活统一取自提示最后一个词元位置，而不是后续生成序列。数据集级统计按陈述数 |N_k| 对逐陈述指标作算术平均。对于仅向真实侧或虚假侧加入上下文的交叉相对幅度，节选只说明还计算 v^{(l)}_{k,\mathrm{tc-fnc}} 和 v^{(l)}_{k,\mathrm{tnc-fc}}，完整定义位于附录 A.2，原文节选未提供足以复现的具体公式。
+公平比较依赖三项关键控制：支持与反驳生成的首个词元都固定为“)”；Choice 中的选项顺序随机化，以减少位置偏差；激活统一取自提示最后一个词元位置，而不是后续生成序列。数据集级统计按陈述数 |$N_k|$ 对逐陈述指标作算术平均。对于仅向真实侧或虚假侧加入上下文的交叉相对幅度，节选只说明还计算 $v^{(l)}_{k,\mathrm{tc-fnc}}$ 和 $v^{(l)}_{k,\mathrm{tnc-fc}}$，完整定义位于附录 A.2，原文节选未提供足以复现的具体公式。
 
 </details>
 
@@ -427,26 +427,37 @@ $$
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- DRUID的三个子集分别独立分析：Borderlines（982条，地理事实核查上下文）、Politifact（907条，政治事实核查上下文）和ScienceFeedback（618条，科学事实核查上下文）。三者均为真实世界数据，作用是检验不同事实核查领域中的上下文效应。原文给出数据行数、平均上下文词数及Flesch易读性，但所供章节未明确报告训练、验证和测试划分。
-- MF2含1736条真实世界样本，以上下文较长的电影剧情梗概为证据；LegalBench则采用Corporate Lobbying任务中的CL-Bill和CL-Company两个子集，各500条，分别提供法律法案和公司描述。它们用于检验结论能否跨越叙事文本与高难度法律文本。为遵守数据集数量限制，此处按实验角色合并说明；原文未明确报告数据划分。
-- ConflictQA为合成数据，包含两个各1244条的配对子集：ConflictQA-Parametric中的上下文与LLM参数知识一致，ConflictQA-Counter中的上下文与参数知识相冲突。该数据集用于直接比较知识一致性对真值向量几何变化的影响；原文未明确报告数据划分。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- DRUID的三个子集分别独立分析：Borderlines（982条，地理事实核查上下文）、Politifact（907条，政治事实核查上下文）和ScienceFeedback（618条，科学事实核查上下文）。三者均为真实世界数据，作用是检验不同事实核查领域中的上下文效应。原文给出数据行数、平均上下文词数及Flesch易读性，但所供章节未明确报告训练、验证和测试划分。
+- MF2含1736条真实世界样本，以上下文较长的电影剧情梗概为证据；LegalBench则采用Corporate Lobbying任务中的CL-Bill和CL-Company两个子集，各500条，分别提供法律法案和公司描述。它们用于检验结论能否跨越叙事文本与高难度法律文本。为遵守数据集数量限制，此处按实验角色合并说明；原文未明确报告数据划分。
+- ConflictQA为合成数据，包含两个各1244条的配对子集：ConflictQA-Parametric中的上下文与LLM参数知识一致，ConflictQA-Counter中的上下文与参数知识相冲突。该数据集用于直接比较知识一致性对真值向量几何变化的影响；原文未明确报告数据划分。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **方向变化θ**
 
 衡量加入上下文前后两个真值向量之间的夹角，即上下文使“真假分离方向”旋转了多少。θ接近90°表示两个方向近似正交，较小表示方向更一致；该指标需要结合层位置和实验条件解释。 （无统一的越高或越低越好标准；它是描述性几何指标。更大的θ表示上下文对真值表示方向的重定向更强，而非模型性能必然更好。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **真值向量相对幅度**
 
 比较加入上下文后与无上下文时真值向量的长度，反映激活空间中真实陈述与虚假陈述表征的分离强度被放大还是减弱。 （无统一优劣方向；相对幅度增大表示真假表征分离更强，但仅凭该几何量不能推出回答准确率提高。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **Flesch Reading Ease**
 
@@ -454,7 +465,9 @@ $$
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -485,7 +498,11 @@ $$
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Across four LLMs and four datasets, we find that (1) truth vectors are roughly orthogonal in early layers, converge in middle layers, and may stabilize or continue increasing in later layers;</span>
+<div class="experiment-evidence" markdown="1">
+
+Across four LLMs and four datasets, we find that (1) truth vectors are roughly orthogonal in early layers, converge in middle layers, and may stabilize or continue increasing in later layers;
+
+</div>
 
 </details>
 
@@ -513,7 +530,11 @@ $$
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">(2) adding context generally increases the truth vector magnitude, i.e., the separation between true and false representations in the activation space is amplified;</span>
+<div class="experiment-evidence" markdown="1">
+
+(2) adding context generally increases the truth vector magnitude, i.e., the separation between true and false representations in the activation space is amplified;
+
+</div>
 
 </details>
 
@@ -541,7 +562,11 @@ $$
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">(3) larger models distinguish relevant from irrelevant context mainly through directional change (θ), while smaller models show this distinction through magnitude differences.</span>
+<div class="experiment-evidence" markdown="1">
+
+(3) larger models distinguish relevant from irrelevant context mainly through directional change (θ), while smaller models show this distinction through magnitude differences.
+
+</div>
 
 </details>
 

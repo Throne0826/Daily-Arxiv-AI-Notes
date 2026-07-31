@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "knowledge_editing"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:25.545586+00:00"
+generated_at: "2026-07-30T10:14:52.824667+00:00"
 source_sha256: "df2f3295648ffe6c8fbc95d5a18ae4ecec61eaec3a86f033953765880b7e863a"
 tags:
   - "知识编辑"
@@ -38,7 +38,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2607.26455v1) · [PDF 下载](https://arxiv.org/pdf/2607.26455v1) · **关键词** 大语言模型, 长期参数记忆, 持续知识编辑, 灾难性遗忘, 遗忘曲线, 参数干扰, 概念型问答, 场景型问答  
+[arXiv 原文](https://arxiv.org/abs/2607.26455v1) · [PDF 下载](https://arxiv.org/pdf/2607.26455v1) · **关键词** 大语言模型, 长期参数记忆, 持续知识编辑, 灾难性遗忘, 遗忘曲线, 参数干扰, 概念型问答, 场景型问答<br>
 
 
 </div>
@@ -87,21 +87,21 @@ ForgetBench把知识编辑从“一次修改后是否答对”的静态测试，
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **长期参数记忆**
 
 指编码在模型参数中、在当前输入结束后仍可保留的知识。本文考察这种知识经过多轮参数更新后是否衰退，而不是模型能否从上下文或外部数据库中重新找到信息。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **知识编辑**
 
 指在不完整重训模型的情况下，有针对性地改变某项事实关联，例如让模型对特定问题输出新的答案。编辑可以直接修改权重，也可以由辅助模型预测更新量或先定位关键组件再实施修改。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **遗忘曲线与参数干扰**
 
@@ -209,11 +209,11 @@ ForgetBench不是一种新的模型训练或知识编辑算法，而是一套评
 
 #### 构造概念型原子知识流
 
-为每个主体分别采样编辑前属性值 A^{wrong} 与独立的编辑后目标值 A^{right}，组成三元组 (Q,A^{right},A^{wrong})；不同主体之间不建立依赖关系。
+为每个主体分别采样编辑前属性值 $A^{wrong}$ 与独立的编辑后目标值 $A^{right}$，组成三元组 ($Q,A^{right},A^{wrong})$；不同主体之间不建立依赖关系。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：独立采样的主体、预定义属性值分布和固定属性查询模板。  
+**输入**：独立采样的主体、预定义属性值分布和固定属性查询模板。<br>
 **输出**：由相互独立的原子事实组成、具有时间顺序的概念型QA序列。
 
 </div>
@@ -229,12 +229,12 @@ ForgetBench不是一种新的模型训练或知识编辑算法，而是一套评
 
 #### 构造场景型结构化知识流
 
-在 K 轮模拟中增删智能体并生成智能体—物品交互，得到异构知识图；从中抽取 N 个具有受控重叠的 L 大小子图，将其规则化改写为自然语言上下文，再由生成模型产生每题一个正确答案和三个干扰项，并随机选取一个干扰项作为 A^{wrong}。
+在 K 轮模拟中增删智能体并生成智能体—物品交互，得到异构知识图；从中抽取 N 个具有受控重叠的 L 大小子图，将其规则化改写为自然语言上下文，再由生成模型产生每题一个正确答案和三个干扰项，并随机选取一个干扰项作为 $A^{wrong}$。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：模拟轮数 K、子图规模 L、子图数 N、每个子图的问题数 t，以及初始智能体集合。  
-**输出**：长度 T=N\times t 的场景型QA序列 \mathcal{D}，其中每项为 (Q_{ij},A_{ij}^{right},A_{ij}^{wrong})。
+**输入**：模拟轮数 K、子图规模 L、子图数 N、每个子图的问题数 t，以及初始智能体集合。<br>
+**输出**：长度 $T=N\times t$ 的场景型QA序列 $\mathcal{D}$，其中每项为 ($Q_{ij},A_{ij}^{right},A_{ij}^{wrong})$。
 
 </div>
 
@@ -249,11 +249,11 @@ ForgetBench不是一种新的模型训练或知识编辑算法，而是一套评
 
 #### 执行顺序知识编辑与周期性回测
 
-按序将各QA目标答案持续写入模型，并在每完成 k 次编辑后，对截至当前已经编辑的所有知识共同测试；同时改变总序列长度 t_n=nk，以覆盖不同时间跨度。
+按序将各QA目标答案持续写入模型，并在每完成 k 次编辑后，对截至当前已经编辑的所有知识共同测试；同时改变总序列长度 $t_n=nk$，以覆盖不同时间跨度。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：概念型或场景型QA序列、待测语言模型、外部知识编辑方法、最大编辑长度 T 和评测间隔 k。  
+**输入**：概念型或场景型QA序列、待测语言模型、外部知识编辑方法、最大编辑长度 T 和评测间隔 k。<br>
 **输出**：各编辑阶段的模型状态，以及每条知识在多个后续阶段上的预测结果。
 
 </div>
@@ -269,12 +269,12 @@ ForgetBench不是一种新的模型训练或知识编辑算法，而是一套评
 
 #### 建立时空正确性矩阵
 
-将第 t 个评测轮次对第 i 次编辑知识的正确性记为 \mathcal{Z}[t,i]\in\{0,1\}，其中 i\leq tk；横向按记忆年龄 \Delta=tk-i 聚合，纵向跟踪同一知识跨轮次的状态。
+将第 t 个评测轮次对第 i 次编辑知识的正确性记为 $\mathcal{Z}[t,i]\in\{0,1\}$，其中 $i\leq tk$；横向按记忆年龄 $\Delta=tk-i$ 聚合，纵向跟踪同一知识跨轮次的状态。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：每个评测轮次对当前及历史问题的回答。  
-**输出**：具有三角形观测范围的二值矩阵 \mathcal{Z}，即后续遗忘量化的统一数据表示。
+**输入**：每个评测轮次对当前及历史问题的回答。<br>
+**输出**：具有三角形观测范围的二值矩阵 $\mathcal{Z}$，即后续遗忘量化的统一数据表示。
 
 </div>
 
@@ -316,7 +316,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：ES只取矩阵中每轮最新写入知识对应的位置，回答“刚编辑完是否学会”；Ret则在每轮排除最新项后平均所有旧知识，回答“过去写入的内容还剩多少”。两者必须同时观察，因为一个方法可能容易写入新事实，却会严重覆盖旧事实。  
+**直观理解**：ES只取矩阵中每轮最新写入知识对应的位置，回答“刚编辑完是否学会”；Ret则在每轮排除最新项后平均所有旧知识，回答“过去写入的内容还剩多少”。两者必须同时观察，因为一个方法可能容易写入新事实，却会严重覆盖旧事实。<br>
 **原文位置**：第4.1节，公式(1)
 
 </div>
@@ -333,7 +333,7 @@ $$
 
 **符号说明**
 
-- $\mathcal{F}(\Delta)$：记忆年龄为 \Delta 时的平均知识保留率。
+- $\mathcal{F}(\Delta)$：记忆年龄为 $\Delta$ 时的平均知识保留率。
 - $\Delta$：记忆年龄，即某知识写入后经历的后续编辑次数。
 - $t$：评测轮次索引。
 - $k$：每个评测间隔包含的编辑步数。
@@ -343,7 +343,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：该式把写入时间不同、但都经历了相同数量后续编辑的知识放在一起求平均，从而分离“知识有多老”与“它在序列中的绝对位置”。曲线下降表示随编辑累积发生遗忘；论文还由此计算半衰期、AUF和局部Speed，但这些是该核心曲线的派生统计量。  
+**直观理解**：该式把写入时间不同、但都经历了相同数量后续编辑的知识放在一起求平均，从而分离“知识有多老”与“它在序列中的绝对位置”。曲线下降表示随编辑累积发生遗忘；论文还由此计算半衰期、AUF和局部Speed，但这些是该核心曲线的派生统计量。<br>
 **原文位置**：第4.2节，公式(2)
 
 </div>
@@ -369,7 +369,7 @@ $$
 
 **2. 顺序编辑与评测矩阵模块**
 
-知识按时间顺序注入，每 k 次编辑执行一次历史知识联合回测，并用 \mathcal{Z}[t,i] 表示第 t 轮对第 i 个知识项的正确性。记忆年龄定义为 \Delta=tk-i，使不同写入时刻的知识可以按经历过的后续编辑次数对齐。
+知识按时间顺序注入，每 k 次编辑执行一次历史知识联合回测，并用 $\mathcal{Z}[t,i]$ 表示第 t 轮对第 i 个知识项的正确性。记忆年龄定义为 $\Delta=tk-i$，使不同写入时刻的知识可以按经历过的后续编辑次数对齐。
 
 > 直观理解：这一步把连续编辑过程变成可分析的时间记录。按记忆年龄对齐后，早写入和晚写入的知识可以在相同“经历了多少次干扰”的条件下公平比较。
 
@@ -381,11 +381,11 @@ ES与Ret分别衡量写入瞬间和历史知识总体正确率；遗忘曲线及
 
 **训练与推理**
 
-评测前先生成概念型和场景型QA序列。运行时，从未编辑或相应起始模型出发，使用待测知识编辑方法按序把每个 A^{right} 作为目标知识注入模型；每完成 k 个编辑步骤，对当前为止的全部问题执行推理，并将回答是否匹配目标答案写入 \mathcal{Z}。随后在不同总序列长度上重复该流程，从 \mathcal{Z} 计算即时写入、历史保留、年龄衰减和单实例状态转换指标；再用查询改写版本测试泛化，以生成文本中的有效词法token比例检查流畅性。原文节选未明确给出具体被测编辑算法的优化步骤、答案匹配规则或模型解码配置，因此不能把这些实现归属于ForgetBench本身。
+评测前先生成概念型和场景型QA序列。运行时，从未编辑或相应起始模型出发，使用待测知识编辑方法按序把每个 $A^{right}$ 作为目标知识注入模型；每完成 k 个编辑步骤，对当前为止的全部问题执行推理，并将回答是否匹配目标答案写入 $\mathcal{Z}$。随后在不同总序列长度上重复该流程，从 $\mathcal{Z}$ 计算即时写入、历史保留、年龄衰减和单实例状态转换指标；再用查询改写版本测试泛化，以生成文本中的有效词法token比例检查流畅性。原文节选未明确给出具体被测编辑算法的优化步骤、答案匹配规则或模型解码配置，因此不能把这些实现归属于ForgetBench本身。
 
 **复现信息**
 
-场景型生成的关键规模关系为 T=N\times t：先运行 K 轮交互模拟，再从完整知识图抽取 N 个大小为 L 的子图，每个子图生成 t 道题；每题包含一个正确选项和三个错误候选，并从错误候选中抽取 A^{wrong}。评测每隔 k 次编辑进行一次，且考察长度集合 \{t_n\}_{n=0}^{T/k}，其中 t_n=nk。半衰期计算前对遗忘曲线做轻量平滑，并在线性插值下估计首次跌至 \mathcal{F}(0)/2 的位置；图4仅为可视化采用bin size为10的均值聚合，不应与核心原始正确性矩阵混淆。K、L、N、t、T和k的具体数值在所给章节中原文未明确报告。
+场景型生成的关键规模关系为 $T=N\times t$：先运行 K 轮交互模拟，再从完整知识图抽取 N 个大小为 L 的子图，每个子图生成 t 道题；每题包含一个正确选项和三个错误候选，并从错误候选中抽取 $A^{wrong}$。评测每隔 k 次编辑进行一次，且考察长度集合 \{$t_n\}_{n=0}^{T/k}$，其中 $t_n=nk$。半衰期计算前对遗忘曲线做轻量平滑，并在线性插值下估计首次跌至 $\mathcal{F}(0)/2$ 的位置；图4仅为可视化采用bin size为10的均值聚合，不应与核心原始正确性矩阵混淆。K、L、N、t、T和k的具体数值在所给章节中原文未明确报告。
 
 </details>
 
@@ -397,26 +397,37 @@ ES与Ret分别衡量写入瞬间和历史知识总体正确率；遗忘曲线及
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- ForgetBench概念型问答：人物档案从包含2500个不同档案的名称池中随机抽样，用于尽量隔离上下文关系，测试编辑知识本身是否被写入参数并在后续编辑后保留。原文未明确报告该部分单独的问题数量及训练、验证、测试划分。
-- ForgetBench场景型问答：由20个Qwen2.5-32B代理进行超过50轮交互，形成含56,095个节点和96,082条边的交互图；从中随机抽取2500个约含20个节点、任意两者最大重叠率为20%的子图，再交给专门代理生成问题。其作用是测试关系结构和语境线索能否帮助长期记忆检索。
-- 完整ForgetBench共包含6431个问题实例。实验把连续编辑序列按时间排列，在多个编辑阶段重复测量知识表现；原文未明确报告概念型与场景型实例的具体分配，也未明确给出常规训练集、验证集和测试集划分。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- ForgetBench概念型问答：人物档案从包含2500个不同档案的名称池中随机抽样，用于尽量隔离上下文关系，测试编辑知识本身是否被写入参数并在后续编辑后保留。原文未明确报告该部分单独的问题数量及训练、验证、测试划分。
+- ForgetBench场景型问答：由20个Qwen2.5-32B代理进行超过50轮交互，形成含56,095个节点和96,082条边的交互图；从中随机抽取2500个约含20个节点、任意两者最大重叠率为20%的子图，再交给专门代理生成问题。其作用是测试关系结构和语境线索能否帮助长期记忆检索。
+- 完整ForgetBench共包含6431个问题实例。实验把连续编辑序列按时间排列，在多个编辑阶段重复测量知识表现；原文未明确报告概念型与场景型实例的具体分配，也未明确给出常规训练集、验证集和测试集划分。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **ES与Ret**
 
 ES衡量目标知识在编辑后是否成功获得，Ret衡量该知识经过后续连续编辑后仍能被正确召回的程度。两者分别对应“写进去”和“过一段编辑序列后还记得”，不能只凭ES判断长期记忆。 （越高越好；高ES表示即时编辑有效，高Ret表示对后续参数干扰更稳健。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
-**遗忘动态指标（Δ_{1/2}、AUF与Speed）**
+**遗忘动态指标（$Δ_{1/2}$、AUF与Speed）**
 
-Δ_{1/2}表示记忆表现衰减到指定半值所经历的编辑跨度；AUF概括整个时间区间内遗忘曲线下的总体保持水平；Speed刻画随连续编辑发生的变化速率。三者用于区分瞬时崩溃、平稳衰减、长期平台和异常回升等动态，而不仅是比较最终时刻。 （Δ_{1/2}和AUF越高通常越好；Speed越接近0表示记忆随时间更稳定。负Speed可能对应后期回升，并不自动证明形成了可靠记忆。）
+$Δ_{1/2}$表示记忆表现衰减到指定半值所经历的编辑跨度；AUF概括整个时间区间内遗忘曲线下的总体保持水平；Speed刻画随连续编辑发生的变化速率。三者用于区分瞬时崩溃、平稳衰减、长期平台和异常回升等动态，而不仅是比较最终时刻。 （$Δ_{1/2}$和AUF越高通常越好；Speed越接近0表示记忆随时间更稳定。负Speed可能对应后期回升，并不自动证明形成了可靠记忆。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **Gen**
 
@@ -424,7 +435,9 @@ ES衡量目标知识在编辑后是否成功获得，Ret衡量该知识经过后
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -455,7 +468,11 @@ AlphaEdit在保持指标上最强，但出现最严重的保持—泛化冲突�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">This trade-off is most severe in high-capacity models: on DeepSeek-R1, AlphaEdit’s peak Ret (0.979) directly corresponds to a devastating Gen score of -0.930, and on Qwen-2.5, its strong Ret (0.885) is accompanied by a Gen of -0.559.</span>
+<div class="experiment-evidence" markdown="1">
+
+This trade-off is most severe in high-capacity models: on DeepSeek-R1, AlphaEdit’s peak Ret (0.979) directly corresponds to a devastating Gen score of -0.930, and on Qwen-2.5, its strong Ret (0.885) is accompanied by a Gen of -0.559.
+
+</div>
 
 </details>
 
@@ -483,7 +500,11 @@ AlphaEdit在保持指标上最强，但出现最严重的保持—泛化冲突�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">The relational density narrows the performance gap between AlphaEdit and UltraEdit, while also alleviating AlphaEdit’s catastrophic generalization drop (e.g., its Gen score on DeepSeek-R1 improves from -0.930 to -0.327).</span>
+<div class="experiment-evidence" markdown="1">
+
+The relational density narrows the performance gap between AlphaEdit and UltraEdit, while also alleviating AlphaEdit’s catastrophic generalization drop (e.g., its Gen score on DeepSeek-R1 improves from -0.930 to -0.327).
+
+</div>
 
 </details>
 
@@ -511,7 +532,11 @@ WISE在该设置下达到Flu 0.999且Gen约为0，但作者认为其实际长期
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Conversely, WISE achieves near-perfect fluency (Flu: 0.999) and generalization (Gen ≈ 0) but limited actual retention, proving that fluent generation does not equate to genuine memory preservation.</span>
+<div class="experiment-evidence" markdown="1">
+
+Conversely, WISE achieves near-perfect fluency (Flu: 0.999) and generalization (Gen ≈ 0) but limited actual retention, proving that fluent generation does not equate to genuine memory preservation.
+
+</div>
 
 </details>
 

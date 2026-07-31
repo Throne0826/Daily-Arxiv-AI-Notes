@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "llm_evaluation"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:24.793711+00:00"
+generated_at: "2026-07-30T10:14:52.563205+00:00"
 source_sha256: "d4d40157724313ae46ee70e372d8fa1fe19f270f039d36934ed5393605a25e77"
 tags:
   - "LLM 评测"
@@ -37,7 +37,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2607.27155v1) · [PDF 下载](https://arxiv.org/pdf/2607.27155v1) · **关键词** 大语言模型智能体, 办公套件任务, 长周期工作流, 智能体评测, 任务级经济锚定, 代码验证器, 最终交付物  
+[arXiv 原文](https://arxiv.org/abs/2607.27155v1) · [PDF 下载](https://arxiv.org/pdf/2607.27155v1) · **关键词** 大语言模型智能体, 办公套件任务, 长周期工作流, 智能体评测, 任务级经济锚定, 代码验证器, 最终交付物<br>
 **项目页**: [https://omegause-officeval.github.io](https://omegause-officeval.github.io)  
 
 </div>
@@ -86,21 +86,21 @@ OmegaUse-OfficeVal旨在检验大语言模型智能体能否以合理成本完�
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **大语言模型智能体（LLM agent）**
 
 以大语言模型为核心、能够规划步骤并调用 GUI、脚本或办公软件等工具完成任务的系统。本文不限定智能体必须采用哪种操作路径，而主要检查其最终交付物。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **长周期办公套件任务（long-horizon office-suite task）**
 
 需要持续执行多个相互依赖的步骤，最终生成文档、电子表格、演示文稿或 PDF 等成果的办公工作。这里的“长周期”以实际人工劳动时间体现，而不只是用点击次数、应用数量或对话轮数衡量。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **任务级经济锚定（task-level economic grounding）**
 
@@ -194,7 +194,7 @@ LLM智能体正从自然语言问答和编程辅助走向“vibe working”，�
 
 <div class="paper-section-deck" markdown="1">
 
-本节方法并非训练智能体，而是为每个办公任务构造可靠的人类劳动时间基准。给定任务 t 和标注员池 \mathcal{A}，系统先随机安排两名标注员独立完成任务，记录包含返工在内的总耗时，并由资深专家进行质量门控；只有最终通过检查的交付物才产生有效时间。若两人的耗时相差超过 30%，则引入第三名标注员补充测量。最终，人类劳动时间 H_t 定义为全部有效耗时中最短两个值的平均数，同时根据初次质量和相对速度给标注员计分，并按日汇总分数发放效率奖金。
+本节方法并非训练智能体，而是为每个办公任务构造可靠的人类劳动时间基准。给定任务 t 和标注员池 $\mathcal{A}$，系统先随机安排两名标注员独立完成任务，记录包含返工在内的总耗时，并由资深专家进行质量门控；只有最终通过检查的交付物才产生有效时间。若两人的耗时相差超过 30%，则引入第三名标注员补充测量。最终，人类劳动时间 $H_t$ 定义为全部有效耗时中最短两个值的平均数，同时根据初次质量和相对速度给标注员计分，并按日汇总分数发放效率奖金。
 
 这一设计试图同时控制“赶工造成低质量”和“个别人员异常缓慢”两类偏差：返工时间不会被隐去，初次失败者也不能凭最终合格获得效率分；而取两个较快且质量合格的时间求均值，意在估计熟练人员在合理质量约束下完成任务所需的劳动，而非普通人员耗时的总体均值。该时间测量随后可作为基准中的任务级经济信号，但所给章节没有展开任务价格代理、模型推理成本或智能体执行流程的计算方法。
 
@@ -210,11 +210,11 @@ LLM智能体正从自然语言问答和编程辅助走向“vibe working”，�
 
 #### 双人随机分配与独立计时
 
-从 \mathcal{A} 中随机选择两名标注员 a_1、a_2，令其分别完成同一任务，并独立记录完成时间 \tau_1、\tau_2。
+从 $\mathcal{A}$ 中随机选择两名标注员 $a_1$、$a_2$，令其分别完成同一任务，并独立记录完成时间 $\tau_1$、$\tau_2$。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：办公任务 t 与标注员池 \mathcal{A}  
+**输入**：办公任务 t 与标注员池 $\mathcal{A}$<br>
 **输出**：两份候选交付物及其初始完成时间记录
 
 </div>
@@ -230,11 +230,11 @@ LLM智能体正从自然语言问答和编程辅助走向“vibe working”，�
 
 #### 专家质量门控与返工计时
 
-资深专家检查交付物是否满足任务要求；若不合格，则要求持续修改直至通过，并把全部修改时间计入 \tau_i。最终通过者的时间被视为有效，但只要发生过返工，其任务分数就设为 0。
+资深专家检查交付物是否满足任务要求；若不合格，则要求持续修改直至通过，并把全部修改时间计入 $\tau_i$。最终通过者的时间被视为有效，但只要发生过返工，其任务分数就设为 0。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：每名标注员提交的交付物及当前累计耗时  
+**输入**：每名标注员提交的交付物及当前累计耗时<br>
 **输出**：质量合格的交付物、有效总耗时、是否返工的状态与初步任务分数
 
 </div>
@@ -254,7 +254,7 @@ LLM智能体正从自然语言问答和编程辅助走向“vibe working”，�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：a_1、a_2 的有效耗时及返工状态  
+**输入**：$a_1$、$a_2$ 的有效耗时及返工状态<br>
 **输出**：前两名标注员的任务级效率分数，以及是否需要第三次测量的判定
 
 </div>
@@ -270,11 +270,11 @@ LLM智能体正从自然语言问答和编程辅助走向“vibe working”，�
 
 #### 异常差异下的第三人复测
 
-将同一任务交给第三名标注员 a_3，并执行相同质量门控；若其返工则得 0 分，否则当 \tau_3 小于原较短时间的 70% 时得 2 分，大于原较长时间的 1.3 倍时得 1 分，其余情况得 1.5 分。
+将同一任务交给第三名标注员 $a_3$，并执行相同质量门控；若其返工则得 0 分，否则当 $\tau_3$ 小于原较短时间的 70% 时得 2 分，大于原较长时间的 1.3 倍时得 1 分，其余情况得 1.5 分。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：满足 \max(\tau_1,\tau_2)>1.3\min(\tau_1,\tau_2) 的两次有效计时  
+**输入**：满足 $\max(\tau_1,\tau_2)>1.3\min(\tau_1,\tau_2)$ 的两次有效计时<br>
 **输出**：第三个有效完成时间及第三名标注员的任务分数
 
 </div>
@@ -315,7 +315,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：若较慢者比较快者至少慢 30%，仅靠这两次测量不足以稳定估计任务耗时，因此系统要求第三人独立复测。30% 阈值是该流程预设的规则，所给原文未报告其统计估计过程或敏感性分析。  
+**直观理解**：若较慢者比较快者至少慢 30%，仅靠这两次测量不足以稳定估计任务耗时，因此系统要求第三人独立复测。30% 阈值是该流程预设的规则，所给原文未报告其统计估计过程或敏感性分析。<br>
 **原文位置**：Appendix C，Algorithm 1，Lines 25、30–32
 
 </div>
@@ -334,13 +334,13 @@ $$
 
 - $t$：待测量的人类办公任务
 - $\mathcal{T}_{\mathrm{valid}}$：任务 t 的全部质量合格完成时间集合
-- $\tau_{t,(1)}$：集合 \mathcal{T}_{\mathrm{valid}} 中最短的有效完成时间
-- $\tau_{t,(2)}$：集合 \mathcal{T}_{\mathrm{valid}} 中第二短的有效完成时间
+- $\tau_{t,(1)}$：集合 $\mathcal{T}_{\mathrm{valid}}$ 中最短的有效完成时间
+- $\tau_{t,(2)}$：集合 $\mathcal{T}_{\mathrm{valid}}$ 中第二短的有效完成时间
 - $H_t$：任务 t 的最终人类劳动时间估计
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：该式不对所有参与者耗时求平均，而只平均两个最快且质量合格的记录。这样更接近熟练执行者的合理劳动时间，并减少异常缓慢记录的影响，但也可能低于一般工作人员的典型耗时。  
+**直观理解**：该式不对所有参与者耗时求平均，而只平均两个最快且质量合格的记录。这样更接近熟练执行者的合理劳动时间，并减少异常缓慢记录的影响，但也可能低于一般工作人员的典型耗时。<br>
 **原文位置**：Appendix C，Algorithm 1，Lines 44–46；原文以文字规定“average of the two shortest values”，此处按其数学含义形式化
 
 </div>
@@ -378,11 +378,11 @@ $$
 
 **训练与推理**
 
-不涉及模型训练或模型推理。完整执行过程是：对每个任务随机安排两名标注员，记录包含返工在内的质量合格耗时；根据返工状态与相对速度计分；当两次耗时相差超过 30% 时增加第三名标注员并执行同样的质量流程；最后从全部有效时间中取最短两个值的平均数作为 H_t。标注员任务分数按日汇总并映射为奖金倍率，以在质量约束下鼓励高效完成。
+不涉及模型训练或模型推理。完整执行过程是：对每个任务随机安排两名标注员，记录包含返工在内的质量合格耗时；根据返工状态与相对速度计分；当两次耗时相差超过 30% 时增加第三名标注员并执行同样的质量流程；最后从全部有效时间中取最短两个值的平均数作为 $H_t$。标注员任务分数按日汇总并映射为奖金倍率，以在质量约束下鼓励高效完成。
 
 **复现信息**
 
-复现该测量协议所需的关键规则包括：每项任务初始随机分给两人；专家检查失败后必须返工，返工时间计入总耗时；发生返工即记 0 分；双人时间差阈值为 1.3 倍，超过后引入第三人；第三人未返工时，以原较短时间的 0.7 倍和原较长时间的 1.3 倍作为计分边界；H_t 取所有有效记录中最短两次的平均值。奖金按日汇总，仅在质量有效者中排序，前 25% 和第 25%–50% 分别获得 1.5 倍与 1.25 倍基础日薪；专家人数、检查清单、标注员池规模及随机分配实现细节在所给原文中未明确报告。
+复现该测量协议所需的关键规则包括：每项任务初始随机分给两人；专家检查失败后必须返工，返工时间计入总耗时；发生返工即记 0 分；双人时间差阈值为 1.3 倍，超过后引入第三人；第三人未返工时，以原较短时间的 0.7 倍和原较长时间的 1.3 倍作为计分边界；$H_t$ 取所有有效记录中最短两次的平均值。奖金按日汇总，仅在质量有效者中排序，前 25% 和第 25%–50% 分别获得 1.5 倍与 1.25 倍基础日薪；专家人数、检查清单、标注员池规模及随机分配实现细节在所给原文中未明确报告。
 
 </details>
 
@@ -394,24 +394,35 @@ $$
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- OmegaUse-OfficeVal：包含100个真实办公请求改编任务，以高层用户指令和多模态输入文件为输入，以最终办公文档为评测对象。数据共含220个输入文件和115个目标交付物；输入可包含图像、视频、DOCX、PPTX、XLSX和PDF，输出主要为DOCX、PPTX、XLSX及少量PDF。每个任务同时提供人类劳动时间、任务价格代理和由细粒度评分规则生成的代码验证器。原文未明确报告训练集、验证集和测试集划分；该数据集在实验中整体作为代理能力与经济效率评测集使用。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- OmegaUse-OfficeVal：包含100个真实办公请求改编任务，以高层用户指令和多模态输入文件为输入，以最终办公文档为评测对象。数据共含220个输入文件和115个目标交付物；输入可包含图像、视频、DOCX、PPTX、XLSX和PDF，输出主要为DOCX、PPTX、XLSX及少量PDF。每个任务同时提供人类劳动时间、任务价格代理和由细粒度评分规则生成的代码验证器。原文未明确报告训练集、验证集和测试集划分；该数据集在实验中整体作为代理能力与经济效率评测集使用。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **Score**
 
 汇总全部任务由代码验证器给出的任务得分，用于衡量最终交付物对指令与细粒度评分规则的总体满足程度；评分还会惩罚非预期修改或对文档造成的可避免损坏。 （越高越好，因为更高得分表示交付物完成了更多要求且引入了更少错误。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **Time-Weighted Score**
 
 以每项任务记录的人类劳动时间作为权重，对任务得分加权求和。它让耗费更多人工时间的任务对总结果产生更大影响，可近似理解为代理覆盖了多少高人工投入工作的完成价值。 （越高越好，因为更高值表示模型在需要更多人类劳动时间的任务上完成得更好；但它不是模型自身运行时间指标。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **Price-Weighted Score**
 
@@ -419,7 +430,9 @@ $$
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -450,7 +463,11 @@ $$
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">The human achieves a score of 27.79, substantially outperforming all evaluated LLMs, but remains far from perfect.</span>
+<div class="experiment-evidence" markdown="1">
+
+The human achieves a score of 27.79, substantially outperforming all evaluated LLMs, but remains far from perfect.
+
+</div>
 
 </details>
 
@@ -478,7 +495,11 @@ GLM-5.2以17.91取得最高LLM平均Score，但Qwen3.7-Plus以34.73的Time-Weigh
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Qwen3.7-Plus obtains the highest time-weighted and price-weighted scores among the evaluated models, suggesting that it performs relatively better on tasks associated with greater human labor time or higher task price.</span>
+<div class="experiment-evidence" markdown="1">
+
+Qwen3.7-Plus obtains the highest time-weighted and price-weighted scores among the evaluated models, suggesting that it performs relatively better on tasks associated with greater human labor time or higher task price.
+
+</div>
 
 </details>
 
@@ -506,9 +527,13 @@ Qwen3.7-Plus的平均成本最低，为每任务0.2152美元，平均用时0.193
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Human | 27.79 | 54.45 | 144.61 | $6.8560 | 2.324
+<div class="experiment-evidence" markdown="1">
+
+Human | 27.79 | 54.45 | 144.61 | $6.8560 | 2.324
 Qwen3.7-Plus | 17.51 | 34.73 | 106.50 | $0.2152 | 0.193
-DeepSeek-V4-Pro | 14.48 | 27.14 | 79.33 | $0.6111 | 0.184</span>
+DeepSeek-V4-Pro | 14.48 | 27.14 | 79.33 | $0.6111 | 0.184
+
+</div>
 
 </details>
 

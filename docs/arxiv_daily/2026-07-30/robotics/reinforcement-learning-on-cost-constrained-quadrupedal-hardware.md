@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "robotics"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:25.672220+00:00"
+generated_at: "2026-07-30T10:14:52.862433+00:00"
 source_sha256: "f9e63aa03f2c82d9fa73eeeb40b05835409b91d4f4d08f2d74f1cc388a59a982"
 tags:
   - "机器人 / 具身智能"
@@ -35,7 +35,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2607.26434v1) · [PDF 下载](https://arxiv.org/pdf/2607.26434v1) · **关键词** 低成本四足机器人, 强化学习控制, 仿真到现实迁移, 执行器延迟, 部分可观测马尔可夫决策过程, 时间感知网络  
+[arXiv 原文](https://arxiv.org/abs/2607.26434v1) · [PDF 下载](https://arxiv.org/pdf/2607.26434v1) · **关键词** 低成本四足机器人, 强化学习控制, 仿真到现实迁移, 执行器延迟, 部分可观测马尔可夫决策过程, 时间感知网络<br>
 
 
 </div>
@@ -84,21 +84,21 @@ tags:
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **仿真到现实迁移（sim-to-real transfer）**
 
 先在仿真器中训练控制策略，再部署到真实机器人。若仿真没有准确覆盖真实执行器的延迟、噪声和响应带宽，策略在仿真中学到的动作时序可能在硬件上失效。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **部分可观测马尔可夫决策过程（POMDP）**
 
 控制器不能直接获得决定未来演化所需的完整当前状态，只能依据不完整或滞后的观测选择动作。本文中，缺少速度与力矩反馈、位置量化以及随机执行延迟共同造成部分可观测性。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **时间感知网络（time-aware network）**
 
@@ -123,28 +123,28 @@ tags:
 
 <div class="notation-list" markdown="1">
 
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$s_t$**
 
 时刻 t 的系统状态；在真实低成本硬件上，该状态不能被策略完整观测。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$a_t$**
 
 策略在时刻 t 发出的动作，即关节位置命令；若延迟为 k 个时间步，该动作到 t+k 才生效。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$k$**
 
 动作从发出到实际生效所经历的时间步数；真实系统中可能随机变化。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\tilde{s}_t=(s_t,a_{t-1},a_{t-2},\ldots,a_{t-k})$**
 
@@ -243,7 +243,7 @@ tags:
 
 <div class="method-step__io" markdown="1">
 
-**输入**：Mini Pupper 2 的舵机延迟和幅值测量，以及速度指令、机体状态、关节状态和上一时刻动作。  
+**输入**：Mini Pupper 2 的舵机延迟和幅值测量，以及速度指令、机体状态、关节状态和上一时刻动作。<br>
 **输出**：包含真实平台主要延迟与执行器限制的并行四足运动训练环境。
 
 </div>
@@ -263,7 +263,7 @@ tags:
 
 <div class="method-step__io" markdown="1">
 
-**输入**：延迟环境产生的 60 维观测、速度命令、奖励与终止信号。  
+**输入**：延迟环境产生的 60 维观测、速度命令、奖励与终止信号。<br>
 **输出**：将当前观测及内部时序状态映射为 12 维关节目标的 LSTM 策略，以及用于对照的其他架构策略。
 
 </div>
@@ -283,7 +283,7 @@ tags:
 
 <div class="method-step__io" markdown="1">
 
-**输入**：真实机器人进行 3 轮开环动作回放所得数据，每个关节 390 个样本，以及策略发出的舵机命令。  
+**输入**：真实机器人进行 3 轮开环动作回放所得数据，每个关节 390 个样本，以及策略发出的舵机命令。<br>
 **输出**：可在部署阶段生成平滑合成关节位置的逐关节舵机模型。
 
 </div>
@@ -303,7 +303,7 @@ LSTM 策略在硬件上以 25 Hz 运行，不采用真实编码器闭环反馈�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：25 Hz 下的速度命令、IMU 角速度与投影重力，以及舵机 MLP 根据策略动作生成的合成关节位置。  
+**输入**：25 Hz 下的速度命令、IMU 角速度与投影重力，以及舵机 MLP 根据策略动作生成的合成关节位置。<br>
 **输出**：可执行前进、后退、横移和偏航命令的真实四足步态，以及持续更新的预测关节状态。
 
 </div>
@@ -345,7 +345,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：第一项根据目标位置与当前位置之差推动关节到位，第二项根据速度提供阻尼。该式既说明训练中的解析执行器如何把位置命令变成力矩，也说明传统 MLP 部署方案为何需要合成位置、速度和力矩；不过真实舵机的响应随关节和步态阶段变化，因此最终 LSTM 部署改用学习到的逐关节 MLP预测位置。  
+**直观理解**：第一项根据目标位置与当前位置之差推动关节到位，第二项根据速度提供阻尼。该式既说明训练中的解析执行器如何把位置命令变成力矩，也说明传统 MLP 部署方案为何需要合成位置、速度和力矩；不过真实舵机的响应随关节和步态阶段变化，因此最终 LSTM 部署改用学习到的逐关节 MLP预测位置。<br>
 **原文位置**：Section II-C Deployment，第 2 项“PD dynamics are simulated”
 
 </div>
@@ -403,26 +403,37 @@ LSTM 时序模块把观测编码为 128 维表示，再输入 actor 的 [512, 25
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- 强化学习仿真环境：用于以 PPO 端到端训练四足运动策略，并评估额外观测延迟、关节状态噪声以及分布外山坡和凹地地形。原文节选未明确报告环境数量、训练步数及训练/测试划分。
-- Mini Pupper 2 真实硬件评测：用于验证开环策略的步态、方向服从性和执行器噪声条件下的 sim-to-real 迁移。评测覆盖前进、后退、横移和偏航指令，但原文未明确报告重复试验次数、路线长度或成功率统计。
-- 真实伺服器开环回放数据：每个关节由 3 轮回放、390 个样本组成，用于训练按关节的 MLP 伺服预测器；原文未明确报告训练集与测试集的具体划分。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- 强化学习仿真环境：用于以 PPO 端到端训练四足运动策略，并评估额外观测延迟、关节状态噪声以及分布外山坡和凹地地形。原文节选未明确报告环境数量、训练步数及训练/测试划分。
+- Mini Pupper 2 真实硬件评测：用于验证开环策略的步态、方向服从性和执行器噪声条件下的 sim-to-real 迁移。评测覆盖前进、后退、横移和偏航指令，但原文未明确报告重复试验次数、路线长度或成功率统计。
+- 真实伺服器开环回放数据：每个关节由 3 轮回放、390 个样本组成，用于训练按关节的 MLP 伺服预测器；原文未明确报告训练集与测试集的具体划分。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **单频正弦拟合决定系数 R²**
 
 衡量 12 个关节动作能被单一周期正弦波解释的程度，用来判断步态是否呈现规则、自持的节律结构；R² 越接近 1，单频振荡解释的波形方差越多。 （更高通常表示更规则的周期节律，但不能单独证明该节律由内部 CPG 产生，也不等同于更高的行走成功率。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **延迟扰动下的动作振幅、频率与抖动**
 
 在训练基线延迟之上继续注入观测延迟，检查关节命令是否仍保持原有振幅、稳定频率和光滑波形；振幅塌缩或频率漂移意味着策略过度依赖过时反馈。 （振幅和频率越接近无额外延迟条件、抖动越低越好；振幅本身并非越大越好。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **相对完整观测步态的相关系数**
 
@@ -430,7 +441,9 @@ LSTM 时序模块把观测编码为 128 维表示，再输入 actor 的 [512, 25
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -461,7 +474,11 @@ LSTM 时序模块把观测编码为 128 维表示，再输入 actor 的 [512, 25
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Sinusoidal fit (R² to a single-frequency sine) across all 12 joints yields mean R² = 0.40 in simulation (complex multi-frequency waveform with corrections, foot placement, contact responses) and mean R² = 0.77 on hardware. The Butterworth low-pass filter, 25 Hz control rate, and open-loop deployment removes the high-frequency corrective behaviors; and the CPG oscillation remained robust at 2.8 Hz, uniform across all joints.</span>
+<div class="experiment-evidence" markdown="1">
+
+Sinusoidal fit (R² to a single-frequency sine) across all 12 joints yields mean R² = 0.40 in simulation (complex multi-frequency waveform with corrections, foot placement, contact responses) and mean R² = 0.77 on hardware. The Butterworth low-pass filter, 25 Hz control rate, and open-loop deployment removes the high-frequency corrective behaviors; and the CPG oscillation remained robust at 2.8 Hz, uniform across all joints.
+
+</div>
 
 </details>
 
@@ -489,7 +506,11 @@ LSTM 即使收到严重滞后的关节信息，仍可依靠内部循环状态维
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">LSTM (solid) maintains amplitude and waveform across all conditions (amp = 0.49 at +320 ms). MLP (dashed) amplitude collapses to 0.16 at +320 ms.</span>
+<div class="experiment-evidence" markdown="1">
+
+LSTM (solid) maintains amplitude and waveform across all conditions (amp = 0.49 at +320 ms). MLP (dashed) amplitude collapses to 0.16 at +320 ms.
+
+</div>
 
 </details>
 
@@ -517,7 +538,11 @@ LSTM 即使收到严重滞后的关节信息，仍可依靠内部循环状态维
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">The LSTM policy deployed open-loop with a single command gain of 0.60–0.75 with a Butterworth low-pass filter at 8 Hz on action output. Directional compliance was confirmed in all commanded directions (forward, backward, strafe, yaw) in both simulation and on the real Mini Pupper 2.</span>
+<div class="experiment-evidence" markdown="1">
+
+The LSTM policy deployed open-loop with a single command gain of 0.60–0.75 with a Butterworth low-pass filter at 8 Hz on action output. Directional compliance was confirmed in all commanded directions (forward, backward, strafe, yaw) in both simulation and on the real Mini Pupper 2.
+
+</div>
 
 </details>
 

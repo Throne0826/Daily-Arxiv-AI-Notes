@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "llm_safety"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:25.505173+00:00"
+generated_at: "2026-07-30T10:14:52.808810+00:00"
 source_sha256: "3d7e9356804494b0772b3d8fd572fc1d6365052d773cdae7aa0289a189f28ea8"
 tags:
   - "LLM 安全"
@@ -37,7 +37,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2607.26998v1) · [PDF 下载](https://arxiv.org/pdf/2607.26998v1) · **关键词** 自主渗透测试代理, 大语言模型代理, 主动欺骗防御, 轨迹自适应欺骗, 诱饵环境, 全局事实一致性, Delay–Divert–Defuse  
+[arXiv 原文](https://arxiv.org/abs/2607.26998v1) · [PDF 下载](https://arxiv.org/pdf/2607.26998v1) · **关键词** 自主渗透测试代理, 大语言模型代理, 主动欺骗防御, 轨迹自适应欺骗, 诱饵环境, 全局事实一致性, Delay–Divert–Defuse<br>
 
 
 </div>
@@ -86,21 +86,21 @@ AgentSnare将对LLM渗透代理的防御从预先布置的静态诱饵，转变�
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **自主渗透测试代理**
 
 由大语言模型负责规划、调用安全工具并解释结果的自动化代理。它不同于固定脚本，会根据每轮工具观察动态改变后续探测与利用行为。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **欺骗制品（deceptive artifact）**
 
 防守方故意向攻击者暴露的虚假但看似可信的信息或对象，例如蜜标、误导文件和提示注入。其目的不是直接修复漏洞，而是影响代理对环境和攻击机会的判断。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **轨迹自适应欺骗**
 
@@ -125,28 +125,28 @@ AgentSnare将对LLM渗透代理的防御从预先布置的静态诱饵，转变�
 
 <div class="notation-list" markdown="1">
 
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\mathrm{Interference@20}$**
 
 前20个交互步骤中，欺骗制品能够影响攻击代理行为的步骤比例；数值越高，表示干扰越持久。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\mathrm{Delay}$**
 
 被诱饵环境吸收的代理工具调用占全部工具调用的比例，用于衡量防御拖延攻击的能力。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\mathrm{PER}$**
 
 Post-Entry Retention，即代理首次进入诱饵后，仍停留在诱饵中的动作占进入后动作的比例，对应 Divert。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\mathrm{Defuse}$**
 
@@ -241,11 +241,11 @@ AgentSnare是一套面向自主渗透智能体的在线、自适应欺骗系统�
 
 #### 接收动作并划分执行表面
 
-智能体依据 h_t 选择 a_t；系统判断该动作指向真实目标还是防御者控制的表面。真实目标动作交给原始环境且不作修改，只有到达防御表面的动作才进入欺骗流程。
+智能体依据 $h_t$ 选择 $a_t$；系统判断该动作指向真实目标还是防御者控制的表面。真实目标动作交给原始环境且不作修改，只有到达防御表面的动作才进入欺骗流程。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：攻击者可见的历史 h_t、攻击智能体 A 选出的工具动作 a_t，以及有限工具调用预算 B。  
+**输入**：攻击者可见的历史 $h_t$、攻击智能体 A 选出的工具动作 $a_t$，以及有限工具调用预算 B。<br>
 **输出**：原环境直接产生的观察，或一个需要为其构造诱饵观察的当前探测请求。
 
 </div>
@@ -265,7 +265,7 @@ AgentSnare是一套面向自主渗透智能体的在线、自适应欺骗系统�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：当前攻击请求、完整交互历史，以及由既有事实和已披露制品组成的当前诱饵状态。  
+**输入**：当前攻击请求、完整交互历史，以及由既有事实和已披露制品组成的当前诱饵状态。<br>
 **输出**：候选观察与其支撑事实的组合。
 
 </div>
@@ -285,8 +285,8 @@ ShadowOS在披露前验证候选制品，并把有效制品实现到诱饵环境
 
 <div class="method-step__io" markdown="1">
 
-**输入**：候选制品、世界事实账本 W_t，以及惰性可供性图 G_t。  
-**输出**：更新后的持久诱饵世界，以及通过验证、可安全披露的观察 o_t。
+**输入**：候选制品、世界事实账本 $W_t$，以及惰性可供性图 $G_t$。<br>
+**输出**：更新后的持久诱饵世界，以及通过验证、可安全披露的观察 $o_t$。
 
 </div>
 
@@ -301,11 +301,11 @@ ShadowOS在披露前验证候选制品，并把有效制品实现到诱饵环境
 
 #### 披露观察并循环展开诱饵
 
-系统将 o_t 返回给攻击者，并把动作—观察对追加到历史形成 h_{t+1}；后续工具调用重复构造、验证和披露过程，直到智能体停止或耗尽预算。
+系统将 $o_t$ 返回给攻击者，并把动作—观察对追加到历史形成 $h_{t+1}$；后续工具调用重复构造、验证和披露过程，直到智能体停止或耗尽预算。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：经验证的观察 o_t、当前动作 a_t 和既有历史 h_t。  
+**输入**：经验证的观察 $o_t$、当前动作 $a_t$ 和既有历史 $h_t$。<br>
 **输出**：扩展后的攻击轨迹，以及沿该轨迹增量形成、全局一致的诱饵环境。
 
 </div>
@@ -348,7 +348,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：该式刻画AgentSnare所作用的闭环：智能体根据过去信息采取动作，环境返回的新观察又会改变下一步决策。防御的关键正是控制防御表面上的观察，同时让该观察由一个可持续交互的诱饵世界支撑。  
+**直观理解**：该式刻画AgentSnare所作用的闭环：智能体根据过去信息采取动作，环境返回的新观察又会改变下一步决策。防御的关键正是控制防御表面上的观察，同时让该观察由一个可持续交互的诱饵世界支撑。<br>
 **原文位置**：Online Artifact Construction and Disclosure—Interaction context，公式(1)
 
 </div>
@@ -371,7 +371,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：该图不是预先生成整个假环境，而是维护攻击者当前可以看到、以及系统接下来可以补建的路径。它使诱饵能够随轨迹展开，并为连续的侦察、提权或横向移动提供结构。  
+**直观理解**：该图不是预先生成整个假环境，而是维护攻击者当前可以看到、以及系统接下来可以补建的路径。它使诱饵能够随轨迹展开，并为连续的侦察、提权或横向移动提供结构。<br>
 **原文位置**：Online Artifact Construction and Disclosure—Decoy state and affordance frontier，公式(2)
 
 </div>
@@ -403,13 +403,13 @@ ShadowOS在候选制品对外披露前执行验证，并将通过验证的对象
 
 **3. 事实账本与惰性可供性图**
 
-世界事实账本 W_t记录已承诺的诱饵对象、属性、关系及攻击者引起的状态变化；图 G_t=(V_t,E_t)的节点表示文件、凭据、服务、用户、容器、内部主机及提权或横向移动机会，边表示对象或攻击机会之间的关系。该图采用惰性构造，只表示当前可见或可能在下一步构造的调查机会。
+世界事实账本 $W_t$记录已承诺的诱饵对象、属性、关系及攻击者引起的状态变化；图 $G_t=(V_t,E_t)$的节点表示文件、凭据、服务、用户、容器、内部主机及提权或横向移动机会，边表示对象或攻击机会之间的关系。该图采用惰性构造，只表示当前可见或可能在下一步构造的调查机会。
 
 > 直观理解：账本负责记住“这个假世界已经发生了什么”，图则负责规划“攻击者接下来还能顺着哪些方向调查”，两者共同维持长期连贯性。
 
 **训练与推理**
 
-训练阶段是离线的：从模拟交互状态出发，在相同攻击上下文下生成并验证多个制品，让不同候选继续演化出后续轨迹，再以这些轨迹监督制品构造策略学习攻击意图与渐进式环境构造。推理阶段是在线的：部署模型读取 h_t 与当前诱饵状态，为触及防御表面的 a_t 构造候选观察和支撑事实；ShadowOS验证并实现有效候选，更新 W_t 与 G_t 后返回 o_t，随后将 (a_t,o_t) 写入历史并继续循环。若动作指向真实目标，原始环境直接处理；整个过程受最多 B 次工具调用的攻击预算约束。
+训练阶段是离线的：从模拟交互状态出发，在相同攻击上下文下生成并验证多个制品，让不同候选继续演化出后续轨迹，再以这些轨迹监督制品构造策略学习攻击意图与渐进式环境构造。推理阶段是在线的：部署模型读取 $h_t$ 与当前诱饵状态，为触及防御表面的 $a_t$ 构造候选观察和支撑事实；ShadowOS验证并实现有效候选，更新 $W_t$ 与 $G_t$ 后返回 $o_t$，随后将 ($a_t,o_t)$ 写入历史并继续循环。若动作指向真实目标，原始环境直接处理；整个过程受最多 B 次工具调用的攻击预算约束。
 
 **复现信息**
 
@@ -425,24 +425,35 @@ ShadowOS在候选制品对外披露前执行验证，并将通过验证的对象
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- CVE-Bench中的15个可部署Web应用漏洞任务。每个任务对应一个真实CVE利用场景，用于同时测试攻击轨迹是否被诱饵接管，以及真实目标最终是否仍被官方评估器判定为成功利用。原文未明确报告数据划分。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- CVE-Bench中的15个可部署Web应用漏洞任务。每个任务对应一个真实CVE利用场景，用于同时测试攻击轨迹是否被诱饵接管，以及真实目标最终是否仍被官方评估器判定为成功利用。原文未明确报告数据划分。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **Delay（%）**
 
 攻击过程中由诱饵吸收的工具调用占比，衡量有限调用预算有多少被从真实目标转移到受控环境。表中按15个CVE级均值报告均值与标准误；总体值为跨攻击者汇总结果。 （越高越好，因为更多调用预算消耗在诱饵上；但它只反映调用去向，不单独证明真实目标未被利用。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **PER（Post-Entry Retention，%）**
 
 代理进入诱饵之后，后续目标导向动作继续落在诱饵中的比例，用于区分短暂上钩与持续滞留。 （越高越好，因为说明代理在调查、验证和调整策略后仍主要与诱饵交互，而非迅速返回真实目标。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **SubDefuse（%）与Verified Exploits**
 
@@ -450,7 +461,9 @@ SubDefuse是有效完成尝试中由诱饵证据支持的比例，检验代理�
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -481,7 +494,11 @@ AgentSnare总体Delay为46.8%，高于Cowrie的17.6%和HoneyLLMd的29.5%；总�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Across attackers, It absorbs 46.8% of all issued tool calls, compared with 17.6% for Cowrie and 29.5% for HoneyLLMd. Its overall PER is 55.9%, a 19.0-point improvement over HoneyLLMd.</span>
+<div class="experiment-evidence" markdown="1">
+
+Across attackers, It absorbs 46.8% of all issued tool calls, compared with 17.6% for Cowrie and 29.5% for HoneyLLMd. Its overall PER is 55.9%, a 19.0-point improvement over HoneyLLMd.
+
+</div>
 
 </details>
 
@@ -509,7 +526,11 @@ AgentSnare的638次有效完成尝试中有574次以诱饵证据为依据，SubD
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Pooling all attackers, CVEs, and repetitions, 574 of 638 valid completion attempts are grounded in decoy evidence, yielding 90.0% SubDefuse. Cowrie and HoneyLLMd reach 29.7% and 72.2%, respectively.</span>
+<div class="experiment-evidence" markdown="1">
+
+Pooling all attackers, CVEs, and repetitions, 574 of 638 valid completion attempts are grounded in decoy evidence, yielding 90.0% SubDefuse. Cowrie and HoneyLLMd reach 29.7% and 72.2%, respectively.
+
+</div>
 
 </details>
 
@@ -537,7 +558,11 @@ AgentSnare的638次有效完成尝试中有574次以诱饵证据为依据，SubD
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Under the pass@3 protocol used for defended conditions, Static Defenses still leave 18/45 pairs exploitable, with the same attacker-wise counts. Cowrie and HoneyLLMd reduce this number to 12/45 and 10/45, respectively, whereas AgentSnare records no verified real-target exploit (0/45).</span>
+<div class="experiment-evidence" markdown="1">
+
+Under the pass@3 protocol used for defended conditions, Static Defenses still leave 18/45 pairs exploitable, with the same attacker-wise counts. Cowrie and HoneyLLMd reduce this number to 12/45 and 10/45, respectively, whereas AgentSnare records no verified real-target exploit (0/45).
+
+</div>
 
 </details>
 

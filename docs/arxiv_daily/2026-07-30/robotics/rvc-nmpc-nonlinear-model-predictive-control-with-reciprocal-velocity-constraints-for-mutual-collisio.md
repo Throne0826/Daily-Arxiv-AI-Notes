@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "robotics"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:25.388294+00:00"
+generated_at: "2026-07-30T10:14:52.771290+00:00"
 source_sha256: "f55ec0edac218536b246977a449d9c6c82396fc1a869db75edd74cf93944a8e0"
 tags:
   - "机器人 / 具身智能"
@@ -34,7 +34,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2512.08574v2) · [PDF 下载](https://arxiv.org/pdf/2512.08574v2) · **关键词** 多无人机系统, 相互碰撞避免, 非线性模型预测控制, 互惠速度约束, 分布式控制, 敏捷无人机飞行  
+[arXiv 原文](https://arxiv.org/abs/2512.08574v2) · [PDF 下载](https://arxiv.org/pdf/2512.08574v2) · **关键词** 多无人机系统, 相互碰撞避免, 非线性模型预测控制, 互惠速度约束, 分布式控制, 敏捷无人机飞行<br>
 **项目页**: [https://youtu.be/LYnn-eDvkec](https://youtu.be/LYnn-eDvkec)  
 
 </div>
@@ -83,21 +83,21 @@ tags:
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **非线性模型预测控制（NMPC）**
 
 NMPC在每个控制周期内利用无人机的非线性动力学模型，预测有限时间范围内的状态，并通过求解优化问题选择控制输入。控制器只执行当前时刻的第一步控制，随后依据新观测重复优化，因此能够及时响应扰动和其他无人机的运动变化。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **速度障碍与互惠避碰**
 
 速度障碍描述一组会使两个运动体在未来发生碰撞的相对速度，避碰可通过选择该集合之外的速度实现。“互惠”表示相遇双方共同承担速度修正，而不是要求其中一方独自绕行。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **分布式多机器人避碰**
 
@@ -210,7 +210,7 @@ RVC-NMPC 是一种面向多无人机高速飞行的去中心化在线控制方�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：本机当前状态，以及由感知或通信得到的其他无人机当前可观测信息。  
+**输入**：本机当前状态，以及由感知或通信得到的其他无人机当前可观测信息。<br>
 **输出**：用于预测的本机初始状态与邻机状态估计。
 
 </div>
@@ -230,7 +230,7 @@ RVC-NMPC 是一种面向多无人机高速飞行的去中心化在线控制方�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：本机与邻机的当前可观测状态，以及预测时域中的时间信息。  
+**输入**：本机与邻机的当前可观测状态，以及预测时域中的时间信息。<br>
 **输出**：可直接加入 NMPC 各预测时刻的碰撞规避约束集合。
 
 </div>
@@ -250,7 +250,7 @@ RVC-NMPC 是一种面向多无人机高速飞行的去中心化在线控制方�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：本机状态、非线性无人机动力学、任务目标或参考运动，以及各预测时刻的 RVC。  
+**输入**：本机状态、非线性无人机动力学、任务目标或参考运动，以及各预测时刻的 RVC。<br>
 **输出**：满足模型与避碰限制的有限时域控制序列。
 
 </div>
@@ -270,7 +270,7 @@ RVC-NMPC 是一种面向多无人机高速飞行的去中心化在线控制方�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：当前一次 NMPC 求得的控制序列及下一控制周期的新观测。  
+**输入**：当前一次 NMPC 求得的控制序列及下一控制周期的新观测。<br>
 **输出**：实时施加给无人机的控制指令，以及下一轮优化所需的更新状态。
 
 </div>
@@ -340,26 +340,37 @@ NMPC 在有限预测时域内显式使用受控无人机的非线性动力学，
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- APCX仿真基准：10架无人机从半径10 m圆周上的位置同时飞往对跖点，刻意使航迹在圆心附近集中交叉，以提高潜在冲突数量。性能测试采用最高20 m/s的速度约束、40 m/s²的加速度约束和0.6 m避碰半径；消融实验沿用10机、半径10 m设置，每种配置统计100次飞行。它用于比较通行效率、成功率和安全裕度。
-- 长时压力仿真：10架无人机在20 m×20 m×1 m受限区域内连续导航，加速度上限40 m/s²、避碰半径1.0 m。实验持续3小时，产生超过50000个目标，总航程6.28×10^5 m，平均速度5.8 m/s、最高速度25.9 m/s。它不是固定训练/测试集，而是用于检验长期运行中罕见近距离事件及累计碰撞风险的压力测试。
-- 真实世界APCX验证：3架实体无人机执行圆周对跖点导航，避碰半径1.5 m，参考加速度上限最高30 m/s²；原文还概述真实飞行速度最高18 m/s。该实验用于验证算法在机载计算、真实动力学、感知与控制误差共同存在时能否运行，而非仅在理想仿真中成立。原文节选中的Table III不完整，因此各加速度档位的完整飞行次数和统计值无法核验。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- APCX仿真基准：10架无人机从半径10 m圆周上的位置同时飞往对跖点，刻意使航迹在圆心附近集中交叉，以提高潜在冲突数量。性能测试采用最高20 m/s的速度约束、40 m/s²的加速度约束和0.6 m避碰半径；消融实验沿用10机、半径10 m设置，每种配置统计100次飞行。它用于比较通行效率、成功率和安全裕度。
+- 长时压力仿真：10架无人机在20 m×20 m×1 m受限区域内连续导航，加速度上限40 m/s²、避碰半径1.0 m。实验持续3小时，产生超过50000个目标，总航程6.28×10^5 m，平均速度5.8 m/s、最高速度25.9 m/s。它不是固定训练/测试集，而是用于检验长期运行中罕见近距离事件及累计碰撞风险的压力测试。
+- 真实世界APCX验证：3架实体无人机执行圆周对跖点导航，避碰半径1.5 m，参考加速度上限最高30 m/s²；原文还概述真实飞行速度最高18 m/s。该实验用于验证算法在机载计算、真实动力学、感知与控制误差共同存在时能否运行，而非仅在理想仿真中成立。原文节选中的Table III不完整，因此各加速度档位的完整飞行次数和统计值无法核验。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **整体飞行时间（Flight time）**
 
 从机器人集合中最早收到导航请求的时刻，到最后一架机器人稳定进入目标点ε邻域的时刻；其中“到达”要求此后持续位于目标邻域内。该指标同时反映避碰绕行、等待和收敛速度。 （越低越好，因为表示所有机器人更快完成整体转移，但必须结合成功率和最小间距判断，不能以牺牲安全为代价。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **成功率（Success rate）**
 
 多次试验中成功完成任务的比例；在本文消融表中用于确认飞行时间差异不是由大量失败试验换来的。 （越高越好；100%表示所统计试验全部完成，但不等同于对任意初始状态都具有理论安全或收敛保证。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **最小互机距离（Minimum mutual distance）**
 
@@ -367,7 +378,9 @@ NMPC 在有限预测时域内显式使用受控无人机的非线性动力学，
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -398,7 +411,11 @@ NMPC 在有限预测时域内显式使用受控无人机的非线性动力学，
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Our approach shows 31 % reduction compared to the best-performing approach, HDSM, even though HDSM does not consider quadrotor’s dynamics.</span>
+<div class="experiment-evidence" markdown="1">
+
+Our approach shows 31 % reduction compared to the best-performing approach, HDSM, even though HDSM does not consider quadrotor’s dynamics.
+
+</div>
 
 </details>
 
@@ -426,7 +443,11 @@ NMPC 在有限预测时域内显式使用受控无人机的非线性动力学，
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">During the three-hour-long experiment, 10 UA Vs were navigated to more than 50000 goals, travelled a total distance of 6.28×10 5 m with an average velocity 5.8 ms −1, and maximum velocities up to 25.9 ms −1.</span>
+<div class="experiment-evidence" markdown="1">
+
+During the three-hour-long experiment, 10 UA Vs were navigated to more than 50000 goals, travelled a total distance of 6.28×10 5 m with an average velocity 5.8 ms −1, and maximum velocities up to 25.9 ms −1.
+
+</div>
 
 </details>
 
@@ -454,7 +475,11 @@ NMPC 在有限预测时域内显式使用受控无人机的非线性动力学，
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">The practicality of the proposed approach was further verified through its deployment onboard UA V platforms in the APCX scenario involving three UA Vs with an acceleration limit up to 30 ms −2, and r ca =1.5m (see Fig. 1).</span>
+<div class="experiment-evidence" markdown="1">
+
+The practicality of the proposed approach was further verified through its deployment onboard UA V platforms in the APCX scenario involving three UA Vs with an acceleration limit up to 30 ms −2, and r ca =1.5m (see Fig. 1).
+
+</div>
 
 </details>
 

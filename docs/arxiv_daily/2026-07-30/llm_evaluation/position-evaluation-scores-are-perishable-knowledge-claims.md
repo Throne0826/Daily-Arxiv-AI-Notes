@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "llm_evaluation"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:25.016416+00:00"
+generated_at: "2026-07-30T10:14:52.648141+00:00"
 source_sha256: "6560492fd1c1d08bf66ad1d687c98bebfedaf6d048a5ad74fa504479a84ecec6"
 tags:
   - "LLM 评测"
@@ -36,7 +36,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2607.26191v1) · [PDF 下载](https://arxiv.org/pdf/2607.26191v1) · **关键词** 语言模型评估, 信任膨胀, 知识主张, 评估聚合, LLM-as-judge, 基准污染, 适用范围, 有效期  
+[arXiv 原文](https://arxiv.org/abs/2607.26191v1) · [PDF 下载](https://arxiv.org/pdf/2607.26191v1) · **关键词** 语言模型评估, 信任膨胀, 知识主张, 评估聚合, LLM-as-judge, 基准污染, 适用范围, 有效期<br>
 
 
 </div>
@@ -85,21 +85,21 @@ tags:
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **信任膨胀（trust inflation in evaluation）**
 
 指多个质量不一或彼此相关的评估信号经平均后，汇总结果看起来比其中最不可靠的证据更可信。其关键风险是平均值能够掩盖模型在某些场景中的明显弱点，也可能把并不独立的重复评分误当成额外证据。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **知识主张（epistemic claim）**
 
 评估分数不是脱离条件、永久成立的事实，而是在特定证据和假设下对系统质量作出的断言。判断该断言是否可信，需要同时检查证据如何获得、适用于什么数据，以及在什么时间范围内仍然有效。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **评估元数据：形式性、范围与有效期**
 
@@ -124,7 +124,7 @@ tags:
 
 <div class="notation-list" markdown="1">
 
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\rho$**
 
@@ -223,7 +223,7 @@ tags:
 
 <div class="method-step__io" markdown="1">
 
-**输入**：模型在多个任务、子任务或质量维度上的得分，以及自动指标、LLM-as-judge、众包标注、受控人工实验或形式证明等证据来源。  
+**输入**：模型在多个任务、子任务或质量维度上的得分，以及自动指标、LLM-as-judge、众包标注、受控人工实验或形式证明等证据来源。<br>
 **输出**：一组可追踪来源和条件的证据记录，而不是已经平均化的单一排行榜分数。
 
 </div>
@@ -243,7 +243,7 @@ tags:
 
 <div class="method-step__io" markdown="1">
 
-**输入**：结构化的单项证据记录。  
+**输入**：结构化的单项证据记录。<br>
 **输出**：带有证据强度上限、适用边界和到期状态的评测声明。
 
 </div>
@@ -263,7 +263,7 @@ tags:
 
 <div class="method-step__io" markdown="1">
 
-**输入**：各证据或评测维度的分数，以及部署场景对漏报风险和保守程度的要求。  
+**输入**：各证据或评测维度的分数，以及部署场景对漏报风险和保守程度的要求。<br>
 **输出**：带有明确聚合算子、权重和悲观程度的综合结果。
 
 </div>
@@ -283,7 +283,7 @@ tags:
 
 <div class="method-step__io" markdown="1">
 
-**输入**：聚合结果、形式化等级、范围声明、有效窗口和完整评测配置。  
+**输入**：聚合结果、形式化等级、范围声明、有效窗口和完整评测配置。<br>
 **输出**：可供排行榜、部署审查或后续统计分析使用的有时效、有限定范围且可追溯的评测声明。
 
 </div>
@@ -317,14 +317,14 @@ $$
 **符号说明**
 
 - $s=\{s_1,\ldots,s_n\}$：待聚合的n个证据分数或评测维度得分。
-- $s_{(i)}$：所有分数按降序排列后的第i个分数；s_{(1)}为最高分，s_{(n)}为最低分。
+- $s_{(i)}$：所有分数按降序排列后的第i个分数；$s_{(1)}$为最高分，$s_{(n)}$为最低分。
 - $w_i$：分配给第i个排序位置的非负权重，所有权重之和为1。
 - $n$：参与聚合的证据或评测维度数量。
 - $\operatorname{OWA}(s;w)$：在给定排序位置权重w时得到的综合评测值。
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：OWA不是按指标名称固定加权，而是先按得分高低排序，再决定更重视高分端还是低分端。把全部权重放在最低分位置就得到最弱环节，把权重均匀分配则得到算术平均，因此它能够统一表达不同风险偏好。  
+**直观理解**：OWA不是按指标名称固定加权，而是先按得分高低排序，再决定更重视高分端还是低分端。把全部权重放在最低分位置就得到最弱环节，把权重均匀分配则得到算术平均，因此它能够统一表达不同风险偏好。<br>
 **原文位置**：第2节“Trust inflation in evaluation”，小节“Weakest-Link as the Conservative Endpoint”
 
 </div>
@@ -349,7 +349,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：ρ把聚合规则压缩成一个可报告的风险偏好参数：ρ=1得到最小值，ρ=0.5对应算术平均，ρ=0得到最大值。关键主张不是永远选择ρ=1，而是根据场景校准并公开ρ，避免默认平均值悄悄掩盖关键短板。  
+**直观理解**：ρ把聚合规则压缩成一个可报告的风险偏好参数：ρ=1得到最小值，ρ=0.5对应算术平均，ρ=0得到最大值。关键主张不是永远选择ρ=1，而是根据场景校准并公开ρ，避免默认平均值悄悄掩盖关键短板。<br>
 **原文位置**：第2节“Trust inflation in evaluation”，小节“Weakest-Link as the Conservative Endpoint”
 
 </div>
@@ -403,25 +403,36 @@ $$
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- 公开 HELM 排行榜：覆盖 54 个前沿模型和 10 个评测场景，用于比较按场景算术平均分与最弱项分数得到的模型排名。原文节选未明确报告具体 HELM 版本、场景名称、数据划分及抓取日期。
-- 面向机器学习研究任务的智能体 AI 评测记录：由作者构建的评测框架产生，用于总结评测基础设施中的模式变更、跨边界错误和评分饱和问题。原文未明确报告任务数量、样本规模、训练或测试划分以及被比较的智能体名称。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- 公开 HELM 排行榜：覆盖 54 个前沿模型和 10 个评测场景，用于比较按场景算术平均分与最弱项分数得到的模型排名。原文节选未明确报告具体 HELM 版本、场景名称、数据划分及抓取日期。
+- 面向机器学习研究任务的智能体 AI 评测记录：由作者构建的评测框架产生，用于总结评测基础设施中的模式变更、跨边界错误和评分饱和问题。原文未明确报告任务数量、样本规模、训练或测试划分以及被比较的智能体名称。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **算术平均分**
 
 对多个任务或能力维度的分数等权求平均，衡量总体平均表现，但可能让高分维度抵消低分维度。 （通常越高越好，但只有在各维度可以相互补偿且权重合理时，较高平均分才可解释为更强的整体表现。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **最弱项分数**
 
 取所有评测维度中的最低分，衡量系统最薄弱能力所形成的性能或可靠性上限。 （越高越好，因为最低分提高意味着最明显的能力短板得到改善；该指标尤其适合各能力存在串行依赖或安全关键约束的场景。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **可靠性乘数**
 
@@ -429,7 +440,9 @@ $$
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -460,7 +473,11 @@ $$
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">We illustrate the cost of mean aggregation on the public HELM leaderboard: across 54 frontier models on ten scenarios, the top-five models ranked by mean score and by weakest-link are completely disjoint.</span>
+<div class="experiment-evidence" markdown="1">
+
+We illustrate the cost of mean aggregation on the public HELM leaderboard: across 54 frontier models on ten scenarios, the top-five models ranked by mean score and by weakest-link are completely disjoint.
+
+</div>
 
 </details>
 
@@ -488,7 +505,11 @@ $$
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Our evaluation output schema required 13 revisions across two output formats (per-run and cross-run comparison) in five weeks, each triggered by discovering that post-hoc analysis required fields absent from the original design.</span>
+<div class="experiment-evidence" markdown="1">
+
+Our evaluation output schema required 13 revisions across two output formats (per-run and cross-run comparison) in five weeks, each triggered by discovering that post-hoc analysis required fields absent from the original design.
+
+</div>
 
 </details>
 
@@ -516,7 +537,11 @@ $$
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">A semantic mismatch between our Python evaluation client and Go backend caused all script failures to be silently recorded as successes.</span>
+<div class="experiment-evidence" markdown="1">
+
+A semantic mismatch between our Python evaluation client and Go backend caused all script failures to be silently recorded as successes.
+
+</div>
 
 </details>
 

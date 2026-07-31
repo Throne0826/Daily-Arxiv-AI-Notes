@@ -6,7 +6,7 @@ announcement_date: "2026-07-29"
 primary_category: "llm_safety"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:24.154955+00:00"
+generated_at: "2026-07-30T10:14:52.328844+00:00"
 source_sha256: "024f0a882c02d26996f99b147134a8c00ff26928709ac173ee983772560958f3"
 tags:
   - "LLM 安全"
@@ -37,7 +37,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2508.05775v3) · [PDF 下载](https://arxiv.org/pdf/2508.05775v3) · **关键词** 大语言模型安全, 有害内容生成, 毒性与偏见, 越狱攻击, 内容审核, 安全缓解  
+[arXiv 原文](https://arxiv.org/abs/2508.05775v3) · [PDF 下载](https://arxiv.org/pdf/2508.05775v3) · **关键词** 大语言模型安全, 有害内容生成, 毒性与偏见, 越狱攻击, 内容审核, 安全缓解<br>
 
 
 </div>
@@ -86,21 +86,21 @@ tags:
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **有害内容（harmful content）**
 
 指可能伤害个人或社会的语言内容，本文明确涉及毒性言论、网络骚扰、冒犯性语言、偏见叙事、错误信息及可被用于恶意活动的文本。其判断往往依赖语境，而不只是检查某些敏感词。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **越狱攻击（jailbreak attack）**
 
 指攻击者通过精心设计的输入或其他操纵方式，使已经设置安全限制的LLM仍然执行危险请求或生成有害内容。本文将其视为区别于无意毒性生成的一类蓄意对抗性风险，并关注多模态利用等更复杂形式。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **内容审核（content moderation）**
 
@@ -125,21 +125,21 @@ tags:
 
 <div class="notation-list" markdown="1">
 
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\mathrm{RQ1}$**
 
 关于LLM有害内容安全研究现状的问题，涵盖模型类型、危害类别与评估方法。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\mathrm{RQ2}$**
 
 关于LLM造成的主要有害内容安全挑战的问题，包括无意生成与越狱、多模态利用等对抗性攻击。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\mathrm{RQ3}$**
 
@@ -237,7 +237,7 @@ tags:
 
 <div class="method-step__io" markdown="1">
 
-**输入**：OpenAlex 收录的论文和预印本元数据，包括标题、摘要、作者、DOI、日期等；检索词分为 LLM 词组和有害内容词组。  
+**输入**：OpenAlex 收录的论文和预印本元数据，包括标题、摘要、作者、DOI、日期等；检索词分为 LLM 词组和有害内容词组。<br>
 **输出**：覆盖 LLM 有害生成、检测、分类、审核与越狱研究的初始候选文献集合。
 
 </div>
@@ -257,7 +257,7 @@ tags:
 
 <div class="method-step__io" markdown="1">
 
-**输入**：3,347 条检索记录及其标题、作者列表和 DOI。  
+**输入**：3,347 条检索记录及其标题、作者列表和 DOI。<br>
 **输出**：3,087 条唯一记录，进入相关性筛选。
 
 </div>
@@ -277,7 +277,7 @@ tags:
 
 <div class="method-step__io" markdown="1">
 
-**输入**：3,087 条唯一记录的标题和摘要，以及随后取得的候选论文全文。  
+**输入**：3,087 条唯一记录的标题和摘要，以及随后取得的候选论文全文。<br>
 **输出**：最终纳入的 372 项研究。
 
 </div>
@@ -297,7 +297,7 @@ tags:
 
 <div class="method-step__io" markdown="1">
 
-**输入**：372 项纳入研究的全文，以及论文定义的伤害分类和 Guardian/Offender 角色框架。  
+**输入**：372 项纳入研究的全文，以及论文定义的伤害分类和 Guardian/Offender 角色框架。<br>
 **输出**：带多标签的结构化文献语料，以及关于技术路线、模型家族、伤害类型和双重角色的研究版图。
 
 </div>
@@ -367,17 +367,28 @@ GPT-4-turbo 仅承担标题—摘要层面的第一轮相关性分类，并采�
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- 原文未明确报告。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- 原文未明确报告。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **文献数量**
 
 统计归入特定技术方法、模型类型、有害内容类型或 guardian/offender 角色的研究篇数，用于描述文献版图，而非衡量模型预测性能。 （无固定优劣方向；数量越高仅表示该主题受到更多研究关注，不代表方法更有效或模型更安全。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **跨维度定性分布**
 
@@ -385,7 +396,9 @@ GPT-4-turbo 仅承担标题—摘要层面的第一轮相关性分类，并采�
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -416,7 +429,11 @@ GPT-4-turbo 仅承担标题—摘要层面的第一轮相关性分类，并采�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Here, prompt engineering and fine-tuning dominate the methodological space, particularly in tasks related to text generation, content moderation, and classification.</span>
+<div class="experiment-evidence" markdown="1">
+
+Here, prompt engineering and fine-tuning dominate the methodological space, particularly in tasks related to text generation, content moderation, and classification.
+
+</div>
 
 </details>
 
@@ -444,7 +461,11 @@ GPT 系列在纳入研究中占比最大，尤其集中于越狱检测与安全�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">GPT-based models account for the largest share of studies, especially in jailbreak detection and safety evaluations.</span>
+<div class="experiment-evidence" markdown="1">
+
+GPT-based models account for the largest share of studies, especially in jailbreak detection and safety evaluations.
+
+</div>
 
 </details>
 
@@ -472,7 +493,11 @@ GPT 系列在纳入研究中占比最大，尤其集中于越狱检测与安全�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Across technical methods, model types, and harm categories, studies emphasizing the guardian role of LLMs outnumber those treating them as offenders (e.g., 287 “Good” vs. 163 “Bad” in technical methods).</span>
+<div class="experiment-evidence" markdown="1">
+
+Across technical methods, model types, and harm categories, studies emphasizing the guardian role of LLMs outnumber those treating them as offenders (e.g., 287 “Good” vs. 163 “Bad” in technical methods).
+
+</div>
 
 </details>
 

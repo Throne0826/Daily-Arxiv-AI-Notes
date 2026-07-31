@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "robotics"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:25.595944+00:00"
+generated_at: "2026-07-30T10:14:52.839419+00:00"
 source_sha256: "6f749508fdcb846f47eb7465e3781382d064ff3737a10a6aed83f062ff39f624"
 tags:
   - "机器人 / 具身智能"
@@ -36,7 +36,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2607.26579v1) · [PDF 下载](https://arxiv.org/pdf/2607.26579v1) · **关键词** 视频世界模型, Contact Flow, 具身无关动作表示, 接触几何, 可控视频生成, 机器人操作  
+[arXiv 原文](https://arxiv.org/abs/2607.26579v1) · [PDF 下载](https://arxiv.org/pdf/2607.26579v1) · **关键词** 视频世界模型, Contact Flow, 具身无关动作表示, 接触几何, 可控视频生成, 机器人操作<br>
 
 
 </div>
@@ -85,21 +85,21 @@ tags:
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **视频世界模型（video world model）**
 
 一种学习环境动态的生成模型：给定当前视觉观测和动作条件，预测随后可能出现的视频帧。机器人可把预测视频当作低成本模拟，在实际执行前比较候选动作的结果。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **动作条件化（action conditioning）**
 
 将计划执行的动作编码为控制信号，输入视频生成模型以指定未来应如何演化。常见信号包括语言、关节状态、末端执行器状态、人体姿态、掩码、关键点和运动轨迹。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **具身无关表示（embodiment-agnostic representation）**
 
@@ -212,7 +212,7 @@ ContactFlow 将动作表示为“施力者与目标物体接触区域的三维�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：RGB 视频序列；可选的双目图像、深度、相机标定、机器人状态与 URDF、任务文本，以及数据集已有的手部或物体网格。  
+**输入**：RGB 视频序列；可选的双目图像、深度、相机标定、机器人状态与 URDF、任务文本，以及数据集已有的手部或物体网格。<br>
 **输出**：相机坐标系中的逐帧点图、目标物体几何与掩码，以及手或机器人夹爪的位姿和几何表示。
 
 </div>
@@ -232,7 +232,7 @@ ContactFlow 将动作表示为“施力者与目标物体接触区域的三维�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：目标物体点云与掩码、手网格或夹爪几何，以及相邻视频帧。  
+**输入**：目标物体点云与掩码、手网格或夹爪几何，以及相邻视频帧。<br>
 **输出**：每帧位于物体表面的接触点、这些点到下一帧的三维位移，以及融合接触可信度、时间方向一致性和邻域密度的置信权重。
 
 </div>
@@ -252,7 +252,7 @@ ContactFlow 将动作表示为“施力者与目标物体接触区域的三维�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：相机坐标系中的接触点位置、逐帧位移、置信权重和相机内参。  
+**输入**：相机坐标系中的接触点位置、逐帧位移、置信权重和相机内参。<br>
 **输出**：覆盖预测时域的稀疏时空条件 \(\mathbf{C}_{1:T}\)，可送入 ControlNet 分支或 VACE 视频条件单元。
 
 </div>
@@ -272,7 +272,7 @@ ContactFlow 将动作表示为“施力者与目标物体接触区域的三维�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：真实视频、首帧、对应的 Contact Flow 视频和随机高斯噪声。  
+**输入**：真实视频、首帧、对应的 Contact Flow 视频和随机高斯噪声。<br>
 **输出**：条件生成模型 \(p_\theta(\mathbf{z}_{1:T}\mid z_0,\mathbf{C}_{1:T})\)，能够由首帧和预定接触运动生成未来潜变量。
 
 </div>
@@ -314,7 +314,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：该式规定模型看到的最基本动作单位：接触发生在哪里、该接触区域下一帧往哪里移动，以及该估计是否可信。位置和位移共同描述主动交互，置信权重则降低噪声接触对条件和训练的影响。  
+**直观理解**：该式规定模型看到的最基本动作单位：接触发生在哪里、该接触区域下一帧往哪里移动，以及该估计是否可信。位置和位移共同描述主动交互，置信权重则降低噪声接触对条件和训练的影响。<br>
 **原文位置**：第3.1节，公式(1)
 
 </div>
@@ -342,7 +342,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：系统先在纯噪声和真实未来视频潜变量之间随机取一个中间点，再要求网络预测把噪声推向真实未来的方向。由于预测同时读取首帧和 Contact Flow，学到的速度场不仅要生成自然视频，还要生成与指定接触动作一致的后续变化。  
+**直观理解**：系统先在纯噪声和真实未来视频潜变量之间随机取一个中间点，再要求网络预测把噪声推向真实未来的方向。由于预测同时读取首帧和 Contact Flow，学到的速度场不仅要生成自然视频，还要生成与指定接触动作一致的后续变化。<br>
 **原文位置**：第3.2节，公式(3)；插值定义紧邻公式(3)
 
 </div>
@@ -397,26 +397,37 @@ $$
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- DROID：机器人操作视频数据集，既用于训练，也用于文中明确描述的定量评测。评测集包含25个留出片段；每个片段为49帧、8 FPS、分辨率832×480。其作用是检验模型对机器人操作结果的视觉预测质量。原文未明确报告训练样本规模及留出片段的具体划分规则。
-- Taste-ROB与TACO：作为机器人交互训练数据加入混合训练集，用于扩展机器人动作、物体和场景的覆盖范围。给定实验节选未报告二者各自的样本规模、训练划分或单独测试结果。
-- OakInk与LIBERO：OakInk提供人类手—物体交互数据，LIBERO提供机器人操作数据；二者与其他数据共同训练，使Contact Flow能够从人类和不同机器人载体中学习共享的物体接触表示。给定节选未报告各自规模、划分及分数据集结果。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- DROID：机器人操作视频数据集，既用于训练，也用于文中明确描述的定量评测。评测集包含25个留出片段；每个片段为49帧、8 FPS、分辨率832×480。其作用是检验模型对机器人操作结果的视觉预测质量。原文未明确报告训练样本规模及留出片段的具体划分规则。
+- Taste-ROB与TACO：作为机器人交互训练数据加入混合训练集，用于扩展机器人动作、物体和场景的覆盖范围。给定实验节选未报告二者各自的样本规模、训练划分或单独测试结果。
+- OakInk与LIBERO：OakInk提供人类手—物体交互数据，LIBERO提供机器人操作数据；二者与其他数据共同训练，使Contact Flow能够从人类和不同机器人载体中学习共享的物体接触表示。给定节选未报告各自规模、划分及分数据集结果。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **DreamSim**
 
 感知相似度指标，用学习到的视觉表征衡量预测帧与真实帧在语义和视觉感知上的差异。本文将其作为Q1的主要指标，并在移除机器人手臂或人手后的区域上计算，以集中评估物体和场景结果。 （越低越好；距离越小表示预测与真实视频在感知表征上越接近。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **FVD**
 
 Fréchet Video Distance，全帧视频分布指标，用于比较生成视频与真实视频在时空特征分布上的差异，侧重整体真实性和时间一致性，而不是逐像素对齐。 （越低越好；较小的分布距离通常表示生成视频整体更接近真实视频集合。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **预测准确率（prediction accuracy）**
 
@@ -424,7 +435,9 @@ Q2的主要指标：比较VLM对想象 rollout 的成功或失败判断与真实
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 

@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "robotics"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:24.814081+00:00"
+generated_at: "2026-07-30T10:14:52.571485+00:00"
 source_sha256: "1c033438e3d994f070b4dd88a91b84e8c2fdd52bb782dbc57778f3649ff199d7"
 tags:
   - "机器人 / 具身智能"
@@ -36,7 +36,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2607.27138v1) · [PDF 下载](https://arxiv.org/pdf/2607.27138v1) · **关键词** 视觉—语言—动作模型, 潜在动作模型, 无动作标签视频, 对角高斯转移, 时间组合约束, 反转约束, 流匹配, 机器人策略迁移  
+[arXiv 原文](https://arxiv.org/abs/2607.27138v1) · [PDF 下载](https://arxiv.org/pdf/2607.27138v1) · **关键词** 视觉—语言—动作模型, 潜在动作模型, 无动作标签视频, 对角高斯转移, 时间组合约束, 反转约束, 流匹配, 机器人策略迁移<br>
 
 
 </div>
@@ -85,21 +85,21 @@ DLAM将视频中的潜在动作由确定性向量改为对角高斯分布，并�
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **视觉—语言—动作模型（VLA）**
 
 一种机器人策略模型，以当前视觉观测和自然语言任务指令为条件，输出可执行的机器人动作。本文不重新设计VLA主干，而是把从无标签视频学到的潜在转移作为辅助生成目标接入现有策略。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **潜在动作模型（LAM）**
 
 LAM从两个或多个视频帧的变化中推断一个低维潜变量，用它概括帧间发生的转移，而不要求视频带有真实机器人动作标签。该潜变量并不天然等同于物理动作，因此需要重建或时间关系约束来使其与可控变化对齐。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **对角高斯转移**
 
@@ -124,28 +124,28 @@ DLAM不把一次帧间转移表示为单个确定点，而表示为各维度相�
 
 <div class="notation-list" markdown="1">
 
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\mu$**
 
 帧间高斯转移的均值，即用于目标帧重建并在下游作为辅助生成目标的中心转移表示。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\sigma^2$**
 
 高斯转移的逐维方差，用于表示各潜在维度的不确定程度，并接受组合与反转约束；下游策略不直接使用该方差。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\rho$**
 
 组合相邻转移方差时使用的轻量共享相关系数，用于考虑两段转移因共享中间帧而并非独立；原文节选未给出其完整公式。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\pi_0$**
 
@@ -238,11 +238,11 @@ DLAM把无动作标注视频中的帧间变化表示为一组对角高斯潜在�
 
 #### 等间隔视频转移构造
 
-采样满足 a<b<c 且 b-a=c-b=k 的三元组 (O_a,O_b,O_c)，构造前向转移集合 {(a,b),(b,c),(a,c)}，并额外编码反向对 (b,a)。这些样本分别提供相邻转移、直接长跨度转移和方向反转监督。
+采样满足 a<b<c 且 b-a=c-b=k 的三元组 ($O_a,O_b,O_c)$，构造前向转移集合 {(a,b),(b,c),(a,c)}，并额外编码反向对 (b,a)。这些样本分别提供相邻转移、直接长跨度转移和方向反转监督。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：无动作、语言或本体感觉标签的视频帧。  
+**输入**：无动作、语言或本体感觉标签的视频帧。<br>
 **输出**：四个有序帧对及其共享的等间隔时间关系。
 
 </div>
@@ -258,12 +258,12 @@ DLAM把无动作标注视频中的帧间变化表示为一组对角高斯潜在�
 
 #### 分布式潜在转移编码与重建
 
-关系编码器 E_φ 使用 K 个可学习查询，输出 K×d 的均值与原始对数方差；对数方差经区间裁剪和指数变换得到正标准差，从而形成按 token 槽位分解的对角高斯后验。源条件解码器 D_ω 只使用 O_i 和转移均值重建 O_j，并以像素均方误差训练。
+关系编码器 E_φ 使用 K 个可学习查询，输出 K×d 的均值与原始对数方差；对数方差经区间裁剪和指数变换得到正标准差，从而形成按 token 槽位分解的对角高斯后验。源条件解码器 D_ω 只使用 $O_i$ 和转移均值重建 $O_j$，并以像素均方误差训练。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：任意有序帧对 (O_i,O_j)。  
-**输出**：转移后验 q_φ(Z_i^j|O_i,O_j)、其均值和逐维方差，以及重建帧。
+**输入**：任意有序帧对 ($O_i,O_j)$。<br>
+**输出**：转移后验 $q_φ(Z_i^j|O_i,O_j)$、其均值和逐维方差，以及重建帧。
 
 </div>
 
@@ -278,12 +278,12 @@ DLAM把无动作标注视频中的帧间变化表示为一组对角高斯潜在�
 
 #### 均值与方差的时间关系约束
 
-对应 token 槽位的相邻转移以 1/√2 归一化相加；均值按同样规则组合，方差则依据两段方差及共享相关系数 ρ 传播，再与直接编码的 q_a^c 匹配。反转算子将均值取负并保持方差，以约束 q_a^b 与变换后的 q_b^a 一致。
+对应 token 槽位的相邻转移以 1/√2 归一化相加；均值按同样规则组合，方差则依据两段方差及共享相关系数 ρ 传播，再与直接编码的 $q_a^c$ 匹配。反转算子将均值取负并保持方差，以约束 $q_a^b$ 与变换后的 $q_b^a$ 一致。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：相邻后验 q_a^b、q_b^c，直接后验 q_a^c，以及反向后验 q_b^a。  
-**输出**：组合损失 L_comp、反转损失 L_rev，以及具有近似时间一致性的转移表示。
+**输入**：相邻后验 $q_a^b$、$q_b^c$，直接后验 $q_a^c$，以及反向后验 $q_b^a$。<br>
+**输出**：组合损失 $L_comp$、反转损失 $L_rev$，以及具有近似时间一致性的转移表示。
 
 </div>
 
@@ -302,7 +302,7 @@ DLAM把无动作标注视频中的帧间变化表示为一组对角高斯潜在�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：带机器人动作的示范序列、多个相机视角的连续帧，以及预训练完成的转移编码器。  
+**输入**：带机器人动作的示范序列、多个相机视角的连续帧，以及预训练完成的转移编码器。<br>
 **输出**：能够联合预测潜在视觉变化与机器人动作的策略；部署时仅执行动作流。
 
 </div>
@@ -342,13 +342,13 @@ $$
 - $\bm{\sigma}_{a}^{\,b},\bm{\sigma}_{b}^{\,c}$：两段相邻转移的逐维标准差向量。
 - $(\overline{\bm{\sigma}}_{a}^{\,c})^{2}$：组合转移的逐维方差向量。
 - $\rho$：相邻转移的共享相关系数，在样本、token 槽位和潜在维度之间共用。
-- $\rho_{\max}$：固定的相关系数幅值上界，满足 0<ρ_max<1。
+- $\rho_{\max}$：固定的相关系数幅值上界，满足 $0<ρ_max<1$。
 - $r$：用于参数化相关系数的可学习标量。
 - $\odot$：逐元素乘法。
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：1/√2 归一化使两个独立标准高斯相加后仍保持单位方差尺度，避免潜变量仅因时间段变长而膨胀。若 ρ=0，方差按独立变量传播；非零 ρ 则修正两段转移共享 O_b 所带来的统计依赖，组合结果随后与直接编码的 a→c 后验比较。  
+**直观理解**：1/√2 归一化使两个独立标准高斯相加后仍保持单位方差尺度，避免潜变量仅因时间段变长而膨胀。若 ρ=0，方差按独立变量传播；非零 ρ 则修正两段转移共享 $O_b$ 所带来的统计依赖，组合结果随后与直接编码的 a→c 后验比较。<br>
 **原文位置**：Method，Temporal Constraints on Mean and Variance，式(5)、式(7)、式(8)，相关系数定义位于式(6)之前
 
 </div>
@@ -376,7 +376,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：重建项让均值保留可解码的视觉变化，先验项控制潜在分布，组合与反转项则把时间结构写入均值和方差。四项共同训练同一个编码器；其中方差虽不参与重建或下游策略输入，仍会通过先验和时间约束获得学习信号。  
+**直观理解**：重建项让均值保留可解码的视觉变化，先验项控制潜在分布，组合与反转项则把时间结构写入均值和方差。四项共同训练同一个编码器；其中方差虽不参与重建或下游策略输入，仍会通过先验和时间约束获得学习信号。<br>
 **原文位置**：Method，Temporal Constraints on Mean and Variance，式(14)；各组成项见式(3)、式(4)、式(12)、式(13)
 
 </div>
@@ -385,7 +385,7 @@ $$
 
 <div class="paper-focus" markdown="1">
 
-**优化目标如何起作用**：预训练阶段联合更新关系编码器 E_φ、源条件解码器 D_ω 以及共享相关参数 r。L_rec 仅通过转移均值和解码器建立视觉监督；L_prior 将全部前向后验正则到分解的标准高斯，并在最终归约前使用 free-nats 下限；L_comp 和 L_rev 以均值与对数方差的 Frobenius 平方差约束时间关系，因此均值和方差由同一编码器共同优化。迁移阶段不再优化该预训练目标，而是冻结编码器、丢弃解码器，以 L_transfer=λ_u L_FM^u+Σ_m λ_m L_FM^m 联合训练动作流和各相机视角的潜在均值流。
+**优化目标如何起作用**：预训练阶段联合更新关系编码器 E_φ、源条件解码器 D_ω 以及共享相关参数 r。$L_rec$ 仅通过转移均值和解码器建立视觉监督；$L_prior$ 将全部前向后验正则到分解的标准高斯，并在最终归约前使用 free-nats 下限；$L_comp$ 和 $L_rev$ 以均值与对数方差的 Frobenius 平方差约束时间关系，因此均值和方差由同一编码器共同优化。迁移阶段不再优化该预训练目标，而是冻结编码器、丢弃解码器，以 $L_transfer=λ_u L_FM^u+Σ_m λ_m L_FM^m$ 联合训练动作流和各相机视角的潜在均值流。
 
 </div>
 
@@ -402,13 +402,13 @@ E_φ 对源帧和目标帧进行关系编码，并借助 K 个可学习查询为
 
 **2. 源条件重建解码器**
 
-D_ω 接收源帧 O_i 和堆叠的转移均值 μ_i^j，输出目标帧估计；重建路径不使用后验样本或预测方差。源帧提供场景外观，迫使潜在均值主要携带通向目标帧的视觉变化。
+D_ω 接收源帧 $O_i$ 和堆叠的转移均值 $μ_i^j$，输出目标帧估计；重建路径不使用后验样本或预测方差。源帧提供场景外观，迫使潜在均值主要携带通向目标帧的视觉变化。
 
 > 直观理解：如果解码器已经看到起始画面，潜在 token 就不必重复存储整个场景，而应重点说明物体怎样移动或状态怎样改变。该解码器只服务预训练，迁移策略时会被丢弃。
 
 **3. 相关性感知的时间约束模块**
 
-模块对相同 token 槽位执行一次 k+k→2k 的归一化组合，并用 ρ=ρ_max tanh(r) 描述共享中间帧的相邻转移之间的逐维交叉协方差；ρ 在样本、token 和维度间共享且满足 |ρ|<1。它还采用均值取反、方差不变的反转算子，并以均值及对数方差的归一化平方差比较后验。
+模块对相同 token 槽位执行一次 k+k→2k 的归一化组合，并用 $ρ=ρ_max$ tanh(r) 描述共享中间帧的相邻转移之间的逐维交叉协方差；ρ 在样本、token 和维度间共享且满足 |ρ|<1。它还采用均值取反、方差不变的反转算子，并以均值及对数方差的归一化平方差比较后验。
 
 > 直观理解：共享相关系数是一种低成本折中：它不为每个样本学习复杂协方差矩阵，却避免把共享中间帧的两段变化错误地当作完全独立。该组合只定义成对的归一化关系，论文没有宣称它是可任意递归使用的结合律。
 
@@ -420,7 +420,7 @@ D_ω 接收源帧 O_i 和堆叠的转移均值 μ_i^j，输出目标帧估计；
 
 **复现信息**
 
-为公平解释迁移结果，各冻结转移编码器接入同一 π_0 策略：视觉语言骨干为 PaliGemma-2B，动作专家为 Gemma-300M；更新策略骨干、动作专家和投影层，而不更新转移编码器。每个第三人称视角和腕部相机视角分别提供潜在均值目标；策略训练采用 AdamW，学习率 5×10^{-5}、权重衰减 10^{-4}、单设备批量大小 32。预训练中的对数方差按固定上下界逐元素裁剪，相关系数由有界 tanh 参数化；具体 K、d、裁剪边界、各损失权重及 free-nats 数值在所给原文片段中未明确报告。
+为公平解释迁移结果，各冻结转移编码器接入同一 $π_0$ 策略：视觉语言骨干为 PaliGemma-2B，动作专家为 Gemma-300M；更新策略骨干、动作专家和投影层，而不更新转移编码器。每个第三人称视角和腕部相机视角分别提供潜在均值目标；策略训练采用 AdamW，学习率 5×10^{-5}、权重衰减 10^{-4}、单设备批量大小 32。预训练中的对数方差按固定上下界逐元素裁剪，相关系数由有界 tanh 参数化；具体 K、d、裁剪边界、各损失权重及 free-nats 数值在所给原文片段中未明确报告。
 
 </details>
 
@@ -432,26 +432,37 @@ D_ω 接收源帧 O_i 和堆叠的转移均值 μ_i^j，输出目标帧估计；
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- 无动作机器人视频预训练集：由 11 个视频数据源混合而成，主要取自 Open X-Embodiment 和 CALVIN。所有潜在动作模型使用同一混合数据、数据顺序和训练预算；Figure 4 给出各来源的可用样本占比与归一化采样概率。原文节选未报告总视频数、总转移数及具体训练/验证划分。
-- MetaWorld MT50：包含多种仿真机器人操作任务，用于检验从无动作视频中学习的潜在动态能否迁移到多任务策略学习。摘要说明采用相同的受控 π₀ 迁移协议，但节选未提供任务划分、演示规模或逐任务结果。
-- LIBERO 与真实世界操作评测：用于分别检验跨任务仿真操作和真实机器人控制中的迁移效果。原文摘要称 DLAM 在两类评测中均有提升，但所给节选未报告 LIBERO 的具体套件、真实任务名称、数据规模或评测回合数。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- 无动作机器人视频预训练集：由 11 个视频数据源混合而成，主要取自 Open X-Embodiment 和 CALVIN。所有潜在动作模型使用同一混合数据、数据顺序和训练预算；Figure 4 给出各来源的可用样本占比与归一化采样概率。原文节选未报告总视频数、总转移数及具体训练/验证划分。
+- MetaWorld MT50：包含多种仿真机器人操作任务，用于检验从无动作视频中学习的潜在动态能否迁移到多任务策略学习。摘要说明采用相同的受控 π₀ 迁移协议，但节选未提供任务划分、演示规模或逐任务结果。
+- LIBERO 与真实世界操作评测：用于分别检验跨任务仿真操作和真实机器人控制中的迁移效果。原文摘要称 DLAM 在两类评测中均有提升，但所给节选未报告 LIBERO 的具体套件、真实任务名称、数据规模或评测回合数。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **时间一致性**
 
 衡量跨不同时间间隔推断出的潜在转移，能否满足组合与反转关系；它关注潜在空间是否具有可递归使用的时间结构，而不仅是单帧预测准确。所给节选未说明其具体计算公式。 （一致性越强越好，因为相邻转移组合后应接近对应的跨步转移，反向转移也应与正向转移保持规定关系。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **直接与累计重建性能**
 
 直接重建考查单个留出转移的视觉变化预测；累计重建考查模型递归组合或滚动多个转移后能否维持准确性，因而更容易暴露局部误差传播问题。节选未给出具体指标名称或数值。 （重建误差更低或重建质量更高时更好；累计重建改善尤其说明长期递归使用时误差累积较少。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **策略任务性能**
 
@@ -459,7 +470,9 @@ D_ω 接收源帧 O_i 和堆叠的转移均值 μ_i^j，输出目标帧估计；
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -490,7 +503,11 @@ D_ω 接收源帧 O_i 和堆叠的转移均值 μ_i^j，输出目标帧估计；
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">On held-out transitions, DLAM learns more temporally consistent latent dynamics than existing latent-action baselines and achieves stronger direct and cumulative reconstruction on held-out videos.</span>
+<div class="experiment-evidence" markdown="1">
+
+On held-out transitions, DLAM learns more temporally consistent latent dynamics than existing latent-action baselines and achieves stronger direct and cumulative reconstruction on held-out videos.
+
+</div>
 
 </details>
 
@@ -518,7 +535,11 @@ D_ω 接收源帧 O_i 和堆叠的转移均值 μ_i^j，输出目标帧估计；
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">On held-out transitions, DLAM learns more temporally consistent latent dynamics than existing latent-action baselines and achieves stronger direct and cumulative reconstruction on held-out videos.</span>
+<div class="experiment-evidence" markdown="1">
+
+On held-out transitions, DLAM learns more temporally consistent latent dynamics than existing latent-action baselines and achieves stronger direct and cumulative reconstruction on held-out videos.
+
+</div>
 
 </details>
 
@@ -546,7 +567,11 @@ D_ω 接收源帧 O_i 和堆叠的转移均值 μ_i^j，输出目标帧估计；
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Under the same controlled π₀ transfer protocol, it also improves policy performance on MetaWorld MT50, LIBERO, and real-world manipulation tasks.</span>
+<div class="experiment-evidence" markdown="1">
+
+Under the same controlled π₀ transfer protocol, it also improves policy performance on MetaWorld MT50, LIBERO, and real-world manipulation tasks.
+
+</div>
 
 </details>
 
@@ -580,7 +605,7 @@ D_ω 接收源帧 O_i 和堆叠的转移均值 μ_i^j，输出目标帧估计；
 
 **实验实现**
 
-无动作预训练阶段中，所有受控变体均使用同一套 11 源视频混合、视觉 tokenizer、Transformer 容量、源帧条件解码器、样本顺序和训练预算，以减少数据与模型规模造成的混杂。模型训练 57 个 epoch，使用 64 张 AMD MI308X GPU、AdamW、峰值学习率 10^{-4}、权重衰减 10^{-4}，单卡批量为 64。损失权重设为 λ_rec=1、λ_prior=0.005、λ_comp=λ_rev=0.05、λ_ℓ=0.1。下游阶段冻结编码器并训练流匹配策略，使其联合生成潜在转移均值序列与机器人动作；策略评测使用相同的受控 π₀ 迁移协议。所给节选没有提供随机种子、重复运行次数、置信区间、完整数据划分、解码分辨率或下游训练预算。
+无动作预训练阶段中，所有受控变体均使用同一套 11 源视频混合、视觉 tokenizer、Transformer 容量、源帧条件解码器、样本顺序和训练预算，以减少数据与模型规模造成的混杂。模型训练 57 个 epoch，使用 64 张 AMD MI308X GPU、AdamW、峰值学习率 10^{-4}、权重衰减 10^{-4}，单卡批量为 64。损失权重设为 $λ_rec=1$、$λ_prior=0.005$、$λ_comp=λ_rev=0.05$、λ_ℓ=0.1。下游阶段冻结编码器并训练流匹配策略，使其联合生成潜在转移均值序列与机器人动作；策略评测使用相同的受控 π₀ 迁移协议。所给节选没有提供随机种子、重复运行次数、置信区间、完整数据划分、解码分辨率或下游训练预算。
 
 **关键消融**
 

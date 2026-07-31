@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "reinforcement_learning"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:24.937866+00:00"
+generated_at: "2026-07-30T10:14:52.617083+00:00"
 source_sha256: "abfde6cbcf203876f732d98c6deb68875e70c406acedbed1773e52334fbce96e"
 tags:
   - "强化学习"
@@ -34,7 +34,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2607.26509v1) · [PDF 下载](https://arxiv.org/pdf/2607.26509v1) · **关键词** 离策略强化学习, 连续控制, 过估计偏差, 分布式评论家, 协同加权, 随机悲观价值估计  
+[arXiv 原文](https://arxiv.org/abs/2607.26509v1) · [PDF 下载](https://arxiv.org/pdf/2607.26509v1) · **关键词** 离策略强化学习, 连续控制, 过估计偏差, 分布式评论家, 协同加权, 随机悲观价值估计<br>
 **代码**: [https://anonymous.4open.science/r/CWAC-348E](https://anonymous.4open.science/r/CWAC-348E)  
 
 </div>
@@ -83,21 +83,21 @@ tags:
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **离策略演员—评论家（off-policy actor-critic）**
 
 演员表示策略，即在状态下如何选择动作；评论家用Q函数估计某个状态—动作对的长期折扣回报。离策略表示训练数据可以来自旧策略或其他行为策略，因此经验回放中的历史数据能够被反复使用。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **时序差分学习与自举（TD learning and bootstrapping）**
 
 TD学习用即时奖励加上下一个状态的当前价值估计构造监督目标，而不必等待完整轨迹结束。由于目标本身依赖尚不准确且持续变化的网络估计，近似误差会递归传播。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **过估计偏差与预测不确定性**
 
@@ -122,28 +122,28 @@ TD学习用即时奖励加上下一个状态的当前价值估计构造监督目
 
 <div class="notation-list" markdown="1">
 
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\mathcal{M}=\langle\mathcal{S},\mathcal{A},\mathcal{P},\mathcal{R},\gamma\rangle$**
 
 马尔可夫决策过程；其中\(\mathcal{S}\)是状态空间，\(\mathcal{A}\)是动作空间，\(\mathcal{P}\)是状态转移规律，\(\mathcal{R}\)是奖励函数，\(\gamma\)是折扣因子。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\pi_{\phi}(a\mid s)$**
 
 参数为\(\phi\)的策略；在状态\(s\)下给动作\(a\)分配概率或概率密度，文中预备知识部分采用高斯策略。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$Q_{\theta}(s,a)$**
 
 参数为\(\theta\)的评论家网络，对状态\(s\)下执行动作\(a\)后的长期折扣回报进行估计。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\omega(s,a)$**
 
@@ -242,7 +242,7 @@ CWAC是在连续控制的离策略 actor-critic 框架上加入“分布式评�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：当前状态 s、参数为 φ 的随机策略 π_φ，以及经验回放池 B。  
+**输入**：当前状态 s、参数为 φ 的随机策略 π_φ，以及经验回放池 B。<br>
 **输出**：用于离策略更新的小批量转移，以及持续扩充的经验回放池 B。
 
 </div>
@@ -262,7 +262,7 @@ CWAC是在连续控制的离策略 actor-critic 框架上加入“分布式评�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：批量中的状态—动作对、两个评论家及其目标网络；每个评论家给出价值均值 Q_θ(s,a) 和标准差 σ_θ(s,a)。  
+**输入**：批量中的状态—动作对、两个评论家及其目标网络；每个评论家给出价值均值 Q_θ(s,a) 和标准差 σ_θ(s,a)。<br>
 **输出**：当前或候选动作的悲观价值 Z，以及供评论家学习的目标 y。
 
 </div>
@@ -282,7 +282,7 @@ CWAC是在连续控制的离策略 actor-critic 框架上加入“分布式评�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：预测均值 Q_θ、标准差 σ_θ、目标 y，以及 TD 误差 δ=Q_θ−y。  
+**输入**：预测均值 Q_θ、标准差 σ_θ、目标 y，以及 TD 误差 δ=Q_θ−y。<br>
 **输出**：更新后的分布式评论家，其价值面较少受高不确定目标支配，同时保留与学习误差相适应的不确定性。
 
 </div>
@@ -302,7 +302,7 @@ actor 通过梯度上升最大化 E[Z_θ(s,a)−αlogπ_φ(a|s)]，即用悲观�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：更新后的评论家、回放状态 s、策略生成的动作 a，以及熵系数 α。  
+**输入**：更新后的评论家、回放状态 s、策略生成的动作 a，以及熵系数 α。<br>
 **输出**：不易追逐高估动作的策略 π_φ，以及缓慢跟随在线评论家的目标网络。
 
 </div>
@@ -347,7 +347,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：该式从名义 Q 值中扣除“随机系数×预测标准差”。不确定性越大，平均扣减越大，因此策略和自举目标较少采用证据不足却偶然很高的价值；随机系数则避免所有状态都受到固定强度的保守惩罚。  
+**直观理解**：该式从名义 Q 值中扣除“随机系数×预测标准差”。不确定性越大，平均扣减越大，因此策略和自举目标较少采用证据不足却偶然很高的价值；随机系数则避免所有状态都受到固定强度的保守惩罚。<br>
 **原文位置**：第4.1节，定义1，公式(4)
 
 </div>
@@ -372,7 +372,7 @@ $$
 - $y$：由即时奖励和下一状态悲观价值组成的自举学习目标。
 - $r$：当前转移的即时奖励。
 - $\gamma$：未来回报的折扣因子。
-- $\mathcal{Z}_{\theta_i'}$：第 i 个目标评论家的随机悲观价值；θ_i′为其目标网络参数。
+- $\mathcal{Z}_{\theta_i'}$：第 i 个目标评论家的随机悲观价值；$θ_i$′为其目标网络参数。
 - $\min_{i=1,2}$：在两个目标评论家的悲观估计中取较小值，以进一步抑制正向估计误差。
 - $\alpha$：最大熵强化学习中的熵系数。
 - $-\alpha\log\pi_{\phi}(a'\mid s')$：目标中的熵奖励项，用于避免策略过早退化为确定性选择。
@@ -387,7 +387,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：第一项负责把 Q 均值拟合到悲观自举目标，但 ω会降低高不确定样本的发言权；第二项倾向于缩小预测标准差，但 ξ在 TD 误差很大时会减弱这种压力，避免评论家尚未拟合好就出现不确定性坍缩。两条调节路径形成互补：一条阻止噪声目标推高价值，另一条阻止过强悲观和虚假自信压制潜在探索。  
+**直观理解**：第一项负责把 Q 均值拟合到悲观自举目标，但 ω会降低高不确定样本的发言权；第二项倾向于缩小预测标准差，但 ξ在 TD 误差很大时会减弱这种压力，避免评论家尚未拟合好就出现不确定性坍缩。两条调节路径形成互补：一条阻止噪声目标推高价值，另一条阻止过强悲观和虚假自信压制潜在探索。<br>
 **原文位置**：第4.2节，定义2，公式(5)、(6)、(7)
 
 </div>
@@ -398,7 +398,7 @@ $$
 
 **优化目标如何起作用**：评论家通过梯度下降最小化协同加权损失：Huber 项学习价值均值，ω根据预测标准差降低不可靠转移的影响；线性不确定性项 ξσ推动模型在证据充分时收紧回报分布，而 ξ根据绝对 TD 误差避免在大残差区域过早压低 σ。这里的关键不是简单偏爱大 TD 误差样本，而是区分“有用的 Bellman 学习信号”和“由有限覆盖、函数逼近或自举造成的噪声”。目标 y使用双目标评论家的最小悲观值，使过估计不易沿 Bellman 自举链条向前传播。
 
-actor 通过梯度上升最大化 J_π(φ)=E_{s∼B,a∼π_φ}[Z_θ(s,a)−αlogπ_φ(a|s)]。因此，策略改进偏向悲观调整后仍然较优的动作，同时熵项维持随机探索；这与评论家端的悲观目标保持一致，避免 actor 利用原始 Q 中的正向误差。在线评论家更新后，目标评论家以软更新缓慢跟随，以降低目标非平稳性。
+actor 通过梯度上升最大化 $J_π(φ)=E_{s∼B,a∼π_φ}[Z_θ(s,a)−αlogπ_φ(a|s)]$。因此，策略改进偏向悲观调整后仍然较优的动作，同时熵项维持随机探索；这与评论家端的悲观目标保持一致，避免 actor 利用原始 Q 中的正向误差。在线评论家更新后，目标评论家以软更新缓慢跟随，以降低目标非平稳性。
 
 </div>
 
@@ -427,13 +427,13 @@ actor 通过梯度上升最大化 J_π(φ)=E_{s∼B,a∼π_φ}[Z_θ(s,a)−αlog
 
 **训练与推理**
 
-训练阶段首先随机初始化两个评论家 Q_{θ_1}、Q_{θ_2}和 actor π_φ，并复制得到两个目标评论家；智能体循环从策略采样动作、执行环境转移并写入经验池。每次更新从经验池抽取小批量，对下一状态采样 a′，由目标评论家的均值和标准差生成随机悲观值，取双评论家较小值构造 y；随后计算 δ、ω和 ξ，最小化协同加权 Huber—不确定性损失。完成评论家更新后，重新以悲观价值指导 actor 最大化带熵目标，最后用系数 τ对目标评论家进行软更新。随机悲观样本会进入评论家目标和 actor 更新，但经验池本身仍采用普通抽样。
+训练阶段首先随机初始化两个评论家 $Q_{θ_1}$、$Q_{θ_2}$和 actor π_φ，并复制得到两个目标评论家；智能体循环从策略采样动作、执行环境转移并写入经验池。每次更新从经验池抽取小批量，对下一状态采样 a′，由目标评论家的均值和标准差生成随机悲观值，取双评论家较小值构造 y；随后计算 δ、ω和 ξ，最小化协同加权 Huber—不确定性损失。完成评论家更新后，重新以悲观价值指导 actor 最大化带熵目标，最后用系数 τ对目标评论家进行软更新。随机悲观样本会进入评论家目标和 actor 更新，但经验池本身仍采用普通抽样。
 
 推断或部署阶段以训练后的 π_φ根据当前状态产生动作并与环境交互；原文节选没有明确说明评估时采用随机动作、分布均值动作还是其他确定化规则。若部署仍需按论文目标评估候选动作，则可使用评论家的悲观价值而非原始 Q，但算法主体已经把这种偏好蒸馏进 actor；原文未明确报告额外的推断期优化或搜索步骤。
 
 **复现信息**
 
-复现方法所必需的结构性细节包括：两个在线评论家及对应目标网络；评论家必须同时提供回报均值 Q和标准差 σ；悲观扰动满足 ε∼N(0,μI)并使用 |ε|保证只向下修正；目标值取两个目标评论家悲观估计的最小值；评论家采用 Huber 而非均方误差；经验回放不使用按历史 TD 误差的优先采样；目标网络按 θ_i′←τθ_i+(1−τ)θ_i′更新。μ、β_ω、β_ξ、c、τ及 α分别控制悲观扰动、两类加权、数值稳定、目标网络跟随速度和熵强度；这些参数的具体数值、σ的网络参数化方式、期望项的批量估计方式以及与 TD3/DDPG 集成时对熵项和随机策略的具体改写，在所给章节中原文未明确报告。
+复现方法所必需的结构性细节包括：两个在线评论家及对应目标网络；评论家必须同时提供回报均值 Q和标准差 σ；悲观扰动满足 ε∼N(0,μI)并使用 |ε|保证只向下修正；目标值取两个目标评论家悲观估计的最小值；评论家采用 Huber 而非均方误差；经验回放不使用按历史 TD 误差的优先采样；目标网络按 $θ_i$′←τθ_i+(1−τ)θ_i′更新。μ、β_ω、β_ξ、c、τ及 α分别控制悲观扰动、两类加权、数值稳定、目标网络跟随速度和熵强度；这些参数的具体数值、σ的网络参数化方式、期望项的批量估计方式以及与 TD3/DDPG 集成时对熵项和随机策略的具体改写，在所给章节中原文未明确报告。
 
 </details>
 
@@ -445,26 +445,37 @@ actor 通过梯度上升最大化 J_π(φ)=E_{s∼B,a∼π_φ}[Z_θ(s,a)−αlog
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- OpenAI Gym连续控制基准：6个任务，包括HalfCheetah、Ant、Hopper、Walker2d、Humanoid和BipedalWalker；状态维度为11至376，动作维度为3至17。其作用是检验标准机器人运动控制任务上的最终回报、收敛速度和跨任务一致性。原文未给出训练集、验证集或测试集划分，因为强化学习评测通过智能体与模拟环境在线交互完成。
-- PyBullet连续控制基准：4个任务，包括HalfCheetahBulletEnv、AntBulletEnv、HopperBulletEnv和Walker2DBulletEnv；状态维度为15至28，动作维度为3至8。作者将其视为环境动力学噪声更强的测试平台，用于检验CWAC对噪声及价值估计误差的鲁棒性。
-- DeepMind Control Suite（DMC）：12个任务，覆盖reacher、walker、hopper、fish、swimmer、pendulum、cheetah、quadruped和finger等控制问题；状态维度为3至78，动作维度为1至12。其作用是在较短的500K交互预算下检验样本效率、任务多样性和跨控制场景的泛化表现。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- OpenAI Gym连续控制基准：6个任务，包括HalfCheetah、Ant、Hopper、Walker2d、Humanoid和BipedalWalker；状态维度为11至376，动作维度为3至17。其作用是检验标准机器人运动控制任务上的最终回报、收敛速度和跨任务一致性。原文未给出训练集、验证集或测试集划分，因为强化学习评测通过智能体与模拟环境在线交互完成。
+- PyBullet连续控制基准：4个任务，包括HalfCheetahBulletEnv、AntBulletEnv、HopperBulletEnv和Walker2DBulletEnv；状态维度为15至28，动作维度为3至8。作者将其视为环境动力学噪声更强的测试平台，用于检验CWAC对噪声及价值估计误差的鲁棒性。
+- DeepMind Control Suite（DMC）：12个任务，覆盖reacher、walker、hopper、fish、swimmer、pendulum、cheetah、quadruped和finger等控制问题；状态维度为3至78，动作维度为1至12。其作用是在较短的500K交互预算下检验样本效率、任务多样性和跨控制场景的泛化表现。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **最终平均评估回报**
 
 Gym报告10个随机种子上最后10次评估分数的平均回报；PyBullet和DMC报告10个随机种子上最后10个评估episode的平均回报。它衡量训练结束时策略获得的累计奖励，但不同任务间的绝对回报尺度并不统一。 （通常越高越好，因为更高累计奖励表示策略更好地完成环境目标。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **跨任务平均回报（Avg.）**
 
 将同一基准中各任务的最终平均回报再作算术平均，用于给出总体比较。由于各任务奖励尺度不同，该指标适合做本文表内的粗略汇总，不应被解释为严格归一化的跨任务综合能力。 （在同一张表和相同任务集合内越高越好，但会受到高回报尺度任务的较大影响。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **Q值估计误差**
 
@@ -472,7 +483,9 @@ Gym报告10个随机种子上最后10次评估分数的平均回报；PyBullet�
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -503,7 +516,11 @@ CWAC在表2的6个任务中均取得最高平均回报，跨任务Avg.为5792；
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">As shown in Table 2, CWAC achieves the best overall performance among all benchmark methods, including VIAC, ALH, LAP, SAC, and TD3, with relative improvements of 15.3%, 31.5%, 29.5%, 40.3%, and 32.9%, respectively, in average evaluation metrics.</span>
+<div class="experiment-evidence" markdown="1">
+
+As shown in Table 2, CWAC achieves the best overall performance among all benchmark methods, including VIAC, ALH, LAP, SAC, and TD3, with relative improvements of 15.3%, 31.5%, 29.5%, 40.3%, and 32.9%, respectively, in average evaluation metrics.
+
+</div>
 
 </details>
 
@@ -531,7 +548,11 @@ PyBullet用于测试在更强环境噪声下，按预测不确定性抑制不可
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Specifically, CWAC, VIAC, and LAP improve the average return over SAC by 37.6%, 26.6%, and 27.5%, respectively.</span>
+<div class="experiment-evidence" markdown="1">
+
+Specifically, CWAC, VIAC, and LAP improve the average return over SAC by 37.6%, 26.6%, and 27.5%, respectively.
+
+</div>
 
 </details>
 
@@ -559,7 +580,11 @@ CWAC的跨任务Avg.为698，高于VIAC的548、ALH的383、LAP的576、SAC的45
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Across the 12 evaluated tasks, CWAC achieves the SOTA performance on 8 tasks, highlighting its robustness and effectiveness in diverse continuous control scenarios.</span>
+<div class="experiment-evidence" markdown="1">
+
+Across the 12 evaluated tasks, CWAC achieves the SOTA performance on 8 tasks, highlighting its robustness and effectiveness in diverse continuous control scenarios.
+
+</div>
 
 </details>
 

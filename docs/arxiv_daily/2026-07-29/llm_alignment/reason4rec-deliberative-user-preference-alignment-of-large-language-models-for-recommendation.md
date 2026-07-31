@@ -6,7 +6,7 @@ announcement_date: "2026-07-29"
 primary_category: "llm_alignment"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:24.078896+00:00"
+generated_at: "2026-07-30T10:14:52.299143+00:00"
 source_sha256: "3ec97890783dc127772fd05bac118b686f4d70eb191f9a47c1f280c53dd10bdb"
 tags:
   - "对齐 / RLHF"
@@ -36,7 +36,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2502.02061v3) · [PDF 下载](https://arxiv.org/pdf/2502.02061v3) · **关键词** 大语言模型推荐, 审慎推荐, 用户偏好对齐, 显式推理, 言语化用户反馈, 分步骤专家  
+[arXiv 原文](https://arxiv.org/abs/2502.02061v3) · [PDF 下载](https://arxiv.org/pdf/2502.02061v3) · **关键词** 大语言模型推荐, 审慎推荐, 用户偏好对齐, 显式推理, 言语化用户反馈, 分步骤专家<br>
 **代码**: [https://github.com/Peter-Fy/Reason4Rec](https://github.com/Peter-Fy/Reason4Rec)  
 
 </div>
@@ -85,21 +85,21 @@ tags:
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **推荐大语言模型（RecLLM）**
 
 指经过提示或任务专门训练、能够依据用户历史和候选物品预测用户反馈的大语言模型。本文关注的不是一般文本生成，而是让语言模型与个体用户的推荐偏好对齐。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **审慎推荐（Deliberative Recommendation）**
 
 一种要求模型先显式推理用户偏好与物品特征、再预测用户反馈的任务设定。其核心区别是把推理过程本身作为训练目标，而非只监督最终标签。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **言语化用户反馈（verbalized user feedback）**
 
@@ -212,7 +212,7 @@ Summarizer根据物品、评分和评论生成结构化的 aspect-preference sum
 
 <div class="method-step__io" markdown="1">
 
-**输入**：历史交互 (r_{ui}, c_{ui})，其中 u 为用户、i 为物品、r_{ui} 为用户对物品的评分、c_{ui} 为对应评论文本。  
+**输入**：历史交互 ($r_{ui}, c_{ui})$，其中 u 为用户、i 为物品、$r_{ui}$ 为用户对物品的评分、$c_{ui}$ 为对应评论文本。<br>
 **输出**：每条历史交互对应的一份简短方面—偏好摘要，例如“Positive Aspects”“Negative Aspects”和“User Preference Elements”下的代表性关键词。
 
 </div>
@@ -232,7 +232,7 @@ Summarizer根据物品、评分和评论生成结构化的 aspect-preference sum
 
 <div class="method-step__io" markdown="1">
 
-**输入**：目标用户 u 和目标物品 i，以及二者历史交互集合 \mathcal{H}_{u} 与 \mathcal{H}_{i} 中预先生成的方面—偏好摘要和历史评分。  
+**输入**：目标用户 u 和目标物品 i，以及二者历史交互集合 $\mathcal{H}_{u}$ 与 $\mathcal{H}_{i}$ 中预先生成的方面—偏好摘要和历史评分。<br>
 **输出**：一个同时描述“用户通常偏好什么”和“目标物品通常呈现什么特征”的紧凑历史上下文。
 
 </div>
@@ -252,7 +252,7 @@ Reasoner比较用户偏好与物品正负面特征，生成用户可能喜欢或
 
 <div class="method-step__io" markdown="1">
 
-**输入**：按时间组织的用户历史 \mathcal{H}_{u}、物品历史 \mathcal{H}_{i} 及其方面—偏好摘要。  
+**输入**：按时间组织的用户历史 $\mathcal{H}_{u}$、物品历史 $\mathcal{H}_{i}$ 及其方面—偏好摘要。<br>
 **输出**：面向目标用户—物品对的自然语言推荐理由，说明偏好与物品特征的吻合点和冲突点。
 
 </div>
@@ -272,7 +272,7 @@ Predictor作为与Reasoner分离训练的专家，根据历史证据和显式理
 
 <div class="method-step__io" markdown="1">
 
-**输入**：历史评分、方面—偏好摘要，以及Reasoner生成的匹配理由。  
+**输入**：历史评分、方面—偏好摘要，以及Reasoner生成的匹配理由。<br>
 **输出**：目标用户 u 对目标物品 i 的预测评分；该分数还可用于候选物品排序。
 
 </div>
@@ -297,7 +297,7 @@ Predictor作为与Reasoner分离训练的专家，根据历史证据和显式理
 
 <div class="paper-focus" markdown="1">
 
-**优化目标如何起作用**：Summarizer使用教师模型生成的方面—偏好摘要作为监督目标进行SFT，即通过监督微调学习从“物品、评分、评论”生成结构化摘要。Reasoner采用专家级训练策略：先构造候选理由，再使用奖励模型判断理由是否与目标评论所体现的真实偏好一致，并依据阈值 \tau 筛选高质量理由作为推理监督；Predictor则独立学习从历史评分、摘要和匹配理由预测真实评分。所给原文节选没有提供这些模块的完整损失函数、奖励计算公式或明确编号的核心方程，因此不应补写交叉熵、回归损失或奖励公式；三者如何加权、是否联合优化也为原文节选未明确报告。
+**优化目标如何起作用**：Summarizer使用教师模型生成的方面—偏好摘要作为监督目标进行SFT，即通过监督微调学习从“物品、评分、评论”生成结构化摘要。Reasoner采用专家级训练策略：先构造候选理由，再使用奖励模型判断理由是否与目标评论所体现的真实偏好一致，并依据阈值 $\tau$ 筛选高质量理由作为推理监督；Predictor则独立学习从历史评分、摘要和匹配理由预测真实评分。所给原文节选没有提供这些模块的完整损失函数、奖励计算公式或明确编号的核心方程，因此不应补写交叉熵、回归损失或奖励公式；三者如何加权、是否联合优化也为原文节选未明确报告。
 
 </div>
 
@@ -314,13 +314,13 @@ Predictor作为与Reasoner分离训练的专家，根据历史证据和显式理
 
 **2. Reasoner（偏好匹配推理器）**
 
-该模块读取用户侧与物品侧按时间排列的历史摘要，显式分析用户偏好和目标物品特征的匹配关系。其训练理由需要经过奖励模型筛选：奖励模型利用候选理由进行评分预测，以候选理由是否能反映目标评论中的真实偏好作为质量信号，并通过数据集相关阈值 \tau 保留高质量理由。
+该模块读取用户侧与物品侧按时间排列的历史摘要，显式分析用户偏好和目标物品特征的匹配关系。其训练理由需要经过奖励模型筛选：奖励模型利用候选理由进行评分预测，以候选理由是否能反映目标评论中的真实偏好作为质量信号，并通过数据集相关阈值 $\tau$ 保留高质量理由。
 
 > 直观理解：仅让语言模型自由生成解释，理由可能流畅但不忠于真实偏好；奖励筛选的作用是保留那些确实有助于恢复用户反馈的理由。换言之，系统关心的不只是“说得像理由”，还关心理由是否包含与真实评论一致的偏好信息。
 
 **3. Reward Model（理由质量评估器）**
 
-奖励模型通过读取不同候选理由并预测真实评分，评估理由与目标用户偏好的对齐程度；训练Reasoner时按照奖励阈值 \tau 筛选候选理由。原文实验表明，使用与目标评论更相似的理由时，该模型的评分误差更低，但所给节选未包含其完整架构、奖励函数和候选理由生成算法。
+奖励模型通过读取不同候选理由并预测真实评分，评估理由与目标用户偏好的对齐程度；训练Reasoner时按照奖励阈值 $\tau$ 筛选候选理由。原文实验表明，使用与目标评论更相似的理由时，该模型的评分误差更低，但所给节选未包含其完整架构、奖励函数和候选理由生成算法。
 
 > 直观理解：奖励模型像一个理由审稿人：如果某段理由能帮助它更准确地判断用户最终评分，该理由就更可能抓住了真实偏好。阈值过严会使可用训练样本不足，过松则会混入低质量理由，因此需要在验证集上选择。
 
@@ -349,26 +349,37 @@ Predictor作为与Reasoner分离训练的专家，根据历史证据和显式理
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- Amazon Digital Music：使用完整数据，共64,706次交互、5,541名用户和3,568个物品。该数据集用于检验方法在规模较小、相对稠密的商品推荐场景中的评分预测与理由生成能力。
-- Amazon Book：受时间和计算资源限制，仅使用最后两个月的数据，共540,074次交互、174,050名用户和127,821个物品。它代表用户与物品规模更大、交互相对稀疏的商品推荐场景。
-- Yelp Open Dataset：使用最后六个月的数据，共302,558次交互、173,099名用户和67,854个物品。它用于检验方法能否从亚马逊商品评论场景迁移到本地商户评论场景。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- Amazon Digital Music：使用完整数据，共64,706次交互、5,541名用户和3,568个物品。该数据集用于检验方法在规模较小、相对稠密的商品推荐场景中的评分预测与理由生成能力。
+- Amazon Book：受时间和计算资源限制，仅使用最后两个月的数据，共540,074次交互、174,050名用户和127,821个物品。它代表用户与物品规模更大、交互相对稀疏的商品推荐场景。
+- Yelp Open Dataset：使用最后六个月的数据，共302,558次交互、173,099名用户和67,854个物品。它用于检验方法能否从亚马逊商品评论场景迁移到本地商户评论场景。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **MAE（Mean Absolute Error，平均绝对误差）**
 
 计算预测评分与真实评分之间绝对误差的平均值，直接反映一次评分预测通常偏离真实值多少；相较RMSE，它对少数极大误差的额外惩罚较弱。 （越低越好，因为数值越小表示预测评分与真实用户反馈越接近。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **RMSE（Root Mean Square Error，均方根误差）**
 
 先对每个评分误差平方、求平均，再开平方。平方操作会放大较大的预测错误，因此该指标更强调模型是否避免严重错判。 （越低越好，因为较低的RMSE意味着整体预测误差更小，尤其意味着大误差更少。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **BLEURT**
 
@@ -376,7 +387,9 @@ Predictor作为与Reasoner分离训练的专家，根据历史证据和显式理
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -407,7 +420,11 @@ Predictor作为与Reasoner分离训练的专家，根据历史证据和显式理
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Extensive experiments conducted on three real-world datasets demonstrate the rationality of the deliberative task formulation and the effectiveness of the proposed framework in improving both prediction accuracy and reasoning quality.</span>
+<div class="experiment-evidence" markdown="1">
+
+Extensive experiments conducted on three real-world datasets demonstrate the rationality of the deliberative task formulation and the effectiveness of the proposed framework in improving both prediction accuracy and reasoning quality.
+
+</div>
 
 </details>
 
@@ -435,7 +452,11 @@ Predictor作为与Reasoner分离训练的专家，根据历史证据和显式理
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">To evaluate reasoning quality, we employ BLEURT [44] and GPTScore [49] to measure the semantic alignment between the generated reasoning and the target item review.</span>
+<div class="experiment-evidence" markdown="1">
+
+To evaluate reasoning quality, we employ BLEURT [44] and GPTScore [49] to measure the semantic alignment between the generated reasoning and the target item review.
+
+</div>
 
 </details>
 
@@ -463,7 +484,11 @@ Predictor作为与Reasoner分离训练的专家，根据历史证据和显式理
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">For each dataset, we split it into training, validation, and test sets following a ratio of 8:1:1 based on the timestamps of interactions, ensuring that test interactions occur after all training and validation interactions to prevent information leakage [23].</span>
+<div class="experiment-evidence" markdown="1">
+
+For each dataset, we split it into training, validation, and test sets following a ratio of 8:1:1 based on the timestamps of interactions, ensuring that test interactions occur after all training and validation interactions to prevent information leakage [23].
+
+</div>
 
 </details>
 

@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "llm_evaluation"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:24.895713+00:00"
+generated_at: "2026-07-30T10:14:52.598248+00:00"
 source_sha256: "a36b1c515776bbe2c0991c339f7d23a1e3028e6ad80cc439482fb139998ac56d"
 tags:
   - "LLM 评测"
@@ -38,7 +38,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2607.26791v1) · [PDF 下载](https://arxiv.org/pdf/2607.26791v1) · **关键词** 大语言模型智能体, 事后入侵响应, 数字取证, 网络安全基准, 命令行工具使用, MITRE ATT&CK, 修复规划, LLM-as-a-Judge  
+[arXiv 原文](https://arxiv.org/abs/2607.26791v1) · [PDF 下载](https://arxiv.org/pdf/2607.26791v1) · **关键词** 大语言模型智能体, 事后入侵响应, 数字取证, 网络安全基准, 命令行工具使用, MITRE ATT&CK, 修复规划, LLM-as-a-Judge<br>
 **代码**: [https://github.com/Alibaba-NLP/qqr/tree/main/data/secrespond](https://github.com/Alibaba-NLP/qqr/tree/main/data/secrespond)  
 
 </div>
@@ -87,21 +87,21 @@ SecRespond通过真实受侵云主机的取证磁盘快照与安全产品报告�
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **事后入侵响应（post-compromise incident response）**
 
 指攻击者已经突破主机之后开展的调查与处置，包括发现恶意痕迹、重建攻击链、判断风险并清除或缓解威胁。与攻击前漏洞检查不同，此时系统可能含有持久化机制、被删除的痕迹以及大量无关活动。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **取证磁盘快照（forensic disk snapshot）**
 
 主机磁盘在某一时刻的冻结副本，保存文件、配置及其他可供调查的系统痕迹。智能体需要跨文件检索和关联这些材料，而不能只依赖已经给出的告警文本。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **MITRE ATT&CK技术**
 
@@ -213,7 +213,7 @@ SecRespond不是训练新模型的方法，而是一套面向失陷后事件响�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：完整实例化的云主机、真实网络协议上的端到端攻击过程，以及攻击期间并发存在的正常活动。  
+**输入**：完整实例化的云主机、真实网络协议上的端到端攻击过程，以及攻击期间并发存在的正常活动。<br>
 **输出**：10个彼此独立、具有真实失陷后状态的云主机环境。
 
 </div>
@@ -233,7 +233,7 @@ SecRespond不是训练新模型的方法，而是一套面向失陷后事件响�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：失陷云主机及主机安全产品对该主机生成的安全分析结果。  
+**输入**：失陷云主机及主机安全产品对该主机生成的安全分析结果。<br>
 **输出**：由磁盘现场、告警和两类扫描发现组成的标准化事件响应任务。
 
 </div>
@@ -253,7 +253,7 @@ SecRespond不是训练新模型的方法，而是一套面向失陷后事件响�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：单个靶场的取证磁盘快照、告警、漏洞扫描结果和基线检查结果。  
+**输入**：单个靶场的取证磁盘快照、告警、漏洞扫描结果和基线检查结果。<br>
 **输出**：面向该靶场的综合事件响应报告。
 
 </div>
@@ -273,7 +273,7 @@ SecRespond不是训练新模型的方法，而是一套面向失陷后事件响�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：每个靶场的真实攻击过程、风险状态、预期调查证据及事件响应要求。  
+**输入**：每个靶场的真实攻击过程、风险状态、预期调查证据及事件响应要求。<br>
 **输出**：按靶场定制、同时可映射到统一能力维度的评分细则。
 
 </div>
@@ -343,25 +343,36 @@ SecRespond不是训练新模型的方法，而是一套面向失陷后事件响�
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- SecRespond 基准：包含 10 个网络靶场，每个靶场来自一台不同的已受入侵云主机；共覆盖 4 类攻击入口、21 种 ATT&CK 技术和 5 种操作系统。每个任务向代理提供取证磁盘快照，以及主机安全产品产生的告警、漏洞扫描和基线检查结果；代理需输出入侵、基线风险、漏洞风险的取证报告与修复计划。原文节选未说明训练集、验证集或测试集划分，实验用途是端到端评测。
-- 靶场按攻击结构形成难度层次：Log4j-RCE、Docker-Escape、Redis-RCE主要测试单入口、线性攻击链和告警可见的常见持久化；SSH-Miner、Next.js-RCE、Jenkins-RCE加入更宽的主机基线、多步提权及跨服务关联；Shiro-Fastjson、RDP-Service-Abuse、NPM-Worm、ASP .NET-ViewState进一步测试宽攻击面、跨服务或跨运行时关联及伪装持久化。各靶场的具体样本数和检查点数量在所给节选中未明确报告。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- SecRespond 基准：包含 10 个网络靶场，每个靶场来自一台不同的已受入侵云主机；共覆盖 4 类攻击入口、21 种 ATT&CK 技术和 5 种操作系统。每个任务向代理提供取证磁盘快照，以及主机安全产品产生的告警、漏洞扫描和基线检查结果；代理需输出入侵、基线风险、漏洞风险的取证报告与修复计划。原文节选未说明训练集、验证集或测试集划分，实验用途是端到端评测。
+- 靶场按攻击结构形成难度层次：Log4j-RCE、Docker-Escape、Redis-RCE主要测试单入口、线性攻击链和告警可见的常见持久化；SSH-Miner、Next.js-RCE、Jenkins-RCE加入更宽的主机基线、多步提权及跨服务关联；Shiro-Fastjson、RDP-Service-Abuse、NPM-Worm、ASP .NET-ViewState进一步测试宽攻击面、跨服务或跨运行时关联及伪装持久化。各靶场的具体样本数和检查点数量在所给节选中未明确报告。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **检查点级 CHK-score**
 
 由三名独立 LLM 裁判依据预定义检查点标准，分别评价报告在 Detection 或 Planning 轴上是否达到要求，再对三名裁判的检查点得分取平均。Detection 衡量是否发现并正确说明问题，Planning 衡量是否提出正确、完整且包含验证环节的处置方案。 （越高越好，因为更高表示更多检查点被正确满足；但它是基于 LLM-as-a-Judge 的标准符合度，不等同于真实环境中修复命令已经成功执行。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **靶场级 CHK-score**
 
-对某一靶场及某一评价轴，将该靶场所有相关检查点的已获 CHK-score 求均值并转成百分比，即 CHK-score^a_r = (∑_{c∈C^a_r} CHK-score^a_c / |C^a_r|) × 100%，其中 r 为靶场，a∈{det, plan} 为检测或规划轴，C^a_r 为对应检查点集合。它用于比较模型在具体攻击场景中的端到端完成度。 （越高越好，因为代表该靶场内更多应检测或应处置事项得到满足。）
+对某一靶场及某一评价轴，将该靶场所有相关检查点的已获 CHK-score 求均值并转成百分比，即 CHK-score^a_r = ($∑_{c∈C^a_r}$ CHK-score^a_c / |$C^a_r|)$ × 100%，其中 r 为靶场，a∈{det, plan} 为检测或规划轴，$C^a_r$ 为对应检查点集合。它用于比较模型在具体攻击场景中的端到端完成度。 （越高越好，因为代表该靶场内更多应检测或应处置事项得到满足。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **CAP-score**
 
@@ -369,7 +380,9 @@ SecRespond不是训练新模型的方法，而是一套面向失陷后事件响�
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -400,7 +413,11 @@ SecRespond不是训练新模型的方法，而是一套面向失陷后事件响�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">For example, GPT-5.5 scores 70.7% on detection but only 36% on planning, while Claude Sonnet 4.5 presents the narrowest gap of 8.5%.</span>
+<div class="experiment-evidence" markdown="1">
+
+For example, GPT-5.5 scores 70.7% on detection but only 36% on planning, while Claude Sonnet 4.5 presents the narrowest gap of 8.5%.
+
+</div>
 
 </details>
 
@@ -428,7 +445,11 @@ Claude Opus 4.7 的平均靶场级成绩最高，为 Detection 79.0%、Planning 
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Claude Opus 4.7 achieves the highest average range-level CHK-score across ranges (79.0% for detection and 65.7% for planning), followed by Claude Opus 4.6 (78.2%/58.0%), GLM-5.1 (76.3%/59.2%), and Qwen3.7 Plus (75.6%/58.8%), whereas Gemini 3.1 Pro, MiniMax M2.5, and Gemini 3 Flash present the lowest results.</span>
+<div class="experiment-evidence" markdown="1">
+
+Claude Opus 4.7 achieves the highest average range-level CHK-score across ranges (79.0% for detection and 65.7% for planning), followed by Claude Opus 4.6 (78.2%/58.0%), GLM-5.1 (76.3%/59.2%), and Qwen3.7 Plus (75.6%/58.8%), whereas Gemini 3.1 Pro, MiniMax M2.5, and Gemini 3 Flash present the lowest results.
+
+</div>
 
 </details>
 
@@ -456,7 +477,11 @@ Claude Opus 4.7 的平均靶场级成绩最高，为 Detection 79.0%、Planning 
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">We map the agentless-detection findings to our capability dimensions and observe that the scanner reaches 43.6% on ENT and 50.0% on VUL, but only 20.7% on BAS and 2.1% on PER.</span>
+<div class="experiment-evidence" markdown="1">
+
+We map the agentless-detection findings to our capability dimensions and observe that the scanner reaches 43.6% on ENT and 50.0% on VUL, but only 20.7% on BAS and 2.1% on PER.
+
+</div>
 
 </details>
 

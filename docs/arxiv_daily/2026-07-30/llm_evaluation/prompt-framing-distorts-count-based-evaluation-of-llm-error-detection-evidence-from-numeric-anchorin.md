@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "llm_evaluation"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:25.245130+00:00"
+generated_at: "2026-07-30T10:14:52.720458+00:00"
 source_sha256: "36b3bcd9709126104af7545fe0e8b0691aaae7abb3ae34a7a17b63d8c25f6408"
 tags:
   - "LLM 评测"
@@ -36,7 +36,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2607.01240v2) · [PDF 下载](https://arxiv.org/pdf/2607.01240v2) · **关键词** 大语言模型评测, 错误检测, Count-F1, 计数—跨度差距, 数字锚定, 提示敏感性, 语法错误纠正, 评测污染  
+[arXiv 原文](https://arxiv.org/abs/2607.01240v2) · [PDF 下载](https://arxiv.org/pdf/2607.01240v2) · **关键词** 大语言模型评测, 错误检测, Count-F1, 计数—跨度差距, 数字锚定, 提示敏感性, 语法错误纠正, 评测污染<br>
 
 
 </div>
@@ -85,21 +85,21 @@ tags:
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **Count-F1（计数F1）**
 
 一种把模型报告的错误总数与参考错误总数进行比较的评分方式，强调数量是否一致。它不充分检查模型指出的是不是正确错误，因此可能在定位很差时仍取得高分。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **跨度或编辑感知评测**
 
-这类评测不仅比较错误数量，还检查原文中的具体错误位置及其修改内容；文中涉及M2风格诊断与ERRANT提取出的编辑级 F_{0.5}。相比纯计数指标，它更能反映模型是否真正找到了并修正了错误。
+这类评测不仅比较错误数量，还检查原文中的具体错误位置及其修改内容；文中涉及M2风格诊断与ERRANT提取出的编辑级 $F_{0.5}$。相比纯计数指标，它更能反映模型是否真正找到了并修正了错误。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **数字锚定（numeric anchoring）**
 
@@ -124,28 +124,28 @@ tags:
 
 <div class="notation-list" markdown="1">
 
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$N$**
 
 给定文本的参考错误数量，即锚定提示构造时所依据的目标计数。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$N-2$**
 
 偏低的错误数提示，比参考数量少2，用于测试模型输出是否随低锚点移动。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$N+2$**
 
 偏高的错误数提示，比参考数量多2；它与 N-2 相差4个错误。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$F_{0.5}$**
 
@@ -243,7 +243,7 @@ ErrorBench不是训练新模型的方法，而是一套受控压力测试协议�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：CoNLL-2014 Shared Task数据中的连续句子、Annotator 0的M2编辑标注，以及用于敏感性分析的Annotator 1标注。  
+**输入**：CoNLL-2014 Shared Task数据中的连续句子、Annotator 0的M2编辑标注，以及用于敏感性分析的Annotator 1标注。<br>
 **输出**：每篇包含原始文本、Annotator-0错误总数、M2类别和词元索引标注的主数据集，以及用于ERRANT复核的83篇子集。
 
 </div>
@@ -263,7 +263,7 @@ ErrorBench不是训练新模型的方法，而是一套受控压力测试协议�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：每篇文本及其真实错误数N。  
+**输入**：每篇文本及其真实错误数N。<br>
 **输出**：同一文本在无数量信息、仅告知存在错误、真实数量锚定、过高数量误导和过低数量误导下的可比较请求。
 
 </div>
@@ -283,7 +283,7 @@ ErrorBench不是训练新模型的方法，而是一套受控压力测试协议�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：123篇文本与五种提示条件构成的请求，以及GPT-4o、GPT-5.4、Claude Haiku 4.5、Claude Sonnet 4.6、Gemini 2.5 Flash和Gemini 3.1 Pro Preview。  
+**输入**：123篇文本与五种提示条件构成的请求，以及GPT-4o、GPT-5.4、Claude Haiku 4.5、Claude Sonnet 4.6、Gemini 2.5 Flash和Gemini 3.1 Pro Preview。<br>
 **输出**：共3690个审计后主实验单元的模型回答、报告错误数、错误描述及解析状态。
 
 </div>
@@ -303,7 +303,7 @@ ErrorBench不是训练新模型的方法，而是一套受控压力测试协议�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：模型报告数、人工参考数，以及每条结构化错误描述。  
+**输入**：模型报告数、人工参考数，以及每条结构化错误描述。<br>
 **输出**：提示对报告数量的影响，以及错误是否真正落到正确文本位置并给出相应修改的跨度级诊断结果。
 
 </div>
@@ -346,7 +346,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：CB回答模型比人工答案多报或少报了几个错误；ASI不判断偏移方向，而是测量换成某种提示后，报告数量相对Blind移动了多大。除以真实错误数后，不同错误密度的文章更便于比较，但该指标只描述提示响应，不证明模型内部存在特定心理或因果机制。  
+**直观理解**：CB回答模型比人工答案多报或少报了几个错误；ASI不判断偏移方向，而是测量换成某种提示后，报告数量相对Blind移动了多大。除以真实错误数后，不同错误密度的文章更便于比较，但该指标只描述提示响应，不证明模型内部存在特定心理或因果机制。<br>
 **原文位置**：第3.4节 Evaluation Metrics
 
 </div>
@@ -371,7 +371,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：该构造只比较两个数量：例如模型报告5个、参考也是5个，就会得到5个计数意义上的真阳性，即使这5条都没有指向正确位置。因此它正是论文要压力测试的薄弱点；作者在篇章层面计算Count-F1后再取平均，无法解析的计数记为0。  
+**直观理解**：该构造只比较两个数量：例如模型报告5个、参考也是5个，就会得到5个计数意义上的真阳性，即使这5条都没有指向正确位置。因此它正是论文要压力测试的薄弱点；作者在篇章层面计算Count-F1后再取平均，无法解析的计数记为0。<br>
 **原文位置**：第3.4节 Evaluation Metrics
 
 </div>
@@ -425,26 +425,37 @@ Count-F1将预测数与参考数的重叠min(预测数,参考数)视为真阳性
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- 主实验使用 CoNLL-2014 语法纠错语料中的 123 个篇章。每个篇章分别在五种提示条件下交给六个模型，共形成 123×5×6=3,690 个模型—条件响应；它用于测量数量偏差、提示锚定敏感性以及由错误描述恢复出的编辑定位质量。
-- 纠正文段复现实验使用其中 83 个篇章，要求模型输出完整纠正后的文本，再由 ERRANT 抽取编辑并与 CoNLL 的两位标注者比较。每个模型—条件单元均覆盖全部 83 个篇章；缺失调用、缺失纠正文段和不可解析数量按失败处理。
-- CoNLL-2014 的人工参考编辑既提供每篇文章的真实错误数量，也提供编辑位置与改法。主路径采用描述派生的 M2 风格匹配；复现路径采用 ERRANT 提取精确编辑元组，并逐句选择两条参考中 F0.5 较高者。作者明确指出，后一规则不是官方 M2 max-match 评分器。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- 主实验使用 CoNLL-2014 语法纠错语料中的 123 个篇章。每个篇章分别在五种提示条件下交给六个模型，共形成 123×5×6=3,690 个模型—条件响应；它用于测量数量偏差、提示锚定敏感性以及由错误描述恢复出的编辑定位质量。
+- 纠正文段复现实验使用其中 83 个篇章，要求模型输出完整纠正后的文本，再由 ERRANT 抽取编辑并与 CoNLL 的两位标注者比较。每个模型—条件单元均覆盖全部 83 个篇章；缺失调用、缺失纠正文段和不可解析数量按失败处理。
+- CoNLL-2014 的人工参考编辑既提供每篇文章的真实错误数量，也提供编辑位置与改法。主路径采用描述派生的 M2 风格匹配；复现路径采用 ERRANT 提取精确编辑元组，并逐句选择两条参考中 F0.5 较高者。作者明确指出，后一规则不是官方 M2 max-match 评分器。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **Count Bias（CB）与 Anchoring Sensitivity Index（ASI）**
 
 CB 是模型报告错误数相对真实错误数的有符号偏差：正值表示多报，负值表示少报；ASI 比较带数字提示的条件与 Blind 条件，衡量模型报告数量随提示数字移动的程度。二者衡量数量行为，而不是错误位置是否正确。 （CB 的绝对值越接近 0，数量越接近参考；ASI 没有可直接解释为“越高越好”的方向，高值表示更受数字线索影响，低值也可能只是持续少报而非真正抗锚定。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **Count-F1**
 
 仅根据预测错误总数与参考错误总数的重合程度计算篇章级 F1；主实验对不可解析数量赋 0。它能测量数量一致性，但不检查模型是否找到了正确的错误跨度或提出了正确修改。 （数值越高表示预测数量与参考数量越一致；但在提示已经提供目标数量时，高分不能单独证明错误检测或定位能力更强。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **跨度／编辑感知 F0.5（描述派生 M2-style 与多参考 ERRANT）**
 
@@ -452,7 +463,9 @@ M2-style F0.5 将模型的错误描述转换为编辑，并在 Strict、Detectio
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -483,7 +496,11 @@ M2-style F0.5 将模型的错误描述转换为编辑，并在 Strict、Detectio
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">For GPT-5.4, Count-F1 changes from 0.582 to 0.988 while overlap F0.5 stays near 0.20.</span>
+<div class="experiment-evidence" markdown="1">
+
+For GPT-5.4, Count-F1 changes from 0.582 to 0.988 while overlap F0.5 stays near 0.20.
+
+</div>
 
 </details>
 
@@ -511,7 +528,11 @@ M2-style F0.5 将模型的错误描述转换为编辑，并在 Strict、Detectio
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">The mean reported-count shift is 3.740 for GPT-4o, 3.285 for GPT-5.4, 3.610 for Claude H.4.5, and 3.537 for Claude S.4.6 (Figure 3).</span>
+<div class="experiment-evidence" markdown="1">
+
+The mean reported-count shift is 3.740 for GPT-4o, 3.285 for GPT-5.4, 3.610 for Claude H.4.5, and 3.537 for Claude S.4.6 (Figure 3).
+
+</div>
 
 </details>
 
@@ -539,7 +560,11 @@ M2-style F0.5 将模型的错误描述转换为编辑，并在 Strict、Detectio
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Across models, Blind→Anchored raises corpus Count-F1 by 0.218 on average and two-reference edit F0.5 by 0.042.</span>
+<div class="experiment-evidence" markdown="1">
+
+Across models, Blind→Anchored raises corpus Count-F1 by 0.218 on average and two-reference edit F0.5 by 0.042.
+
+</div>
 
 </details>
 

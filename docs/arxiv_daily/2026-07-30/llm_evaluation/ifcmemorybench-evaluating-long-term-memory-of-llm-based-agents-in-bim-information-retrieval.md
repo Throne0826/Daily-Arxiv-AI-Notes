@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "llm_evaluation"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:25.832201+00:00"
+generated_at: "2026-07-30T10:14:52.923568+00:00"
 source_sha256: "364b406abeb13c165612f930e01dd6ae298c5760d0bb4287235b01bcc1c68279"
 tags:
   - "LLM 评测"
@@ -37,7 +37,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2607.26072v1) · [PDF 下载](https://arxiv.org/pdf/2607.26072v1) · **关键词** 大语言模型智能体, 长期记忆, 建筑信息模型, IFC, 多会话评测, 工具增强信息检索, 开放世界问答, IFCMemoryBench  
+[arXiv 原文](https://arxiv.org/abs/2607.26072v1) · [PDF 下载](https://arxiv.org/pdf/2607.26072v1) · **关键词** 大语言模型智能体, 长期记忆, 建筑信息模型, IFC, 多会话评测, 工具增强信息检索, 开放世界问答, IFCMemoryBench<br>
 
 
 </div>
@@ -86,21 +86,21 @@ tags:
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **长期记忆（long-term memory）**
 
 指智能体跨会话持久保存并复用信息的能力，区别于当前任务中的工作记忆和单次会话内的短期记忆。本文主要涉及项目事实、约束等语义式记忆，以及先前更正或决定等情景式记忆，不评估技能与流程层面的程序性记忆。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **IFC与BIM信息检索**
 
 BIM是建筑项目的结构化数字表示，IFC则是包含对象类型、属性和对象关系的语义丰富、面向对象交换模式。LLM智能体可通过工具查询或代码执行读取IFC中的构件属性、空间关系与工程量，而不是仅依赖语言模型自身知识作答。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **开放世界、工具落地的多会话问答**
 
@@ -125,28 +125,28 @@ IFCMemoryBench把IFC-Bench v2中因信息不完整而无法仅靠IFC回答的问
 
 <div class="notation-list" markdown="1">
 
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\mathcal{S}_{<t}$**
 
 当前探测时刻之前的多轮或多次历史会话；这是便于说明任务的概念性记号，原文未给出正式符号。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\mathcal{M}$**
 
 智能体从历史会话中建立并跨会话保存的长期记忆；具体实现可以是向量库、知识图谱或持久文件，原文未给出正式符号。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\mathcal{I}$**
 
 当前项目的IFC结构化模型及其可查询内容；原文未给出正式符号。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$q \rightarrow y$**
 
@@ -243,7 +243,7 @@ IFCMemoryBench把IFC-Bench v2中因信息不完整而无法仅靠IFC回答的问
 
 <div class="method-step__io" markdown="1">
 
-**输入**：IFC-Bench v2中第4类不完整信息问题、对应IFC模型及原始标准答案。  
+**输入**：IFC-Bench v2中第4类不完整信息问题、对应IFC模型及原始标准答案。<br>
 **输出**：确实依赖模型外知识的问题，以及每题可由IFC提供的信息边界和记忆依赖类型。
 
 </div>
@@ -263,7 +263,7 @@ IFCMemoryBench把IFC-Bench v2中因信息不完整而无法仅靠IFC回答的问
 
 <div class="method-step__io" markdown="1">
 
-**输入**：保留的问题、其记忆依赖标签以及已提取的IFC侧信息。  
+**输入**：保留的问题、其记忆依赖标签以及已提取的IFC侧信息。<br>
 **输出**：143个多会话任务，包括4,016个历史会话、隐藏的目标记忆内容、探测问题和标准答案。
 
 </div>
@@ -283,8 +283,8 @@ IFCMemoryBench把IFC-Bench v2中因信息不完整而无法仅靠IFC回答的问
 
 <div class="method-step__io" markdown="1">
 
-**输入**：按时间排列的历史会话S_1至S_{t-1}及初始记忆库M_0。  
-**输出**：探测前的累积记忆库M_{t-1}，其具体形式可以是向量条目、时序知识图或Markdown项目摘要。
+**输入**：按时间排列的历史会话$S_1$至$S_{t-1}$及初始记忆库$M_0$。<br>
+**输出**：探测前的累积记忆库$M_{t-1}$，其具体形式可以是向量条目、时序知识图或Markdown项目摘要。
 
 </div>
 
@@ -299,11 +299,11 @@ IFCMemoryBench把IFC-Bench v2中因信息不完整而无法仅靠IFC回答的问
 
 #### 动态检索并联合IFC推理
 
-探测代理自行决定发出多少个记忆查询及其措辞，合并各次检索结果形成R_t；随后通过ReAct过程查询实时IFC模型，并结合Q_t、R_t和工具结果生成最终答案A_t。文件记忆直接注入系统提示，向量和图记忆则通过统一的search_project_memory接口访问。
+探测代理自行决定发出多少个记忆查询及其措辞，合并各次检索结果形成$R_t$；随后通过ReAct过程查询实时IFC模型，并结合$Q_t$、$R_t$和工具结果生成最终答案$A_t$。文件记忆直接注入系统提示，向量和图记忆则通过统一的search_project_memory接口访问。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：探测问题Q_t、累积记忆M_{t-1}以及只读IFCQuery工具T_{\mathrm{IFC}}。  
+**输入**：探测问题$Q_t$、累积记忆$M_{t-1}$以及只读IFCQuery工具$T_{\mathrm{IFC}}$。<br>
 **输出**：最终回答、实际取回的记忆内容以及IFC工具调用轨迹。
 
 </div>
@@ -339,12 +339,12 @@ $$
 - $S_i$：探测前第i个历史聊天会话。
 - $M_{i-1}$：处理第i个会话之前已经累积的记忆库。
 - $f_{\mathrm{ingest}}$：记忆系统的写入函数，负责抽取、合并、概括、覆盖或丢弃会话内容。
-- $M_i$：吸收会话S_i之后更新得到的记忆库。
+- $M_i$：吸收会话$S_i$之后更新得到的记忆库。
 - $t$：最终探测发生的时间索引，因此共有t-1个先前会话。
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：每段新会话都不是独立存档，而是与当前项目记忆共同决定下一版记忆。这体现了长期记忆与普通追加式RAG索引的差别：写入阶段已经发生选择和状态更新，关键事实可能被整合，也可能在此处丢失。  
+**直观理解**：每段新会话都不是独立存档，而是与当前项目记忆共同决定下一版记忆。这体现了长期记忆与普通追加式RAG索引的差别：写入阶段已经发生选择和状态更新，关键事实可能被整合，也可能在此处丢失。<br>
 **原文位置**：第3.1节，公式(1)
 
 </div>
@@ -373,7 +373,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：检索覆盖面既受底层搜索能力影响，也受代理是否提出正确查询影响；多次结果合并后，代理还必须把记忆中的项目约定与IFC中的结构化事实联合使用。该分解使研究者能分别定位系统侧检索、代理侧查询和答案利用阶段的失败。  
+**直观理解**：检索覆盖面既受底层搜索能力影响，也受代理是否提出正确查询影响；多次结果合并后，代理还必须把记忆中的项目约定与IFC中的结构化事实联合使用。该分解使研究者能分别定位系统侧检索、代理侧查询和答案利用阶段的失败。<br>
 **原文位置**：第3.1节，公式(2)与公式(3)
 
 </div>
@@ -427,24 +427,35 @@ $$
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- IFCMemoryBench：由IFC-Bench v2中的信息不完整问题构造，包含143个多会话任务、19个项目、23个公开IFC模型和4,016个先前会话，覆盖建筑、结构、机电、给排水、通风与城市等专业。每个任务把IFC模型中缺失但回答所必需的项目背景植入先前对话，随后要求代理结合该记忆与实时IFC查询回答探测问题。全基准共有95,003条消息，其中用户消息9,488条、助手消息45,983条、工具消息39,532条；平均每个任务28个先前会话。原文节选未报告训练、验证、测试划分，实验角色是统一的最终评测集。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- IFCMemoryBench：由IFC-Bench v2中的信息不完整问题构造，包含143个多会话任务、19个项目、23个公开IFC模型和4,016个先前会话，覆盖建筑、结构、机电、给排水、通风与城市等专业。每个任务把IFC模型中缺失但回答所必需的项目背景植入先前对话，随后要求代理结合该记忆与实时IFC查询回答探测问题。全基准共有95,003条消息，其中用户消息9,488条、助手消息45,983条、工具消息39,532条；平均每个任务28个先前会话。原文节选未报告训练、验证、测试划分，实验角色是统一的最终评测集。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **答案准确率（Ans-acc.）**
 
 由答案评审器分别判断正确性（Corr.）、完整性（Cmp.）和相关性（Rel.）；只有三项均为“是”的任务才计为答案准确。该严格合取指标防止把主题相关但遗漏关键条件的答案算作成功。 （越高越好，因为它表示更多任务同时满足事实正确、信息充分且回答对象无偏离。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **记忆准确率（Mem-acc.）**
 
 由记忆评审器判断检索内容是否相关（R-rel.）、是否覆盖回答所需关键事实（R-cov.），以及最终答案是否正确使用这些记忆（A-mem.）；三项同时成立才计为成功。评审时将代理轨迹中的记忆内容与隐藏目标记忆事实比较，而不是评价整体答案文风。 （越高越好，因为它衡量从找到合适记忆到实际使用记忆的完整链路是否成功。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **Wilson 95%置信区间**
 
@@ -452,7 +463,9 @@ $$
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -483,7 +496,11 @@ No memory的正确性为22.4%、完整性为3.5%、相关性为92.3%，但严格
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">No memory | 22.4 [16.3, 29.9] | 3.5 [1.5, 7.9] | 92.3 [86.8, 95.7] | 0.0 [0.0, 2.6] | — | — | — | —</span>
+<div class="experiment-evidence" markdown="1">
+
+No memory | 22.4 [16.3, 29.9] | 3.5 [1.5, 7.9] | 92.3 [86.8, 95.7] | 0.0 [0.0, 2.6] | — | — | — | —
+
+</div>
 
 </details>
 
@@ -511,7 +528,11 @@ Mem0通常能找到同项目、同主题的内容，而且当有用内容出现�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Mem0 (vector) | 44.4 [36.4, 52.6] | 33.1 [25.9, 41.2] | 100.0 [97.4, 100.0] | 32.4 [25.2, 40.5] | 90.1 [84.1, 94.0] | 49.3 [41.2, 57.4] | 82.4 [75.3, 87.8] | 47.2 [39.2, 55.4]</span>
+<div class="experiment-evidence" markdown="1">
+
+Mem0 (vector) | 44.4 [36.4, 52.6] | 33.1 [25.9, 41.2] | 100.0 [97.4, 100.0] | 32.4 [25.2, 40.5] | 90.1 [84.1, 94.0] | 49.3 [41.2, 57.4] | 82.4 [75.3, 87.8] | 47.2 [39.2, 55.4]
+
+</div>
 
 </details>
 
@@ -539,7 +560,11 @@ Graphiti的答案准确率为21.0%（95% CI：[15.1, 28.4]），记忆相关率�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Graphiti (graph) | 32.2 [25.1, 40.2] | 22.4 [16.3, 29.9] | 99.3 [96.1, 99.9] | 21.0 [15.1, 28.4] | 81.8 [74.7, 87.3] | 27.3 [20.6, 35.1] | 74.1 [66.4, 80.6] | 25.9 [19.4, 33.6]</span>
+<div class="experiment-evidence" markdown="1">
+
+Graphiti (graph) | 32.2 [25.1, 40.2] | 22.4 [16.3, 29.9] | 99.3 [96.1, 99.9] | 21.0 [15.1, 28.4] | 81.8 [74.7, 87.3] | 27.3 [20.6, 35.1] | 74.1 [66.4, 80.6] | 25.9 [19.4, 33.6]
+
+</div>
 
 </details>
 

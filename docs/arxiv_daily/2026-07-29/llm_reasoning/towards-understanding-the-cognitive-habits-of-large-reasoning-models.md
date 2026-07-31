@@ -6,7 +6,7 @@ announcement_date: "2026-07-29"
 primary_category: "llm_reasoning"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:24.119536+00:00"
+generated_at: "2026-07-30T10:14:52.313426+00:00"
 source_sha256: "e93044a16762309a69859c410438bbd9baeb389a6e69b3336354dfa45683e926"
 tags:
   - "LLM Reasoning"
@@ -36,7 +36,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2506.21571v3) · [PDF 下载](https://arxiv.org/pdf/2506.21571v3) · **关键词** 大推理模型, 思维链, 思维习惯, CogTest, 认知行为分析, 模型安全  
+[arXiv 原文](https://arxiv.org/abs/2506.21571v3) · [PDF 下载](https://arxiv.org/pdf/2506.21571v3) · **关键词** 大推理模型, 思维链, 思维习惯, CogTest, 认知行为分析, 模型安全<br>
 **代码**: [https://github.com/jianshuod/CogTest](https://github.com/jianshuod/CogTest)  
 
 </div>
@@ -85,21 +85,21 @@ tags:
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **大推理模型（Large Reasoning Model, LRM）**
 
 能够在最终回答前自主生成较长、显式推理过程的大语言模型。与普通提示词诱导的思维链相比，本文强调模型可自行决定如何探索解题空间。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **思维链（Chain of Thought, CoT）**
 
 模型在最终答案之前生成的中间推理文本，可能包含分解问题、尝试方案、检查错误和反思等步骤。本文把思维链视为识别稳定认知行为的可观测证据，但它不等同于模型全部真实内部计算。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **思维习惯（Habits of Mind）**
 
@@ -214,7 +214,7 @@ CogTest 将“心智习惯”操作化为可从模型推理链中观察的行为
 
 <div class="method-step__io" markdown="1">
 
-**输入**：Costa 和 Kallick 的 Habits of Mind 框架，其中包含 16 种有助于复杂问题求解的认知习惯，以及每种习惯的定义和典型元认知表达。  
+**输入**：Costa 和 Kallick 的 Habits of Mind 框架，其中包含 16 种有助于复杂问题求解的认知习惯，以及每种习惯的定义和典型元认知表达。<br>
 **输出**：16 个可用于任务设计和二元标注的目标习惯，以及相应的定义、任务设计准则和证据判断参照。
 
 </div>
@@ -234,7 +234,7 @@ CogTest 将“心智习惯”操作化为可从模型推理链中观察的行为
 
 <div class="method-step__io" markdown="1">
 
-**输入**：16 种习惯的定义、人工编写的习惯特定指南、MATH-500、AIME，以及用于生成非数学情境任务的 GPT-4.1。  
+**输入**：16 种习惯的定义、人工编写的习惯特定指南、MATH-500、AIME，以及用于生成非数学情境任务的 GPT-4.1。<br>
 **输出**：CogTest：16 类习惯各 25 个任务，共 400 个习惯定向测试实例。
 
 </div>
@@ -254,7 +254,7 @@ CogTest 将“心智习惯”操作化为可从模型推理链中观察的行为
 
 <div class="method-step__io" markdown="1">
 
-**输入**：CogTest 任务，以及 13 个大推理模型和 3 个普通非推理语言模型。  
+**输入**：CogTest 任务，以及 13 个大推理模型和 3 个普通非推理语言模型。<br>
 **输出**：每个模型在各测试任务上的可观察推理文本与最终回答。
 
 </div>
@@ -274,7 +274,7 @@ GPT-4.1-mini 充当自动标注器，将任务处理为二元分类，但必须�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：单条 CoT、当前待检查的习惯定义，以及该习惯的支持性元认知语句示例。  
+**输入**：单条 CoT、当前待检查的习惯定义，以及该习惯的支持性元认知语句示例。<br>
 **输出**：每个“模型—任务—目标习惯”实例的结构化结果，包括逐字证据 evidence 和布尔标签 is_reflected。
 
 </div>
@@ -354,24 +354,35 @@ GPT-4.1-mini 充当自动标注器，将任务处理为二元分类，但必须�
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- HarmBench标准行为子集：使用200条安全相关用户查询。该数据在本实验中用于诱导模型处理潜在有害请求，并比较最终产生有害回答与无害回答时的思维链认知习惯；原文未明确报告进一步的数据划分。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- HarmBench标准行为子集：使用200条安全相关用户查询。该数据在本实验中用于诱导模型处理潜在有害请求，并比较最终产生有害回答与无害回答时的思维链认知习惯；原文未明确报告进一步的数据划分。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **有害回答判定**
 
 使用HarmBench作者提供的官方LLM分类器，将模型最终回答判定为有害或无害，作为后续分组比较的标签。原文未在该节报告分类器的准确率、阈值或误差分析。 （该指标不是越高或越低越好；它承担的是结果分组功能。若从安全角度观察，有害回答比例越低通常越理想，但本节重点是比较两组思维链中的认知习惯，而非给模型做总体安全排名。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **认知习惯出现率**
 
 分别在有害回答组和无害回答组中，统计某一认知习惯在推理思维链中被识别为存在的比例。每条任务的思维链均独立检查全部16种候选认知习惯。 （没有统一的越高或越低越好方向；解释取决于该习惯更常伴随有害回答还是无害回答。两组出现率差异越明显，说明该习惯越可能成为区分两类回答的观察信号，但不等于存在因果关系。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **10%出现率筛选标准**
 
@@ -379,7 +390,9 @@ GPT-4.1-mini 充当自动标注器，将任务处理为二元分类，但必须�
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -410,7 +423,11 @@ GPT-4.1-mini 充当自动标注器，将任务处理为二元分类，但必须�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Notably, the most distinguishing cognitive habit is Listening with Understanding and Empathy on DeepSeek-R1, which appears in 80.8% of harmful responses but only 3.3% of harmless ones.</span>
+<div class="experiment-evidence" markdown="1">
+
+Notably, the most distinguishing cognitive habit is Listening with Understanding and Empathy on DeepSeek-R1, which appears in 80.8% of harmful responses but only 3.3% of harmless ones.
+
+</div>
 
 </details>
 
@@ -438,7 +455,11 @@ GPT-4.1-mini 充当自动标注器，将任务处理为二元分类，但必须�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">For example, the habit Taking Responsible Risks is more frequently associated with harmful responses across all the LRMs considered.</span>
+<div class="experiment-evidence" markdown="1">
+
+For example, the habit Taking Responsible Risks is more frequently associated with harmful responses across all the LRMs considered.
+
+</div>
 
 </details>
 
@@ -466,7 +487,11 @@ GPT-4.1-mini 充当自动标注器，将任务处理为二元分类，但必须�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Empirically, we find that specific cognitive habits are strongly associated with the generation of either harmful or harmless responses.</span>
+<div class="experiment-evidence" markdown="1">
+
+Empirically, we find that specific cognitive habits are strongly associated with the generation of either harmful or harmless responses.
+
+</div>
 
 </details>
 

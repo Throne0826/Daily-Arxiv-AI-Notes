@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "llm_agent"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:25.155990+00:00"
+generated_at: "2026-07-30T10:14:52.697473+00:00"
 source_sha256: "e3f947b2e95c9fd008e107226c8f5a85b539b69ab57ffc8c1ed9a0b42fc2996a"
 tags:
   - "LLM Agent"
@@ -35,7 +35,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2606.13317v2) · [PDF 下载](https://arxiv.org/pdf/2606.13317v2) · **关键词** 大语言模型智能体, 技能自演化, 执行轨迹, 技能补丁, 对比因果提取, 任务回放验证, 拓扑感知路由  
+[arXiv 原文](https://arxiv.org/abs/2606.13317v2) · [PDF 下载](https://arxiv.org/pdf/2606.13317v2) · **关键词** 大语言模型智能体, 技能自演化, 执行轨迹, 技能补丁, 对比因果提取, 任务回放验证, 拓扑感知路由<br>
 
 
 </div>
@@ -84,21 +84,21 @@ SkillCAT针对大语言模型智能体从执行轨迹中自动提炼技能时证
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **执行轨迹（execution trajectory）**
 
 智能体完成一个任务时留下的完整过程记录，通常包含观察、推理或决策、工具调用、环境反馈以及最终成败结果。技能自演化方法将轨迹视为经验来源，从中寻找值得复用或需要避免的行为。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **技能文档与技能补丁（skill document / skill patch）**
 
 技能文档是推理时提供给智能体的外部指导文本；技能补丁是根据某次或某组执行经验提出的局部新增、删除或修改内容。多个补丁经筛选和合并后形成演化后的技能，而不改变 LLM 本身的参数。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **技能拓扑与路由（skill topology and routing）**
 
@@ -192,7 +192,7 @@ SkillCAT针对大语言模型智能体从执行轨迹中自动提炼技能时证
 
 <div class="paper-section-deck" markdown="1">
 
-SkillCAT把大语言模型智能体的“技能自进化”设计为离线学习与在线部署相衔接的三阶段流程。输入包括基础技能文档 S_0、用于积累经验的进化任务集合 \mathcal{X}，以及未见测试任务集合 \mathcal{X}^{*}。离线阶段先对每个进化任务进行多随机种子执行，由对比因果提取（CCE）比较同一任务的成功与失败轨迹，在行为分叉处提炼可编辑经验并生成候选补丁；随后，评估增强进化（AAE）把每个补丁单独应用到临时技能上，重放其来源任务，只保留能够修复失败或维持成功的补丁，并按评分分层合并为进化技能 S^{*}。在线阶段，拓扑感知任务执行（TTE）把 S^{*}编译为核心技能、能力节点及依赖拓扑，再针对每个测试任务路由少量相关节点，组装运行时技能 S_j。
+SkillCAT把大语言模型智能体的“技能自进化”设计为离线学习与在线部署相衔接的三阶段流程。输入包括基础技能文档 $S_0$、用于积累经验的进化任务集合 $\mathcal{X}$，以及未见测试任务集合 $\mathcal{X}^{*}$。离线阶段先对每个进化任务进行多随机种子执行，由对比因果提取（CCE）比较同一任务的成功与失败轨迹，在行为分叉处提炼可编辑经验并生成候选补丁；随后，评估增强进化（AAE）把每个补丁单独应用到临时技能上，重放其来源任务，只保留能够修复失败或维持成功的补丁，并按评分分层合并为进化技能 $S^{*}$。在线阶段，拓扑感知任务执行（TTE）把 $S^{*}$编译为核心技能、能力节点及依赖拓扑，再针对每个测试任务路由少量相关节点，组装运行时技能 $S_j$。
 直观地说，该方法不是把所有历史轨迹都总结后塞进一个不断膨胀的说明书，而是依次回答三个问题：成功与失败到底差在哪里、由此写出的规则是否真的有用、当前任务究竟需要说明书中的哪些部分。前两步控制经验的可靠性与补丁质量，最后一步控制推理时注入上下文的相关性和长度。
 
 </div>
@@ -207,11 +207,11 @@ SkillCAT把大语言模型智能体的“技能自进化”设计为离线学习
 
 #### 多种子轨迹采集与结果分组
 
-智能体用多个随机种子重复执行同一任务，得到轨迹集合 \mathcal{T}_i，并依据官方评估器标注拆分为成功集合 \mathcal{T}_i^{+} 与失败集合 \mathcal{T}_i^{-}。
+智能体用多个随机种子重复执行同一任务，得到轨迹集合 $\mathcal{T}_i$，并依据官方评估器标注拆分为成功集合 $\mathcal{T}_i^{+}$ 与失败集合 $\mathcal{T}_i^{-}$。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：基础技能 S_0 与进化任务 x_i\in\mathcal{X}。  
+**输入**：基础技能 $S_0$ 与进化任务 $x_i\in\mathcal{X}$。<br>
 **输出**：带有成功或失败标签的同任务多样化执行轨迹。
 
 </div>
@@ -227,12 +227,12 @@ SkillCAT把大语言模型智能体的“技能自进化”设计为离线学习
 
 #### 对比因果提取与候选补丁生成
 
-当成功与失败轨迹都存在时，CCE随机抽取一对轨迹，由LLM提取器定位动作序列的关键分叉，写出包含局部证据、失败原因和可编辑教训的经验记录 r_i；若只有单一结果类型，则退化为单轨迹提取。技能编辑器再结合 r_i 与 S_0 生成候选技能补丁 p_i。
+当成功与失败轨迹都存在时，CCE随机抽取一对轨迹，由LLM提取器定位动作序列的关键分叉，写出包含局部证据、失败原因和可编辑教训的经验记录 $r_i$；若只有单一结果类型，则退化为单轨迹提取。技能编辑器再结合 $r_i$ 与 $S_0$ 生成候选技能补丁 $p_i$。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：同一任务的成功轨迹 \tau_i^{+}、失败轨迹 \tau_i^{-}，以及基础技能 S_0。  
-**输出**：与来源任务绑定的候选经验记录 r_i 和技能编辑补丁 p_i。
+**输入**：同一任务的成功轨迹 $\tau_i^{+}$、失败轨迹 $\tau_i^{-}$，以及基础技能 $S_0$。<br>
+**输出**：与来源任务绑定的候选经验记录 $r_i$ 和技能编辑补丁 $p_i$。
 
 </div>
 
@@ -247,12 +247,12 @@ SkillCAT把大语言模型智能体的“技能自进化”设计为离线学习
 
 #### 来源任务重放、筛选与分层合并
 
-AAE把每个 p_i 隔离地装入临时技能，在来源任务的克隆上重放得到 \hat y_i，并按结果转移评分；仅保留 a_i\geq\theta 的补丁，然后按分数从低层到高层依次调用技能合并算子 \mu。
+AAE把每个 $p_i$ 隔离地装入临时技能，在来源任务的克隆上重放得到 $\hat y_i$，并按结果转移评分；仅保留 $a_i\geq\theta$ 的补丁，然后按分数从低层到高层依次调用技能合并算子 $\mu$。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：候选补丁集合、各补丁的来源任务、原始任务结果 y_i，以及阈值 \theta=2.0。  
-**输出**：经过行为验证和层次化合并的进化技能 S^{*}。
+**输入**：候选补丁集合、各补丁的来源任务、原始任务结果 $y_i$，以及阈值 $\theta=2.0$。<br>
+**输出**：经过行为验证和层次化合并的进化技能 $S^{*}$。
 
 </div>
 
@@ -267,12 +267,12 @@ AAE把每个 p_i 隔离地装入临时技能，在来源任务的克隆上重放
 
 #### 技能拓扑编译、节点路由与运行时组装
 
-TTE将 S^{*}编译为核心技能 S_c、能力节点集合 \mathcal{V}、节点正文 B_v 及含标题、关键词、摘要和依赖边的紧凑拓扑 \mathcal{G}；LLM路由器只读取 \mathcal{G} 选出不超过 k 个节点，组装器再将其正文与 S_c 合成为 S_j。
+TTE将 $S^{*}$编译为核心技能 $S_c$、能力节点集合 $\mathcal{V}$、节点正文 $B_v$ 及含标题、关键词、摘要和依赖边的紧凑拓扑 $\mathcal{G}$；LLM路由器只读取 $\mathcal{G}$ 选出不超过 k 个节点，组装器再将其正文与 $S_c$ 合成为 $S_j$。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：进化技能 S^{*}、测试任务 x_j^{*} 和最多可选节点数 k。  
-**输出**：每个测试任务专属的紧凑运行时技能 S_j，供智能体执行该任务。
+**输入**：进化技能 $S^{*}$、测试任务 $x_j^{*}$ 和最多可选节点数 k。<br>
+**输出**：每个测试任务专属的紧凑运行时技能 $S_j$，供智能体执行该任务。
 
 </div>
 
@@ -313,7 +313,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：该规则把“修复失败”列为最高优先级，把“维持成功”视为可接受，并拒绝无效修复及破坏既有成功的补丁。它是AAE选择性进化的核心：技能编辑不再依赖语言模型对规则质量的自我判断，而是至少经过一次可观测任务结果检验。  
+**直观理解**：该规则把“修复失败”列为最高优先级，把“维持成功”视为可接受，并拒绝无效修复及破坏既有成功的补丁。它是AAE选择性进化的核心：技能编辑不再依赖语言模型对规则质量的自我判断，而是至少经过一次可观测任务结果检验。<br>
 **原文位置**：Method—Assessment-Augmented Evolution，公式(2)与公式(3)
 
 </div>
@@ -334,7 +334,7 @@ $$
 - $\mathcal{G}$：由能力节点元数据和节点依赖边构成的紧凑技能拓扑摘要。
 - $k$：单个测试任务最多允许选择的能力节点数，即节点预算。
 - $R$：基于LLM的技能节点路由器。
-- $\mathcal{V}_j$：路由器为测试任务 x_j^{*} 选择的能力节点子集。
+- $\mathcal{V}_j$：路由器为测试任务 $x_j^{*}$ 选择的能力节点子集。
 - $S_c$：从进化技能中编译出的核心技能部分。
 - $B_v$：能力节点 v 的原始完整正文。
 - $A$：基于LLM的技能组装器。
@@ -342,7 +342,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：第一部分在预算 k 下根据任务和技能目录挑选节点，第二部分才取回这些节点的完整正文并与核心规则合并。节点数量约束直接限制注入内容的范围，使推理上下文更紧凑且更具任务相关性。  
+**直观理解**：第一部分在预算 k 下根据任务和技能目录挑选节点，第二部分才取回这些节点的完整正文并与核心规则合并。节点数量约束直接限制注入内容的范围，使推理上下文更紧凑且更具任务相关性。<br>
 **原文位置**：Method—Topology-Aware Task Execution，公式(5)与公式(6)
 
 </div>
@@ -351,7 +351,7 @@ $$
 
 <div class="paper-focus" markdown="1">
 
-**优化目标如何起作用**：该方法没有报告通过梯度下降优化模型参数的训练损失；其“学习”对象是外部技能文档，而不是LLM权重。离线优化体现为离散的选择与编辑过程：CCE生成候选经验和补丁，AAE用来源任务重放所得的结果转移分数筛选补丁，再通过LLM技能合并算子逐层改写 S_0 得到 S^{*}。因此，公式中的 a_i 是补丁接受和排序信号，而非可微损失；在线TTE也属于上下文路由与组装，不更新模型参数。
+**优化目标如何起作用**：该方法没有报告通过梯度下降优化模型参数的训练损失；其“学习”对象是外部技能文档，而不是LLM权重。离线优化体现为离散的选择与编辑过程：CCE生成候选经验和补丁，AAE用来源任务重放所得的结果转移分数筛选补丁，再通过LLM技能合并算子逐层改写 $S_0$ 得到 $S^{*}$。因此，公式中的 $a_i$ 是补丁接受和排序信号，而非可微损失；在线TTE也属于上下文路由与组装，不更新模型参数。
 
 </div>
 
@@ -368,7 +368,7 @@ CCE利用同任务成功—失败配对控制任务输入、可用工具和评�
 
 **2. Assessment-Augmented Evolution（AAE，评估增强进化）**
 
-AAE把补丁视为待检验假设，而非直接接受的规则。它比较补丁应用前后的二元任务结果，将失败变成功、成功保持成功、失败仍失败、成功变失败依次赋予3、2、1、0分；阈值设为2，因此只合并前两类补丁，并按低分到高分的顺序分层合并，最终得到 S^{*}。
+AAE把补丁视为待检验假设，而非直接接受的规则。它比较补丁应用前后的二元任务结果，将失败变成功、成功保持成功、失败仍失败、成功变失败依次赋予3、2、1、0分；阈值设为2，因此只合并前两类补丁，并按低分到高分的顺序分层合并，最终得到 $S^{*}$。
 
 > 直观理解：提炼出来的经验可能听起来合理，却可能无效甚至有害；来源任务重放提供最低限度的行为验证。需要注意，这种验证主要检查补丁在来源任务上的即时效果，不能单独证明其在所有新任务上都无副作用。
 
@@ -380,12 +380,12 @@ TTE将技能拆成始终保留的核心部分和可路由的能力节点，并�
 
 **训练与推理**
 
-离线技能学习阶段：对每个 x_i 多次执行并收集带官方成功/失败标签的轨迹；若两类轨迹均存在，则采样同任务成功—失败对并提取行为分叉经验，否则使用单轨迹记录；技能编辑器据此生成 p_i。随后把每个补丁隔离应用于临时技能，在来源任务克隆上重放，根据 y_i\rightarrow\hat y_i 评分，以 \theta=2.0 筛除无效或有害补丁；保留补丁按评分层级从低到高合并，得到 S^{*}，再将其编译为 (S_c,\mathcal{V},\mathcal{G}) 与节点正文集合。
-在线推理阶段：对于每个未见任务 x_j^{*}，LLM路由器读取任务描述和紧凑拓扑 \mathcal{G}，在节点预算 k 内选择 \mathcal{V}_j；LLM组装器获取相应节点正文，与核心技能 S_c 合成为 S_j。智能体只加载 S_j 执行当前任务，而不是加载完整 S^{*}。CCE与AAE仅在离线技能学习时运行，TTE则负责任务部署时的在线选择。
+离线技能学习阶段：对每个 $x_i$ 多次执行并收集带官方成功/失败标签的轨迹；若两类轨迹均存在，则采样同任务成功—失败对并提取行为分叉经验，否则使用单轨迹记录；技能编辑器据此生成 $p_i$。随后把每个补丁隔离应用于临时技能，在来源任务克隆上重放，根据 $y_i\rightarrow\hat y_i$ 评分，以 $\theta=2.0$ 筛除无效或有害补丁；保留补丁按评分层级从低到高合并，得到 $S^{*}$，再将其编译为 ($S_c,\mathcal{V},\mathcal{G})$ 与节点正文集合。
+在线推理阶段：对于每个未见任务 $x_j^{*}$，LLM路由器读取任务描述和紧凑拓扑 $\mathcal{G}$，在节点预算 k 内选择 $\mathcal{V}_j$；LLM组装器获取相应节点正文，与核心技能 $S_c$ 合成为 $S_j$。智能体只加载 $S_j$ 执行当前任务，而不是加载完整 $S^{*}$。CCE与AAE仅在离线技能学习时运行，TTE则负责任务部署时的在线选择。
 
 **复现信息**
 
-复现该方法所需的关键设定包括：每个进化任务必须采用多个随机种子运行，并由官方评估器将轨迹标为成功或失败；存在混合结果时，每个任务从成功集和失败集中各随机抽取一条组成对比对，缺少混合结果时使用单轨迹后备流程。AAE对每个候选补丁使用来源任务克隆进行隔离重放，接受阈值固定为 \theta=2.0，并将通过筛选的补丁按分数从低到高合并；文中说明其技能编辑过程直接复用Trace2Skill，以从重复编辑中提炼一般原则而非记忆实例修复。TTE需要为每个能力节点保存完整正文，同时生成标题、关键词、摘要和依赖关系作为路由元数据，并通过节点预算 k 限制在线选取规模。所给方法章节未明确报告多种子运行次数、k 的具体取值、路由与组装提示词、温度、重放次数或模型调用成本，这些项目应记为“原文未明确报告”，不能据此补造。
+复现该方法所需的关键设定包括：每个进化任务必须采用多个随机种子运行，并由官方评估器将轨迹标为成功或失败；存在混合结果时，每个任务从成功集和失败集中各随机抽取一条组成对比对，缺少混合结果时使用单轨迹后备流程。AAE对每个候选补丁使用来源任务克隆进行隔离重放，接受阈值固定为 $\theta=2.0$，并将通过筛选的补丁按分数从低到高合并；文中说明其技能编辑过程直接复用Trace2Skill，以从重复编辑中提炼一般原则而非记忆实例修复。TTE需要为每个能力节点保存完整正文，同时生成标题、关键词、摘要和依赖关系作为路由元数据，并通过节点预算 k 限制在线选取规模。所给方法章节未明确报告多种子运行次数、k 的具体取值、路由与组装提示词、温度、重放次数或模型调用成本，这些项目应记为“原文未明确报告”，不能据此补造。
 
 </details>
 
@@ -397,26 +397,37 @@ TTE将技能拆成始终保留的核心部分和可路由的能力节点，并�
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- SpreadsheetBench-Verified：SpreadsheetBench的人工验证子集，共400个真实Excel论坛任务，涉及单元格级和工作表级操作。按既有工作划分为200个演化样本与200个留出测试样本，是域内技能演化、主结果、消融和模块分析的核心基准。
-- WikiTableQuestions（WikiTQ）：基于Wikipedia半结构化表格的问答基准。论文将其作为分布外测试，用于判断从电子表格任务中演化的技能能否迁移到不同形式的表格推理；按官方协议比较预测答案与标准答案的指称结果。
-- DocVQA：文档图像视觉问答基准，采用官方验证集的5,349个问题—图像对，其中前2,700个用于技能演化，后2,649个用于评测。它检验SkillCAT是否能从电子表格代理场景推广到需要视觉理解与文本生成的多模态任务。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- SpreadsheetBench-Verified：SpreadsheetBench的人工验证子集，共400个真实Excel论坛任务，涉及单元格级和工作表级操作。按既有工作划分为200个演化样本与200个留出测试样本，是域内技能演化、主结果、消融和模块分析的核心基准。
+- WikiTableQuestions（WikiTQ）：基于Wikipedia半结构化表格的问答基准。论文将其作为分布外测试，用于判断从电子表格任务中演化的技能能否迁移到不同形式的表格推理；按官方协议比较预测答案与标准答案的指称结果。
+- DocVQA：文档图像视觉问答基准，采用官方验证集的5,349个问题—图像对，其中前2,700个用于技能演化，后2,649个用于评测。它检验SkillCAT是否能从电子表格代理场景推广到需要视觉理解与文本生成的多模态任务。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **SpreadsheetBench任务正确率（Acc）**
 
 在输入工作簿上实际执行代理生成的方案，并将输出单元格与标准工作簿比较；只有全部答案匹配时，该任务才计为正确，因而是严格的端到端执行指标。 （越高越好，因为它表示完整完成电子表格任务的样本比例更大，而不只是生成了表面相似的操作步骤。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **WikiTQ Accuracy**
 
 按照官方协议比较预测答案与标准答案的指称，即最终答案所表示的实体或数值是否一致，用于测量分布外表格问答的正确率。 （越高越好，因为正确答案指称匹配的测试问题更多。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **DocVQA ANLS与Acc（ANLS≥0.5）**
 
@@ -424,7 +435,9 @@ ANLS是基于归一化编辑距离的答案相似度，允许轻微字符串差�
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -455,7 +468,11 @@ SkillCAT的平均得分为59.04%，第二名EvoSkill为42.21%，绝对领先16.8
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Its largest margin over the strongest skill-evolution baseline occurs for the Qwen3.5-35B-A3B user with Human-Written initialization: when averaged across the two skill authors and both tasks, SkillCAT reaches 59.04%, compared with 42.21% for the second-best (EvoSkill), a margin of 16.83%.</span>
+<div class="experiment-evidence" markdown="1">
+
+Its largest margin over the strongest skill-evolution baseline occurs for the Qwen3.5-35B-A3B user with Human-Written initialization: when averaged across the two skill authors and both tasks, SkillCAT reaches 59.04%, compared with 42.21% for the second-best (EvoSkill), a margin of 16.83%.
+
+</div>
 
 </details>
 
@@ -483,7 +500,11 @@ SkillCAT的平均得分为59.04%，第二名EvoSkill为42.21%，绝对领先16.8
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">As shown in Table 1, skills produced by either Qwen author improve the average score of both unseen users without re-evolution: by 11.23% and 14.27% for Gemma-4-31B-it and by 7.14 and 7.22 points for GPT-5.4-mini.</span>
+<div class="experiment-evidence" markdown="1">
+
+As shown in Table 1, skills produced by either Qwen author improve the average score of both unseen users without re-evolution: by 11.23% and 14.27% for Gemma-4-31B-it and by 7.14 and 7.22 points for GPT-5.4-mini.
+
+</div>
 
 </details>
 
@@ -511,7 +532,11 @@ SkillCAT在两种使用者规模上均明显优于No-Skill；相较Trace2Skill�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">When applied to the larger Qwen3.5-122B-A10B user, although both methods yield comparable ANLS, SkillCAT still ensures higher Accuracy.</span>
+<div class="experiment-evidence" markdown="1">
+
+When applied to the larger Qwen3.5-122B-A10B user, although both methods yield comparable ANLS, SkillCAT still ensures higher Accuracy.
+
+</div>
 
 </details>
 
@@ -545,7 +570,7 @@ SkillCAT在两种使用者规模上均明显优于No-Skill；相较Trace2Skill�
 
 **实验实现**
 
-所有代理均运行于ReAct式执行框架，并可调用文件系统和电子表格工具。CCE对每个演化任务采样5条不同随机种子的轨迹，以构造同任务成功—失败对比；AAE在源任务克隆上回放候选补丁，仅保留奖励a_i≥2.0的补丁，再进行分层合并；TTE采用基于图的路由器选择Top-k=7个相关能力节点并注入当前任务。Qwen3.5-35B-A3B和Qwen3.5-122B-A10B同时作为技能作者与技能使用者；跨模型实验把Human-Written设置下由Qwen演化的技能直接交给Gemma-4-31B-it和GPT-5.4-mini，不重新演化。结果取3个随机种子的平均值。该设计分别控制初始技能来源、作者模型和使用者模型，但节选未报告方差或显著性检验。
+所有代理均运行于ReAct式执行框架，并可调用文件系统和电子表格工具。CCE对每个演化任务采样5条不同随机种子的轨迹，以构造同任务成功—失败对比；AAE在源任务克隆上回放候选补丁，仅保留奖励$a_i≥2.0$的补丁，再进行分层合并；TTE采用基于图的路由器选择Top-k=7个相关能力节点并注入当前任务。Qwen3.5-35B-A3B和Qwen3.5-122B-A10B同时作为技能作者与技能使用者；跨模型实验把Human-Written设置下由Qwen演化的技能直接交给Gemma-4-31B-it和GPT-5.4-mini，不重新演化。结果取3个随机种子的平均值。该设计分别控制初始技能来源、作者模型和使用者模型，但节选未报告方差或显著性检验。
 
 **关键消融**
 

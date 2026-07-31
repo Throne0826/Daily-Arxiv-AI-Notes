@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "llm_efficiency"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:24.955687+00:00"
+generated_at: "2026-07-30T10:14:52.626186+00:00"
 source_sha256: "cc5e9139e938409a5a2a3d60041d0b05ff071f3fc7b23dee33d11629cb818bee"
 tags:
   - "LLM 效率"
@@ -37,7 +37,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2607.26491v1) · [PDF 下载](https://arxiv.org/pdf/2607.26491v1) · **关键词** 大语言模型推理服务, 单片三维集成, 片上缓存, 高带宽存储器, 键值缓存, 存储层次, 数据移动能耗, 跨层模拟  
+[arXiv 原文](https://arxiv.org/abs/2607.26491v1) · [PDF 下载](https://arxiv.org/pdf/2607.26491v1) · **关键词** 大语言模型推理服务, 单片三维集成, 片上缓存, 高带宽存储器, 键值缓存, 存储层次, 数据移动能耗, 跨层模拟<br>
 
 
 </div>
@@ -86,21 +86,21 @@ tags:
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **预填充与解码（prefill/decode）**
 
 预填充阶段一次性并行处理输入提示，生成首个输出 token，并为各 Transformer 层建立键值缓存，通常偏计算受限。解码阶段自回归地逐个生成 token，每一步都需读取模型权重和已有键值缓存，因此通常偏存储受限。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **键值缓存（KV cache）**
 
 注意力层会保存历史 token 的 key 和 value 张量，后续生成时直接复用，避免重复计算。其容量随批大小和序列长度近似线性增长，长上下文与高吞吐服务因而会显著增加存储压力。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **单片三维集成存储器（M3D memory）**
 
@@ -125,28 +125,28 @@ M3D 将高密度存储单元直接制造在逻辑芯片的后端互连层（BEOL
 
 <div class="notation-list" markdown="1">
 
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$L_{\mathrm{in}}$**
 
 一次推理请求的输入 token 数，用于描述提示或上下文长度；这是为解释问题设置采用的通用记号，原文节选未给出专门符号。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$L_{\mathrm{out}}$**
 
 一次请求生成的输出 token 数，决定自回归解码步数；这是通用记号，原文节选未明确规定。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$C_{\mathrm{L2}}$**
 
 加速器 L2 片上缓存容量，是本文考察的主要设计变量；原文节选以 MB 或 GB 给出容量，但未定义公式符号。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$E_{\mathrm{chip}}$**
 
@@ -244,7 +244,7 @@ LLMET 是一个面向 LLM 推理的跨层仿真框架：输入模型参数与目
 
 <div class="method-step__io" markdown="1">
 
-**输入**：LLM 模型参数，以及目标平台的计算单元、存储层次、L2 容量、片外存储和互连等硬件配置。  
+**输入**：LLM 模型参数，以及目标平台的计算单元、存储层次、L2 容量、片外存储和互连等硬件配置。<br>
 **输出**：待映射的逐算子工作负载，以及目标硬件模型。
 
 </div>
@@ -264,7 +264,7 @@ LLMET 是一个面向 LLM 推理的跨层仿真框架：输入模型参数与目
 
 <div class="method-step__io" markdown="1">
 
-**输入**：逐算子张量形状、可用 L2 容量及目标硬件资源。  
+**输入**：逐算子张量形状、可用 L2 容量及目标硬件资源。<br>
 **输出**：每个算子的分块尺寸、容量适配映射情形、融合计划，以及哪些数据驻留片上或从 DRAM 流入的决定。
 
 </div>
@@ -284,7 +284,7 @@ LLMET 是一个面向 LLM 推理的跨层仿真框架：输入模型参数与目
 
 <div class="method-step__io" markdown="1">
 
-**输入**：已确定的算子映射、分块和融合计划。  
+**输入**：已确定的算子映射、分块和融合计划。<br>
 **输出**：逐算子轨迹，包含算子类型、张量形状、分块尺寸、映射情形、各层读写流量和各功能单元计算周期。
 
 </div>
@@ -304,7 +304,7 @@ LLMET 是一个面向 LLM 推理的跨层仿真框架：输入模型参数与目
 
 <div class="method-step__io" markdown="1">
 
-**输入**：逐算子执行轨迹，以及 SRAM、M3D 2T-GC、计算单元、片上互连和 HBM/LPDDR I/O 的器件模型。  
+**输入**：逐算子执行轨迹，以及 SRAM、M3D 2T-GC、计算单元、片上互连和 HBM/LPDDR I/O 的器件模型。<br>
 **输出**：目标模型和平台下的系统面积、性能、总能耗及硬件组件级能耗构成。
 
 </div>
@@ -346,7 +346,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：序列越长、单头维度越大或数据精度越高，一个注意力头所需的片上空间就越大。只有该工作集能放入缓存，QK^T、softmax 与 SV 之间的中间结果才可以一直留在片上，从而避免写入和重新读取 DRAM；其中不等式是对原文“fits in the cache”的显式表达。  
+**直观理解**：序列越长、单头维度越大或数据精度越高，一个注意力头所需的片上空间就越大。只有该工作集能放入缓存，QK^T、softmax 与 SV 之间的中间结果才可以一直留在片上，从而避免写入和重新读取 DRAM；其中不等式是对原文“fits in the cache”的显式表达。<br>
 **原文位置**：第 3.2 节 Capacity-Aware Mapping + Operator Fusion，注意力按头融合的工作集描述。
 
 </div>
@@ -371,7 +371,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：右侧估算共享 KV 数据的容量需求；当 L2 至少达到该大小时，KV 头可以在一个查询头组的整个处理期间固定在片上，不必为每个查询头重复从 DRAM 加载。该门槛在至少 16K token 的长上下文中尤其关键，因为此时 KV 数据可能主导片外流量。  
+**直观理解**：右侧估算共享 KV 数据的容量需求；当 L2 至少达到该大小时，KV 头可以在一个查询头组的整个处理期间固定在片上，不必为每个查询头重复从 DRAM 加载。该门槛在至少 16K token 的长上下文中尤其关键，因为此时 KV 数据可能主导片外流量。<br>
 **原文位置**：第 3.2 节 Capacity-Aware Mapping + Operator Fusion，GQA 的 KV 固定条件。
 
 </div>
@@ -425,26 +425,37 @@ $$
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- 服务器工作负载：Llama 3.1 70B运行于双NVIDIA A100类7 nm平台，主要评估prefill阶段；序列长度覆盖2K至32K，并在固定2K序列长度时扫描批大小。这里没有传统训练/测试数据集划分，输入长度和批大小构成合成工作负载，用于测试缓存复用、HBM流量与总能耗的关系。
-- 技术扩展工作负载：Llama 3.1 405B运行于8张NVIDIA B200-like、3 nm平台，平台参数由公开Blackwell性能指标相对A100外推。实验重点考察更大模型、更多GPU及更先进工艺下，GB级缓存的最佳容量是否向更长序列和更大容量移动。
-- 边缘工作负载：INT4量化的Llama 3.2 1B运行于Jetson Orin NX-class类7 nm平台，权重约486 MB，主存为LPDDR5。四种输入/输出长度从256/128到4096/512 token，分别评估prefill与decode；256 MB被视为近期可行的面积上限，512 MB至1 GB仅作为完整片上驻留的敏感性上界。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- 服务器工作负载：Llama 3.1 70B运行于双NVIDIA A100类7 nm平台，主要评估prefill阶段；序列长度覆盖2K至32K，并在固定2K序列长度时扫描批大小。这里没有传统训练/测试数据集划分，输入长度和批大小构成合成工作负载，用于测试缓存复用、HBM流量与总能耗的关系。
+- 技术扩展工作负载：Llama 3.1 405B运行于8张NVIDIA B200-like、3 nm平台，平台参数由公开Blackwell性能指标相对A100外推。实验重点考察更大模型、更多GPU及更先进工艺下，GB级缓存的最佳容量是否向更长序列和更大容量移动。
+- 边缘工作负载：INT4量化的Llama 3.2 1B运行于Jetson Orin NX-class类7 nm平台，权重约486 MB，主存为LPDDR5。四种输入/输出长度从256/128到4096/512 token，分别评估prefill与decode；256 MB被视为近期可行的面积上限，512 MB至1 GB仅作为完整片上驻留的敏感性上界。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **片外存储器访问量或相对访问降幅**
 
 统计推理过程中访问HBM或LPDDR5的数据流量，并相对平台基线报告降幅。它直接衡量更大L2是否保留了可复用的权重、中间结果或注意力数据，从而减少昂贵的数据搬运。 （访问量越低或降幅越高越好，因为片外数据搬运的单位比特能耗通常显著高于片上访问；但该指标不能单独保证总能耗下降，因为更大的L2自身也会消耗更多访问能量。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **总推理能耗或相对节能率**
 
 同时计入计算和数据搬运能耗，用于判断减少片外访问后是否获得净能效收益。实验分别分析prefill和decode，并通过分项能耗解释计算、L2访问和DRAM/HBM访问的贡献。 （总能耗越低或节能率越高越好；这是核心系统指标，因为它会扣除超大缓存自身增加的访问开销。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **芯片面积开销**
 
@@ -452,7 +463,9 @@ $$
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -483,7 +496,11 @@ $$
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">First, increasing on-chip cache capacity reduces HBM accesses by up to 95% and total energy by 44%, enabled by higher data reuse through cache-aware mapping and operator fusion.</span>
+<div class="experiment-evidence" markdown="1">
+
+First, increasing on-chip cache capacity reduces HBM accesses by up to 95% and total energy by 44%, enabled by higher data reuse through cache-aware mapping and operator fusion.
+
+</div>
 
 </details>
 
@@ -511,7 +528,11 @@ $$
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">As illustrated in Figure 8, we observe a maximum HBM access reduction of 95% and peak energy savings of 24% at a 32K input length.</span>
+<div class="experiment-evidence" markdown="1">
+
+As illustrated in Figure 8, we observe a maximum HBM access reduction of 95% and peak energy savings of 24% at a 32K input length.
+
+</div>
 
 </details>
 
@@ -539,7 +560,11 @@ decode会反复读取模型权重，因此只要整个模型能留在片上，�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Once the L2 capacity exceeds the quantized model footprint (≈512 MB), the weights become fully resident, DRAM accesses drop by more than 90%, and decode energy is reduced by 75–80% at 1 GB across all workloads.</span>
+<div class="experiment-evidence" markdown="1">
+
+Once the L2 capacity exceeds the quantized model footprint (≈512 MB), the weights become fully resident, DRAM accesses drop by more than 90%, and decode energy is reduced by 75–80% at 1 GB across all workloads.
+
+</div>
 
 </details>
 

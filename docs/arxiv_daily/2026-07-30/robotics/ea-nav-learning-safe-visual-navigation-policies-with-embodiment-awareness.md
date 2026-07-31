@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "robotics"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:25.793598+00:00"
+generated_at: "2026-07-30T10:14:52.908152+00:00"
 source_sha256: "87517f1fa106e80bba090785522b9d685d09f3a8a604cd4cb992149aeda70f91"
 tags:
   - "机器人 / 具身智能"
@@ -35,7 +35,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2607.19880v2) · [PDF 下载](https://arxiv.org/pdf/2607.19880v2) · **关键词** 视觉导航, 跨具身导航, 具身几何, 模仿学习, 连续轨迹安全, 互联网视频预训练, 风险感知轨迹修正  
+[arXiv 原文](https://arxiv.org/abs/2607.19880v2) · [PDF 下载](https://arxiv.org/pdf/2607.19880v2) · **关键词** 视觉导航, 跨具身导航, 具身几何, 模仿学习, 连续轨迹安全, 互联网视频预训练, 风险感知轨迹修正<br>
 
 
 </div>
@@ -84,21 +84,21 @@ EA-Nav研究如何在模仿学习中显式引入机器人几何形态，使导�
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **具身几何（embodiment geometry）**
 
 指智能体与通行能力相关的几何属性，如整体尺寸、宽度和外形。它决定同一条视觉上可见的路线对某个智能体是否可通过、是否存在碰撞风险。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **模仿学习（Imitation Learning, IL）**
 
 利用专家示范中的观测—动作或观测—轨迹对应关系训练策略，而不是让智能体完全依靠试错探索。本文用它支持互联网数据预训练和少量真实数据微调。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **离散航点与连续轨迹**
 
@@ -206,11 +206,11 @@ EA-Nav 是一个面向跨具身视觉导航的模仿学习框架。其输入状�
 
 #### 1. 构造具身条件状态并编码多模态上下文
 
-预训练视觉与深度编码器先提取观测特征，再将 RGB、深度、目标和具身几何编码为共享上下文 z_{\mathrm{context}}=[z_{\mathrm{rgb}},z_{\mathrm{depth}},z_g,z_m]。动作查询仅通过单向交叉注意力读取上下文，而不反向改写其内容。
+预训练视觉与深度编码器先提取观测特征，再将 RGB、深度、目标和具身几何编码为共享上下文 $z_{\mathrm{context}}=[z_{\mathrm{rgb}},z_{\mathrm{depth}},z_g,z_m]$。动作查询仅通过单向交叉注意力读取上下文，而不反向改写其内容。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：近期图像序列 I_{t-k:t}、当前深度 D_t、机器人坐标系下的二维相对目标 \mathbf{g}，以及具身参数 \mathbf{m}=[L_b,W_b,H_b,P_{\max}]^{\top}。  
+**输入**：近期图像序列 $I_{t-k:t}$、当前深度 $D_t$、机器人坐标系下的二维相对目标 $\mathbf{g}$，以及具身参数 $\mathbf{m}=[L_b,W_b,H_b,P_{\max}]^{\top}$。<br>
 **输出**：包含环境、目标与机器人几何信息的共享上下文，以及供动作解码使用的动作表示。
 
 </div>
@@ -226,12 +226,12 @@ EA-Nav 是一个面向跨具身视觉导航的模仿学习框架。其输入状�
 
 #### 2. 预测名义动作并显式形成局部轨迹
 
-Action Prediction 解码未来 H 步动作，每步为 \mathbf{a}_i=[v_i,w_i]^{\top}；随后将动作序列积分或转换为机器人局部坐标系中的航点轨迹，并编码为轨迹特征 z_{\mathrm{traj}}。
+Action Prediction 解码未来 H 步动作，每步为 $\mathbf{a}_i=[v_i,w_i]^{\top}$；随后将动作序列积分或转换为机器人局部坐标系中的航点轨迹，并编码为轨迹特征 $z_{\mathrm{traj}}$。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：共享上下文和动作查询得到的动作表示。  
-**输出**：未来动作序列 a_{t:t+H} 与对应的显式局部航点轨迹。
+**输入**：共享上下文和动作查询得到的动作表示。<br>
+**输出**：未来动作序列 $a_{t:t+H}$ 与对应的显式局部航点轨迹。
 
 </div>
 
@@ -246,12 +246,12 @@ Action Prediction 解码未来 H 步动作，每步为 \mathbf{a}_i=[v_i,w_i]^{\
 
 #### 3. 感知轨迹沿线风险
 
-Spatial Perception 通过 Transformer 融合环境上下文与轨迹，回归 H 个航点各自的最近障碍距离 \hat{\mathbf d}=[\hat d_1,\ldots,\hat d_H]。该任务的损失可以更新共享上下文，使公共表征不仅适合动作回归，也能表达精细空间几何。
+Spatial Perception 通过 Transformer 融合环境上下文与轨迹，回归 H 个航点各自的最近障碍距离 $\hat{\mathbf d}=[\hat d_1,\ldots,\hat d_H]$。该任务的损失可以更新共享上下文，使公共表征不仅适合动作回归，也能表达精细空间几何。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：含具身信息的上下文 z^{*}_{\mathrm{context}} 与轨迹特征 z_{\mathrm{traj}}；训练时可用增强生成的高风险轨迹替换动作预测轨迹。  
-**输出**：逐航点最近障碍距离及其隐特征 z_{\mathrm{dist}}，用于识别高风险轨迹并支持后续修正。
+**输入**：含具身信息的上下文 $z^{*}_{\mathrm{context}}$ 与轨迹特征 $z_{\mathrm{traj}}$；训练时可用增强生成的高风险轨迹替换动作预测轨迹。<br>
+**输出**：逐航点最近障碍距离及其隐特征 $z_{\mathrm{dist}}$，用于识别高风险轨迹并支持后续修正。
 
 </div>
 
@@ -266,12 +266,12 @@ Spatial Perception 通过 Transformer 融合环境上下文与轨迹，回归 H 
 
 #### 4. 对高风险轨迹执行最小航向修正
 
-Risk-Aware Correction 对 [-45^{\circ},45^{\circ}] 内按 5^{\circ} 间隔离散的候选全局航向偏移分别预测可行概率；推理时保留概率高于阈值 \tau 的候选，并选择绝对偏角最小者。选定偏移用于旋转或修正原高风险轨迹，而非重新回归一整段动作增量。
+Risk-Aware Correction 对 [-$45^{\circ},45^{\circ}]$ 内按 $5^{\circ}$ 间隔离散的候选全局航向偏移分别预测可行概率；推理时保留概率高于阈值 $\tau$ 的候选，并选择绝对偏角最小者。选定偏移用于旋转或修正原高风险轨迹，而非重新回归一整段动作增量。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：共享上下文、轨迹特征和空间感知特征 z_{\mathrm{dist}}。  
-**输出**：最终航向修正量 \Delta\hat\theta，以及经修正后更安全的局部轨迹或相应控制计划。
+**输入**：共享上下文、轨迹特征和空间感知特征 $z_{\mathrm{dist}}$。<br>
+**输出**：最终航向修正量 $\Delta\hat\theta$，以及经修正后更安全的局部轨迹或相应控制计划。
 
 </div>
 
@@ -304,7 +304,7 @@ $$
 **符号说明**
 
 - $\mathcal{L}_{\mathrm{BC}}$：行为克隆损失，用于衡量预测动作序列与示范动作序列的差异。
-- $\theta$：导航策略 \pi_\theta 的可学习参数。
+- $\theta$：导航策略 $\pi_\theta$ 的可学习参数。
 - $\mathcal D$：由状态与未来示范动作序列配对组成的模仿学习数据集。
 - $s_t$：时刻 t 的策略状态，包含近期图像、当前深度、相对目标和具身参数。
 - $I_{t-k:t}$：从 t-k 到 t 的第一视角图像序列。
@@ -320,7 +320,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：该目标让策略模仿数据中的未来控制，同时把机器人自身几何作为条件输入，因此相同画面可对应不同尺寸平台的不同动作。它是预训练阶段的核心监督，也是微调时动作预测分支的监督，但仅靠它难以从有限的离散具身类型中学到可靠的安全几何关系，因而还需要独立的空间感知与风险修正任务。  
+**直观理解**：该目标让策略模仿数据中的未来控制，同时把机器人自身几何作为条件输入，因此相同画面可对应不同尺寸平台的不同动作。它是预训练阶段的核心监督，也是微调时动作预测分支的监督，但仅靠它难以从有限的离散具身类型中学到可靠的安全几何关系，因而还需要独立的空间感知与风险修正任务。<br>
 **原文位置**：第 3.1 节，公式（1）—（3）
 
 </div>
@@ -344,12 +344,12 @@ $$
 - $\epsilon$：防止轨迹位移过小时分母为零的小常数。
 - $\mathbf w_i$：样条平滑后原轨迹的第 i 个航点。
 - $\tilde{\mathbf w}_i$：以起点为中心进行统一缩放后生成的第 i 个候选航点。
-- $\alpha$：围绕参考尺度 s_d 采样的缩放因子。
+- $\alpha$：围绕参考尺度 $s_d$ 采样的缩放因子。
 - $\|\cdot\|_2$：二维航点间的欧氏距离。
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：第一式用“离障碍最近有多远”除以“轨迹伸展多远”，得到把轨迹推向附近障碍的大致缩放尺度；第二式以起点为中心整体缩放所有航点，从而保持路线形状而改变净空。再配合不同旋转角度和具身膨胀占据栅格，方法可以系统地产生碰撞轨迹及其无碰撞修正方向，而不是随意制造与当前画面不一致的危险样本。  
+**直观理解**：第一式用“离障碍最近有多远”除以“轨迹伸展多远”，得到把轨迹推向附近障碍的大致缩放尺度；第二式以起点为中心整体缩放所有航点，从而保持路线形状而改变净空。再配合不同旋转角度和具身膨胀占据栅格，方法可以系统地产生碰撞轨迹及其无碰撞修正方向，而不是随意制造与当前画面不一致的危险样本。<br>
 **原文位置**：第 3.3 节，公式（7）—（8）
 
 </div>
@@ -369,19 +369,19 @@ $$
 
 **1. Input Encoder 与单向交叉注意力**
 
-编码器将 RGB、深度、目标和具身几何组成 N_c=130 个、每个 384 维的上下文 token，以保留细粒度空间信息。专用动作查询通过交叉注意力读取这些 token，但动作分支不会经由该查询更新上下文本身；空间感知任务则被允许更新共享上下文，以增强几何与风险表征。
+编码器将 RGB、深度、目标和具身几何组成 $N_c=130$ 个、每个 384 维的上下文 token，以保留细粒度空间信息。专用动作查询通过交叉注意力读取这些 token，但动作分支不会经由该查询更新上下文本身；空间感知任务则被允许更新共享上下文，以增强几何与风险表征。
 
 > 直观理解：共享特征要同时服务于“往哪走”和“是否危险”。若动作预测把公共特征过度塑造成速度回归专用表示，后面的避障模块就难以看清环境，因此方法限制动作查询的信息写回，同时让风险任务参与塑造公共表示。
 
 **2. Spatial Perception**
 
-该模块以具身条件上下文和显式航点轨迹为条件，通过 Transformer 产生 z_{\mathrm{dist}}，再由 MLP 输出每个航点的最近障碍距离。它位于动作预测之后并与之解耦，因此训练时可把中间轨迹直接替换为离线合成的高风险轨迹，而无需要求这些轨迹由主策略实际输出。
+该模块以具身条件上下文和显式航点轨迹为条件，通过 Transformer 产生 $z_{\mathrm{dist}}$，再由 MLP 输出每个航点的最近障碍距离。它位于动作预测之后并与之解耦，因此训练时可把中间轨迹直接替换为离线合成的高风险轨迹，而无需要求这些轨迹由主策略实际输出。
 
 > 直观理解：普通数据中安全行驶片段占多数，仅靠真实动作很难学到临近碰撞时的判断。把风险判断单独做成可接收任意候选轨迹的模块，可以用大量人工合成但几何一致的危险路线补足稀缺样本。
 
 **3. Risk-Aware Correction**
 
-该模块融合上下文、距离特征和轨迹特征，为离散航向偏移集合 \mathcal B 中每个候选输出独立可行概率 \mathbf p_{\mathrm{corr}}\in[0,1]^{|\mathcal B|}。训练采用多热标签，使多个无碰撞方向可同时为正类；推理时形成 \hat{\mathcal B}=\{b\in\mathcal B\mid \mathbf p_{\mathrm{corr}}(b)>\tau\}，再取 \Delta\hat\theta=\arg\min_{b\in\hat{\mathcal B}}|b|。
+该模块融合上下文、距离特征和轨迹特征，为离散航向偏移集合 $\mathcal B$ 中每个候选输出独立可行概率 $\mathbf p_{\mathrm{corr}}\in[0,1]^{|\mathcal B|}$。训练采用多热标签，使多个无碰撞方向可同时为正类；推理时形成 $\hat{\mathcal B}=\{b\in\mathcal B\mid \mathbf p_{\mathrm{corr}}(b)>\tau\}$，再取 $\Delta\hat\theta=\arg\min_{b\in\hat{\mathcal B}}|b|$。
 
 > 直观理解：绕过同一障碍可能既能向左也能向右，单角度回归会把多个正确答案错误地平均。多标签可行性预测承认“一题多解”，而最小偏角规则负责从可行解中选择对原路线扰动最小的一个。
 
@@ -392,7 +392,7 @@ $$
 
 **复现信息**
 
-复现方法结构所需的关键设定包括：具身向量固定为长度、宽度、高度和最大可跨越高度四项；共享上下文含 N_c=130 个 384 维 token；候选航向修正范围为 -45^{\circ} 至 45^{\circ}，间隔 5^{\circ}，并采用多热可行标签。离线增强使用未来 H 步深度、轨迹和相机内参融合机器人中心点云，以中央视场有效深度点通过 RANSAC 拟合主地面，按机器人尺寸与越障高度膨胀障碍，然后对样条平滑轨迹执行围绕 s_d 的尺度采样和同范围离散旋转。输入图像序列长度在图 3 说明中为 8；视觉与深度编码器引用 Siméoni et al.（2025）和 Woo et al.（2023），但所给章节未明确列出具体骨干型号、优化器、学习率、批大小、训练轮数、H 的数值、阈值 \tau、联合损失权重及距离监督的精确定义，复现时需要回查论文其余章节或代码。
+复现方法结构所需的关键设定包括：具身向量固定为长度、宽度、高度和最大可跨越高度四项；共享上下文含 $N_c=130$ 个 384 维 token；候选航向修正范围为 -$45^{\circ}$ 至 $45^{\circ}$，间隔 $5^{\circ}$，并采用多热可行标签。离线增强使用未来 H 步深度、轨迹和相机内参融合机器人中心点云，以中央视场有效深度点通过 RANSAC 拟合主地面，按机器人尺寸与越障高度膨胀障碍，然后对样条平滑轨迹执行围绕 $s_d$ 的尺度采样和同范围离散旋转。输入图像序列长度在图 3 说明中为 8；视觉与深度编码器引用 Siméoni et al.（2025）和 Woo et al.（2023），但所给章节未明确列出具体骨干型号、优化器、学习率、批大小、训练轮数、H 的数值、阈值 $\tau$、联合损失权重及距离监督的精确定义，复现时需要回查论文其余章节或代码。
 
 </details>
 
@@ -404,26 +404,37 @@ $$
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- 预训练数据：作者构建的跨具身异构导航数据集，并加入 mini HM3D 以扩大室内环境覆盖。消融实验从异构数据集中按每种具身类别抽取 1000 个图像—运动片段，用于比较视觉分布与运动属性分布；原文未明确报告预训练集总规模及正式划分。
-- 监督微调数据：联合使用 GND、SCAND-Spot 与 SiT，训练空间感知和风险校正能力。由于真实数据中的碰撞样本稀少，作者通过风险轨迹增强生成碰撞轨迹及相应校正目标；原文未明确报告各数据集的样本数、划分比例和混合权重。
-- 评测数据与环境：在 i2Nav 上评测距离预测和轨迹校正，并设置半径为 0.5、1.0、1.5、2.0、2.5 米的五种具身尺寸，其中 2.5 米的 Body-L 超出训练范围；端到端仿真采用 NavDP 与 InternUtopia 的 easy、hard、indoor 资产，分别记为 Scene1、Scene2、Scene3，障碍密度依次增加。另在 TurtleBot 和 Unitree Go2 上进行真实机器人测试，每种方法运行五次。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- 预训练数据：作者构建的跨具身异构导航数据集，并加入 mini HM3D 以扩大室内环境覆盖。消融实验从异构数据集中按每种具身类别抽取 1000 个图像—运动片段，用于比较视觉分布与运动属性分布；原文未明确报告预训练集总规模及正式划分。
+- 监督微调数据：联合使用 GND、SCAND-Spot 与 SiT，训练空间感知和风险校正能力。由于真实数据中的碰撞样本稀少，作者通过风险轨迹增强生成碰撞轨迹及相应校正目标；原文未明确报告各数据集的样本数、划分比例和混合权重。
+- 评测数据与环境：在 i2Nav 上评测距离预测和轨迹校正，并设置半径为 0.5、1.0、1.5、2.0、2.5 米的五种具身尺寸，其中 2.5 米的 Body-L 超出训练范围；端到端仿真采用 NavDP 与 InternUtopia 的 easy、hard、indoor 资产，分别记为 Scene1、Scene2、Scene3，障碍密度依次增加。另在 TurtleBot 和 Unitree Go2 上进行真实机器人测试，每种方法运行五次。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **空间风险感知指标：TPR、TPR*、FAR、MAE**
 
 当预测轨迹各路点中的最小障碍距离小于安全阈值 0.5 米时，将其判为高风险。TPR 衡量高风险样本被正确识别的比例，TPR*只在真实距离小于 0 米的碰撞样本上计算；FAR 衡量安全样本被误报为危险的比例；MAE 衡量预测最小障碍距离与真值的平均绝对误差。 （TPR和TPR*越高越好，因为漏检更少；FAR和MAE越低越好，因为分别表示误报更少、距离估计更准确。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **轨迹校正指标：CSR、MDA、IoU_bin**
 
 CSR 衡量高风险轨迹经过校正后变为可行轨迹的比例；MDA 衡量所需偏转角的大小，可反映修正是否温和、可控；IoU_bin 在全部高风险样本上以微平均方式衡量预测可行角度区间与目标区间的重叠，正文表3仅在中央19个角度分箱上计算。 （CSR与IoU_bin越高越好，表示校正更常成功且更能定位可行角度区域；MDA越低通常越好，表示无需过度转向，但它必须结合CSR理解，不能以小角度掩盖校正失败。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **端到端导航指标：SR、SPL、CR**
 
@@ -431,7 +442,9 @@ SR 是到达目标的任务比例；SPL 同时考虑成功与路径效率，成�
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -462,7 +475,11 @@ Body-L 上，模型取得 73.8% 的高风险TPR、83.5%的碰撞TPR*、5.30%的F
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Body-L + 73.8 83.5 5.30 0.582 29.2 35.8 0.00 0.799</span>
+<div class="experiment-evidence" markdown="1">
+
+Body-L + 73.8 83.5 5.30 0.582 29.2 35.8 0.00 0.799
+
+</div>
 
 </details>
 
@@ -490,7 +507,11 @@ EA-Nav 的CSR为65.97%、MDA为18.29°、IoU_bin为53.08%；随机策略CSR仅39
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Body-L + 65.97 18.29 53.08 39.83 22.59 –</span>
+<div class="experiment-evidence" markdown="1">
+
+Body-L + 65.97 18.29 53.08 39.83 22.59 –
+
+</div>
 
 </details>
 
@@ -518,7 +539,11 @@ EA-Nav 的CSR为65.97%、MDA为18.29°、IoU_bin为53.08%；随机策略CSR仅39
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Ours (w/ corr) 0.70 0.59 0.62 0.51 0.60 0.49</span>
+<div class="experiment-evidence" markdown="1">
+
+Ours (w/ corr) 0.70 0.59 0.62 0.51 0.60 0.49
+
+</div>
 
 </details>
 

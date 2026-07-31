@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "llm_safety"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:25.695489+00:00"
+generated_at: "2026-07-30T10:14:52.872278+00:00"
 source_sha256: "6402c6d246ac9f802df2bd4ce680435454a99599f4877db86d26a6735b142aac"
 tags:
   - "LLM 安全"
@@ -35,7 +35,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2607.26339v1) · [PDF 下载](https://arxiv.org/pdf/2607.26339v1) · **关键词** 检索增强生成, 语料投毒, 密集检索, 分层防御, 留一法反事实比较, 黑盒过滤  
+[arXiv 原文](https://arxiv.org/abs/2607.26339v1) · [PDF 下载](https://arxiv.org/pdf/2607.26339v1) · **关键词** 检索增强生成, 语料投毒, 密集检索, 分层防御, 留一法反事实比较, 黑盒过滤<br>
 **代码**: [https://github.com/RAGuard-AI/RAGuard](https://github.com/RAGuard-AI/RAGuard)  
 
 </div>
@@ -84,21 +84,21 @@ RAGuard通过“检索阶段预先降权、生成阶段反事实过滤”的两�
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **密集检索（Dense Retrieval）**
 
 密集检索器把问题和文档编码为向量，并按向量相似度选出最相关的若干文档。它能捕捉语义相似性，但也可能把语义上贴近问题、事实却被篡改的投毒文档排在前列。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **语料投毒（Corpus Poisoning）**
 
 攻击者向RAG可检索的语料库注入恶意文档，使这些文档被检索并作为生成证据。本文研究的是事实性投毒，包括捏造事实、制造矛盾和设置推理陷阱。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **留一法反事实比较（Leave-One-Out Counterfactual Comparison）**
 
@@ -123,28 +123,28 @@ RAGuard通过“检索阶段预先降权、生成阶段反事实过滤”的两�
 
 <div class="notation-list" markdown="1">
 
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$k$**
 
 每个问题送入生成阶段的顶部检索文档数量；ZKIP需基于完整上下文生成一次，并对每篇文档分别执行一次留一重生成。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$k+1$**
 
 ZKIP处理单个问题所需的生成器前向调用次数：一次使用全部文档，另有k次分别移除一篇文档。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\mathrm{Recall@5}$**
 
 前5个检索结果覆盖相关文档的召回指标，用于衡量防御是否破坏正常检索质量。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\mathrm{ASR}$**
 
@@ -241,8 +241,8 @@ RAGuard在标准检索增强生成（RAG）流程中加入两层互补防御。�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：Natural Questions（NQ）或BEIR中的查询—原始正确文档对。  
-**输出**：包含查询q、正确文档d^{+}和负文档d^{-}的训练三元组；投毒样本的d^{-}是对应正确文档的恶意改写，干净样本的d^{-}是语料库内随机抽取的干净文档。
+**输入**：Natural Questions（NQ）或BEIR中的查询—原始正确文档对。<br>
+**输出**：包含查询q、正确文档$d^{+}$和负文档$d^{-}$的训练三元组；投毒样本的$d^{-}$是对应正确文档的恶意改写，干净样本的$d^{-}$是语料库内随机抽取的干净文档。
 
 </div>
 
@@ -261,7 +261,7 @@ RAGuard在标准检索增强生成（RAG）流程中加入两层互补防御。�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：干净与投毒训练三元组，以及由all-MiniLM-L6-v2初始化的查询和文档编码器。  
+**输入**：干净与投毒训练三元组，以及由all-MiniLM-L6-v2初始化的查询和文档编码器。<br>
 **输出**：能够主动降低已见类型投毒文档排名的对抗检索器。
 
 </div>
@@ -281,7 +281,7 @@ RAGuard在标准检索增强生成（RAG）流程中加入两层互补防御。�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：用户查询q和待检索的外部文档语料库。  
+**输入**：用户查询q和待检索的外部文档语料库。<br>
 **输出**：供生成模型使用、但尚未完全信任的top-k候选文档集合。
 
 </div>
@@ -301,7 +301,7 @@ RAGuard在标准检索增强生成（RAG）流程中加入两层互补防御。�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：top-k候选文档、用户查询和可黑盒调用的生成模型。  
+**输入**：top-k候选文档、用户查询和可黑盒调用的生成模型。<br>
 **输出**：过滤后的上下文集合及各候选文档的反事实影响判定。
 
 </div>
@@ -337,13 +337,13 @@ $$
 - $\mathcal{L}$：单个查询—正例—负例三元组的训练损失。
 - $q$：用户查询。
 - $d^{+}$：与查询对应的未修改正确文档，即应当获得更高排名的正例。
-- $d^{-}$：负例文档；对投毒三元组是d^{+}的攻击式改写，对干净三元组是随机抽取的语料库内干净文档。
+- $d^{-}$：负例文档；对投毒三元组是$d^{+}$的攻击式改写，对干净三元组是随机抽取的语料库内干净文档。
 - $s(q,d)$：查询q与文档d的余弦相似度。
 - $0.2$：要求正例相似度超过负例相似度的间隔超参数。
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：若正确文档的得分已经比负文档高至少0.2，损失为零；否则就产生与差距不足程度相对应的惩罚。对投毒样本而言，这直接迫使模型把内容非常相近但事实被篡改的版本排在原始正确文档之后。  
+**直观理解**：若正确文档的得分已经比负文档高至少0.2，损失为零；否则就产生与差距不足程度相对应的惩罚。对投毒样本而言，这直接迫使模型把内容非常相近但事实被篡改的版本排在原始正确文档之后。<br>
 **原文位置**：第3.3节“Retriever fine-tuning”，公式(1)
 
 </div>
@@ -361,15 +361,15 @@ $$
 **符号说明**
 
 - $s(q,d)$：查询q与文档d的检索匹配分数。
-- $f_{\theta}$：参数为\theta的查询编码映射，将查询转换为稠密向量。
-- $g_{\theta}$：参数为\theta的文档编码映射，将文档转换为稠密向量。
+- $f_{\theta}$：参数为$\theta$的查询编码映射，将查询转换为稠密向量。
+- $g_{\theta}$：参数为$\theta$的文档编码映射，将文档转换为稠密向量。
 - $\cdot$：两个向量的内积。
 - $\lVert\cdot\rVert$：向量的欧几里得范数，用于消除向量长度对分数的影响。
 - $\theta$：在对抗微调中被优化的编码器参数。
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：该分数衡量查询向量与文档向量的方向是否一致，越接近1通常表示语义越相似。它既是文档排序依据，也是三元组损失比较正负文档的基础，但仅靠语义相似度仍可能把保留关键词的投毒文本排到前列，因此需要定向训练和ZKIP补充。  
+**直观理解**：该分数衡量查询向量与文档向量的方向是否一致，越接近1通常表示语义越相似。它既是文档排序依据，也是三元组损失比较正负文档的基础，但仅靠语义相似度仍可能把保留关键词的投毒文本排到前列，因此需要定向训练和ZKIP补充。<br>
 **原文位置**：第3.3节“Retriever fine-tuning”，公式(2)
 
 </div>
@@ -378,7 +378,7 @@ $$
 
 <div class="paper-focus" markdown="1">
 
-**优化目标如何起作用**：训练只针对第一层稠密检索器：最小化三元组间隔损失，使s(q,d^{+})至少比s(q,d^{-})高0.2。对抗鲁棒性的核心来自负例采样而非新的网络结构——在投毒三元组中，d^{-}是对应正确文档的特定攻击改写，因而梯度直接惩罚检索器偏好捏造、矛盾或错误推理文本；在干净三元组中，随机语料负例维持一般检索区分能力。作者不用InfoNCE及批内负例，是因为随机共现文档可能被无差别地当作困难负例，而显式间隔更直接地表达正确版本与其投毒改写之间的排序要求。ZKIP在推理阶段不使用投毒标签或标准答案，所给材料也未表明其需要参数训练。
+**优化目标如何起作用**：训练只针对第一层稠密检索器：最小化三元组间隔损失，使$s(q,d^{+})$至少比$s(q,d^{-})$高0.2。对抗鲁棒性的核心来自负例采样而非新的网络结构——在投毒三元组中，$d^{-}$是对应正确文档的特定攻击改写，因而梯度直接惩罚检索器偏好捏造、矛盾或错误推理文本；在干净三元组中，随机语料负例维持一般检索区分能力。作者不用InfoNCE及批内负例，是因为随机共现文档可能被无差别地当作困难负例，而显式间隔更直接地表达正确版本与其投毒改写之间的排序要求。ZKIP在推理阶段不使用投毒标签或标准答案，所给材料也未表明其需要参数训练。
 
 </div>
 
@@ -389,7 +389,7 @@ $$
 
 **1. 攻击定向的稠密检索器**
 
-基础编码器为all-MiniLM-L6-v2，查询编码器f_{\theta}与文档编码器g_{\theta}产生向量表示，并以余弦相似度排序。其关键并非模型结构本身，而是负例设计：投毒训练样本将同一正确文档的恶意改写作为d^{-}，从而用三元组间隔损失明确要求模型区分真实内容与高度相关的篡改内容。
+基础编码器为all-MiniLM-L6-v2，查询编码器$f_{\theta}$与文档编码器$g_{\theta}$产生向量表示，并以余弦相似度排序。其关键并非模型结构本身，而是负例设计：投毒训练样本将同一正确文档的恶意改写作为$d^{-}$，从而用三元组间隔损失明确要求模型区分真实内容与高度相关的篡改内容。
 
 > 直观理解：随机负例通常很容易区分，不能教会模型识别“主题完全正确、事实却被改动”的危险文本；成对的投毒改写提供了更有针对性的训练题。
 
@@ -411,7 +411,7 @@ ZKIP是无投毒标签、无标准答案且无需访问模型内部参数的黑�
 
 **复现信息**
 
-检索器以all-MiniLM-L6-v2初始化，采用最后隐藏状态均值池化、AdamW优化器、学习率2\times10^{-5}、批大小16、训练3个epoch、最大序列长度256，三元组间隔为0.2；这些设置足以复现所述第一层训练。数据方面，文中构造12,344条BEIR样本（其中3,700条投毒）和1,000条NQ样本（其中300条投毒），实验可按5%至30%比例替换投毒三元组。推理的主要成本是k+1次生成器调用，k=5时为6次；所给节选没有完整报告ZKIP的阈值、语义相似度实现、熵计算粒度、解码参数或早停规则，复现第二层前必须回查论文未提供的后续方法章节。
+检索器以all-MiniLM-L6-v2初始化，采用最后隐藏状态均值池化、AdamW优化器、学习率$2\times10^{-5}$、批大小16、训练3个epoch、最大序列长度256，三元组间隔为0.2；这些设置足以复现所述第一层训练。数据方面，文中构造12,344条BEIR样本（其中3,700条投毒）和1,000条NQ样本（其中300条投毒），实验可按5%至30%比例替换投毒三元组。推理的主要成本是k+1次生成器调用，k=5时为6次；所给节选没有完整报告ZKIP的阈值、语义相似度实现、熵计算粒度、解码参数或早停规则，复现第二层前必须回查论文未提供的后续方法章节。
 
 </details>
 
@@ -423,26 +423,37 @@ ZKIP是无投毒标签、无标准答案且无需访问模型内部参数的黑�
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- Natural Questions（NQ）：主题覆盖广的开放域问答数据。实验构造干净语料以及投毒比例为 5%、10%、20%、30% 的语料版本，并为每篇文档保存投毒标签。Recall@5 和 MRR 在完整的 1,000 个查询上计算；不同投毒比例下分别有 33、69、139、190 个查询检索到了投毒候选，可用于计算 ASR。NQ 是端到端防御效果的主要测试集。
-- BEIR 的 NFCorpus：医疗与科学领域检索基准，相关性信号比 NQ 稀疏，用于考察防御信号及对抗训练能否迁移到领域外语料。正文报告干净语料和 30% 投毒语料的检索结果，其中有 2,481 个可计算 ASR 的查询；ZKIP 防御结果尚未完成。
-- 监督式投毒分类数据：由 NQ 和 BEIR 中带有真实投毒标签的金标准文档—投毒文档样本及检索文档特征组成。它只用于验证文本和 ZKIP 反事实特征是否具有可学习性，属于需要标签的分析性上界，不是论文主张的零标签部署方案。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- Natural Questions（NQ）：主题覆盖广的开放域问答数据。实验构造干净语料以及投毒比例为 5%、10%、20%、30% 的语料版本，并为每篇文档保存投毒标签。Recall@5 和 MRR 在完整的 1,000 个查询上计算；不同投毒比例下分别有 33、69、139、190 个查询检索到了投毒候选，可用于计算 ASR。NQ 是端到端防御效果的主要测试集。
+- BEIR 的 NFCorpus：医疗与科学领域检索基准，相关性信号比 NQ 稀疏，用于考察防御信号及对抗训练能否迁移到领域外语料。正文报告干净语料和 30% 投毒语料的检索结果，其中有 2,481 个可计算 ASR 的查询；ZKIP 防御结果尚未完成。
+- 监督式投毒分类数据：由 NQ 和 BEIR 中带有真实投毒标签的金标准文档—投毒文档样本及检索文档特征组成。它只用于验证文本和 ZKIP 反事实特征是否具有可学习性，属于需要标签的分析性上界，不是论文主张的零标签部署方案。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **Recall@5**
 
 金标准相关文档出现在前五个检索结果中的查询比例，衡量检索器是否仍能把正确证据放入生成器可见的候选集合。 （越高越好；较高值表示更多查询能够检索到正确证据，但不直接保证生成答案正确。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **MRR**
 
 每个查询首篇相关文档排名倒数的平均值，用于同时衡量是否检索到相关文档以及其排序是否靠前。 （越高越好；相关文档排名越靠前，其倒数排名越大。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **ASR**
 
@@ -450,7 +461,9 @@ ZKIP是无投毒标签、无标准答案且无需访问模型内部参数的黑�
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -481,10 +494,14 @@ Dense（clean）无防御时 Recall@5、MRR、ASR 分别为 0.259、0.176、0.10
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Dense (clean) | None | 0.259 | 0.176 | 0.101
+<div class="experiment-evidence" markdown="1">
+
+Dense (clean) | None | 0.259 | 0.176 | 0.101
 Dense (adv-trained) | None | 0.319 | 0.215 | 0.072
 Dense (clean) | ZKIP | 0.259 | 0.176 | 0.000
-Dense (adv-trained) | ZKIP | 0.314 | 0.215 | 0.000</span>
+Dense (adv-trained) | ZKIP | 0.314 | 0.215 | 0.000
+
+</div>
 
 </details>
 
@@ -512,12 +529,16 @@ Dense (adv-trained) | ZKIP | 0.314 | 0.215 | 0.000</span>
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">NQ (30%) | BM25 | 0.071 | 0.059 | 0.011
+<div class="experiment-evidence" markdown="1">
+
+NQ (30%) | BM25 | 0.071 | 0.059 | 0.011
 NQ (30%) | Dense (clean) | 0.256 | 0.175 | 0.053
 NQ (30%) | Dense (adv-trained) | 0.318 | 0.212 | 0.068
 NQ (30%) | BM25 + ZKIP | 0.071 | 0.059 | 0.000
 NQ (30%) | Dense (clean) + ZKIP | 0.256 | 0.175 | 0.000
-NQ (30%) | Dense (adv-trained) + ZKIP | 0.274 | 0.196 | 0.000</span>
+NQ (30%) | Dense (adv-trained) + ZKIP | 0.274 | 0.196 | 0.000
+
+</div>
 
 </details>
 
@@ -545,9 +566,13 @@ BM25 的 Recall@5/MRR/ASR 为 0.016/0.013/0.000；Dense（clean）为 0.021/0.01
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">BEIR (30%) | BM25 | 0.016 | 0.013 | 0.000
+<div class="experiment-evidence" markdown="1">
+
+BEIR (30%) | BM25 | 0.016 | 0.013 | 0.000
 BEIR (30%) | Dense (clean) | 0.021 | 0.015 | 0.008
-BEIR (30%) | Dense (adv-trained) | 0.019 | 0.014 | 0.007</span>
+BEIR (30%) | Dense (adv-trained) | 0.019 | 0.014 | 0.007
+
+</div>
 
 </details>
 

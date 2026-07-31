@@ -6,7 +6,7 @@ announcement_date: "2026-07-29"
 primary_category: "llm_agent"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:24.136739+00:00"
+generated_at: "2026-07-30T10:14:52.321257+00:00"
 source_sha256: "c5c1cc70bf20dfe751b71cc290fbf7e4af074ff725a43f4586eb93b51f986cfd"
 tags:
   - "LLM Agent"
@@ -37,7 +37,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2508.00344v5) · [PDF 下载](https://arxiv.org/pdf/2508.00344v5) · **关键词** 大语言模型智能体, 长程规划, 全局计划, 规划与执行协调, 强化学习, AdaPlan, PilotRL  
+[arXiv 原文](https://arxiv.org/abs/2508.00344v5) · [PDF 下载](https://arxiv.org/pdf/2508.00344v5) · **关键词** 大语言模型智能体, 长程规划, 全局计划, 规划与执行协调, 强化学习, AdaPlan, PilotRL<br>
 
 
 </div>
@@ -86,21 +86,21 @@ tags:
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **大语言模型智能体（LLM Agent）**
 
 以大语言模型承担感知信息解释、任务推理和动作决策的系统。它通常需要与外部环境反复交互，而不是一次生成完整答案。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **ReAct**
 
 一种交替生成“思考”和“动作”的智能体范式，每一步根据当前观察推断接下来立即要做什么。其局部逐步决策方式易于执行，但在需要预见多个后续步骤时可能缺少全局视角。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **全局规划器与执行器**
 
@@ -211,12 +211,12 @@ PilotRL由推理范式AdaPlan与三阶段渐进式强化学习组成。AdaPlan�
 
 #### 初始化全局计划
 
-全局规划器生成初始计划\mathcal{P}^{(0)}=[p_1^{(0)},p_2^{(0)},\ldots,p_{N_0}^{(0)}]，其中每个p_i^{(0)}表示建议执行器在相应阶段采取的高层行动。
+全局规划器生成初始计划$\mathcal{P}^{(0)}=[p_1^{(0)},p_2^{(0)},\ldots,p_{N_0}^{(0)}]$，其中每个$p_i^{(0)}$表示建议执行器在相应阶段采取的高层行动。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：任务目标或指令G，以及执行前的初始上下文\mathcal{C}^{(0)}。  
-**输出**：包含N_0个步骤、用于显式指导后续决策的初始全局计划\mathcal{P}^{(0)}。
+**输入**：任务目标或指令G，以及执行前的初始上下文$\mathcal{C}^{(0)}$。<br>
+**输出**：包含$N_0$个步骤、用于显式指导后续决策的初始全局计划$\mathcal{P}^{(0)}$。
 
 </div>
 
@@ -231,12 +231,12 @@ PilotRL由推理范式AdaPlan与三阶段渐进式强化学习组成。AdaPlan�
 
 #### 计划引导的逐步执行
 
-在时间步t，执行器综合计划指导与历史交互，选择动作a^{(t)}\in\mathcal{A}并提交给环境；输出必须符合规定的Thought/Action或Action格式。
+在时间步t，执行器综合计划指导与历史交互，选择动作$a^{(t)}\in\mathcal{A}$并提交给环境；输出必须符合规定的Thought/Action或Action格式。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：当前全局计划\mathcal{P}^{(t-1)}、累计上下文\mathcal{C}^{(t-1)}、任务目标G和动作空间\mathcal{A}。  
-**输出**：当前环境动作a^{(t)}，以及环境随后返回的观察o^{(t)}\in\mathcal{O}。
+**输入**：当前全局计划$\mathcal{P}^{(t-1)}$、累计上下文$\mathcal{C}^{(t-1)}$、任务目标G和动作空间$\mathcal{A}$。<br>
+**输出**：当前环境动作$a^{(t)}$，以及环境随后返回的观察$o^{(t)}\in\mathcal{O}$。
 
 </div>
 
@@ -251,12 +251,12 @@ PilotRL由推理范式AdaPlan与三阶段渐进式强化学习组成。AdaPlan�
 
 #### 反馈积累与计划自适应
 
-系统把(a^{(t)},o^{(t)})加入累计上下文形成\mathcal{C}^{(t)}，随后由规划策略\pi保留索引i\leq t的已执行计划项，并依据最新上下文重新生成i>t的未来计划项。
+系统把($a^{(t)},o^{(t)})$加入累计上下文形成$\mathcal{C}^{(t)}$，随后由规划策略$\pi$保留索引$i\leq t$的已执行计划项，并依据最新上下文重新生成i>t的未来计划项。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：本轮动作a^{(t)}、环境观察o^{(t)}、旧计划\mathcal{P}^{(t-1)}、任务目标G和先前上下文。  
-**输出**：更新后的上下文\mathcal{C}^{(t)}与下一轮使用的自适应计划\mathcal{P}^{(t)}。
+**输入**：本轮动作$a^{(t)}$、环境观察$o^{(t)}$、旧计划$\mathcal{P}^{(t-1)}$、任务目标G和先前上下文。<br>
+**输出**：更新后的上下文$\mathcal{C}^{(t)}$与下一轮使用的自适应计划$\mathcal{P}^{(t)}$。
 
 </div>
 
@@ -275,7 +275,7 @@ PilotRL由推理范式AdaPlan与三阶段渐进式强化学习组成。AdaPlan�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：训练任务、环境交互轨迹、候选全局计划，以及DeepSeek-V3生成或评审的计划与评分。  
+**输入**：训练任务、环境交互轨迹、候选全局计划，以及DeepSeek-V3生成或评审的计划与评分。<br>
 **输出**：先获得能够理解动作空间并遵守计划的执行器，再获得能够生成较正确、可执行且规范计划的规划器。
 
 </div>
@@ -310,7 +310,7 @@ $$
 
 - $p_i^{(t)}$：第t轮更新后，全局计划中索引为i的计划步骤。
 - $t$：当前智能体—环境交互的时间步。
-- $i$：计划步骤的索引；i\le t表示已经执行或已经经过的部分，i>t表示未来部分。
+- $i$：计划步骤的索引；$i\le t$表示已经执行或已经经过的部分，i>t表示未来部分。
 - $\pi$：全局计划生成器使用的计划适应策略。
 - $G$：需要完成的任务目标或任务指令。
 - $\mathcal{C}^{(t)}$：截至时间步t积累的动作与环境观察上下文。
@@ -318,7 +318,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：该式把计划分成已发生的前缀和可调整的后缀：前缀原样保留，后缀根据任务目标、真实交互历史和旧计划重新预测。它是AdaPlan区别于一次性全局规划的关键，因为模型既保留历史一致性，又能根据意外结果改道。  
+**直观理解**：该式把计划分成已发生的前缀和可调整的后缀：前缀原样保留，后缀根据任务目标、真实交互历史和旧计划重新预测。它是AdaPlan区别于一次性全局规划的关键，因为模型既保留历史一致性，又能根据意外结果改道。<br>
 **原文位置**：第2.1节，公式(1)
 
 </div>
@@ -341,7 +341,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：三个信号分别检查“输出能否被系统解析”“当前动作是否按计划执行”和“整条轨迹最终是否有效”。阶段1使用这些分量的归一化结果之和，但原文节选没有给出归一化公式或各分量权重，因此不能据此断定三者在数值上等权。  
+**直观理解**：三个信号分别检查“输出能否被系统解析”“当前动作是否按计划执行”和“整条轨迹最终是否有效”。阶段1使用这些分量的归一化结果之和，但原文节选没有给出归一化公式或各分量权重，因此不能据此断定三者在数值上等权。<br>
 **原文位置**：第2.2.1节，公式(2)、(3)、(4)
 
 </div>
@@ -363,19 +363,19 @@ $$
 
 **1. 全局规划器**
 
-规划器以任务目标G、累计上下文\mathcal{C}^{(t)}和上一版计划\mathcal{P}^{(t-1)}为条件，生成初始多步计划并在每轮交互后更新未执行部分。训练阶段2还采用generate-then-select：先生成多个可行候选，再按正确性、可执行性和规范性选择最合适的计划。
+规划器以任务目标G、累计上下文$\mathcal{C}^{(t)}$和上一版计划$\mathcal{P}^{(t-1)}$为条件，生成初始多步计划并在每轮交互后更新未执行部分。训练阶段2还采用generate-then-select：先生成多个可行候选，再按正确性、可执行性和规范性选择最合适的计划。
 
 > 直观理解：它负责维护任务的长期方向，解决ReAct只围绕眼前一步思考、容易缺少连贯战略的问题。候选生成后再选择，相当于先比较若干路线，再把质量较高的一条交给执行器。
 
 **2. 执行器**
 
-执行器依据当前计划与历史动作—观察对选择a^{(t)}\in\mathcal{A}，并学习环境动作空间及规定的输出协议。阶段1使用语义遵循评分区分完全遵循、部分遵循和不遵循，避免仅凭任务最终是否成功而忽略执行器是否真正利用了计划。
+执行器依据当前计划与历史动作—观察对选择$a^{(t)}\in\mathcal{A}$，并学习环境动作空间及规定的输出协议。阶段1使用语义遵循评分区分完全遵循、部分遵循和不遵循，避免仅凭任务最终是否成功而忽略执行器是否真正利用了计划。
 
 > 直观理解：规划器只说要做什么，执行器负责把它变成工具调用或环境动作。单独训练遵循能力可防止出现“有计划但执行时完全不看”的名义规划。
 
 **3. 环境反馈与自适应闭环**
 
-环境在执行a^{(t)}后返回o^{(t)}，系统将其写入\mathcal{C}^{(t)}并同时反馈给执行器和规划器。规划器据此评估原策略是否仍然有效，只修改尚未执行的后缀，因此AdaPlan并非一次性静态规划。
+环境在执行$a^{(t)}$后返回$o^{(t)}$，系统将其写入$\mathcal{C}^{(t)}$并同时反馈给执行器和规划器。规划器据此评估原策略是否仍然有效，只修改尚未执行的后缀，因此AdaPlan并非一次性静态规划。
 
 > 直观理解：计划会接受现实结果的校正：工具失败、状态变化或执行偏差都可能使原路线失效，闭环更新让智能体从当前状态继续处理，而不是机械重复旧方案。
 
@@ -387,11 +387,11 @@ DeepSeek-V3在阶段1提供候选计划并参与选择，同时评估动作遵�
 
 **训练与推理**
 
-训练时，阶段1由DeepSeek-V3针对每个任务目标G和累计上下文\mathcal{C}^{(t)}先生成多个可能的全局计划，再从正确性、可执行性、格式有效性等角度选择最佳候选，用其指导待训练执行器。执行轨迹按照格式合法性、动作与当前计划步骤的语义一致性以及最终任务是否高效完成获得奖励；其中遵循和端到端评分也由DeepSeek-V3评估。该阶段结束后，模型应当能够理解可用动作并对显式计划作出相符的环境操作。
+训练时，阶段1由DeepSeek-V3针对每个任务目标G和累计上下文$\mathcal{C}^{(t)}$先生成多个可能的全局计划，再从正确性、可执行性、格式有效性等角度选择最佳候选，用其指导待训练执行器。执行轨迹按照格式合法性、动作与当前计划步骤的语义一致性以及最终任务是否高效完成获得奖励；其中遵循和端到端评分也由DeepSeek-V3评估。该阶段结束后，模型应当能够理解可用动作并对显式计划作出相符的环境操作。
 
 阶段2把学习重点转向规划器。模型先生成所有被认为可行的候选计划，再从候选池选择一个计划作为执行指导；计划同时接受正确性、可执行性和规范性评分，并结合格式奖励与端到端轨迹奖励进行强化学习。阶段3在前两项能力已经分别训练的基础上，以格式和端到端任务表现为直接反馈联合优化规划与执行，使局部计划质量和逐步遵循最终服务于完整任务，而不是成为彼此割裂的训练目标。
 
-推理时不需要固定一份计划执行到底。规划器先根据G和\mathcal{C}^{(0)}产生\mathcal{P}^{(0)}；执行器在时间步t依据\mathcal{P}^{(t-1)}和\mathcal{C}^{(t-1)}选择a^{(t)}，环境返回o^{(t)}后形成新的上下文\mathcal{C}^{(t)}；规划器保持已经执行的计划项，并重写未来计划项得到\mathcal{P}^{(t)}。该循环持续到任务完成、失败或达到环境终止条件；具体终止规则在所给原文中未明确报告。
+推理时不需要固定一份计划执行到底。规划器先根据G和$\mathcal{C}^{(0)}$产生$\mathcal{P}^{(0)}$；执行器在时间步t依据$\mathcal{P}^{(t-1)}$和$\mathcal{C}^{(t-1)}$选择$a^{(t)}$，环境返回$o^{(t)}$后形成新的上下文$\mathcal{C}^{(t)}$；规划器保持已经执行的计划项，并重写未来计划项得到$\mathcal{P}^{(t)}$。该循环持续到任务完成、失败或达到环境终止条件；具体终止规则在所给原文中未明确报告。
 
 **复现信息**
 
@@ -409,26 +409,37 @@ DeepSeek-V3承担计划先验与奖励评审器角色：它在阶段1提供和�
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- ALFWorld测试集用于域内评测，考查智能体能否在文本化交互环境中完成具有多步依赖的具身任务；原文节选未分别报告该测试集的样本数。
-- IQA测试集用于域内评测，考查需要交互与推理的问答任务；原文节选未展开其全名、具体任务形式及测试样本数。
-- TextCraft与Wordle的测试集共同用于域内评测：前者侧重具有开放性或创造性的文本生成，后者侧重通过多轮反馈进行词语推断。两者检验模型是否能在训练任务分布内进行持续决策；原文节选未分别报告样本数。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- ALFWorld测试集用于域内评测，考查智能体能否在文本化交互环境中完成具有多步依赖的具身任务；原文节选未分别报告该测试集的样本数。
+- IQA测试集用于域内评测，考查需要交互与推理的问答任务；原文节选未展开其全名、具体任务形式及测试样本数。
+- TextCraft与Wordle的测试集共同用于域内评测：前者侧重具有开放性或创造性的文本生成，后者侧重通过多轮反馈进行词语推断。两者检验模型是否能在训练任务分布内进行持续决策；原文节选未分别报告样本数。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **任务完成率**
 
 由DeepSeek-V3按照统一LLM-as-Judge协议，结合任务答案和参考轨迹，判断智能体是否完成目标。它衡量最终正确性，但会受到评审模型偏好影响。 （越高越好，因为更高表示成功完成任务的样本比例更大。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **交互轨迹效率**
 
 由同一评审模型评价完成任务所采用交互轨迹的效率，用于区分同样完成任务但步骤冗余程度不同的方案；所给节选未给出其精确评分公式。 （越高越好，因为更高表示完成任务的交互过程更有效率。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **平均评测分数**
 
@@ -436,7 +447,9 @@ DeepSeek-V3承担计划先验与奖励评审器角色：它在阶段1提供和�
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -467,7 +480,11 @@ DeepSeek-V3承担计划先验与奖励评审器角色：它在阶段1提供和�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Compared to the naive response, PilotRL enhances the average downstream task performances by 78.51%. Remarkably, when compared to open-sourced agent-specific models such as DeepResearcher-7B, our approach achieves over 29.47% higher performance with the same backbone model of Qwen2.5-7B-Instruct. In comparison to the plug-and-play external planner MPO, our method achieves an average improvement of 31.10%, further highlighting the importance of tight coordination between the planner and executor in effectively solving agent-oriented tasks.</span>
+<div class="experiment-evidence" markdown="1">
+
+Compared to the naive response, PilotRL enhances the average downstream task performances by 78.51%. Remarkably, when compared to open-sourced agent-specific models such as DeepResearcher-7B, our approach achieves over 29.47% higher performance with the same backbone model of Qwen2.5-7B-Instruct. In comparison to the plug-and-play external planner MPO, our method achieves an average improvement of 31.10%, further highlighting the importance of tight coordination between the planner and executor in effectively solving agent-oriented tasks.
+
+</div>
 
 </details>
 
@@ -495,7 +512,11 @@ DeepSeek-V3承担计划先验与奖励评审器角色：它在阶段1提供和�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Specifically, models integrated with PilotRL achieve an average improvement of 2.35% over GPT-4o, while showing a more substantial gain of 53.90% over GPT-4o-mini at a comparable parameter scale.</span>
+<div class="experiment-evidence" markdown="1">
+
+Specifically, models integrated with PilotRL achieve an average improvement of 2.35% over GPT-4o, while showing a more substantial gain of 53.90% over GPT-4o-mini at a comparable parameter scale.
+
+</div>
 
 </details>
 
@@ -523,7 +544,11 @@ SFT与普通RL的接近说明，只引入全局计划监督或只引入端到端
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Specifically, for in-domain (ID) tasks, SFT outperforms Vanilla RL by a marginal average of 2.75%, whereas Vanilla RL achieves an average lead of 5.80% in out-of-domain (OOD) tasks. In contrast, PilotRL demonstrates robust performance gains across models with diverse characteristics, achieving consistent improvements over both SFT and Vanilla RL by 9.89% and 7.64%, respectively.</span>
+<div class="experiment-evidence" markdown="1">
+
+Specifically, for in-domain (ID) tasks, SFT outperforms Vanilla RL by a marginal average of 2.75%, whereas Vanilla RL achieves an average lead of 5.80% in out-of-domain (OOD) tasks. In contrast, PilotRL demonstrates robust performance gains across models with diverse characteristics, achieving consistent improvements over both SFT and Vanilla RL by 9.89% and 7.64%, respectively.
+
+</div>
 
 </details>
 

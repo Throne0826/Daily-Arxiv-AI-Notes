@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "multi_agent"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:24.773712+00:00"
+generated_at: "2026-07-30T10:14:52.555405+00:00"
 source_sha256: "5948204419712f527aaf6a9ac2b5a384548e88e3ef39ad7bcdbcbd4b85d71376"
 tags:
   - "Multi-Agent"
@@ -36,7 +36,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2607.26212v1) · [PDF 下载](https://arxiv.org/pdf/2607.26212v1) · **关键词** 多智能体辩论, 大语言模型智能体, 多智能体系统, 系统文献综述, 分类体系, 交互机制, 一致性协议  
+[arXiv 原文](https://arxiv.org/abs/2607.26212v1) · [PDF 下载](https://arxiv.org/pdf/2607.26212v1) · **关键词** 多智能体辩论, 大语言模型智能体, 多智能体系统, 系统文献综述, 分类体系, 交互机制, 一致性协议<br>
 
 
 </div>
@@ -85,21 +85,21 @@ tags:
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **LLM智能体**
 
 以大语言模型为核心的自主系统，能够读取上下文，并利用推理、规划、记忆或工具调用产生面向目标的行动。它通常在循环中持续观察环境反馈、更新判断并采取下一步行动。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **LLM驱动的多智能体系统**
 
 由多个LLM智能体组成的协作或竞争系统，各智能体可具有不同角色、能力和局部信息，并通过自然语言交流共同处理任务。其效果不仅取决于单个模型，也取决于通信拓扑、信息共享方式和协调协议。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **多智能体辩论（MAD）**
 
@@ -211,7 +211,7 @@ tags:
 
 <div class="method-step__io" markdown="1">
 
-**输入**：文献中关于多智能体辩论的不一致定义，以及传统辩论和多智能体系统的相关概念。  
+**输入**：文献中关于多智能体辩论的不一致定义，以及传统辩论和多智能体系统的相关概念。<br>
 **输出**：可直接用于筛选文献的 MAD 定义、研究边界与纳入/排除标准。
 
 </div>
@@ -231,7 +231,7 @@ tags:
 
 <div class="method-step__io" markdown="1">
 
-**输入**：PICO 框架中的研究对象 Population（LLM 或 AI agent）和干预 Intervention（MAD），以及 Scopus 的题名、摘要和关键词索引。  
+**输入**：PICO 框架中的研究对象 Population（LLM 或 AI agent）和干预 Intervention（MAD），以及 Scopus 的题名、摘要和关键词索引。<br>
 **输出**：29 篇候选文献，经纳入和排除标准筛选后形成11篇种子文献。
 
 </div>
@@ -251,7 +251,7 @@ tags:
 
 <div class="method-step__io" markdown="1">
 
-**输入**：数据库检索和后续滚雪球得到的候选论文，以及预先规定的 IC1、EC1—EC6 标准。  
+**输入**：数据库检索和后续滚雪球得到的候选论文，以及预先规定的 IC1、EC1—EC6 标准。<br>
 **输出**：满足 MAD 定义、信息充分、英文全文可访问且没有重复或被取代版本的研究集合。
 
 </div>
@@ -271,7 +271,7 @@ tags:
 
 <div class="method-step__io" markdown="1">
 
-**输入**：11篇种子论文及其参考文献、引用这些论文的后续研究。  
+**输入**：11篇种子论文及其参考文献、引用这些论文的后续研究。<br>
 **输出**：后向滚雪球后得到23篇研究，前向滚雪球后最终得到141篇主要研究；作者报告所有筛选轮次的平均 Cohen’s kappa 为0.70。
 
 </div>
@@ -341,26 +341,37 @@ Scopus 精确检索用于建立高质量种子集，一轮后向和一轮前向�
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- 系统性文献综述语料库：包含141项MAD主要研究。该语料库不是传统机器学习训练集，也没有训练、验证或测试划分；其作用是支持设计特征编码、分类体系归纳和研究趋势统计。当前节选未说明文献检索数据库、筛选流程、时间范围及各类别的完整计数。
-- 协议形式化子集：在分析最终答案的解决机制时，仅统计实际形式化并实现了该过程的97种MAD方法，因此Resolution类别的百分比以n=97为分母，而不是以全部141项研究为分母。
-- 应用与任务分类语料：作者按一般推理、数学、医学、软件工程、网络安全、社会科学、语言等领域整理纳入研究，并区分客观任务与开放式任务。该分类用于判断不同MAD设计和评价方式适用于什么任务，而非用于训练或直接比较某个模型的准确率。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- 系统性文献综述语料库：包含141项MAD主要研究。该语料库不是传统机器学习训练集，也没有训练、验证或测试划分；其作用是支持设计特征编码、分类体系归纳和研究趋势统计。当前节选未说明文献检索数据库、筛选流程、时间范围及各类别的完整计数。
+- 协议形式化子集：在分析最终答案的解决机制时，仅统计实际形式化并实现了该过程的97种MAD方法，因此Resolution类别的百分比以n=97为分母，而不是以全部141项研究为分母。
+- 应用与任务分类语料：作者按一般推理、数学、医学、软件工程、网络安全、社会科学、语言等领域整理纳入研究，并区分客观任务与开放式任务。该分类用于判断不同MAD设计和评价方式适用于什么任务，而非用于训练或直接比较某个模型的准确率。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **设计类别占比**
 
 某一MAD设计选择在编码研究中出现的比例，例如最终决策权由集体或裁判掌握的比例。它衡量研究实践的普及程度，不衡量任务准确率或方法优越性。 （无统一的越高越好方向；较高只表示采用更普遍，也可能反映研究惯例或设计趋同。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **任务准确率**
 
 在GSM8K等具有明确标准答案的算术、数学或逻辑基准上，最终答案正确的样本比例。本文将其作为既有MAD研究常用的客观评价方式，但当前节选没有报告统一汇总分数。 （越高越好，因为表示更多问题被正确解决；但跨研究比较仍会受到模型、提示、智能体数量和交互协议差异的影响。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **LLM-as-a-judge多维评分**
 
@@ -368,7 +379,9 @@ Scopus 精确检索用于建立高质量种子集，一轮后向和一轮前向�
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -399,7 +412,11 @@ Scopus 精确检索用于建立高质量种子集，一轮后向和一轮前向�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">We present a systematic literature review characterizing 141 primary studies on MAD.</span>
+<div class="experiment-evidence" markdown="1">
+
+We present a systematic literature review characterizing 141 primary studies on MAD.
+
+</div>
 
 </details>
 
@@ -427,7 +444,11 @@ Scopus 精确检索用于建立高质量种子集，一轮后向和一轮前向�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Our analysis reveals that the field has implicitly converged on a narrow design pattern — static, fully connected topologies, verbatim exchange, short-term memory and voting resolution strategies — adopted by convention rather than systematic comparison, while promising alternatives remain marginal.</span>
+<div class="experiment-evidence" markdown="1">
+
+Our analysis reveals that the field has implicitly converged on a narrow design pattern — static, fully connected topologies, verbatim exchange, short-term memory and voting resolution strategies — adopted by convention rather than systematic comparison, while promising alternatives remain marginal.
+
+</div>
 
 </details>
 
@@ -455,7 +476,11 @@ Scopus 精确检索用于建立高质量种子集，一轮后向和一轮前向�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Collective (52.3%): This is the most frequent approach, where the final answer is an aggregation of the agents’ positions.</span>
+<div class="experiment-evidence" markdown="1">
+
+Collective (52.3%): This is the most frequent approach, where the final answer is an aggregation of the agents’ positions.
+
+</div>
 
 </details>
 

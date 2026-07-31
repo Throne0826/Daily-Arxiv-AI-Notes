@@ -6,7 +6,7 @@ announcement_date: "2026-07-29"
 primary_category: "robotics"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:24.242978+00:00"
+generated_at: "2026-07-30T10:14:52.356428+00:00"
 source_sha256: "09543e5f99d044a0515ce5b0a6b7a767417cd0f46a6946b0fb85d8463331f1ac"
 tags:
   - "机器人 / 具身智能"
@@ -36,7 +36,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2607.16123v2) · [PDF 下载](https://arxiv.org/pdf/2607.16123v2) · **关键词** 接触丰富操作, 插销入孔, 视觉—触觉融合, 位姿估计, 仿真推断, 序贯蒙特卡洛, 力/力矩感知, 部分可观测性  
+[arXiv 原文](https://arxiv.org/abs/2607.16123v2) · [PDF 下载](https://arxiv.org/pdf/2607.16123v2) · **关键词** 接触丰富操作, 插销入孔, 视觉—触觉融合, 位姿估计, 仿真推断, 序贯蒙特卡洛, 力/力矩感知, 部分可观测性<br>
 
 
 </div>
@@ -85,21 +85,21 @@ BayesContact利用渲染器和物理模拟器将深度图与力／力矩接触�
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **仿真推断（Simulation-Based Inference, SBI）**
 
 当观测似然难以写成可解析公式时，先对某个候选位姿运行渲染或物理仿真，再比较仿真结果与真实观测的一致程度，从而近似评价该候选位姿的可信度。它允许直接利用复杂、非线性且可能不连续的接触模拟器，而不要求对模拟器求导。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **贝叶斯信念与多模态后验**
 
 “信念”是机器人对未知孔位姿的概率分布；每得到一次深度或接触观测，就用观测似然修正原有分布。遮挡、几何对称或不同接触解释可能使多个互不相邻的位姿同时合理，这种分布称为多模态后验。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **序贯蒙特卡洛（Sequential Monte Carlo, SMC）**
 
@@ -124,32 +124,32 @@ SMC用一组带权粒子近似概率分布，每个粒子代表一个候选位�
 
 <div class="notation-list" markdown="1">
 
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\mathbf{x}$**
 
 未知目标物体（本文中主要是孔）的位姿，也是贝叶斯推断中的隐变量。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\mathbf{o}_k$**
 
 第 k 次观测，可对应深度信息或由力/力矩测量形成的接触证据。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\mathbf{a}_k$**
 
 为取得第 k 次观测而执行的动作，尤其指受保护的接触探测动作。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$b_k(\mathbf{x})$**
 
-融合截至第 k 次观测和动作后，对位姿 \mathbf{x} 的后验信念；文中以带归一化权重的粒子集合近似表示。
+融合截至第 k 次观测和动作后，对位姿 $\mathbf{x}$ 的后验信念；文中以带归一化权重的粒子集合近似表示。
 
 </div>
 
@@ -242,7 +242,7 @@ BayesContact把已知孔几何体的位姿表示为定义在有界搜索空间�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：已知孔与场景几何、相机位姿、深度观测 \(\mathbf{o}_k^d\)、有界位姿空间 \(\mathcal{X}\) 及先验 \(p_0(\mathbf{x})\)。  
+**输入**：已知孔与场景几何、相机位姿、深度观测 \(\mathbf{o}_k^d\)、有界位姿空间 \(\mathcal{X}\) 及先验 \(p_0(\mathbf{x})\)。<br>
 **输出**：视觉后验粒子集 \(b_\gamma=\{(\mathbf{x}_\gamma^{(i)},w_\gamma^{(i)})\}\)，其中可同时保留多个由几何对称或遮挡造成的位姿模式。
 
 </div>
@@ -262,7 +262,7 @@ BayesContact把已知孔几何体的位姿表示为定义在有界搜索空间�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：当前粒子后验、探测动作 \(\mathbf{a}_k=(\Delta x_k,\Delta y_k,\Delta\theta_k)\)，以及下探过程中测得的力 \(\mathbf{f}\)、力矩 \(\boldsymbol{\tau}\) 和相机轨迹。  
+**输入**：当前粒子后验、探测动作 \(\mathbf{a}_k=(\Delta x_k,\Delta y_k,\Delta\theta_k)\)，以及下探过程中测得的力 \(\mathbf{f}\)、力矩 \(\boldsymbol{\tau}\) 和相机轨迹。<br>
 **输出**：F/T 派生的观测接触点集 \(\mathbf{o}_k^f\)，以及可用的深度观测 \(\mathbf{o}_k^d\) 和相机轨迹 \(\tau_k^{\mathrm{cam}}\)。
 
 </div>
@@ -282,7 +282,7 @@ BayesContact把已知孔几何体的位姿表示为定义在有界搜索空间�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：每个候选位姿 \(\mathbf{x}_k^{(i)}\)、已执行动作 \(\mathbf{a}_k\) 及真实接触、深度和轨迹观测。  
+**输入**：每个候选位姿 \(\mathbf{x}_k^{(i)}\)、已执行动作 \(\mathbf{a}_k\) 及真实接触、深度和轨迹观测。<br>
 **输出**：每个粒子对本轮真实交互数据的联合一致性分数 \(\mathcal{L}_{\mathrm{joint}}\)。
 
 </div>
@@ -302,7 +302,7 @@ BayesContact把已知孔几何体的位姿表示为定义在有界搜索空间�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：上一轮粒子及权重、探索—利用提议分布、联合对数似然和位姿先验。  
+**输入**：上一轮粒子及权重、探索—利用提议分布、联合对数似然和位姿先验。<br>
 **输出**：融合视觉与接触后的后验 \(b_k(\mathbf{x})=p(\mathbf{x}\mid\mathbf{o}_{1:k},\mathbf{a}_{1:k})\)，可用于位姿输出、插入决策和下一动作选择。
 
 </div>
@@ -347,7 +347,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：该式把三类互补证据相加：接触约束局部几何，深度约束可见外形，轨迹约束探测过程中的运动响应。由于各项都是对数似然，相加等价于在相应条件独立建模下相乘其似然；但作者明确将这些项视为仿真式评分函数，而非精确的解析传感器概率模型。  
+**直观理解**：该式把三类互补证据相加：接触约束局部几何，深度约束可见外形，轨迹约束探测过程中的运动响应。由于各项都是对数似然，相加等价于在相应条件独立建模下相乘其似然；但作者明确将这些项视为仿真式评分函数，而非精确的解析传感器概率模型。<br>
 **原文位置**：第 IV-C 节，式 (12)
 
 </div>
@@ -373,7 +373,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：第一项奖励能在仿真中复现实测现象的粒子，后两项校正“粒子从提议分布而非直接从先验抽取”造成的采样偏差。归一化并重采样后，高一致性位姿会复制，低一致性位姿会消失；原文也说明，在不显式使用提议密度修正时可直接按联合对数似然加权。  
+**直观理解**：第一项奖励能在仿真中复现实测现象的粒子，后两项校正“粒子从提议分布而非直接从先验抽取”造成的采样偏差。归一化并重采样后，高一致性位姿会复制，低一致性位姿会消失；原文也说明，在不显式使用提议密度修正时可直接按联合对数似然加权。<br>
 **原文位置**：第 IV-D 节，式 (19)
 
 </div>
@@ -427,26 +427,37 @@ $$
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- 仿真评测：在 Drake 中构建 Arch、Rectangle、Ellipse、Rectangle-teeth 和 Ellipse-teeth 五种插销—孔几何，每种几何随机生成20个位姿场景，并对推断使用5个随机种子。其作用是以可控真值比较不同几何歧义下的收敛、探测效率和20次插入尝试中的成功次数；原文未明确报告训练集、验证集或测试集划分。
-- 真实机器人评测：使用7自由度 KUKA iiwa14、腕部相机和 ATI 力/力矩传感器，在五种几何上各测试10个随机物体位姿。该评测用于检验依赖渲染器和物理仿真的似然模型能否迁移到真实视觉、接触噪声与控制误差下；原文未明确报告独立的数据划分。
-- 两阶段观测序列：视觉阶段保持机器人静止并由深度观测更新位姿信念；接触阶段执行沿负 z 方向、达到力/力矩阈值即停止的保护式垂直探测。该序列不是公开数据集，而是评估视觉后验如何被后续接触证据消歧的实验协议。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- 仿真评测：在 Drake 中构建 Arch、Rectangle、Ellipse、Rectangle-teeth 和 Ellipse-teeth 五种插销—孔几何，每种几何随机生成20个位姿场景，并对推断使用5个随机种子。其作用是以可控真值比较不同几何歧义下的收敛、探测效率和20次插入尝试中的成功次数；原文未明确报告训练集、验证集或测试集划分。
+- 真实机器人评测：使用7自由度 KUKA iiwa14、腕部相机和 ATI 力/力矩传感器，在五种几何上各测试10个随机物体位姿。该评测用于检验依赖渲染器和物理仿真的似然模型能否迁移到真实视觉、接触噪声与控制误差下；原文未明确报告独立的数据划分。
+- 两阶段观测序列：视觉阶段保持机器人静止并由深度观测更新位姿信念；接触阶段执行沿负 z 方向、达到力/力矩阈值即停止的保护式垂直探测。该序列不是公开数据集，而是评估视觉后验如何被后续接触证据消歧的实验协议。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **ADD-S**
 
 对估计姿态变换后的每个模型点，寻找真值姿态下最近的模型点并平均距离，因此允许对称物体的等价点互换，衡量整体几何对齐程度。实验还以 ADD 或 ADD-S 达到2 mm作为部分探测终止与效率统计的阈值。 （越低越好；距离越小表示估计物体模型与真实物体模型越重合。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **位置误差（position error）**
 
 估计平移向量与真值平移向量之间的欧氏距离，直接反映孔位或物体中心定位偏差。 （越低越好；插入任务通常对毫米级横向偏差敏感。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **方向误差（orientation error）**
 
@@ -454,7 +465,9 @@ $$
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -485,7 +498,11 @@ $$
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Across simulated geometries and real-robot experiments, BayesContact improves pose observability and insertion success over vision-only inference by 30%</span>
+<div class="experiment-evidence" markdown="1">
+
+Across simulated geometries and real-robot experiments, BayesContact improves pose observability and insertion success over vision-only inference by 30%
+
+</div>
 
 </details>
 
@@ -513,7 +530,11 @@ MAP 只围绕当前最高权重假设探测，容易忽略其他仍有概率的�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Both strategies are initialized from the same prior vision belief for a single scenario. While they show similar convergence rates on overall ADD-S and position error, IG handles multimodality in orientation better than MAP.</span>
+<div class="experiment-evidence" markdown="1">
+
+Both strategies are initialized from the same prior vision belief for a single scenario. While they show similar convergence rates on overall ADD-S and position error, IG handles multimodality in orientation better than MAP.
+
+</div>
 
 </details>
 
@@ -541,7 +562,11 @@ MAP 只围绕当前最高权重假设探测，容易忽略其他仍有概率的�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">The particle orientation errors show a weight clustering around {0°,90°,180°} coming in from the vision posterior, a consequence of geometric ambiguity. Contact observations then help disambiguate between these modes.</span>
+<div class="experiment-evidence" markdown="1">
+
+The particle orientation errors show a weight clustering around {0°,90°,180°} coming in from the vision posterior, a consequence of geometric ambiguity. Contact observations then help disambiguate between these modes.
+
+</div>
 
 </details>
 

@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "llm_agent"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:25.720367+00:00"
+generated_at: "2026-07-30T10:14:52.881384+00:00"
 source_sha256: "0916db90a362e269563c406900c1de897a4e853647d5217d70627223b21865d7"
 tags:
   - "LLM Agent"
@@ -36,7 +36,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2607.26300v1) · [PDF 下载](https://arxiv.org/pdf/2607.26300v1) · **关键词** 大语言模型智能体, 长期运行智能体, 人类监督, 智能体轨迹可视化, 运行时引导, 多智能体会话, 图形用户界面, 智能体运行框架  
+[arXiv 原文](https://arxiv.org/abs/2607.26300v1) · [PDF 下载](https://arxiv.org/pdf/2607.26300v1) · **关键词** 大语言模型智能体, 长期运行智能体, 人类监督, 智能体轨迹可视化, 运行时引导, 多智能体会话, 图形用户界面, 智能体运行框架<br>
 **代码**: [https://github.com/eth-medical-ai-lab/agent-gui](https://github.com/eth-medical-ai-lab/agent-gui)  **项目页**: [https://agent-gui-project.github.io/](https://agent-gui-project.github.io/)  
 
 </div>
@@ -85,21 +85,21 @@ AgentGUI旨在通过本地化图形界面，把多个长时间运行的AI智能�
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **大语言模型智能体（LLM agent）**
 
 以语言模型为决策核心、能够在多轮过程中进行推理、选择工具并执行动作的系统。它不同于一次性问答模型，会根据工具返回结果继续行动，形成较长的执行过程。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **智能体运行框架（agent harness）**
 
 负责维护智能体上下文、连接工具、执行动作并支持长时运行的软件环境，例如SWE-agent、OpenHands、OpenClaw和Hermes。它决定了智能体如何组织消息、调用工具及保存运行状态。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **智能体轨迹与运行时引导（trajectory and runtime steering）**
 
@@ -212,7 +212,7 @@ AgentGUI不是新的智能体模型，而是一个面向长时、多会话智能
 
 <div class="method-step__io" markdown="1">
 
-**输入**：用户任务提示、可选上下文文件，以及智能体的记忆、系统提示、模型和工具配置。  
+**输入**：用户任务提示、可选上下文文件，以及智能体的记忆、系统提示、模型和工具配置。<br>
 **输出**：具有明确任务定义、执行配置、工作目录和隔离运行环境的一个或多个智能体会话。
 
 </div>
@@ -232,7 +232,7 @@ AgentGUI不是新的智能体模型，而是一个面向长时、多会话智能
 
 <div class="method-step__io" markdown="1">
 
-**输入**：已配置的会话、当前任务状态、工作区文件及智能体产生的模型响应和工具请求。  
+**输入**：已配置的会话、当前任务状态、工作区文件及智能体产生的模型响应和工具请求。<br>
 **输出**：可实时消费的结构化事件流，以及可保存和恢复的完整轨迹与工作区快照。
 
 </div>
@@ -252,7 +252,7 @@ AgentGUI不是新的智能体模型，而是一个面向长时、多会话智能
 
 <div class="method-step__io" markdown="1">
 
-**输入**：结构化轨迹事件、任务定义、工作区产物、子智能体信息和调试遥测。  
+**输入**：结构化轨迹事件、任务定义、工作区产物、子智能体信息和调试遥测。<br>
 **输出**：覆盖任务活动、时间分配、终端行为、文件产物和底层调用的多层可视化视图。
 
 </div>
@@ -272,7 +272,7 @@ AgentGUI不是新的智能体模型，而是一个面向长时、多会话智能
 
 <div class="method-step__io" markdown="1">
 
-**输入**：当前轨迹、任务定义、工作区文件，以及用户输入或按需/定时触发的管理器审计请求。  
+**输入**：当前轨迹、任务定义、工作区文件，以及用户输入或按需/定时触发的管理器审计请求。<br>
 **输出**：已完成的会话，或携带具体审计反馈并继续运行的纠偏会话。
 
 </div>
@@ -342,26 +342,37 @@ LLM管理器可由用户主动调用，也可在工作桌空闲且尚未标记�
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- OrganSMNIST：用户研究中的第一类研究任务，轨迹由基于 Qwen3.5-27B 的 Hermes agent 执行 CNN 训练任务产生，并由冻结评分器评估。论文为该任务生成两条 rollout；每条轨迹配有关于总体活动、耗时、输出文件、终端操作和调试过程的问题。原文未明确报告本实验使用的数据划分与样本规模。
-- MedXpertQA：用户研究中的第二类研究任务，智能体通过迭代系统提示词来回答医学问答。论文同样生成两条 rollout，用于检验界面是否支持理解提示词优化类轨迹，而非只适用于模型训练轨迹。原文未明确报告所用题目数量、数据划分或具体子集。
-- 合成患者病历工作区：自动转向实验使用的隐私友好型模拟任务，工作区包含 98 个文件，要求智能体完成 15 项数据聚合任务并生成 15 个交付物；每种 Qwen3.5 worker 规模运行 50 次。该设置用于制造长程文件检索与写入中的遗漏或偏航，并通过程序评分器检查交付物是否存在。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- OrganSMNIST：用户研究中的第一类研究任务，轨迹由基于 Qwen3.5-27B 的 Hermes agent 执行 CNN 训练任务产生，并由冻结评分器评估。论文为该任务生成两条 rollout；每条轨迹配有关于总体活动、耗时、输出文件、终端操作和调试过程的问题。原文未明确报告本实验使用的数据划分与样本规模。
+- MedXpertQA：用户研究中的第二类研究任务，智能体通过迭代系统提示词来回答医学问答。论文同样生成两条 rollout，用于检验界面是否支持理解提示词优化类轨迹，而非只适用于模型训练轨迹。原文未明确报告所用题目数量、数据划分或具体子集。
+- 合成患者病历工作区：自动转向实验使用的隐私友好型模拟任务，工作区包含 98 个文件，要求智能体完成 15 项数据聚合任务并生成 15 个交付物；每种 Qwen3.5 worker 规模运行 50 次。该设置用于制造长程文件检索与写入中的遗漏或偏航，并通过程序评分器检查交付物是否存在。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **每题完成时间**
 
 参与者从轨迹中定位信息并回答问题所需的平均秒数，衡量界面对轨迹理解和信息检索效率的支持。 （越低越好，因为在答案质量不下降的前提下，更短时间意味着监督长程智能体所需的人力成本更低。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **回答准确率**
 
 每条 rollout 的问题中回答正确的比例，用于判断更快的信息查找是否仍能正确识别智能体行为、耗时、产物、终端操作和调试信息。 （越高越好，因为它表示用户对轨迹关键信息的理解更可靠。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **任务完成率**
 
@@ -369,7 +380,9 @@ LLM管理器可由用户主动调用，也可在工作桌空闲且尚未标记�
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -400,7 +413,11 @@ AgentGUI 将平均每题用时从 145 秒降至 90 秒，即缩短 38%，配对�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Participants completed questions 38% faster with AgentGUI than with the baseline interface, taking on average 90 s rather than 145 s per question (p = 0.023, Appendix B, Fig. 4).</span>
+<div class="experiment-evidence" markdown="1">
+
+Participants completed questions 38% faster with AgentGUI than with the baseline interface, taking on average 90 s rather than 145 s per question (p = 0.023, Appendix B, Fig. 4).
+
+</div>
 
 </details>
 
@@ -428,7 +445,11 @@ AgentGUI 将平均每题用时从 145 秒降至 90 秒，即缩短 38%，配对�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Accuracy improved to 93% from 80% (p = 0.031, Fig. 4), although this absolute increase could be impacted by one participant scoring a low (50%) score on the baseline interface.</span>
+<div class="experiment-evidence" markdown="1">
+
+Accuracy improved to 93% from 80% (p = 0.031, Fig. 4), although this absolute increase could be impacted by one participant scoring a low (50%) score on the baseline interface.
+
+</div>
 
 </details>
 
@@ -456,7 +477,11 @@ AgentGUI 将平均每题用时从 145 秒降至 90 秒，即缩短 38%，配对�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">The lift is largest where the worker leaves partial work, while saturating near weakest and strongest models: 10% → 26% (0.8B), 54% → 70% (2B), 44% → 78% (4B), and 92% → 98% (9B).</span>
+<div class="experiment-evidence" markdown="1">
+
+The lift is largest where the worker leaves partial work, while saturating near weakest and strongest models: 10% → 26% (0.8B), 54% → 70% (2B), 44% → 78% (4B), and 92% → 98% (9B).
+
+</div>
 
 </details>
 

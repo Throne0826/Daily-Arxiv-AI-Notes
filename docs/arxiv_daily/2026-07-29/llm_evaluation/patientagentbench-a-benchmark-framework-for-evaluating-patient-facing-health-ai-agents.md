@@ -6,7 +6,7 @@ announcement_date: "2026-07-29"
 primary_category: "llm_evaluation"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:24.263834+00:00"
+generated_at: "2026-07-30T10:14:52.364839+00:00"
 source_sha256: "ca09b4dbaffd40b0925df9f71bb3c0ebe5f74ae19637a2a38f14db2b8495b940"
 tags:
   - "LLM 评测"
@@ -37,7 +37,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2607.25485v1) · [PDF 下载](https://arxiv.org/pdf/2607.25485v1) · **关键词** 面向患者的医疗智能体, 智能体评测, 多轮医疗对话, 临床分诊, 临床安全, 电子健康记录, 医疗工具调用, LLM-as-a-Jury  
+[arXiv 原文](https://arxiv.org/abs/2607.25485v1) · [PDF 下载](https://arxiv.org/pdf/2607.25485v1) · **关键词** 面向患者的医疗智能体, 智能体评测, 多轮医疗对话, 临床分诊, 临床安全, 电子健康记录, 医疗工具调用, LLM-as-a-Jury<br>
 **代码**: [https://github.com/amazon-science/PatientAgentBench](https://github.com/amazon-science/PatientAgentBench)  
 
 </div>
@@ -86,21 +86,21 @@ PatientAgentBench面向患者侧医疗智能体，评估其在多轮对话中结
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **智能体式系统（agentic system）**
 
 以基础模型为推理核心，并配备工具调用与状态管理机制，使其不只生成回答，还能执行预约、处方管理或升级至临床人员等多步操作。本文中的被测模型统一封装在智能体框架内，以便比较模型在相同工具环境中的表现。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **电子健康记录（Electronic Health Record, EHR）**
 
 包含患者人口统计特征、既往疾病、合并症、用药及其他临床信息的数字化记录。智能体必须结合这些信息判断某项操作是否适合当前患者，而不能脱离个体背景机械执行请求。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **临床分诊（triage）**
 
@@ -212,7 +212,7 @@ PatientAgentBench不是训练新模型的方法，而是一套端到端评测框
 
 <div class="method-step__io" markdown="1">
 
-**输入**：一个基准场景，包括结构化患者档案、患者故事、待完成任务、患者性格、当前时间，以及统一的智能体系统提示和医疗工具定义。  
+**输入**：一个基准场景，包括结构化患者档案、患者故事、待完成任务、患者性格、当前时间，以及统一的智能体系统提示和医疗工具定义。<br>
 **输出**：一个信息非对称的患者—助手交互环境。
 
 </div>
@@ -232,7 +232,7 @@ PatientAgentBench不是训练新模型的方法，而是一套端到端评测框
 
 <div class="method-step__io" markdown="1">
 
-**输入**：隐藏的患者故事、任务、性格，以及助手上一轮对患者可见的最终回复。  
+**输入**：隐藏的患者故事、任务、性格，以及助手上一轮对患者可见的最终回复。<br>
 **输出**：符合场景设定的患者消息，或会话终止信号。
 
 </div>
@@ -252,7 +252,7 @@ PatientAgentBench不是训练新模型的方法，而是一套端到端评测框
 
 <div class="method-step__io" markdown="1">
 
-**输入**：完整可见对话历史、结构化患者档案、当前时间、系统提示和沙箱工具描述。  
+**输入**：完整可见对话历史、结构化患者档案、当前时间、系统提示和沙箱工具描述。<br>
 **输出**：助手回复、工具调用及返回结果，以及包含中间调用链的完整会话轨迹。
 
 </div>
@@ -272,7 +272,7 @@ PatientAgentBench不是训练新模型的方法，而是一套端到端评测框
 
 <div class="method-step__io" markdown="1">
 
-**输入**：去除待测模型身份标签的完整会话轨迹，包括患者资料、对话、工具调用和工具结果。  
+**输入**：去除待测模型身份标签的完整会话轨迹，包括患者资料、对话、工具调用和工具结果。<br>
 **输出**：六维评审分数、综合分、逐项通过状态、评审解释，以及评审间标准差和通过一致性。
 
 </div>
@@ -313,7 +313,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：先由每个评审分别把六项分数按临床重要性合成一个总分。该总分便于排列模型，但作者明确指出它不是安全门槛，某个危险维度的低分不会被强制转化为整体失败。  
+**直观理解**：先由每个评审分别把六项分数按临床重要性合成一个总分。该总分便于排列模型，但作者明确指出它不是安全门槛，某个危险维度的低分不会被强制转化为整体失败。<br>
 **原文位置**：第4.1节，Equation 1；所给节选仅保留该公式的文字说明，未展示原始公式排版及具体权重。
 
 </div>
@@ -338,7 +338,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：框架先让评审独立打分，再对同一维度取平均；平均分达到3即判定该维度通过。作者还实现了多数投票，但为保留模型之间更细的分数差异，正式实验采用分数平均。  
+**直观理解**：框架先让评审独立打分，再对同一维度取平均；平均分达到3即判定该维度通过。作者还实现了多数投票，但为保留模型之间更细的分数差异，正式实验采用分数平均。<br>
 **原文位置**：第4.1节及Figure 4；公式为原文所述jury averaging与通过阈值的数学表达。
 
 </div>
@@ -392,26 +392,37 @@ $$
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- 核心基准包含1,200个患者端医疗场景；10个模型在同一批场景上运行，以控制任务差异。每次评测输入包括患者消息、智能体回复、工具调用及返回结果；评审模型额外获得完整患者档案和底层场景真值，用于判断智能体是否在行动前收集了足够信息。原文节选未明确报告训练集、验证集或测试集划分。
-- 临床一致性验证集由核心基准中分层抽取的75段对话构成，覆盖不同被测模型、六个评分维度和1—5分范围，并优先纳入Fail与Excellent等极端样本。8名持证临床人员分为临床轨和运营轨，每段对话的每个维度获得2—4份人工标注，总计约500个维度级评分。
-- 评测标准本身由六个维度、30个子维度和102条经临床审核的通用准则组成。它不是传统意义上的独立数据集，而是所有场景共享的评分资源；其作用是在没有逐场景标准答案的条件下，根据患者档案、对话上下文和工具轨迹评价任务完成、临床安全、工作流准确性、分诊质量、临床帮助性和对话质量。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- 核心基准包含1,200个患者端医疗场景；10个模型在同一批场景上运行，以控制任务差异。每次评测输入包括患者消息、智能体回复、工具调用及返回结果；评审模型额外获得完整患者档案和底层场景真值，用于判断智能体是否在行动前收集了足够信息。原文节选未明确报告训练集、验证集或测试集划分。
+- 临床一致性验证集由核心基准中分层抽取的75段对话构成，覆盖不同被测模型、六个评分维度和1—5分范围，并优先纳入Fail与Excellent等极端样本。8名持证临床人员分为临床轨和运营轨，每段对话的每个维度获得2—4份人工标注，总计约500个维度级评分。
+- 评测标准本身由六个维度、30个子维度和102条经临床审核的通用准则组成。它不是传统意义上的独立数据集，而是所有场景共享的评分资源；其作用是在没有逐场景标准答案的条件下，根据患者档案、对话上下文和工具轨迹评价任务完成、临床安全、工作流准确性、分诊质量、临床帮助性和对话质量。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **六维度评分及通过率**
 
 每段对话在六个维度上分别取得1—5分，1表示Fail、5表示Excellent；评审团平均分不低于3视为通过。该指标既衡量基本可接受性，也保留通过线以上的质量差异。所有维度应用于所有对话，即使请求表面上只是行政事务，也仍检查潜在临床风险。 （分数和通过率越高越好，因为表示更多对话达到患者端医疗交互的最低可接受标准；但单项低分不能被总体均分替代，临床安全、分诊和工作流仍需单独检查。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **加权综合分**
 
 综合分按 \(\mathrm{Aggregate\ Score}=\frac{\sum_{i=1}^{6}w_i s_i}{\sum_{i=1}^{6}w_i}\) 计算，其中 \(s_i\) 是第i个维度的1—5分，\(w_i\) 是其权重。默认权重依次强调临床安全2.0、工作流准确性1.6、分诊质量1.4、临床帮助性1.4、任务完成1.0和对话质量0.9，总权重为8.3。它用于单轴排序，而不是安全准入门槛。 （越高越好，因为表示经临床风险重要性加权后的整体表现更强；但高综合分不证明不存在低频严重安全事故。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **相邻一致率**
 
@@ -419,7 +430,9 @@ LLM评审团平均分与持证临床人员平均分之差不超过±1的对话�
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -450,7 +463,11 @@ LLM评审团平均分与持证临床人员平均分之差不超过±1的对话�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">To validate alignment, licensed clinicians annotated shared conversations, yielding 79-93% adjacent agreement between jury and expert raters, on par with or exceeding clinician inter-rater agreement.</span>
+<div class="experiment-evidence" markdown="1">
+
+To validate alignment, licensed clinicians annotated shared conversations, yielding 79-93% adjacent agreement between jury and expert raters, on par with or exceeding clinician inter-rater agreement.
+
+</div>
 
 </details>
 
@@ -478,7 +495,11 @@ LLM评审团平均分与持证临床人员平均分之差不超过±1的对话�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Triage quality is the most discriminating dimension: pass rates rise from 32% for the weakest models to 88% for the strongest, with agents often acting on administrative requests without clinical screening.</span>
+<div class="experiment-evidence" markdown="1">
+
+Triage quality is the most discriminating dimension: pass rates rise from 32% for the weakest models to 88% for the strongest, with agents often acting on administrative requests without clinical screening.
+
+</div>
 
 </details>
 
@@ -506,7 +527,11 @@ LLM评审团平均分与持证临床人员平均分之差不超过±1的对话�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Clinical safety and workflow accuracy follow the same pattern: the weakest models fail often, fabricating unexecuted actions, while frontier models fail on only 1-3% of cases, from unverified tool outputs and omitted crisis resources in an emergency.</span>
+<div class="experiment-evidence" markdown="1">
+
+Clinical safety and workflow accuracy follow the same pattern: the weakest models fail often, fabricating unexecuted actions, while frontier models fail on only 1-3% of cases, from unverified tool outputs and omitted crisis resources in an emergency.
+
+</div>
 
 </details>
 

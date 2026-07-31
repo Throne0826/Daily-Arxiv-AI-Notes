@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "robotics"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:25.311086+00:00"
+generated_at: "2026-07-30T10:14:52.746727+00:00"
 source_sha256: "be7f59c567fd2b5fad49cd7eb114191b6ff5143d355bd2e23b449f787c889b8b"
 tags:
   - "机器人 / 具身智能"
@@ -35,7 +35,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2603.09971v2) · [PDF 下载](https://arxiv.org/pdf/2603.09971v2) · **关键词** 开放词汇机器人操作, 任务与运动规划, 基础模型, 模块化机器人系统, 零样本迁移, 三维场景表示, 视觉语言动作模型  
+[arXiv 原文](https://arxiv.org/abs/2603.09971v2) · [PDF 下载](https://arxiv.org/pdf/2603.09971v2) · **关键词** 开放词汇机器人操作, 任务与运动规划, 基础模型, 模块化机器人系统, 零样本迁移, 三维场景表示, 视觉语言动作模型<br>
 **项目页**: [https://tiptop-robot.github.io](https://tiptop-robot.github.io)  
 
 </div>
@@ -83,21 +83,21 @@ tags:
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **任务与运动规划（Task and Motion Planning, TAMP）**
 
 TAMP联合求解离散的“做什么”与连续的“怎么动”：前者决定抓取、放置等操作顺序，后者计算满足运动学和避碰约束的关节轨迹。本文使用GPU并行、基于优化的cuTAMP来搜索可行操作计划。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **开放词汇感知（open-vocabulary perception）**
 
 开放词汇感知允许系统依据自然语言描述检测和定位训练类别表之外的物体，而不局限于预先固定的标签集合。本文组合视觉语言模型、深度估计、分割和抓取预测，建立以物体为中心的三维场景表示。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **视觉—语言—动作模型（Vision-Language-Action model, VLA）**
 
@@ -122,21 +122,21 @@ VLA通常以图像和语言为条件，端到端预测机器人动作，并通�
 
 <div class="notation-list" markdown="1">
 
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\mathcal{L}$**
 
 输入给系统的自然语言任务指令。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\pi_{0.5}\text{-DROID}$**
 
 用于对比的视觉—语言—动作模型；原文称其在350小时DROID机器人示范数据上进行了微调。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$SE(3)$**
 
@@ -149,7 +149,7 @@ VLA通常以图像和语言为条件，端到端预测机器人动作，并通�
 **直接相关的工作**
 
 - **Curtis et al.：学习感知模块与PDDLStream结合的未知物体长时程操作系统**: 这是与TiPToP最接近的规划式系统之一，同样把学习感知接入任务与运动规划。TiPToP的主要区别是采用GPU并行、基于优化的cuTAMP，而非采样式PDDLStream，并进一步使用更大规模的基础模型，将系统封装为可跨机器人形态部署的完整流水线。
-- **\pi_{0.5}\text{-DROID}**: 这是本文的核心端到端VLA对照方法，以350小时DROID示范数据微调。它代表依赖机器人数据学习像素到动作映射的路线；TiPToP则不使用机器人训练数据，通过可替换的感知、规划和执行模块完成任务，并可把失败定位到具体模块。
+- **$\pi_{0.5}\text{-DROID}$**: 这是本文的核心端到端VLA对照方法，以350小时DROID示范数据微调。它代表依赖机器人数据学习像素到动作映射的路线；TiPToP则不使用机器人训练数据，通过可替换的感知、规划和执行模块完成任务，并可把失败定位到具体模块。
 
 </details>
 
@@ -232,7 +232,7 @@ FoundationStereo从双目图像预测与左图对齐的稠密深度图\(D\)，�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：自然语言指令\(\mathcal{L}\)、初始关节构型\(q_0\)、标定腕部双目图像\(\mathbf{o}_0=(I_0^{\mathrm{left}},I_0^{\mathrm{right}})\)，以及相机内参\(K\)、双目基线\(b\)和相机到末端执行器的外参\(T_{\mathrm{cam}}^{\mathrm{ee}}\)。  
+**输入**：自然语言指令\(\mathcal{L}\)、初始关节构型\(q_0\)、标定腕部双目图像\(\mathbf{o}_0=(I_0^{\mathrm{left}},I_0^{\mathrm{right}})\)，以及相机内参\(K\)、双目基线\(b\)和相机到末端执行器的外参\(T_{\mathrm{cam}}^{\mathrm{ee}}\)。<br>
 **输出**：世界坐标系中的稠密场景点云、深度图和场景级候选抓取集合。
 
 </div>
@@ -252,7 +252,7 @@ Gemini Robotics-ER 1.5在一次查询中联合输出物体标签、二维边界�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：左相机RGB图像、自然语言指令、世界坐标点云及场景级候选抓取。  
+**输入**：左相机RGB图像、自然语言指令、世界坐标点云及场景级候选抓取。<br>
 **输出**：对象中心三维场景表示：桌面、逐物体身份与网格、分配到各物体的候选抓取，以及如\(\texttt{On}(a,b)\)所表达的目标关系。
 
 </div>
@@ -272,7 +272,7 @@ cuTAMP先用PDDL风格符号规划器枚举计划骨架，即尚未确定抓取�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：对象中心场景、机器人运动学模型、初始构型\(q_0\)和符号目标\(\mathcal{G}\)。  
+**输入**：对象中心场景、机器人运动学模型、初始构型\(q_0\)和符号目标\(\mathcal{G}\)。<br>
 **输出**：完整操作计划\(\{(q_t,\dot q_t,g_t)\}_{t=0}^{T}\)，其中包含各时刻的关节位置、关节速度和二值夹爪命令。
 
 </div>
@@ -292,7 +292,7 @@ cuTAMP先用PDDL风格符号规划器枚举计划骨架，即尚未确定抓取�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：规划得到的定时关节轨迹与夹爪命令。  
+**输入**：规划得到的定时关节轨迹与夹爪命令。<br>
 **输出**：机器人对场景实施抓取、搬运、放置等动作，使最终物体关系满足符号目标。
 
 </div>
@@ -333,7 +333,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：该式统一了端到端策略与TiPToP的输入输出：二者都依据视觉、关节状态和语言产生动作，但实现方式不同。端到端模型以较高频率连续输出短动作块，TiPToP则在\(t=0\)观察一次并规划完整轨迹，因此比较的是同一任务接口下的两种决策范式。  
+**直观理解**：该式统一了端到端策略与TiPToP的输入输出：二者都依据视觉、关节状态和语言产生动作，但实现方式不同。端到端模型以较高频率连续输出短动作块，TiPToP则在\(t=0\)观察一次并规划完整轨迹，因此比较的是同一任务接口下的两种决策范式。<br>
 **原文位置**：第III节 Problem Formulation and System Overview
 
 </div>
@@ -358,7 +358,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：深度模型得到的点最初以相机为参照，规划器却需要知道它们相对机器人和工作台的位置。该式依次利用相机安装标定和机械臂当前姿态完成坐标变换，使物体网格、抓取姿态及碰撞检查处于同一个世界坐标系。  
+**直观理解**：深度模型得到的点最初以相机为参照，规划器却需要知道它们相对机器人和工作台的位置。该式依次利用相机安装标定和机械臂当前姿态完成坐标变换，使物体网格、抓取姿态及碰撞检查处于同一个世界坐标系。<br>
 **原文位置**：第IV-A节 3D Vision Branch，Unprojecting depth to 3D
 
 </div>
@@ -413,26 +413,37 @@ cuTAMP把离散任务决策与连续几何参数统一处理：符号规划枚�
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- 受控对比任务集：共28个桌面场景，分布在三个评测环境——IsaacSim仿真5项任务、TiPToP开发者使用的DROID实体平台8项任务、外部评测团队操作的另一套DROID平台15项任务。场景按难度划分为简单、干扰物、语义和多步骤四类，总计对每个系统执行165次试验；它主要检验跨环境、跨任务复杂度的真实操作能力。
-- MolmoSpaces：大规模家庭操作基准。论文在DROID平台上运行其中9项抓取及抓取—放置任务，每项1,000个episode；由于TiPToP暂不支持开、关操作，相关任务被排除。该基准将使用MolmoSpaces或MolmoBot仿真数据训练的方法归为分布内方法，将未使用这些数据的方法归为非分布内方法，用于检验系统在独立基准上的泛化能力。
-- 四类受控场景子集：简单任务是无干扰物的单步抓取—放置；干扰物任务要求在杂乱环境中只操作目标；语义任务要求理解指代表达并运用常识或物理推理；多步骤任务要求安排多个动作并处理装箱、障碍移除等约束。该分组不是额外训练集，而是用于分析性能是否随推理和规划难度变化。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- 受控对比任务集：共28个桌面场景，分布在三个评测环境——IsaacSim仿真5项任务、TiPToP开发者使用的DROID实体平台8项任务、外部评测团队操作的另一套DROID平台15项任务。场景按难度划分为简单、干扰物、语义和多步骤四类，总计对每个系统执行165次试验；它主要检验跨环境、跨任务复杂度的真实操作能力。
+- MolmoSpaces：大规模家庭操作基准。论文在DROID平台上运行其中9项抓取及抓取—放置任务，每项1,000个episode；由于TiPToP暂不支持开、关操作，相关任务被排除。该基准将使用MolmoSpaces或MolmoBot仿真数据训练的方法归为分布内方法，将未使用这些数据的方法归为非分布内方法，用于检验系统在独立基准上的泛化能力。
+- 四类受控场景子集：简单任务是无干扰物的单步抓取—放置；干扰物任务要求在杂乱环境中只操作目标；语义任务要求理解指代表达并运用常识或物理推理；多步骤任务要求安排多个动作并处理装箱、障碍移除等约束。该分组不是额外训练集，而是用于分析性能是否随推理和规划难度变化。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **成功率（SR）**
 
 二元任务成功比例；一次试验只有在完成整个任务时才计为成功。类别和总体结果通过汇总成功次数计算。 （越高越好，因为它直接衡量完整完成用户指令的可靠性。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **任务进度（TP）**
 
 按照每项任务预先定义的子目标计算的细粒度完成程度。它能区分完全失败与已经完成大部分步骤、仅在某一步失败的试验。 （越高越好，因为更高数值表示完成了更多任务子目标，但它不能替代完整成功率。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **成功试验平均完成时间（Time）**
 
@@ -440,7 +451,9 @@ cuTAMP把离散任务决策与连续几何参数统一处理：符号规划枚�
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -456,7 +469,7 @@ cuTAMP把离散任务决策与连续几何参数统一处理：符号规划枚�
 
 <div class="result-value" markdown="1">
 
-作者报告TiPToP取得98/165的完整成功次数和74.6%的平均任务进度，而π_{0.5}-DROID分别为55/165和52.4%；因此，在该受控任务集合上，TiPToP的总体完整成功数高43次，任务进度高22.2个百分点。
+作者报告TiPToP取得98/165的完整成功次数和74.6%的平均任务进度，而$π_{0.5}-DROID$分别为55/165和52.4%；因此，在该受控任务集合上，TiPToP的总体完整成功数高43次，任务进度高22.2个百分点。
 
 </div>
 
@@ -471,7 +484,11 @@ cuTAMP把离散任务决策与连续几何参数统一处理：符号规划枚�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Over 165 trials, TiPToP achieves a higher overall success rate (98/165 vs. 55/165) and task progress (74.6% vs. 52.4%) than π 0.5 \pi_{0.5} -DROID.</span>
+<div class="experiment-evidence" markdown="1">
+
+Over 165 trials, TiPToP achieves a higher overall success rate (98/165 vs. 55/165) and task progress (74.6% vs. 52.4%) than π 0.5 $\pi_{0.5}$ -DROID.
+
+</div>
 
 </details>
 
@@ -484,7 +501,7 @@ cuTAMP把离散任务决策与连续几何参数统一处理：符号规划枚�
 
 <div class="result-value" markdown="1">
 
-简单任务中π_{0.5}-DROID的成功次数略高，为27/40对22/40，但TiPToP的任务进度更高；随着任务从单步操作扩展到干扰物筛选、语义指代和多步骤规划，作者报告TiPToP在后三类场景中均表现更好。表I给出的类别成功次数分别为：干扰物27/45对12/45、语义26/40对10/40、多步骤23/40对6/40，均为TiPToP领先。
+简单任务中$π_{0.5}-DROID$的成功次数略高，为27/40对22/40，但TiPToP的任务进度更高；随着任务从单步操作扩展到干扰物筛选、语义指代和多步骤规划，作者报告TiPToP在后三类场景中均表现更好。表I给出的类别成功次数分别为：干扰物27/45对12/45、语义26/40对10/40、多步骤23/40对6/40，均为TiPToP领先。
 
 </div>
 
@@ -499,7 +516,11 @@ cuTAMP把离散任务决策与连续几何参数统一处理：符号规划枚�
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">On simple pick-and-place the two are comparable, with π 0.5 \pi_{0.5} -DROID slightly ahead on success rate (27/40 vs. 22/40) and TiPToP ahead on task progress.</span>
+<div class="experiment-evidence" markdown="1">
+
+On simple pick-and-place the two are comparable, with π 0.5 $\pi_{0.5}$ -DROID slightly ahead on success rate (27/40 vs. 22/40) and TiPToP ahead on task progress.
+
+</div>
 
 </details>
 
@@ -512,7 +533,7 @@ cuTAMP把离散任务决策与连续几何参数统一处理：符号规划枚�
 
 <div class="result-value" markdown="1">
 
-TiPToP在六个被报告的场景中有五个完成得更快，另一个与π_{0.5}-DROID持平；作者指出，单步任务的总完成时间通常约为基线的一半。表II还将TiPToP的感知和规划时间计入总时间，因此该效率优势并非通过忽略规划开销得到。
+TiPToP在六个被报告的场景中有五个完成得更快，另一个与$π_{0.5}-DROID$持平；作者指出，单步任务的总完成时间通常约为基线的一半。表II还将TiPToP的感知和规划时间计入总时间，因此该效率优势并非通过忽略规划开销得到。
 
 </div>
 
@@ -527,7 +548,11 @@ TiPToP在六个被报告的场景中有五个完成得更快，另一个与π_{0
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">TiPToP is also faster in total completion time (Table II), beating π 0.5 \pi_{0.5} -DROID on five of six scenes and matching it on the sixth, often completing single-step tasks in roughly half the time.</span>
+<div class="experiment-evidence" markdown="1">
+
+TiPToP is also faster in total completion time (Table II), beating π 0.5 $\pi_{0.5}$ -DROID on five of six scenes and matching it on the sixth, often completing single-step tasks in roughly half the time.
+
+</div>
 
 </details>
 
@@ -549,7 +574,7 @@ TiPToP在六个被报告的场景中有五个完成得更快，另一个与π_{0
 
 **主要 baseline**
 
-- π_{0.5}-DROID：在350小时DROID机器人示范数据上微调的先进视觉—语言—动作模型（VLA）。它是有意义的强基线，因为它代表依赖大量同类机器人数据训练的端到端策略，而TiPToP不使用机器人训练数据；比较可检验模块化基础模型加任务与运动规划是否能替代大规模示范微调。
+- $π_{0.5}-DROID$：在350小时DROID机器人示范数据上微调的先进视觉—语言—动作模型（VLA）。它是有意义的强基线，因为它代表依赖大量同类机器人数据训练的端到端策略，而TiPToP不使用机器人训练数据；比较可检验模块化基础模型加任务与运动规划是否能替代大规模示范微调。
 
 **实验想回答的问题**
 
@@ -558,7 +583,7 @@ TiPToP在六个被报告的场景中有五个完成得更快，另一个与π_{0
 
 **实验实现**
 
-受控比较采用“in-the-wild”协议：TiPToP与π_{0.5}-DROID接收相同自然语言指令和相同初始场景配置。28个场景横跨仿真、开发者实体平台和外部团队实体平台；表I中带†的场景由系统设计者评测，未标记者由外部团队评测，因此结果同时包含内部和外部执行，但并非全部盲测。时间比较仅统计成功试验，且TiPToP的Plan时间包括感知和规划。MolmoSpaces每项任务运行1,000个episode，但所给摘录未包含其具体排行榜分数、方差或显著性检验。
+受控比较采用“in-the-wild”协议：TiPToP与$π_{0.5}-DROID$接收相同自然语言指令和相同初始场景配置。28个场景横跨仿真、开发者实体平台和外部团队实体平台；表I中带†的场景由系统设计者评测，未标记者由外部团队评测，因此结果同时包含内部和外部执行，但并非全部盲测。时间比较仅统计成功试验，且TiPToP的Plan时间包括感知和规划。MolmoSpaces每项任务运行1,000个episode，但所给摘录未包含其具体排行榜分数、方差或显著性检验。
 
 **关键消融**
 

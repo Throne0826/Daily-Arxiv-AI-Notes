@@ -1276,6 +1276,10 @@ nav.md-tags {
   line-height: 1.85;
 }
 
+.paper-section-deck > p {
+  margin: 0;
+}
+
 .paper-section-deck > :first-child,
 .result-value > :first-child,
 .result-source > :first-child,
@@ -1331,6 +1335,18 @@ nav.md-tags {
   border-right: 1px solid var(--daily-border);
 }
 
+.paper-two-column > div > :first-child,
+.paper-setup-grid > div > :first-child,
+.motivation-core > div > :first-child {
+  margin-top: 0;
+}
+
+.paper-two-column > div > :last-child,
+.paper-setup-grid > div > :last-child,
+.motivation-core > div > :last-child {
+  margin-bottom: 0;
+}
+
 .paper-two-column > div:last-child,
 .paper-setup-grid > div:last-child,
 .motivation-core > div:last-child {
@@ -1355,6 +1371,15 @@ nav.md-tags {
 
 .paper-setup-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.paper-setup-grid ul {
+  margin-top: 0;
+  padding-left: 1.05rem;
+}
+
+.paper-setup-grid li + li {
+  margin-top: 0.55rem;
 }
 
 .paper-setup-grid .metric-list {
@@ -1390,6 +1415,10 @@ nav.md-tags {
 
 .paper-details[open] summary {
   margin-bottom: 1rem;
+}
+
+.paper-details > :last-child {
+  margin-bottom: 0;
 }
 
 .paper-shell .concept-list,
@@ -1509,6 +1538,7 @@ nav.md-tags {
 .method-step h4 {
   margin: 0;
   font-size: 0.9rem;
+  line-height: 1.55;
 }
 
 .method-step p {
@@ -1516,6 +1546,10 @@ nav.md-tags {
 }
 
 .method-step__io {
+  margin-top: 0.7rem;
+  padding: 0.65rem 0.75rem;
+  border-left: 2px solid color-mix(in srgb, var(--daily-teal) 62%, var(--daily-border));
+  background: var(--daily-surface);
   color: var(--daily-muted);
   font-size: 0.74rem;
 }
@@ -1613,6 +1647,7 @@ nav.md-tags {
 .result-item h4 {
   margin: 0;
   font-size: 0.9rem;
+  line-height: 1.55;
 }
 
 .result-item > p,

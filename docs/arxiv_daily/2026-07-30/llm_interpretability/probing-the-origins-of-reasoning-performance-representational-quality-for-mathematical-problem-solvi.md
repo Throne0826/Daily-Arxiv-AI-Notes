@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "llm_interpretability"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:25.738223+00:00"
+generated_at: "2026-07-30T10:14:52.888742+00:00"
 source_sha256: "add09df339440dddb61732186a41dc54af7290c38741225ef83eff48b3eed94d"
 tags:
   - "LLM 机制与可解释性"
@@ -38,7 +38,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2607.26119v1) · [PDF 下载](https://arxiv.org/pdf/2607.26119v1) · **关键词** 大型推理模型, 强化学习微调, 监督微调, 数学推理, 机制可解释性, 线性探针, 均值消融, 隐藏状态, 自适应计算分配  
+[arXiv 原文](https://arxiv.org/abs/2607.26119v1) · [PDF 下载](https://arxiv.org/pdf/2607.26119v1) · **关键词** 大型推理模型, 强化学习微调, 监督微调, 数学推理, 机制可解释性, 线性探针, 均值消融, 隐藏状态, 自适应计算分配<br>
 **代码**: [https://oankit.github.io/-rl-sft-reasoning/](https://oankit.github.io/-rl-sft-reasoning/)  
 
 </div>
@@ -87,21 +87,21 @@ tags:
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **强化学习微调（RL fine-tuning）与监督微调（SFT）**
 
 SFT让模型模仿训练数据中的示范答案或推理过程；RL则依据生成结果获得的奖励来更新策略，使高奖励行为更可能出现。本文把训练方式视为关键比较变量，但不假定所有行为差异都只由RL或SFT这一标签决定。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **隐藏状态与线性探针（linear probe）**
 
 隐藏状态是Transformer某一层对当前输入及生成上下文形成的向量表示；线性探针是在冻结原模型后，用简单线性分类器判断这些向量能否预测答案正确性。探针准确率较高表示正误信息更容易被线性边界分开，但不等同于证明该信息被模型实际用于生成答案。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **均值消融（mean ablation）**
 
@@ -126,28 +126,28 @@ SFT让模型模仿训练数据中的示范答案或推理过程；RL则依据生
 
 <div class="notation-list" markdown="1">
 
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$h_l$**
 
 模型第 l 层的隐藏状态向量；本文用其训练逐层线性探针。该符号是为概括问题设置而采用的标准记法，原文节选未明确给出符号定义。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$l$**
 
 Transformer层的索引，用于比较正误表征随深度出现的时间及各层消融影响。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$y \in \{0,1\}$**
 
 生成答案的正确性标签，其中1表示正确、0表示错误；原文节选仅说明预测答案正确性，未明确规定数值编码。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$T$**
 
@@ -240,11 +240,11 @@ Transformer层的索引，用于比较正误表征随深度出现的时间及各
 
 #### 构造并标注探针数据
 
-每个模型对每题采样生成一次回答，从 \boxed{} 中抽取最终答案；答案与标准值匹配时标为正确，允许因舍入产生的 ±1 容差，无有效答案者剔除。随后取所有模型均作答题目的交集，并为每个模型等量抽取正、负样本，按标签分层划分为70%训练集、15%验证集和15%测试集。
+每个模型对每题采样生成一次回答，从 $\boxed{}$ 中抽取最终答案；答案与标准值匹配时标为正确，允许因舍入产生的 ±1 容差，无有效答案者剔除。随后取所有模型均作答题目的交集，并为每个模型等量抽取正、负样本，按标签分层划分为70%训练集、15%验证集和15%测试集。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：由概率、分数和成本计算等四种固定模板生成的1000道合成数学题，以及每题可算法验证的标准答案。  
+**输入**：由概率、分数和成本计算等四种固定模板生成的1000道合成数学题，以及每题可算法验证的标准答案。<br>
 **输出**：跨模型样本量一致、正确与错误类别平衡的探针训练、验证和测试数据。
 
 </div>
@@ -260,11 +260,11 @@ Transformer层的索引，用于比较正误表征随深度出现的时间及各
 
 #### 提取逐层内部表示
 
-定位 \boxed{} 前一 token，在一次前向传播中读取全部 Transformer 块在该位置的隐藏状态；仅使用第1至第L个块的输出，不使用输入嵌入和架构特有的后归一化状态。变长序列采用右侧填充和注意力掩码，以保持目标 token 相对序列起点的位置不变。
+定位 $\boxed{}$ 前一 token，在一次前向传播中读取全部 Transformer 块在该位置的隐藏状态；仅使用第1至第L个块的输出，不使用输入嵌入和架构特有的后归一化状态。变长序列采用右侧填充和注意力掩码，以保持目标 token 相对序列起点的位置不变。
 
 <div class="method-step__io" markdown="1">
 
-**输入**：每个保留样本的完整生成文本及其正确性标签。  
+**输入**：每个保留样本的完整生成文本及其正确性标签。<br>
 **输出**：形状为 L×N×D 的逐层表示张量，其中L为层数、N为样本数或批大小、D为隐藏维度，文中模型的D为4096。
 
 </div>
@@ -284,7 +284,7 @@ Transformer层的索引，用于比较正误表征随深度出现的时间及各
 
 <div class="method-step__io" markdown="1">
 
-**输入**：每层的D维隐藏状态及对应的正确/错误标签。  
+**输入**：每层的D维隐藏状态及对应的正确/错误标签。<br>
 **输出**：每个模型的逐层探针准确率曲线，以及正确性信息出现和演化的层级位置。
 
 </div>
@@ -304,7 +304,7 @@ Transformer层的索引，用于比较正误表征随深度出现的时间及各
 
 <div class="method-step__io" markdown="1">
 
-**输入**：DeepSeek-Math-7B-Instruct、DeepSeek-Math-7B-RL，每个模型20道GSM8K题，以及由GSM8K训练数据计算的各层参考平均激活。  
+**输入**：DeepSeek-Math-7B-Instruct、DeepSeek-Math-7B-RL，每个模型20道GSM8K题，以及由GSM8K训练数据计算的各层参考平均激活。<br>
 **输出**：逐层准确率下降曲线和深度—重要性相关性，用于比较两类训练方式形成的是深层递进结构还是较均匀的层间分工。
 
 </div>
@@ -338,7 +338,7 @@ $$
 **符号说明**
 
 - $\ell$：Transformer层索引，取值为1至L。
-- $\mathbf{h}_{\ell}\in\mathbb{R}^{D}$：第ℓ层在 \boxed{} 前一token处的D维隐藏状态。
+- $\mathbf{h}_{\ell}\in\mathbb{R}^{D}$：第ℓ层在 $\boxed{}$ 前一token处的D维隐藏状态。
 - $\mathbf{w}_{\ell}\in\mathbb{R}^{D}$：第ℓ层逻辑回归探针的权重向量。
 - $b_{\ell}\in\mathbb{R}$：第ℓ层探针的偏置项。
 - $\sigma$：Sigmoid函数，将线性得分映射为0至1之间的预测值。
@@ -346,7 +346,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：探针先对隐藏状态做加权求和，再经Sigmoid得到正确性预测。测试准确率越高，说明该层中正确与错误样本越容易被一个线性边界分开，但不能单独据此断言该表示导致了最终答案。  
+**直观理解**：探针先对隐藏状态做加权求和，再经Sigmoid得到正确性预测。测试准确率越高，说明该层中正确与错误样本越容易被一个线性边界分开，但不能单独据此断言该表示导致了最终答案。<br>
 **原文位置**：“Measuring Representation Quality via Probing”→“Probe Training”，公式(1)
 
 </div>
@@ -370,7 +370,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：该式直接比较正常模型和抹去某层题目特定信号后的表现；AD越大，表示该层受干预后损失越明显。若AD为负，则该次均值替换后的准确率反而高于基线，不应解释为负的重要性，而应结合小样本波动和干预副作用判断。  
+**直观理解**：该式直接比较正常模型和抹去某层题目特定信号后的表现；AD越大，表示该层受干预后损失越明显。若AD为负，则该次均值替换后的准确率反而高于基线，不应解释为负的重要性，而应结合小样本波动和干预副作用判断。<br>
 **原文位置**：“Layer-Wise Mean Ablations”→“Evaluation Metric”
 
 </div>
@@ -412,7 +412,7 @@ $$
 
 **复现信息**
 
-探针生成采用温度T∈[0.6,0.7]、top-p=0.95；按16至32条序列成批提取激活，使用右填充和注意力掩码，并排除输入嵌入及架构特有的后归一化状态。逻辑回归的C从{0.001,0.01,0.1,1.0,10.0}中经5折交叉验证选择，并设置class_weight='balanced'；主要指标为测试集准确率。均值消融生成采用temperature=0.1、top_p=0.9，并通过提示要求显式逐步推理。token分析使用输出长度变异系数CV=σ_tokens/μ_tokens进行跨模型归一化比较；原文说明各回答至少包含数百个token，因此均值不接近零。需要注意，探针依赖正确与错误样本数量足够均衡，均值消融每个模型仅测试20题，而token实验关于“50题×每题50次”与“每模型15000条响应”的陈述在算术上不一致，复现前应核对附录A或作者代码。
+探针生成采用温度T∈[0.6,0.7]、top-p=0.95；按16至32条序列成批提取激活，使用右填充和注意力掩码，并排除输入嵌入及架构特有的后归一化状态。逻辑回归的C从{0.001,0.01,0.1,1.0,10.0}中经5折交叉验证选择，并设置class_weight='balanced'；主要指标为测试集准确率。均值消融生成采用temperature=0.1、top_p=0.9，并通过提示要求显式逐步推理。token分析使用输出长度变异系数$CV=σ_tokens/μ_tokens$进行跨模型归一化比较；原文说明各回答至少包含数百个token，因此均值不接近零。需要注意，探针依赖正确与错误样本数量足够均衡，均值消融每个模型仅测试20题，而token实验关于“50题×每题50次”与“每模型15000条响应”的陈述在算术上不一致，复现前应核对附录A或作者代码。
 
 </details>
 
@@ -424,32 +424,45 @@ $$
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- GSM8K：小学数学文字题数据集。作者从其训练集计算每一层的参考均值激活；评测时每个模型使用 20 道 GSM8K 问题。评测问题所属的具体 split 原文未明确报告。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- GSM8K：小学数学文字题数据集。作者从其训练集计算每一层的参考均值激活；评测时每个模型使用 20 道 GSM8K 问题。评测问题所属的具体 split 原文未明确报告。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **Accuracy Drop（AD）**
 
 对第 ℓ 层实施均值消融前后的准确率差，定义为 \(\mathrm{AD}_{\ell}=\mathrm{Acc}_{\text{base}}-\mathrm{Acc}_{\ell}^{\text{abl}}\)。其中，\(\mathrm{Acc}_{\text{base}}\) 是不干预时的准确率，\(\mathrm{Acc}_{\ell}^{\text{abl}}\) 是把第 ℓ 层激活 \(h_{\ell}\) 替换为参考均值激活 \(\mu_{\ell}\) 后的准确率。它衡量该层信息被抹平后性能损失多少。 （若用于衡量模型性能，AD 越低越稳健；若用于判断某层的重要性，正向 AD 越大表示该层被替换后损失越大、因而越关键。负值表示干预后的样本准确率反而高于未干预基准，不能直接解释为负的重要性。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **层深与 Accuracy Drop 的 Pearson 相关系数（r）**
 
 衡量层编号与 AD 之间的线性相关程度。正值表示越深的层通常受到干预时性能下降越大；接近零表示层重要性没有明显的线性深度趋势。论文同时报告 p 值来检验该相关是否显著。 （没有普遍的越高越好；在本文假设下，显著为正且较大的 r 更支持“深层逐渐更关键”的层级化结构。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **答案准确率（Accuracy）**
 
-根据生成结果中的 \boxed{...} 模式抽取最终答案，并判断回答是否正确。未干预准确率既反映模型在这 20 道题上的基础表现，也作为 AD 的参照。 （越高越好，因为表示正确解决的评测题比例更大；但仅有 20 道题时，该比例可能对个别题目非常敏感。）
+根据生成结果中的 $\boxed{...}$ 模式抽取最终答案，并判断回答是否正确。未干预准确率既反映模型在这 20 道题上的基础表现，也作为 AD 的参照。 （越高越好，因为表示正确解决的评测题比例更大；但仅有 20 道题时，该比例可能对个别题目非常敏感。）
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -480,7 +493,11 @@ $$
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">DeepSeek-Math-7B-RL (baseline acc. 70%) exhibits a significant positive correlation between layer depth and intervention impact (r=0.47, p<0.01), with AD ranging from −0.15 to +0.15.</span>
+<div class="experiment-evidence" markdown="1">
+
+DeepSeek-Math-7B-RL (baseline acc. 70%) exhibits a significant positive correlation between layer depth and intervention impact (r=0.47, p<0.01), with AD ranging from −0.15 to +0.15.
+
+</div>
 
 </details>
 
@@ -508,7 +525,11 @@ $$
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">In contrast, DeepSeek-Math-7B-Instruct (baseline accuracy: 65%) demonstrates a weak negative correlation (r=−0.11, p=0.55), with AD ranging from −0.20 to +0.05, suggesting relatively flat layer importance with slight emphasis on early layers.</span>
+<div class="experiment-evidence" markdown="1">
+
+In contrast, DeepSeek-Math-7B-Instruct (baseline accuracy: 65%) demonstrates a weak negative correlation (r=−0.11, p=0.55), with AD ranging from −0.20 to +0.05, suggesting relatively flat layer importance with slight emphasis on early layers.
+
+</div>
 
 </details>
 
@@ -536,7 +557,11 @@ $$
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Both models exhibit similar vulnerability across layers 0–10 (AD ≈ -0.15 to 0.00), indicating shared foundational mechanisms likely responsible for arithmetic operations and core reasoning primitives. Beyond layer 15, however, their trajectories diverge sharply, demonstrating that training methodology fundamentally reshapes higher-order mathematical reasoning.</span>
+<div class="experiment-evidence" markdown="1">
+
+Both models exhibit similar vulnerability across layers 0–10 (AD ≈ -0.15 to 0.00), indicating shared foundational mechanisms likely responsible for arithmetic operations and core reasoning primitives. Beyond layer 15, however, their trajectories diverge sharply, demonstrating that training methodology fundamentally reshapes higher-order mathematical reasoning.
+
+</div>
 
 </details>
 
@@ -569,7 +594,7 @@ $$
 
 **实验实现**
 
-作者对两个 7B DeepSeek-Math 变体分别评测 20 道 GSM8K 问题。对每一层 ℓ∈{0,1,…,L−1}，把该层当前激活 h_ℓ 替换为由 GSM8K 训练数据计算的参考均值 μ_ℓ，再重新生成答案并计算准确率下降。所有生成固定使用 temperature=0.1、top_p=0.9，提示要求显式的逐步推理，最终答案通过 \boxed{...} 模式匹配提取。该协议隔离的是“单层激活偏离其平均状态所携带的信息是否必要”，而不是删除整层或重新训练模型。
+作者对两个 7B DeepSeek-Math 变体分别评测 20 道 GSM8K 问题。对每一层 ℓ∈{0,1,…,L−1}，把该层当前激活 h_ℓ 替换为由 GSM8K 训练数据计算的参考均值 μ_ℓ，再重新生成答案并计算准确率下降。所有生成固定使用 temperature=0.1、top_p=0.9，提示要求显式的逐步推理，最终答案通过 $\boxed{...}$ 模式匹配提取。该协议隔离的是“单层激活偏离其平均状态所携带的信息是否必要”，而不是删除整层或重新训练模型。
 
 **关键消融**
 

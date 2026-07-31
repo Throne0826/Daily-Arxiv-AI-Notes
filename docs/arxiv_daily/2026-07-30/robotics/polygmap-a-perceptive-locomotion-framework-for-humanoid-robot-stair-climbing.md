@@ -6,7 +6,7 @@ announcement_date: "2026-07-30"
 primary_category: "robotics"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:25.362973+00:00"
+generated_at: "2026-07-30T10:14:52.762268+00:00"
 source_sha256: "386689b77a2c4af0cf295f2d504639ff270ba787cdf044739b6836f818ae7d59"
 tags:
   - "机器人 / 具身智能"
@@ -34,7 +34,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2510.12346v2) · [PDF 下载](https://arxiv.org/pdf/2510.12346v2) · **关键词** 人形机器人, 楼梯攀爬, 感知运动, 多边形平面地图, 多传感器融合, 足步规划  
+[arXiv 原文](https://arxiv.org/abs/2510.12346v2) · [PDF 下载](https://arxiv.org/pdf/2510.12346v2) · **关键词** 人形机器人, 楼梯攀爬, 感知运动, 多边形平面地图, 多传感器融合, 足步规划<br>
 
 
 </div>
@@ -82,21 +82,21 @@ tags:
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **感知运动（Perceptive Locomotion）**
 
 指机器人把传感器观测到的地形几何直接纳入落脚点和身体运动规划，而不是主要依靠接触后的平衡调节来补偿地形变化。其目标是在脚掌接触地面前预判可行区域和风险。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **平面语义地图（Plane Semantic Map）**
 
 将环境表示为带有类别或通行含义的有限平面区域，例如把每一级楼梯踏面表示成具有高度、朝向和多边形边界的可落脚区域。这里的“语义”主要体现为区分可通行踏面、边缘及障碍，而非仅保存无结构点云。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **多传感器融合与里程计**
 
@@ -121,28 +121,28 @@ tags:
 
 <div class="notation-list" markdown="1">
 
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\mathcal{P}_{L}$**
 
 LiDAR 点云；原文仅以 LiDAR point clouds/PCD 描述输入，未明确给出该数学符号。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\mathcal{P}_{D}$**
 
 RGB-D 相机产生的深度点云；原文未明确给出该数学符号。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\mathbf{T}$**
 
 机器人或传感器在地图坐标系中的位姿变换，用于多帧点云配准；原文提到视觉里程计和精确定位，但未明确规定符号及坐标系。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\Pi_i$**
 
@@ -239,7 +239,7 @@ PolygMap 是一条从多传感器观测到全身运动指令的在线感知—�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：IMU 测得的加速度与姿态、关节编码器、八个足部接触点的接触状态，以及 Point-LIO 输出的 LiDAR 位姿。  
+**输入**：IMU 测得的加速度与姿态、关节编码器、八个足部接触点的接触状态，以及 Point-LIO 输出的 LiDAR 位姿。<br>
 **输出**：世界坐标系下平滑、低漂移的机器人基座位姿与速度，供地图构建、落脚点生成和步态规划共同使用。
 
 </div>
@@ -259,7 +259,7 @@ PolygMap 是一条从多传感器观测到全身运动指令的在线感知—�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：RGB-D 深度图、相机内参，以及融合后的机器人位姿。  
+**输入**：RGB-D 深度图、相机内参，以及融合后的机器人位姿。<br>
 **输出**：由楼梯踏面等平面片段构成的实时多边形语义地图，每个多边形包含边界顶点、平均高度和空间位置。
 
 </div>
@@ -279,7 +279,7 @@ PolygMap 是一条从多传感器观测到全身运动指令的在线感知—�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：多边形地图、机器人基座位姿、当前足底高度、搜索范围及允许跨越高度。  
+**输入**：多边形地图、机器人基座位姿、当前足底高度、搜索范围及允许跨越高度。<br>
 **输出**：远离台阶边缘、位于机器人可达范围内并带有位置与朝向信息的结构化落脚点集合。
 
 </div>
@@ -299,7 +299,7 @@ PolygMap 是一条从多传感器观测到全身运动指令的在线感知—�
 
 <div class="method-step__io" markdown="1">
 
-**输入**：估计的躯干路径、最优落脚点、左右脚相对躯干的偏置，以及步态时序参数。  
+**输入**：估计的躯干路径、最优落脚点、左右脚相对躯干的偏置，以及步态时序参数。<br>
 **输出**：按固定时间间隔离散的足端位置、躯干位姿和时间戳序列，供下游全身运动规划与执行。
 
 </div>
@@ -344,7 +344,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：位置部分对运动学估计与 LIO 校正作加权平均；姿态不能直接逐元素平均，因此先计算二者之间的旋转差，再施加其中的一个加权部分。该式在保留短时平滑性的同时利用 LIO 抑制长期漂移。  
+**直观理解**：位置部分对运动学估计与 LIO 校正作加权平均；姿态不能直接逐元素平均，因此先计算二者之间的旋转差，再施加其中的一个加权部分。该式在保留短时平滑性的同时利用 LIO 抑制长期漂移。<br>
 **原文位置**：第 III-A 节，式 (6)–(9)
 
 </div>
@@ -371,7 +371,7 @@ $$
 
 <div class="equation-explanation" markdown="1">
 
-**直观理解**：优化先要求候选点明显高于当前足底，从而对应要迈上的台阶，再在腐蚀后的安全区域中选择水平距离最近者。它是一条轻量的启发式选择规则，而不是求解完整的动力学最优控制问题。  
+**直观理解**：优化先要求候选点明显高于当前足底，从而对应要迈上的台阶，再在腐蚀后的安全区域中选择水平距离最近者。它是一条轻量的启发式选择规则，而不是求解完整的动力学最优控制问题。<br>
 **原文位置**：第 III-B 节，式 (26)
 
 </div>
@@ -425,26 +425,37 @@ $$
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- Gazebo仿真场景：共5次试验，其中3次攀爬10级楼梯、2次攀爬4级楼梯。该场景用于在较理想条件下检验完整感知—规划—控制闭环的连续运行能力、实时性、攀爬效率与落脚误差；原文未报告训练集、验证集或测试集划分。
-- 室内真实楼梯：表II包含3次室内试验，分别为2次双步态（DS）和1次单步态（SS），均攀爬4级楼梯。图6所示代表性楼梯的台阶高度为13 cm、踏面宽度为28 cm，而机器人脚长为26 cm，因此主要检验狭小落脚余量下的在线感知、重新规划和执行精度。
-- 室外真实楼梯：表II包含2次SS试验，分别攀爬6级和5级楼梯，用于检验地面不平、光照变化及台阶突出边缘等干扰下的实时检测与系统鲁棒性。原文只报告5次真实试验的逐次结果，没有给出重复试验统计、成功率或固定数据划分。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- Gazebo仿真场景：共5次试验，其中3次攀爬10级楼梯、2次攀爬4级楼梯。该场景用于在较理想条件下检验完整感知—规划—控制闭环的连续运行能力、实时性、攀爬效率与落脚误差；原文未报告训练集、验证集或测试集划分。
+- 室内真实楼梯：表II包含3次室内试验，分别为2次双步态（DS）和1次单步态（SS），均攀爬4级楼梯。图6所示代表性楼梯的台阶高度为13 cm、踏面宽度为28 cm，而机器人脚长为26 cm，因此主要检验狭小落脚余量下的在线感知、重新规划和执行精度。
+- 室外真实楼梯：表II包含2次SS试验，分别攀爬6级和5级楼梯，用于检验地面不平、光照变化及台阶突出边缘等干扰下的实时检测与系统鲁棒性。原文只报告5次真实试验的逐次结果，没有给出重复试验统计、成功率或固定数据划分。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **连续攀爬级数**
 
 机器人在一次试验中能够连续完成的楼梯级数，用于衡量闭环系统能否持续生成有效楼梯平面、落脚区域和全身轨迹。该指标应结合是否碰撞或失败解释，不能单独代表成功率。 （在无碰撞且保持稳定的前提下越高越好，因为更多级数意味着闭环能够维持更长时间。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **平面检测频率**
 
 系统每秒更新楼梯平面检测结果的次数，单位为Hz，用于判断感知是否足够及时地支持在线落脚规划；它不同于文中20–30 Hz的全身运动规划输出频率。 （通常越高越好，因为环境与机器人状态更新更及时，但频率本身不能证明检测准确。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **最大落脚误差**
 
@@ -452,7 +463,9 @@ $$
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -483,7 +496,11 @@ $$
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">The results show that the most extended duration from the start of climbing until the robot reaches a stable stance is 35 s, with an average time of approximately 3.4–3.7 s per step.</span>
+<div class="experiment-evidence" markdown="1">
+
+The results show that the most extended duration from the start of climbing until the robot reaches a stable stance is 35 s, with an average time of approximately 3.4–3.7 s per step.
+
+</div>
 
 </details>
 
@@ -511,7 +528,11 @@ DS在每次到达稳定姿态后再规划，因此速度较慢但误差更小；
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Indoor | SS | 7.7 | 4 | 23 | 24.7</span>
+<div class="experiment-evidence" markdown="1">
+
+Indoor | SS | 7.7 | 4 | 23 | 24.7
+
+</div>
 
 </details>
 
@@ -539,7 +560,11 @@ DS在每次到达稳定姿态后再规划，因此速度较慢但误差更小；
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">In both scenarios, the robot successfully climbed 5–6 steps.</span>
+<div class="experiment-evidence" markdown="1">
+
+In both scenarios, the robot successfully climbed 5–6 steps.
+
+</div>
 
 </details>
 

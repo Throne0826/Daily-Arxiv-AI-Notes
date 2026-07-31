@@ -6,7 +6,7 @@ announcement_date: "2026-07-29"
 primary_category: "llm_evaluation"
 review_status: "ai_draft"
 generator_model: "gpt-5.6-sol"
-generated_at: "2026-07-30T09:23:24.199743+00:00"
+generated_at: "2026-07-30T10:14:52.342030+00:00"
 source_sha256: "4238394d666a78e0e49b8283a001473c2fb6461c062eaa8deb6b20c73f0ebe70"
 tags:
   - "LLM 评测"
@@ -37,7 +37,7 @@ tags:
 
 <div class="paper-link-row" markdown="1">
 
-[arXiv 原文](https://arxiv.org/abs/2607.25398v1) · [PDF 下载](https://arxiv.org/pdf/2607.25398v1) · **关键词** 语言模型智能体, 常设指令, 长上下文, 政策遵循, 工具调用, 标准操作程序, 程序化评测, 长程一致性  
+[arXiv 原文](https://arxiv.org/abs/2607.25398v1) · [PDF 下载](https://arxiv.org/pdf/2607.25398v1) · **关键词** 语言模型智能体, 常设指令, 长上下文, 政策遵循, 工具调用, 标准操作程序, 程序化评测, 长程一致性<br>
 **代码**: [https://github.com/surge-ai/handbook](https://github.com/surge-ai/handbook)  
 
 </div>
@@ -86,21 +86,21 @@ HANDBOOK.md构建了一个面向企业代理的基准，用于检验语言模型
 
 <div class="concept-list" markdown="1">
 
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **常设指令（standing instructions）**
 
 在单次工作请求之外预先给定、并对后续所有行动持续有效的规则，例如系统提示、公司手册或标准操作程序。即时邮件即使要求执行某项操作，智能体仍须先判断该操作是否被常设指令允许。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **智能体式任务（agentic task）**
 
 模型不是一次性生成答案，而是在有状态环境中反复推理、读取文件并调用邮件、日历、工单或商务服务等工具。先前操作会改变环境状态，因此漏做、误做和额外副作用都可能影响最终判定。
 
 </div>
-<div class="conceptitem" markdown="1">
+<div class="concept-item" markdown="1">
 
 **模型上下文协议（Model Context Protocol, MCP）**
 
@@ -125,14 +125,14 @@ HANDBOOK.md 将智能体置于一个自包含、可重置的虚构公司环境�
 
 <div class="notation-list" markdown="1">
 
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\tau\text{-bench}$**
 
 一个显式评测工具型智能体政策遵循能力的既有基准；其领域政策较短，且同一领域内各任务共享政策。
 
 </div>
-<div class="notationitem" markdown="1">
+<div class="notation-item" markdown="1">
 
 **$\tau^{2}\text{-bench}$**
 
@@ -230,7 +230,7 @@ HANDBOOK.md不是一种需要训练的新模型，而是一套评测长上下文
 
 <div class="method-step__io" markdown="1">
 
-**输入**：十份由领域专家撰写的基础手册，覆盖金融、医疗账单、保险、物流和人力资源五个领域，以及相应的日常专业工作请求。  
+**输入**：十份由领域专家撰写的基础手册，覆盖金融、医疗账单、保险、物流和人力资源五个领域，以及相应的日常专业工作请求。<br>
 **输出**：一份独有的长篇SOP及一个独立于SOP表述的工作目标，例如按照SOP处理当天未读邮件。
 
 </div>
@@ -250,7 +250,7 @@ HANDBOOK.md不是一种需要训练的新模型，而是一套评测长上下文
 
 <div class="method-step__io" markdown="1">
 
-**输入**：任务专属SOP、初始业务数据、文件工作区和待处理请求。  
+**输入**：任务专属SOP、初始业务数据、文件工作区和待处理请求。<br>
 **输出**：一个自包含、可交互且可在试验后检查完整状态的虚构公司环境。
 
 </div>
@@ -270,7 +270,7 @@ HANDBOOK.md不是一种需要训练的新模型，而是一套评测长上下文
 
 <div class="method-step__io" markdown="1">
 
-**输入**：用户工作请求、长篇SOP、环境中的消息与业务记录，以及可调用的MCP工具。  
+**输入**：用户工作请求、长篇SOP、环境中的消息与业务记录，以及可调用的MCP工具。<br>
 **输出**：修改后的文件和服务状态、完整工具调用轨迹，以及智能体的最终回复。
 
 </div>
@@ -290,7 +290,7 @@ HANDBOOK.md不是一种需要训练的新模型，而是一套评测长上下文
 
 <div class="method-step__io" markdown="1">
 
-**输入**：试验结束后的工作区、各外部服务的最终状态和执行过程中产生的副作用。  
+**输入**：试验结束后的工作区、各外部服务的最终状态和执行过程中产生的副作用。<br>
 **输出**：每条准则的满足情况，以及该试验的严格通过或失败判定；论文还比较了允许恰好一条准则失败的近失判定。
 
 </div>
@@ -360,26 +360,37 @@ HANDBOOK.md不是一种需要训练的新模型，而是一套评测长上下文
 
 <div class="paper-setup-grid" markdown="1">
 
-<div markdown="1"><span class="paper-mini-label">数据与任务</span>- HANDBOOK.md：包含65个任务，覆盖财务与会计12项、HR 13项、保险13项、物流12项、医疗账单15项，来自10家虚构公司。每项任务由短工作请求、独立容器化环境、经定向变异的企业手册和程序化评分规则组成；手册为PDF、Word或HTML格式，共25/20/20项，长度中位数37页、范围20至124页，提取文本中位数14.9K tokens、范围8.3K至79.4K。每个任务使用不同政策版本，以检验模型是否读取当前规则而非依赖记忆。原文未明确报告训练集、验证集或测试集划分；该数据集在实验中整体充当评测集。
-- 任务环境与工具状态：每项任务包含文件工作区以及按需配置的模拟Gmail、Slack、Google Calendar、Jira和Shopify服务。65项任务中，邮件与Slack各出现于62项，日历40项、Jira 14项、Shopify 4项；任务通常混有无关文件、旧版本和通信噪声。这部分不是独立数据集，而是用于检验智能体能否跨文件与服务搜集证据、执行操作并留下可验证的最终状态。
-- 程序化评分规则集：65项任务共有824条验收标准，每项3至27条、平均12.7条。其中592条Expected-Output规则检查必需结果，232条Incorrect-Behavior规则检查禁止行为或越界修改。它不是训练标签，而是确定性评测器集合，用于同时衡量“该做的是否完成”和“不该做的是否避免”。</div>
-<div markdown="1"><span class="paper-mini-label">指标怎么看</span><div class="metric-list" markdown="1">
+<div markdown="1">
 
-<div class="metricitem" markdown="1">
+<span class="paper-mini-label">数据与任务</span>
+
+- HANDBOOK.md：包含65个任务，覆盖财务与会计12项、HR 13项、保险13项、物流12项、医疗账单15项，来自10家虚构公司。每项任务由短工作请求、独立容器化环境、经定向变异的企业手册和程序化评分规则组成；手册为PDF、Word或HTML格式，共25/20/20项，长度中位数37页、范围20至124页，提取文本中位数14.9K tokens、范围8.3K至79.4K。每个任务使用不同政策版本，以检验模型是否读取当前规则而非依赖记忆。原文未明确报告训练集、验证集或测试集划分；该数据集在实验中整体充当评测集。
+- 任务环境与工具状态：每项任务包含文件工作区以及按需配置的模拟Gmail、Slack、Google Calendar、Jira和Shopify服务。65项任务中，邮件与Slack各出现于62项，日历40项、Jira 14项、Shopify 4项；任务通常混有无关文件、旧版本和通信噪声。这部分不是独立数据集，而是用于检验智能体能否跨文件与服务搜集证据、执行操作并留下可验证的最终状态。
+- 程序化评分规则集：65项任务共有824条验收标准，每项3至27条、平均12.7条。其中592条Expected-Output规则检查必需结果，232条Incorrect-Behavior规则检查禁止行为或越界修改。它不是训练标签，而是确定性评测器集合，用于同时衡量“该做的是否完成”和“不该做的是否避免”。
+
+</div>
+
+<div markdown="1">
+
+<span class="paper-mini-label">指标怎么看</span>
+
+<div class="metric-list" markdown="1">
+
+<div class="metric-item" markdown="1">
 
 **Strict pass@1**
 
 一次试验只有在该任务的全部程序化规则均通过时才记为成功，然后对任务及每任务四次运行的结果取平均。它把任何一个必要输出缺失或任何一个禁止行为发生都视为完整工作流失败，是论文的主要排名指标。 （越高越好，因为更高表示智能体更常在一次执行中同时满足所有操作要求与政策控制。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **pass@1 (N−1)**
 
 每次试验允许恰好一条规则失败，其余规则必须通过。该指标用于区分“只差一个条件的近失误”和存在多个错误的全面失败，不作为主要排名标准。 （越高越好，但其合规含义弱于Strict pass@1；分数上升可能只是评分允许忽略一个关键控制，并不等价于安全部署。）
 
 </div>
-<div class="metricitem" markdown="1">
+<div class="metric-item" markdown="1">
 
 **平均逐规则得分**
 
@@ -387,7 +398,9 @@ HANDBOOK.md不是一种需要训练的新模型，而是一套评测长上下文
 
 </div>
 
-</div></div>
+</div>
+
+</div>
 
 </div>
 
@@ -418,7 +431,11 @@ HANDBOOK.md不是一种需要训练的新模型，而是一套评测长上下文
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">The subsequently released Claude Fable 5 raised the ceiling to 36.2%, 12.7 points clear of the strongest configuration from any other provider, but still fails nearly two of every three tasks under strict grading.</span>
+<div class="experiment-evidence" markdown="1">
+
+The subsequently released Claude Fable 5 raised the ceiling to 36.2%, 12.7 points clear of the strongest configuration from any other provider, but still fails nearly two of every three tasks under strict grading.
+
+</div>
 
 </details>
 
@@ -446,7 +463,11 @@ HANDBOOK.md不是一种需要训练的新模型，而是一套评测长上下文
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">The spread is wide relative to many saturating benchmarks: the top and bottom of the table differ by a factor of 45, and configurations of the same model at different reasoning-effort settings differ by up to three points (Opus 4.8) or 2.7 points (Sonnet 4.6, where the adaptive/max setting is worth a 35% relative improvement).</span>
+<div class="experiment-evidence" markdown="1">
+
+The spread is wide relative to many saturating benchmarks: the top and bottom of the table differ by a factor of 45, and configurations of the same model at different reasoning-effort settings differ by up to three points (Opus 4.8) or 2.7 points (Sonnet 4.6, where the adaptive/max setting is worth a 35% relative improvement).
+
+</div>
 
 </details>
 
@@ -474,7 +495,11 @@ HANDBOOK.md不是一种需要训练的新模型，而是一套评测长上下文
 <details class="result-evidence" markdown="1">
 <summary>核对原文证据</summary>
 
-<span class="experiment-evidence">Under pass@1 (N−1), Opus 4.8 (max) rises from 21.9% to roughly 46%, Opus 4.8 (default) from 18.9% to about 41%, and GPT-5.5 from 21.5% to about 32%; across the frontier the relaxation roughly doubles scores.</span>
+<div class="experiment-evidence" markdown="1">
+
+Under pass@1 (N−1), Opus 4.8 (max) rises from 21.9% to roughly 46%, Opus 4.8 (default) from 18.9% to about 41%, and GPT-5.5 from 21.5% to about 32%; across the frontier the relaxation roughly doubles scores.
+
+</div>
 
 </details>
 

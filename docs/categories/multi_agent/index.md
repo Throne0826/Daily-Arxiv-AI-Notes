@@ -5,7 +5,27 @@ description: "Multi-Agent 方向每日 arXiv 论文中文解读。"
 
 # Multi-Agent
 
-共收录 **3** 篇，按 arXiv 日榜日期倒序排列。
+共收录 **4** 篇，按 arXiv 日榜日期倒序排列。
+
+## 2026-08-03
+
+<div class="daily-paper-list" markdown="1">
+
+<article class="daily-paper-item" markdown="1">
+
+#### [Combining Large Language Models and Symbolic Reasoning for Multi-Robot Temporal Planning through Explainable Knowledge Bases](../../arxiv_daily/2026-08-03/robotics/combining-large-language-models-and-symbolic-reasoning-for-multi-robot-temporal-planning-through-exp.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2502.19135</span><span class="paper-category-chip">机器人 / 具身智能</span><span class="paper-category-chip">LLM Reasoning</span><span class="paper-category-chip">Multi-Agent</span><span class="paper-category-chip">LLM 其他</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+PLANTOR探索一种混合式多机器人规划路线：让大语言模型把自然语言任务转写为可查询、可修正的Prolog知识库，再由符号组件负责正确性检查、规划与调度，以兼顾建模便利性和决策可解释性。
+
+</div>
+
+</article>
+
+</div>
 
 ## 2026-07-31
 

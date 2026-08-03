@@ -5,12 +5,24 @@ description: 每日 arXiv AI 草稿的人工核验入口与自动检查问题。
 
 # 人工审核
 
-当前共有 **110** 篇待核验。优先检查带自动审核问题的页面。
+当前共有 **122** 篇待核验。优先检查带自动审核问题的页面。
 
 <div class="review-table" markdown="1">
 
 | 日期 | 论文 | 状态 | 置信度 | 自动检查 |
 |---|---|---|---:|---|
+| 2026-08-03 | [When Iterative RAG Beats Ideal Evidence: A Diagnostic Study in Scientific Multi-hop Question Answering](../arxiv_daily/2026-08-03/llm_reasoning/when-iterative-rag-beats-ideal-evidence-a-diagnostic-study-in-scientific-multi-hop-question-answerin.md) <br><code>2601.19827</code> | `ai_draft` | 0.78 | main_results[2] evidence quote not found in source；ablations[1] evidence quote not found in source |
+| 2026-08-03 | [DRIP-R: A Benchmark for Decision-Making and Reasoning Under Real-World Policy Ambiguity in the Retail Domain](../arxiv_daily/2026-08-03/llm_evaluation/drip-r-a-benchmark-for-decision-making-and-reasoning-under-real-world-policy-ambiguity-in-the-retail.md) <br><code>2605.07699</code> | `ai_draft` | 0.80 | 无结构性问题 |
+| 2026-08-03 | [CMT-RAG: Complementary Memory Traces for Multi-turn Multi-hop RAG](../arxiv_daily/2026-08-03/llm_agent/cmt-rag-complementary-memory-traces-for-multi-turn-multi-hop-rag.md) <br><code>2607.26470</code> | `ai_draft` | 0.86 | 无结构性问题 |
+| 2026-08-03 | [To Add Is Machine, To Delete Is Human: Measuring and Mitigating Deletion Avoidance in LLM Code Editing](../arxiv_daily/2026-08-03/llm_reasoning/to-add-is-machine-to-delete-is-human-measuring-and-mitigating-deletion-avoidance-in-llm-code-editing.md) <br><code>2607.28887</code> | `ai_draft` | 0.86 | 无结构性问题 |
+| 2026-08-03 | [Metaphor-Induced Algorithmic Steering: Cross-Domain Procedural Transfer in LLM Code Generation](../arxiv_daily/2026-08-03/llm_reasoning/metaphor-induced-algorithmic-steering-cross-domain-procedural-transfer-in-llm-code-generation.md) <br><code>2607.28683</code> | `ai_draft` | 0.89 | main_results[0] evidence quote not found in source；main_results[2] evidence quote not found in source；ablations[0] evidence quote not found in source |
+| 2026-08-03 | [How Hard Does It Think? Analyzing Step-Aware Reasoning Energy in LLM Chain-of-Thought Trajectories](../arxiv_daily/2026-08-03/llm_reasoning/how-hard-does-it-think-analyzing-step-aware-reasoning-energy-in-llm-chain-of-thought-trajectories.md) <br><code>2607.28674</code> | `ai_draft` | 0.91 | 无结构性问题 |
+| 2026-08-03 | [Implicit Reasoning for Large Language Model-based Generative Recommendation](../arxiv_daily/2026-08-03/recommender/implicit-reasoning-for-large-language-model-based-generative-recommendation.md) <br><code>2606.14142</code> | `ai_draft` | 0.92 | 无结构性问题 |
+| 2026-08-03 | [Copy Less, Ground More: Overcoming Repetitive Copying in Long-Context Reasoning via Evidence-Aware Reinforcement Learning](../arxiv_daily/2026-08-03/llm_reasoning/copy-less-ground-more-overcoming-repetitive-copying-in-long-context-reasoning-via-evidence-aware-rei.md) <br><code>2607.19345</code> | `ai_draft` | 0.93 | ablations[0] evidence quote not found in source |
+| 2026-08-03 | [ThinkReset: Learnable Intermediate Interface Construction for Bounded-Context Long-Horizon Reasoning](../arxiv_daily/2026-08-03/llm_reasoning/thinkreset-learnable-intermediate-interface-construction-for-bounded-context-long-horizon-reasoning.md) <br><code>2607.28642</code> | `ai_draft` | 0.94 | 无结构性问题 |
+| 2026-08-03 | [Combining Large Language Models and Symbolic Reasoning for Multi-Robot Temporal Planning through Explainable Knowledge Bases](../arxiv_daily/2026-08-03/robotics/combining-large-language-models-and-symbolic-reasoning-for-multi-robot-temporal-planning-through-exp.md) <br><code>2502.19135</code> | `ai_draft` | 0.95 | 无结构性问题 |
+| 2026-08-03 | [SERPO: Self-Evolving Rubric Policy Optimization for Open-Ended Test-Time Reinforcement Learning](../arxiv_daily/2026-08-03/reinforcement_learning/serpo-self-evolving-rubric-policy-optimization-for-open-ended-test-time-reinforcement-learning.md) <br><code>2607.26873</code> | `ai_draft` | 0.95 | 无结构性问题 |
+| 2026-08-03 | [Benchmarking LLM Competence on Logical Inference over Probability Operators](../arxiv_daily/2026-08-03/llm_evaluation/benchmarking-llm-competence-on-logical-inference-over-probability-operators.md) <br><code>2607.27405</code> | `ai_draft` | 0.98 | 无结构性问题 |
 | 2026-07-31 | [Can Large Language Models Execute Parent Orders?](../arxiv_daily/2026-07-31/llm_agent/can-large-language-models-execute-parent-orders.md) <br><code>2607.28410</code> | `ai_draft` | 0.95 | 无结构性问题 |
 | 2026-07-31 | [PCAP-LM: An LLM-Native Text Representation for TLS Bulk Traffic Analysis](../arxiv_daily/2026-07-31/llm_efficiency/pcap-lm-an-llm-native-text-representation-for-tls-bulk-traffic-analysis.md) <br><code>2607.28100</code> | `ai_draft` | 0.95 | main_results[0] evidence quote not found in source |
 | 2026-07-31 | [FiRE: Enhancing MLLMs with Fine-Grained Context Learning for Complex Image Retrieval](../arxiv_daily/2026-07-31/multimodal_vlm/fire-enhancing-mllms-with-fine-grained-context-learning-for-complex-image-retrieval.md) <br><code>2607.27959</code> | `ai_draft` | 0.96 | 无结构性问题 |

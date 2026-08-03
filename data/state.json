@@ -1653,6 +1653,183 @@
       "classification_confidence": 0.98,
       "summary": "ReDiPPO利用仅在训练期提供给评论器的参考答案校准中间状态价值，并依据参考引导评论器与标准评论器的分歧调整逐词元优势权重，以改善数学推理中的信用分配。",
       "issues": []
+    },
+    "2502.19135": {
+      "announcement_date": "2026-08-03",
+      "path": "2026-08-03/robotics/combining-large-language-models-and-symbolic-reasoning-for-multi-robot-temporal-planning-through-exp.md",
+      "review_status": "ai_draft",
+      "title": "Combining Large Language Models and Symbolic Reasoning for Multi-Robot Temporal Planning through Explainable Knowledge Bases",
+      "primary_category": "robotics",
+      "categories": [
+        "robotics",
+        "llm_reasoning",
+        "multi_agent",
+        "llm_nlp"
+      ],
+      "classification_confidence": 0.95,
+      "summary": "PLANTOR探索一种混合式多机器人规划路线：让大语言模型把自然语言任务转写为可查询、可修正的Prolog知识库，再由符号组件负责正确性检查、规划与调度，以兼顾建模便利性和决策可解释性。",
+      "issues": []
+    },
+    "2607.27405": {
+      "announcement_date": "2026-08-03",
+      "path": "2026-08-03/llm_evaluation/benchmarking-llm-competence-on-logical-inference-over-probability-operators.md",
+      "review_status": "ai_draft",
+      "title": "Benchmarking LLM Competence on Logical Inference over Probability Operators",
+      "primary_category": "llm_evaluation",
+      "categories": [
+        "llm_evaluation",
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.98,
+      "summary": "本文旨在检验大语言模型能否依据底层逻辑稳定地处理含“可能”“很可能”“必然”等概率算子的自然语言推理，并通过控制逻辑形式、表面措辞与答案类别，揭示总体准确率可能掩盖的固定回答偏差。",
+      "issues": []
+    },
+    "2607.26470": {
+      "announcement_date": "2026-08-03",
+      "path": "2026-08-03/llm_agent/cmt-rag-complementary-memory-traces-for-multi-turn-multi-hop-rag.md",
+      "review_status": "ai_draft",
+      "title": "CMT-RAG: Complementary Memory Traces for Multi-turn Multi-hop RAG",
+      "primary_category": "llm_agent",
+      "categories": [
+        "llm_agent",
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.86,
+      "summary": "本文针对多轮对话中需要跨轮复用中间推理与证据的多跳问答，提出以“子问题级推理轨迹”而非原始对话历史作为检索记忆，并通过 CMT-RAG 与 MuMu-QA 分别提供实现框架和评测基准。",
+      "issues": []
+    },
+    "2607.19345": {
+      "announcement_date": "2026-08-03",
+      "path": "2026-08-03/llm_reasoning/copy-less-ground-more-overcoming-repetitive-copying-in-long-context-reasoning-via-evidence-aware-rei.md",
+      "review_status": "ai_draft",
+      "title": "Copy Less, Ground More: Overcoming Repetitive Copying in Long-Context Reasoning via Evidence-Aware Reinforcement Learning",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning",
+        "llm_alignment"
+      ],
+      "classification_confidence": 0.93,
+      "summary": "本文将长上下文推理中的大段重复抄写诊断为证据定位不足，并提出证据感知奖励 GEAR，引导模型关注关键证据、避开无关上下文。",
+      "issues": [
+        "ablations[0] evidence quote not found in source"
+      ]
+    },
+    "2607.28642": {
+      "announcement_date": "2026-08-03",
+      "path": "2026-08-03/llm_reasoning/thinkreset-learnable-intermediate-interface-construction-for-bounded-context-long-horizon-reasoning.md",
+      "review_status": "ai_draft",
+      "title": "ThinkReset: Learnable Intermediate Interface Construction for Bounded-Context Long-Horizon Reasoning",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.94,
+      "summary": "本文将固定上下文窗口中的长程推理重新界定为“可复用中间接口”的学习问题：模型应学习一种能够替代冗长历史并支持后续求解的文本状态，而非仅压缩或调度原有推理轨迹。",
+      "issues": []
+    },
+    "2607.28887": {
+      "announcement_date": "2026-08-03",
+      "path": "2026-08-03/llm_reasoning/to-add-is-machine-to-delete-is-human-measuring-and-mitigating-deletion-avoidance-in-llm-code-editing.md",
+      "review_status": "ai_draft",
+      "title": "To Add Is Machine, To Delete Is Human: Measuring and Mitigating Deletion Avoidance in LLM Code Editing",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning",
+        "llm_evaluation"
+      ],
+      "classification_confidence": 0.86,
+      "summary": "本文将“删除规避”界定为大语言模型在代码编辑中保留本应移除代码的系统性行为，并通过真实补丁分析、删除专用基准和训练试验，研究其表现、成因及缓解可能性。",
+      "issues": []
+    },
+    "2607.26873": {
+      "announcement_date": "2026-08-03",
+      "path": "2026-08-03/reinforcement_learning/serpo-self-evolving-rubric-policy-optimization-for-open-ended-test-time-reinforcement-learning.md",
+      "review_status": "ai_draft",
+      "title": "SERPO: Self-Evolving Rubric Policy Optimization for Open-Ended Test-Time Reinforcement Learning",
+      "primary_category": "reinforcement_learning",
+      "categories": [
+        "reinforcement_learning",
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.95,
+      "summary": "SERPO旨在让语言模型在没有参考答案、人工反馈、外部奖励模型或更强评审器的开放式测试场景中，通过共同演化响应档案、查询专属评分准则与策略参数，自主构造持续有效的强化学习奖励。",
+      "issues": []
+    },
+    "2607.28674": {
+      "announcement_date": "2026-08-03",
+      "path": "2026-08-03/llm_reasoning/how-hard-does-it-think-analyzing-step-aware-reasoning-energy-in-llm-chain-of-thought-trajectories.md",
+      "review_status": "ai_draft",
+      "title": "How Hard Does It Think? Analyzing Step-Aware Reasoning Energy in LLM Chain-of-Thought Trajectories",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning",
+        "llm_interpretability"
+      ],
+      "classification_confidence": 0.91,
+      "summary": "本文提出步感知推理能量（SARE），通过比较相邻 Transformer 层中思维链步骤的词元关系几何变化，刻画模型在每个推理步骤投入的内部计算努力，并研究该信号与语义阶段及推理失败的关系。",
+      "issues": []
+    },
+    "2605.07699": {
+      "announcement_date": "2026-08-03",
+      "path": "2026-08-03/llm_evaluation/drip-r-a-benchmark-for-decision-making-and-reasoning-under-real-world-policy-ambiguity-in-the-retail.md",
+      "review_status": "ai_draft",
+      "title": "DRIP-R: A Benchmark for Decision-Making and Reasoning Under Real-World Policy Ambiguity in the Retail Domain",
+      "primary_category": "llm_evaluation",
+      "categories": [
+        "llm_evaluation",
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.8,
+      "summary": "DRIP-R针对零售退货政策存在多种合理解释的现实情形，评估大语言模型智能体如何在动态对话中解释政策、权衡利益并作出决策。",
+      "issues": []
+    },
+    "2607.28683": {
+      "announcement_date": "2026-08-03",
+      "path": "2026-08-03/llm_reasoning/metaphor-induced-algorithmic-steering-cross-domain-procedural-transfer-in-llm-code-generation.md",
+      "review_status": "ai_draft",
+      "title": "Metaphor-Induced Algorithmic Steering: Cross-Domain Procedural Transfer in LLM Code Generation",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.89,
+      "summary": "本文研究“隐喻诱导的算法转向”：看似无害且不直接指定算法的跨领域隐喻，可能把源领域的操作模式迁移到代码或 SQL 生成中，使大模型偏向正确但低效的实现。",
+      "issues": [
+        "main_results[0] evidence quote not found in source",
+        "main_results[2] evidence quote not found in source",
+        "ablations[0] evidence quote not found in source"
+      ]
+    },
+    "2606.14142": {
+      "announcement_date": "2026-08-03",
+      "path": "2026-08-03/recommender/implicit-reasoning-for-large-language-model-based-generative-recommendation.md",
+      "review_status": "ai_draft",
+      "title": "Implicit Reasoning for Large Language Model-based Generative Recommendation",
+      "primary_category": "recommender",
+      "categories": [
+        "recommender",
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.92,
+      "summary": "本文诊断了显式思维链难以有效服务于语义 ID 推荐的原因，并提出以可训练的 $\\texttt{<pause>}$ token 进行隐式计算的 PauseRec，以更低成本连接语言知识与下一物品预测。",
+      "issues": []
+    },
+    "2601.19827": {
+      "announcement_date": "2026-08-03",
+      "path": "2026-08-03/llm_reasoning/when-iterative-rag-beats-ideal-evidence-a-diagnostic-study-in-scientific-multi-hop-question-answerin.md",
+      "review_status": "ai_draft",
+      "title": "When Iterative RAG Beats Ideal Evidence: A Diagnostic Study in Scientific Multi-hop Question Answering",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning",
+        "llm_evaluation"
+      ],
+      "classification_confidence": 0.78,
+      "summary": "本文通过统一控制的诊断实验，研究科学多跳问答中同步交替的检索与推理为何以及何时能够优于一次性提供全部标注证据的 Gold Context。",
+      "issues": [
+        "main_results[2] evidence quote not found in source",
+        "ablations[1] evidence quote not found in source"
+      ]
     }
   }
 }

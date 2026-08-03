@@ -5,7 +5,27 @@ description: "对齐 / RLHF 方向每日 arXiv 论文中文解读。"
 
 # 对齐 / RLHF
 
-共收录 **9** 篇，按 arXiv 日榜日期倒序排列。
+共收录 **10** 篇，按 arXiv 日榜日期倒序排列。
+
+## 2026-08-03
+
+<div class="daily-paper-list" markdown="1">
+
+<article class="daily-paper-item" markdown="1">
+
+#### [Copy Less, Ground More: Overcoming Repetitive Copying in Long-Context Reasoning via Evidence-Aware Reinforcement Learning](../../arxiv_daily/2026-08-03/llm_reasoning/copy-less-ground-more-overcoming-repetitive-copying-in-long-context-reasoning-via-evidence-aware-rei.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2607.19345</span><span class="paper-category-chip">LLM Reasoning</span><span class="paper-category-chip">对齐 / RLHF</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+本文将长上下文推理中的大段重复抄写诊断为证据定位不足，并提出证据感知奖励 GEAR，引导模型关注关键证据、避开无关上下文。
+
+</div>
+
+</article>
+
+</div>
 
 ## 2026-07-31
 

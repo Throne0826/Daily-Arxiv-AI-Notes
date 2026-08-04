@@ -5,12 +5,13 @@ description: 每日 arXiv AI 草稿的人工核验入口与自动检查问题。
 
 # 人工审核
 
-当前共有 **122** 篇待核验。优先检查带自动审核问题的页面。
+当前共有 **123** 篇待核验。优先检查带自动审核问题的页面。
 
 <div class="review-table" markdown="1">
 
 | 日期 | 论文 | 状态 | 置信度 | 自动检查 |
 |---|---|---|---:|---|
+| 2026-08-04 | [Verification Without Sufficiency: Per-Chunk Filtering Fails on Multi-Hop RAG, and Decomposition Repairs It](../arxiv_daily/2026-08-04/llm_reasoning/verification-without-sufficiency-per-chunk-filtering-fails-on-multi-hop-rag-and-decomposition-repair.md) <br><code>2608.00585</code> | `ai_draft` | 0.91 | 无结构性问题 |
 | 2026-08-03 | [When Iterative RAG Beats Ideal Evidence: A Diagnostic Study in Scientific Multi-hop Question Answering](../arxiv_daily/2026-08-03/llm_reasoning/when-iterative-rag-beats-ideal-evidence-a-diagnostic-study-in-scientific-multi-hop-question-answerin.md) <br><code>2601.19827</code> | `ai_draft` | 0.78 | main_results[2] evidence quote not found in source；ablations[1] evidence quote not found in source |
 | 2026-08-03 | [DRIP-R: A Benchmark for Decision-Making and Reasoning Under Real-World Policy Ambiguity in the Retail Domain](../arxiv_daily/2026-08-03/llm_evaluation/drip-r-a-benchmark-for-decision-making-and-reasoning-under-real-world-policy-ambiguity-in-the-retail.md) <br><code>2605.07699</code> | `ai_draft` | 0.80 | 无结构性问题 |
 | 2026-08-03 | [CMT-RAG: Complementary Memory Traces for Multi-turn Multi-hop RAG](../arxiv_daily/2026-08-03/llm_agent/cmt-rag-complementary-memory-traces-for-multi-turn-multi-hop-rag.md) <br><code>2607.26470</code> | `ai_draft` | 0.86 | 无结构性问题 |

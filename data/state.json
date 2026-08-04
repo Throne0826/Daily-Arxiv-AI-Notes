@@ -1830,6 +1830,19 @@
         "main_results[2] evidence quote not found in source",
         "ablations[1] evidence quote not found in source"
       ]
+    },
+    "2608.00585": {
+      "announcement_date": "2026-08-04",
+      "path": "2026-08-04/llm_reasoning/verification-without-sufficiency-per-chunk-filtering-fails-on-multi-hop-rag-and-decomposition-repair.md",
+      "review_status": "ai_draft",
+      "title": "Verification Without Sufficiency: Per-Chunk Filtering Fails on Multi-Hop RAG, and Decomposition Repairs It",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.91,
+      "summary": "本文指出，多跳检索增强生成中的逐文本块验证隐含了“单个文本块足以回答原问题”的错误假设，并提出改用分解后的子问题验证相应证据。",
+      "issues": []
     }
   }
 }

@@ -10,14 +10,14 @@ hide:
 <header class="research-map__header">
 <p class="research-map__eyebrow">LIVE RESEARCH LANDSCAPE</p>
 <h1>AI 研究版图</h1>
-<p>把 123 篇论文看成一个持续变化的研究网络：节点表示细分方向，节点大小表示累计论文量，连线来自同一论文的多标签共现。</p>
+<p>把 173 篇论文看成一个持续变化的研究网络：节点表示细分方向，节点大小表示累计论文量，连线来自同一论文的多标签共现。</p>
 </header>
 
 <section class="research-map__metrics" aria-label="论文版图概览">
-<div><strong>123</strong><span>不重复论文</span></div>
-<div><strong>217</strong><span>方向归属</span></div>
-<div><strong>54%</strong><span>多标签论文</span></div>
-<div><strong>21</strong><span>跨主域论文</span></div>
+<div><strong>173</strong><span>不重复论文</span></div>
+<div><strong>346</strong><span>方向归属</span></div>
+<div><strong>64%</strong><span>多标签论文</span></div>
+<div><strong>33</strong><span>跨主域论文</span></div>
 </section>
 
 <div class="research-map__toolbar" role="tablist" aria-label="研究地图视图">
@@ -32,48 +32,48 @@ hide:
 <section class="research-domain" data-map-group="llm">
 <div class="research-domain__head">
 <h2>LLM</h2>
-<span>144 条归属</span>
+<span>251 条归属</span>
 </div>
 <div class="research-node-field">
-<a class="research-node" href="llm_reasoning/" style="--node-size:6.66rem" data-map-group="llm" title="LLM Reasoning：21 篇"><strong>21</strong><span>LLM Reasoning</span><small>最新日 -11</small></a>
-<a class="research-node" href="llm_agent/" style="--node-size:6.78rem" data-map-group="llm" title="LLM Agent：23 篇"><strong>23</strong><span>LLM Agent</span><small>最新日 -1</small></a>
-<a class="research-node" href="multi_agent/" style="--node-size:5.28rem" data-map-group="llm" title="Multi-Agent：4 篇"><strong>4</strong><span>Multi-Agent</span><small>最新日 -1</small></a>
-<a class="research-node" href="llm_alignment/" style="--node-size:5.90rem" data-map-group="llm" title="对齐 / RLHF：10 篇"><strong>10</strong><span>对齐 / RLHF</span><small>最新日 -1</small></a>
-<a class="research-node" href="llm_safety/" style="--node-size:5.90rem" data-map-group="llm" title="LLM 安全：10 篇"><strong>10</strong><span>LLM 安全</span><small>最新日持平</small></a>
-<a class="research-node" href="hallucination/" style="--node-size:4.74rem" data-map-group="llm" title="幻觉检测：1 篇"><strong>1</strong><span>幻觉检测</span><small>最新日持平</small></a>
-<a class="research-node" href="llm_evaluation/" style="--node-size:6.72rem" data-map-group="llm" title="LLM 评测：22 篇"><strong>22</strong><span>LLM 评测</span><small>最新日 -4</small></a>
-<a class="research-node" href="llm_efficiency/" style="--node-size:5.90rem" data-map-group="llm" title="LLM 效率：10 篇"><strong>10</strong><span>LLM 效率</span><small>最新日持平</small></a>
+<a class="research-node" href="llm_reasoning/" style="--node-size:7.60rem" data-map-group="llm" title="LLM Reasoning：71 篇"><strong>71</strong><span>LLM Reasoning</span><small>最新日 +39</small></a>
+<a class="research-node" href="llm_agent/" style="--node-size:6.37rem" data-map-group="llm" title="LLM Agent：29 篇"><strong>29</strong><span>LLM Agent</span><small>最新日 +5</small></a>
+<a class="research-node" href="multi_agent/" style="--node-size:5.10rem" data-map-group="llm" title="Multi-Agent：5 篇"><strong>5</strong><span>Multi-Agent</span><small>最新日持平</small></a>
+<a class="research-node" href="llm_alignment/" style="--node-size:5.96rem" data-map-group="llm" title="对齐 / RLHF：19 篇"><strong>19</strong><span>对齐 / RLHF</span><small>最新日 +8</small></a>
+<a class="research-node" href="llm_safety/" style="--node-size:5.54rem" data-map-group="llm" title="LLM 安全：11 篇"><strong>11</strong><span>LLM 安全</span><small>最新日 +1</small></a>
+<a class="research-node" href="hallucination/" style="--node-size:4.60rem" data-map-group="llm" title="幻觉检测：1 篇"><strong>1</strong><span>幻觉检测</span><small>最新日持平</small></a>
+<a class="research-node" href="llm_evaluation/" style="--node-size:6.45rem" data-map-group="llm" title="LLM 评测：31 篇"><strong>31</strong><span>LLM 评测</span><small>最新日 +5</small></a>
+<a class="research-node" href="llm_efficiency/" style="--node-size:5.65rem" data-map-group="llm" title="LLM 效率：13 篇"><strong>13</strong><span>LLM 效率</span><small>最新日 +3</small></a>
 <a class="research-node" href="llm_pretraining/" style="--node-size:4.20rem" data-map-group="llm" title="预训练：0 篇"><strong>0</strong><span>预训练</span><small>最新日持平</small></a>
-<a class="research-node" href="knowledge_editing/" style="--node-size:4.96rem" data-map-group="llm" title="知识编辑：2 篇"><strong>2</strong><span>知识编辑</span><small>最新日持平</small></a>
-<a class="research-node" href="llm_interpretability/" style="--node-size:5.52rem" data-map-group="llm" title="LLM 机制与可解释性：6 篇"><strong>6</strong><span>LLM 机制与可解释性</span><small>最新日 -1</small></a>
-<a class="research-node" href="llm_nlp/" style="--node-size:7.38rem" data-map-group="llm" title="LLM 其他：35 篇"><strong>35</strong><span>LLM 其他</span><small>最新日 -1</small></a>
+<a class="research-node" href="knowledge_editing/" style="--node-size:4.77rem" data-map-group="llm" title="知识编辑：2 篇"><strong>2</strong><span>知识编辑</span><small>最新日持平</small></a>
+<a class="research-node" href="llm_interpretability/" style="--node-size:5.27rem" data-map-group="llm" title="LLM 机制与可解释性：7 篇"><strong>7</strong><span>LLM 机制与可解释性</span><small>最新日持平</small></a>
+<a class="research-node" href="llm_nlp/" style="--node-size:7.38rem" data-map-group="llm" title="LLM 其他：62 篇"><strong>62</strong><span>LLM 其他</span><small>最新日 +26</small></a>
 </div>
 </section>
 
 <section class="research-domain" data-map-group="generation_multimodal">
 <div class="research-domain__head">
 <h2>生成与多模态</h2>
-<span>12 条归属</span>
+<span>29 条归属</span>
 </div>
 <div class="research-node-field">
 <a class="research-node" href="image_generation/" style="--node-size:4.20rem" data-map-group="generation_multimodal" title="图像生成：0 篇"><strong>0</strong><span>图像生成</span><small>最新日持平</small></a>
-<a class="research-node" href="video_generation/" style="--node-size:4.74rem" data-map-group="generation_multimodal" title="视频生成：1 篇"><strong>1</strong><span>视频生成</span><small>最新日持平</small></a>
-<a class="research-node" href="multimodal_vlm/" style="--node-size:5.90rem" data-map-group="generation_multimodal" title="多模态 VLM：10 篇"><strong>10</strong><span>多模态 VLM</span><small>最新日持平</small></a>
-<a class="research-node" href="vlm_reasoning/" style="--node-size:4.20rem" data-map-group="generation_multimodal" title="VLM Reasoning：0 篇"><strong>0</strong><span>VLM Reasoning</span><small>最新日持平</small></a>
-<a class="research-node" href="vlm_efficiency/" style="--node-size:4.74rem" data-map-group="generation_multimodal" title="VLM Efficiency：1 篇"><strong>1</strong><span>VLM Efficiency</span><small>最新日持平</small></a>
+<a class="research-node" href="video_generation/" style="--node-size:4.77rem" data-map-group="generation_multimodal" title="视频生成：2 篇"><strong>2</strong><span>视频生成</span><small>最新日 +1</small></a>
+<a class="research-node" href="multimodal_vlm/" style="--node-size:5.71rem" data-map-group="generation_multimodal" title="多模态 VLM：14 篇"><strong>14</strong><span>多模态 VLM</span><small>最新日 +4</small></a>
+<a class="research-node" href="vlm_reasoning/" style="--node-size:5.41rem" data-map-group="generation_multimodal" title="VLM Reasoning：9 篇"><strong>9</strong><span>VLM Reasoning</span><small>最新日 +9</small></a>
+<a class="research-node" href="vlm_efficiency/" style="--node-size:5.01rem" data-map-group="generation_multimodal" title="VLM Efficiency：4 篇"><strong>4</strong><span>VLM Efficiency</span><small>最新日 +3</small></a>
 </div>
 </section>
 
 <section class="research-domain" data-map-group="decision_embodied">
 <div class="research-domain__head">
 <h2>决策与具身</h2>
-<span>61 条归属</span>
+<span>66 条归属</span>
 </div>
 <div class="research-node-field">
-<a class="research-node" href="autonomous_driving/" style="--node-size:4.20rem" data-map-group="decision_embodied" title="自动驾驶：0 篇"><strong>0</strong><span>自动驾驶</span><small>最新日持平</small></a>
-<a class="research-node" href="robotics/" style="--node-size:7.60rem" data-map-group="decision_embodied" title="机器人 / 具身智能：40 篇"><strong>40</strong><span>机器人 / 具身智能</span><small>最新日 -1</small></a>
-<a class="research-node" href="reinforcement_learning/" style="--node-size:5.98rem" data-map-group="decision_embodied" title="强化学习：11 篇"><strong>11</strong><span>强化学习</span><small>最新日 -1</small></a>
-<a class="research-node" href="recommender/" style="--node-size:5.90rem" data-map-group="decision_embodied" title="推荐系统：10 篇"><strong>10</strong><span>推荐系统</span><small>最新日 -1</small></a>
+<a class="research-node" href="autonomous_driving/" style="--node-size:4.77rem" data-map-group="decision_embodied" title="自动驾驶：2 篇"><strong>2</strong><span>自动驾驶</span><small>最新日 +2</small></a>
+<a class="research-node" href="robotics/" style="--node-size:6.75rem" data-map-group="decision_embodied" title="机器人 / 具身智能：40 篇"><strong>40</strong><span>机器人 / 具身智能</span><small>最新日 -1</small></a>
+<a class="research-node" href="reinforcement_learning/" style="--node-size:5.71rem" data-map-group="decision_embodied" title="强化学习：14 篇"><strong>14</strong><span>强化学习</span><small>最新日 +2</small></a>
+<a class="research-node" href="recommender/" style="--node-size:5.48rem" data-map-group="decision_embodied" title="推荐系统：10 篇"><strong>10</strong><span>推荐系统</span><small>最新日 -1</small></a>
 </div>
 </section>
 
@@ -89,11 +89,11 @@ hide:
 </div>
 
 <div class="research-trend__row">
-<div><time>2026-08-04</time><span>1 篇论文</span></div>
+<div><time>2026-08-04</time><span>51 篇论文</span></div>
 <div class="research-trend__bar" aria-label="各主域相关论文占比">
-<span data-map-group="llm" style="--segment-share:100.00%" title="LLM：1 篇"></span>
-<span data-map-group="generation_multimodal" style="--segment-share:0.00%" title="生成与多模态：0 篇"></span>
-<span data-map-group="decision_embodied" style="--segment-share:0.00%" title="决策与具身：0 篇"></span>
+<span data-map-group="llm" style="--segment-share:77.27%" title="LLM：51 篇"></span>
+<span data-map-group="generation_multimodal" style="--segment-share:15.15%" title="生成与多模态：10 篇"></span>
+<span data-map-group="decision_embodied" style="--segment-share:7.58%" title="决策与具身：5 篇"></span>
 </div>
 </div>
 
@@ -142,20 +142,20 @@ hide:
 <svg class="research-network__canvas" data-map-network viewBox="0 0 1000 560" role="img" aria-label="论文方向共现网络"></svg>
 <aside class="research-network__detail" data-map-detail>
 <span>最强关联</span>
-<strong>LLM Agent × LLM 其他</strong>
-<p>共有 9 篇论文同时进入这两个方向。</p>
+<strong>LLM 其他 × LLM Reasoning</strong>
+<p>共有 33 篇论文同时进入这两个方向。</p>
 </aside>
 </div>
 <ol class="research-connection-list">
-<li><a href="llm_agent/">LLM Agent</a><span>×</span><a href="llm_nlp/">LLM 其他</a><strong>9</strong></li>
-<li><a href="llm_agent/">LLM Agent</a><span>×</span><a href="llm_evaluation/">LLM 评测</a><strong>8</strong></li>
-<li><a href="llm_alignment/">对齐 / RLHF</a><span>×</span><a href="llm_nlp/">LLM 其他</a><strong>7</strong></li>
-<li><a href="llm_efficiency/">LLM 效率</a><span>×</span><a href="llm_nlp/">LLM 其他</a><strong>7</strong></li>
-<li><a href="llm_evaluation/">LLM 评测</a><span>×</span><a href="llm_nlp/">LLM 其他</a><strong>7</strong></li>
-<li><a href="llm_nlp/">LLM 其他</a><span>×</span><a href="llm_reasoning/">LLM Reasoning</a><strong>6</strong></li>
+<li><a href="llm_nlp/">LLM 其他</a><span>×</span><a href="llm_reasoning/">LLM Reasoning</a><strong>33</strong></li>
+<li><a href="llm_alignment/">对齐 / RLHF</a><span>×</span><a href="llm_reasoning/">LLM Reasoning</a><strong>14</strong></li>
+<li><a href="llm_evaluation/">LLM 评测</a><span>×</span><a href="llm_reasoning/">LLM Reasoning</a><strong>14</strong></li>
+<li><a href="llm_alignment/">对齐 / RLHF</a><span>×</span><a href="llm_nlp/">LLM 其他</a><strong>13</strong></li>
+<li><a href="llm_agent/">LLM Agent</a><span>×</span><a href="llm_nlp/">LLM 其他</a><strong>13</strong></li>
+<li><a href="llm_evaluation/">LLM 评测</a><span>×</span><a href="llm_nlp/">LLM 其他</a><strong>12</strong></li>
 </ol>
 </section>
 
-<script type="application/json" data-research-map-data>{"latestDate": "2026-08-04", "previousDate": "2026-08-03", "groups": [{"id": "llm", "label": "LLM", "assignments": 144, "papers": 78}, {"id": "generation_multimodal", "label": "生成与多模态", "assignments": 12, "papers": 11}, {"id": "decision_embodied", "label": "决策与具身", "assignments": 61, "papers": 56}], "categories": [{"id": "llm_reasoning", "label": "LLM Reasoning", "group": "llm", "count": 21, "latest": 1, "delta": -11, "href": "llm_reasoning/"}, {"id": "llm_agent", "label": "LLM Agent", "group": "llm", "count": 23, "latest": 0, "delta": -1, "href": "llm_agent/"}, {"id": "multi_agent", "label": "Multi-Agent", "group": "llm", "count": 4, "latest": 0, "delta": -1, "href": "multi_agent/"}, {"id": "llm_alignment", "label": "对齐 / RLHF", "group": "llm", "count": 10, "latest": 0, "delta": -1, "href": "llm_alignment/"}, {"id": "llm_safety", "label": "LLM 安全", "group": "llm", "count": 10, "latest": 0, "delta": 0, "href": "llm_safety/"}, {"id": "hallucination", "label": "幻觉检测", "group": "llm", "count": 1, "latest": 0, "delta": 0, "href": "hallucination/"}, {"id": "llm_evaluation", "label": "LLM 评测", "group": "llm", "count": 22, "latest": 0, "delta": -4, "href": "llm_evaluation/"}, {"id": "llm_efficiency", "label": "LLM 效率", "group": "llm", "count": 10, "latest": 0, "delta": 0, "href": "llm_efficiency/"}, {"id": "llm_pretraining", "label": "预训练", "group": "llm", "count": 0, "latest": 0, "delta": 0, "href": "llm_pretraining/"}, {"id": "knowledge_editing", "label": "知识编辑", "group": "llm", "count": 2, "latest": 0, "delta": 0, "href": "knowledge_editing/"}, {"id": "llm_interpretability", "label": "LLM 机制与可解释性", "group": "llm", "count": 6, "latest": 0, "delta": -1, "href": "llm_interpretability/"}, {"id": "llm_nlp", "label": "LLM 其他", "group": "llm", "count": 35, "latest": 0, "delta": -1, "href": "llm_nlp/"}, {"id": "image_generation", "label": "图像生成", "group": "generation_multimodal", "count": 0, "latest": 0, "delta": 0, "href": "image_generation/"}, {"id": "video_generation", "label": "视频生成", "group": "generation_multimodal", "count": 1, "latest": 0, "delta": 0, "href": "video_generation/"}, {"id": "multimodal_vlm", "label": "多模态 VLM", "group": "generation_multimodal", "count": 10, "latest": 0, "delta": 0, "href": "multimodal_vlm/"}, {"id": "vlm_reasoning", "label": "VLM Reasoning", "group": "generation_multimodal", "count": 0, "latest": 0, "delta": 0, "href": "vlm_reasoning/"}, {"id": "vlm_efficiency", "label": "VLM Efficiency", "group": "generation_multimodal", "count": 1, "latest": 0, "delta": 0, "href": "vlm_efficiency/"}, {"id": "autonomous_driving", "label": "自动驾驶", "group": "decision_embodied", "count": 0, "latest": 0, "delta": 0, "href": "autonomous_driving/"}, {"id": "robotics", "label": "机器人 / 具身智能", "group": "decision_embodied", "count": 40, "latest": 0, "delta": -1, "href": "robotics/"}, {"id": "reinforcement_learning", "label": "强化学习", "group": "decision_embodied", "count": 11, "latest": 0, "delta": -1, "href": "reinforcement_learning/"}, {"id": "recommender", "label": "推荐系统", "group": "decision_embodied", "count": 10, "latest": 0, "delta": -1, "href": "recommender/"}], "dates": [{"date": "2026-07-29", "papers": 10, "groups": [{"id": "llm", "label": "LLM", "count": 8}, {"id": "generation_multimodal", "label": "生成与多模态", "count": 0}, {"id": "decision_embodied", "label": "决策与具身", "count": 3}]}, {"date": "2026-07-30", "papers": 50, "groups": [{"id": "llm", "label": "LLM", "count": 32}, {"id": "generation_multimodal", "label": "生成与多模态", "count": 5}, {"id": "decision_embodied", "label": "决策与具身", "count": 21}]}, {"date": "2026-07-31", "papers": 50, "groups": [{"id": "llm", "label": "LLM", "count": 25}, {"id": "generation_multimodal", "label": "生成与多模态", "count": 6}, {"id": "decision_embodied", "label": "决策与具身", "count": 29}]}, {"date": "2026-08-03", "papers": 12, "groups": [{"id": "llm", "label": "LLM", "count": 12}, {"id": "generation_multimodal", "label": "生成与多模态", "count": 0}, {"id": "decision_embodied", "label": "决策与具身", "count": 3}]}, {"date": "2026-08-04", "papers": 1, "groups": [{"id": "llm", "label": "LLM", "count": 1}, {"id": "generation_multimodal", "label": "生成与多模态", "count": 0}, {"id": "decision_embodied", "label": "决策与具身", "count": 0}]}], "connections": [{"source": "llm_agent", "target": "llm_nlp", "count": 9, "source_label": "LLM Agent", "target_label": "LLM 其他"}, {"source": "llm_agent", "target": "llm_evaluation", "count": 8, "source_label": "LLM Agent", "target_label": "LLM 评测"}, {"source": "llm_alignment", "target": "llm_nlp", "count": 7, "source_label": "对齐 / RLHF", "target_label": "LLM 其他"}, {"source": "llm_efficiency", "target": "llm_nlp", "count": 7, "source_label": "LLM 效率", "target_label": "LLM 其他"}, {"source": "llm_evaluation", "target": "llm_nlp", "count": 7, "source_label": "LLM 评测", "target_label": "LLM 其他"}, {"source": "llm_nlp", "target": "llm_reasoning", "count": 6, "source_label": "LLM 其他", "target_label": "LLM Reasoning"}, {"source": "llm_alignment", "target": "llm_reasoning", "count": 5, "source_label": "对齐 / RLHF", "target_label": "LLM Reasoning"}, {"source": "llm_evaluation", "target": "llm_reasoning", "count": 5, "source_label": "LLM 评测", "target_label": "LLM Reasoning"}, {"source": "llm_nlp", "target": "llm_safety", "count": 5, "source_label": "LLM 其他", "target_label": "LLM 安全"}, {"source": "reinforcement_learning", "target": "robotics", "count": 5, "source_label": "强化学习", "target_label": "机器人 / 具身智能"}, {"source": "multimodal_vlm", "target": "robotics", "count": 4, "source_label": "多模态 VLM", "target_label": "机器人 / 具身智能"}, {"source": "llm_interpretability", "target": "llm_reasoning", "count": 3, "source_label": "LLM 机制与可解释性", "target_label": "LLM Reasoning"}, {"source": "llm_nlp", "target": "reinforcement_learning", "count": 3, "source_label": "LLM 其他", "target_label": "强化学习"}, {"source": "llm_nlp", "target": "robotics", "count": 3, "source_label": "LLM 其他", "target_label": "机器人 / 具身智能"}, {"source": "llm_nlp", "target": "recommender", "count": 3, "source_label": "LLM 其他", "target_label": "推荐系统"}, {"source": "llm_interpretability", "target": "llm_nlp", "count": 2, "source_label": "LLM 机制与可解释性", "target_label": "LLM 其他"}, {"source": "llm_evaluation", "target": "llm_safety", "count": 2, "source_label": "LLM 评测", "target_label": "LLM 安全"}, {"source": "llm_alignment", "target": "llm_safety", "count": 2, "source_label": "对齐 / RLHF", "target_label": "LLM 安全"}]}</script>
+<script type="application/json" data-research-map-data>{"latestDate": "2026-08-04", "previousDate": "2026-08-03", "groups": [{"id": "llm", "label": "LLM", "assignments": 251, "papers": 128}, {"id": "generation_multimodal", "label": "生成与多模态", "assignments": 29, "papers": 21}, {"id": "decision_embodied", "label": "决策与具身", "assignments": 66, "papers": 61}], "categories": [{"id": "llm_reasoning", "label": "LLM Reasoning", "group": "llm", "count": 71, "latest": 51, "delta": 39, "href": "llm_reasoning/"}, {"id": "llm_agent", "label": "LLM Agent", "group": "llm", "count": 29, "latest": 6, "delta": 5, "href": "llm_agent/"}, {"id": "multi_agent", "label": "Multi-Agent", "group": "llm", "count": 5, "latest": 1, "delta": 0, "href": "multi_agent/"}, {"id": "llm_alignment", "label": "对齐 / RLHF", "group": "llm", "count": 19, "latest": 9, "delta": 8, "href": "llm_alignment/"}, {"id": "llm_safety", "label": "LLM 安全", "group": "llm", "count": 11, "latest": 1, "delta": 1, "href": "llm_safety/"}, {"id": "hallucination", "label": "幻觉检测", "group": "llm", "count": 1, "latest": 0, "delta": 0, "href": "hallucination/"}, {"id": "llm_evaluation", "label": "LLM 评测", "group": "llm", "count": 31, "latest": 9, "delta": 5, "href": "llm_evaluation/"}, {"id": "llm_efficiency", "label": "LLM 效率", "group": "llm", "count": 13, "latest": 3, "delta": 3, "href": "llm_efficiency/"}, {"id": "llm_pretraining", "label": "预训练", "group": "llm", "count": 0, "latest": 0, "delta": 0, "href": "llm_pretraining/"}, {"id": "knowledge_editing", "label": "知识编辑", "group": "llm", "count": 2, "latest": 0, "delta": 0, "href": "knowledge_editing/"}, {"id": "llm_interpretability", "label": "LLM 机制与可解释性", "group": "llm", "count": 7, "latest": 1, "delta": 0, "href": "llm_interpretability/"}, {"id": "llm_nlp", "label": "LLM 其他", "group": "llm", "count": 62, "latest": 27, "delta": 26, "href": "llm_nlp/"}, {"id": "image_generation", "label": "图像生成", "group": "generation_multimodal", "count": 0, "latest": 0, "delta": 0, "href": "image_generation/"}, {"id": "video_generation", "label": "视频生成", "group": "generation_multimodal", "count": 2, "latest": 1, "delta": 1, "href": "video_generation/"}, {"id": "multimodal_vlm", "label": "多模态 VLM", "group": "generation_multimodal", "count": 14, "latest": 4, "delta": 4, "href": "multimodal_vlm/"}, {"id": "vlm_reasoning", "label": "VLM Reasoning", "group": "generation_multimodal", "count": 9, "latest": 9, "delta": 9, "href": "vlm_reasoning/"}, {"id": "vlm_efficiency", "label": "VLM Efficiency", "group": "generation_multimodal", "count": 4, "latest": 3, "delta": 3, "href": "vlm_efficiency/"}, {"id": "autonomous_driving", "label": "自动驾驶", "group": "decision_embodied", "count": 2, "latest": 2, "delta": 2, "href": "autonomous_driving/"}, {"id": "robotics", "label": "机器人 / 具身智能", "group": "decision_embodied", "count": 40, "latest": 0, "delta": -1, "href": "robotics/"}, {"id": "reinforcement_learning", "label": "强化学习", "group": "decision_embodied", "count": 14, "latest": 3, "delta": 2, "href": "reinforcement_learning/"}, {"id": "recommender", "label": "推荐系统", "group": "decision_embodied", "count": 10, "latest": 0, "delta": -1, "href": "recommender/"}], "dates": [{"date": "2026-07-29", "papers": 10, "groups": [{"id": "llm", "label": "LLM", "count": 8}, {"id": "generation_multimodal", "label": "生成与多模态", "count": 0}, {"id": "decision_embodied", "label": "决策与具身", "count": 3}]}, {"date": "2026-07-30", "papers": 50, "groups": [{"id": "llm", "label": "LLM", "count": 32}, {"id": "generation_multimodal", "label": "生成与多模态", "count": 5}, {"id": "decision_embodied", "label": "决策与具身", "count": 21}]}, {"date": "2026-07-31", "papers": 50, "groups": [{"id": "llm", "label": "LLM", "count": 25}, {"id": "generation_multimodal", "label": "生成与多模态", "count": 6}, {"id": "decision_embodied", "label": "决策与具身", "count": 29}]}, {"date": "2026-08-03", "papers": 12, "groups": [{"id": "llm", "label": "LLM", "count": 12}, {"id": "generation_multimodal", "label": "生成与多模态", "count": 0}, {"id": "decision_embodied", "label": "决策与具身", "count": 3}]}, {"date": "2026-08-04", "papers": 51, "groups": [{"id": "llm", "label": "LLM", "count": 51}, {"id": "generation_multimodal", "label": "生成与多模态", "count": 10}, {"id": "decision_embodied", "label": "决策与具身", "count": 5}]}], "connections": [{"source": "llm_nlp", "target": "llm_reasoning", "count": 33, "source_label": "LLM 其他", "target_label": "LLM Reasoning"}, {"source": "llm_alignment", "target": "llm_reasoning", "count": 14, "source_label": "对齐 / RLHF", "target_label": "LLM Reasoning"}, {"source": "llm_evaluation", "target": "llm_reasoning", "count": 14, "source_label": "LLM 评测", "target_label": "LLM Reasoning"}, {"source": "llm_alignment", "target": "llm_nlp", "count": 13, "source_label": "对齐 / RLHF", "target_label": "LLM 其他"}, {"source": "llm_agent", "target": "llm_nlp", "count": 13, "source_label": "LLM Agent", "target_label": "LLM 其他"}, {"source": "llm_evaluation", "target": "llm_nlp", "count": 12, "source_label": "LLM 评测", "target_label": "LLM 其他"}, {"source": "llm_reasoning", "target": "vlm_reasoning", "count": 9, "source_label": "LLM Reasoning", "target_label": "VLM Reasoning"}, {"source": "llm_agent", "target": "llm_evaluation", "count": 8, "source_label": "LLM Agent", "target_label": "LLM 评测"}, {"source": "llm_efficiency", "target": "llm_nlp", "count": 7, "source_label": "LLM 效率", "target_label": "LLM 其他"}, {"source": "llm_agent", "target": "llm_reasoning", "count": 7, "source_label": "LLM Agent", "target_label": "LLM Reasoning"}, {"source": "llm_nlp", "target": "reinforcement_learning", "count": 5, "source_label": "LLM 其他", "target_label": "强化学习"}, {"source": "llm_nlp", "target": "llm_safety", "count": 5, "source_label": "LLM 其他", "target_label": "LLM 安全"}, {"source": "reinforcement_learning", "target": "robotics", "count": 5, "source_label": "强化学习", "target_label": "机器人 / 具身智能"}, {"source": "llm_efficiency", "target": "llm_reasoning", "count": 5, "source_label": "LLM 效率", "target_label": "LLM Reasoning"}, {"source": "llm_reasoning", "target": "reinforcement_learning", "count": 5, "source_label": "LLM Reasoning", "target_label": "强化学习"}, {"source": "llm_interpretability", "target": "llm_reasoning", "count": 4, "source_label": "LLM 机制与可解释性", "target_label": "LLM Reasoning"}, {"source": "llm_alignment", "target": "reinforcement_learning", "count": 4, "source_label": "对齐 / RLHF", "target_label": "强化学习"}, {"source": "multimodal_vlm", "target": "robotics", "count": 4, "source_label": "多模态 VLM", "target_label": "机器人 / 具身智能"}]}</script>
 
 </div>

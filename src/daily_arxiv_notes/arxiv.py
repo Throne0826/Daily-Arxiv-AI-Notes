@@ -14,6 +14,7 @@ from datetime import date, datetime
 from typing import Iterable
 
 from bs4 import BeautifulSoup
+from bs4.element import Tag
 from pypdf import PdfReader
 
 from .models import FullText, Paper
@@ -251,13 +252,28 @@ def parse_listing_page(
 
     accepted = ("new submissions", "cross submissions") if include_crosslists else ("new submissions",)
     entries: list[ListingEntry] = []
-    for heading in soup.find_all("h3"):
-        heading_text = " ".join(heading.get_text(" ", strip=True).lower().split())
+
+    # arXiv now places each section heading inside its own dl#articles. Looking
+    # for the next <dl> associates New with Cross and Cross with Replacements
+    # after BeautifulSoup repairs that otherwise-invalid HTML structure.
+    sections: list[tuple[str, Tag]] = []
+    for listing in soup.select("dl#articles"):
+        heading = listing.find("h3", recursive=False)
+        if heading is not None:
+            sections.append((heading.get_text(" ", strip=True), listing))
+
+    # Retain compatibility with older pages and small parser fixtures where the
+    # heading precedes a plain <dl> instead of being nested inside it.
+    if not sections:
+        for heading in soup.find_all("h3"):
+            listing = heading.find_next("dl")
+            if listing is not None:
+                sections.append((heading.get_text(" ", strip=True), listing))
+
+    for heading_value, listing in sections:
+        heading_text = " ".join(heading_value.lower().split())
         section = next((name for name in accepted if heading_text.startswith(name)), None)
         if section is None:
-            continue
-        listing = heading.find_next("dl")
-        if listing is None:
             continue
         for item in listing.find_all("dt", recursive=False):
             match = ARXIV_ID_RE.search(item.get_text(" ", strip=True))

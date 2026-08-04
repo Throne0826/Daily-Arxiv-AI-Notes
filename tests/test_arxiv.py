@@ -55,6 +55,33 @@ def test_cross_submissions_can_be_disabled() -> None:
     assert [entry.arxiv_id for entry in entries] == ["2607.99991"]
 
 
+def test_parse_current_arxiv_nested_section_headings() -> None:
+    html = """
+    <h3>Showing new listings for Tuesday, 4 August 2026</h3>
+    <dl id="articles">
+      <h3>New submissions (showing first 1 of 2 entries)</h3>
+      <dt><a href="/abs/2608.00001">arXiv:2608.00001</a></dt>
+      <dd><div class="list-title"><span>Title:</span> New Reasoning Paper</div></dd>
+    </dl>
+    <dl id="articles">
+      <h3>Cross submissions (showing 1 of 1 entries)</h3>
+      <dt><a href="/abs/2608.00002">arXiv:2608.00002</a></dt>
+      <dd><div class="list-title"><span>Title:</span> Cross-listed Paper</div></dd>
+    </dl>
+    <dl id="articles">
+      <h3>Replacement submissions (showing 1 of 1 entries)</h3>
+      <dt><a href="/abs/2501.00001">arXiv:2501.00001</a></dt>
+      <dd><div class="list-title"><span>Title:</span> Replacement Paper</div></dd>
+    </dl>
+    """
+
+    announcement, entries = parse_listing_page(html, "cs.AI", include_crosslists=True)
+
+    assert announcement == date(2026, 8, 4)
+    assert [entry.arxiv_id for entry in entries] == ["2608.00001", "2608.00002"]
+    assert [entry.section for entry in entries] == ["new", "cross"]
+
+
 class FakeFullTextHttp:
     def get_text(self, url: str) -> str:
         method_body = "Method body with enough detail for full-text extraction. " * 30

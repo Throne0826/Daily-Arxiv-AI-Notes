@@ -5,7 +5,27 @@ description: "VLM Efficiency 方向每日 arXiv 论文中文解读。"
 
 # VLM Efficiency
 
-共收录 **5** 篇，按 arXiv 日榜日期倒序排列。
+共收录 **6** 篇，按 arXiv 日榜日期倒序排列。
+
+## 2026-08-06
+
+<div class="daily-paper-list" markdown="1">
+
+<article class="daily-paper-item" markdown="1">
+
+#### [Perception Before Reasoning: Dynamic Latent Reasoning for Video Understanding and Question Answering](../../arxiv_daily/2026-08-06/vlm_reasoning/perception-before-reasoning-dynamic-latent-reasoning-for-video-understanding-and-question-answering.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.04124</span><span class="paper-category-chip">VLM Reasoning</span><span class="paper-category-chip">VLM Efficiency</span><span class="paper-category-chip">LLM Reasoning</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+DyLaR将视频问答拆分为必需的视觉证据感知与按需启用的潜空间推理，使模型能够根据问题难度选择直接作答或继续推理。
+
+</div>
+
+</article>
+
+</div>
 
 ## 2026-08-05
 

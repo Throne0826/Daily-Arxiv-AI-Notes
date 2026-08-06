@@ -5,7 +5,69 @@ description: "VLM Reasoning 方向每日 arXiv 论文中文解读。"
 
 # VLM Reasoning
 
-共收录 **12** 篇，按 arXiv 日榜日期倒序排列。
+共收录 **16** 篇，按 arXiv 日榜日期倒序排列。
+
+## 2026-08-06
+
+<div class="daily-paper-list" markdown="1">
+
+<article class="daily-paper-item" markdown="1">
+
+#### [Trace, Verify, and Correct: A Training-Free Framework for Spatial Reasoning in Multimodal LLMs](../../arxiv_daily/2026-08-06/vlm_reasoning/trace-verify-and-correct-a-training-free-framework-for-spatial-reasoning-in-multimodal-llms.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.04759</span><span class="paper-category-chip">VLM Reasoning</span><span class="paper-category-chip">LLM 其他</span><span class="paper-category-chip">LLM Reasoning</span><span class="paper-category-chip">多模态 VLM</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+本文针对多模态大语言模型空间推理中“中间判断与图像不一致并沿推理链传播”的问题，提出一种无需训练的证据级追踪、可靠性验证与定点纠错框架。
+
+</div>
+
+</article>
+
+<article class="daily-paper-item" markdown="1">
+
+#### [Thinking with Anchors: Grounded and Efficient Document Reasoning](../../arxiv_daily/2026-08-06/vlm_reasoning/thinking-with-anchors-grounded-and-efficient-document-reasoning.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.04424</span><span class="paper-category-chip">VLM Reasoning</span><span class="paper-category-chip">多模态 VLM</span><span class="paper-category-chip">LLM Reasoning</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+中文摘要尚未生成，请进入论文页查看现有元数据。
+
+</div>
+
+</article>
+
+<article class="daily-paper-item" markdown="1">
+
+#### [PhysMind: From Video to Executable Worlds for Training-Free Physical Reasoning](../../arxiv_daily/2026-08-06/vlm_reasoning/physmind-from-video-to-executable-worlds-for-training-free-physical-reasoning.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.04575</span><span class="paper-category-chip">VLM Reasoning</span><span class="paper-category-chip">LLM Agent</span><span class="paper-category-chip">LLM Reasoning</span><span class="paper-category-chip">多模态 VLM</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+PhysMind要解决的核心问题是：如何在不进行任务特定训练的条件下，把视频还原为可检查、可干预、可继续执行且能被多问题复用的物理世界，使视觉语言模型依据执行结果而非仅凭文本推断回答物理推理问题。
+
+</div>
+
+</article>
+
+<article class="daily-paper-item" markdown="1">
+
+#### [Perception Before Reasoning: Dynamic Latent Reasoning for Video Understanding and Question Answering](../../arxiv_daily/2026-08-06/vlm_reasoning/perception-before-reasoning-dynamic-latent-reasoning-for-video-understanding-and-question-answering.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.04124</span><span class="paper-category-chip">VLM Reasoning</span><span class="paper-category-chip">VLM Efficiency</span><span class="paper-category-chip">LLM Reasoning</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+DyLaR将视频问答拆分为必需的视觉证据感知与按需启用的潜空间推理，使模型能够根据问题难度选择直接作答或继续推理。
+
+</div>
+
+</article>
+
+</div>
 
 ## 2026-08-05
 

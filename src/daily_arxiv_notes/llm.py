@@ -208,9 +208,9 @@ class LlmClassifier:
         response = self.client.chat_json(
             system,
             json.dumps(request, ensure_ascii=False),
-            retries=2,
+            retries=3,
             max_output_tokens=max(1024, min(2048, len(papers) * 240 + 256)),
-            timeout_seconds=min(self.client.timeout_seconds, 90),
+            timeout_seconds=min(self.client.timeout_seconds, 120),
         )
         output: dict[str, Classification] = {}
         for item in response.get("results", []):
@@ -799,7 +799,7 @@ class NoteGenerator:
                     NOTE_SYSTEM_PROMPT
                     + f"\nReturn only the requested {task_name} fields. Do not discuss other tasks.",
                     json.dumps(request, ensure_ascii=False),
-                    retries=2,
+                    retries=3,
                     max_output_tokens=max_tokens,
                     timeout_seconds=min(self.client.timeout_seconds, 300),
                 )

@@ -5,7 +5,27 @@ description: "强化学习 方向每日 arXiv 论文中文解读。"
 
 # 强化学习
 
-共收录 **18** 篇，按 arXiv 日榜日期倒序排列。
+共收录 **19** 篇，按 arXiv 日榜日期倒序排列。
+
+## 2026-08-10
+
+<div class="daily-paper-list" markdown="1">
+
+<article class="daily-paper-item" markdown="1">
+
+#### [Fisher-R1: Training LLM Agents for Reliable Hypothesis Testing](../../arxiv_daily/2026-08-10/llm_agent/fisher-r1-training-llm-agents-for-reliable-hypothesis-testing.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.07437</span><span class="paper-category-chip">LLM Agent</span><span class="paper-category-chip">强化学习</span><span class="paper-category-chip">LLM Reasoning</span><span class="paper-category-chip">LLM 其他</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+中文摘要尚未生成，请进入论文页查看现有元数据。
+
+</div>
+
+</article>
+
+</div>
 
 ## 2026-08-05
 

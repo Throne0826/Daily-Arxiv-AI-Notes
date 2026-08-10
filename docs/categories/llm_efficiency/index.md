@@ -5,7 +5,27 @@ description: "LLM 效率 方向每日 arXiv 论文中文解读。"
 
 # LLM 效率
 
-共收录 **21** 篇，按 arXiv 日榜日期倒序排列。
+共收录 **22** 篇，按 arXiv 日榜日期倒序排列。
+
+## 2026-08-10
+
+<div class="daily-paper-list" markdown="1">
+
+<article class="daily-paper-item" markdown="1">
+
+#### [CoBa: Cost-Effective Test-Time Scaling via Compute-Balanced Routing](../../arxiv_daily/2026-08-10/llm_reasoning/coba-cost-effective-test-time-scaling-via-compute-balanced-routing.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.07424</span><span class="paper-category-chip">LLM Reasoning</span><span class="paper-category-chip">LLM 效率</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+中文摘要尚未生成，请进入论文页查看现有元数据。
+
+</div>
+
+</article>
+
+</div>
 
 ## 2026-08-06
 

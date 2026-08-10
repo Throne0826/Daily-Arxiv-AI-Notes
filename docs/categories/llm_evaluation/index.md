@@ -5,7 +5,41 @@ description: "LLM 评测 方向每日 arXiv 论文中文解读。"
 
 # LLM 评测
 
-共收录 **47** 篇，按 arXiv 日榜日期倒序排列。
+共收录 **49** 篇，按 arXiv 日榜日期倒序排列。
+
+## 2026-08-10
+
+<div class="daily-paper-list" markdown="1">
+
+<article class="daily-paper-item" markdown="1">
+
+#### [Benchmarking and Reasoning Distillation of Large Language Models for Feedback Controller Design in Complex Dynamical Systems](../../arxiv_daily/2026-08-10/llm_reasoning/benchmarking-and-reasoning-distillation-of-large-language-models-for-feedback-controller-design-in-c.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.07004</span><span class="paper-category-chip">LLM Reasoning</span><span class="paper-category-chip">LLM 评测</span><span class="paper-category-chip">LLM 其他</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+中文摘要尚未生成，请进入论文页查看现有元数据。
+
+</div>
+
+</article>
+
+<article class="daily-paper-item" markdown="1">
+
+#### [Ask-E: An Environment for Calibrated Question Generation](../../arxiv_daily/2026-08-10/llm_evaluation/ask-e-an-environment-for-calibrated-question-generation.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.06933</span><span class="paper-category-chip">LLM 评测</span><span class="paper-category-chip">LLM Reasoning</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+中文摘要尚未生成，请进入论文页查看现有元数据。
+
+</div>
+
+</article>
+
+</div>
 
 ## 2026-08-06
 

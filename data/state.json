@@ -3658,6 +3658,214 @@
       "issues": [
         "main_results[2] evidence quote not found in source"
       ]
+    },
+    "2608.06663": {
+      "announcement_date": "2026-08-10",
+      "path": "2026-08-10/llm_agent/the-horizon-gap-planning-memory-execution-training-and-evaluation-for-long-horizon-llm-agents.md",
+      "review_status": "ai_draft",
+      "title": "The Horizon Gap: Planning, Memory, Execution, Training, and Evaluation for Long-Horizon LLM Agents",
+      "primary_category": "llm_agent",
+      "categories": [
+        "llm_agent",
+        "llm_alignment",
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.98,
+      "summary": "本文提出“视野鸿沟”这一诊断框架，系统梳理长时程大语言模型智能体为何会在多步骤任务中失去可靠性，以及研究界如何以更密集的过程信号应对该问题。",
+      "issues": [
+        "missing structured section: method"
+      ]
+    },
+    "2608.06933": {
+      "announcement_date": "2026-08-10",
+      "path": "2026-08-10/llm_evaluation/ask-e-an-environment-for-calibrated-question-generation.md",
+      "review_status": "ai_draft",
+      "title": "Ask-E: An Environment for Calibrated Question Generation",
+      "primary_category": "llm_evaluation",
+      "categories": [
+        "llm_evaluation",
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.94,
+      "summary": "",
+      "issues": []
+    },
+    "2608.06402": {
+      "announcement_date": "2026-08-10",
+      "path": "2026-08-10/llm_reasoning/interpretable-unsupervised-community-detection-with-llm-symbolized-structured-processes.md",
+      "review_status": "ai_draft",
+      "title": "Interpretable Unsupervised Community Detection with LLM-Symbolized Structured Processes",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning",
+        "llm_nlp"
+      ],
+      "classification_confidence": 0.95,
+      "summary": "本文提出 LUCID，一种利用大语言模型诱导可解释规则、无需训练和标签的社区检测方法。",
+      "issues": []
+    },
+    "2608.07004": {
+      "announcement_date": "2026-08-10",
+      "path": "2026-08-10/llm_reasoning/benchmarking-and-reasoning-distillation-of-large-language-models-for-feedback-controller-design-in-c.md",
+      "review_status": "ai_draft",
+      "title": "Benchmarking and Reasoning Distillation of Large Language Models for Feedback Controller Design in Complex Dynamical Systems",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning",
+        "llm_evaluation",
+        "llm_nlp"
+      ],
+      "classification_confidence": 0.96,
+      "summary": "",
+      "issues": [
+        "missing structured section: motivation"
+      ]
+    },
+    "2608.07261": {
+      "announcement_date": "2026-08-10",
+      "path": "2026-08-10/llm_interpretability/why-knowing-both-hops-is-not-enough-understanding-two-hop-generalization-in-language-models.md",
+      "review_status": "ai_draft",
+      "title": "Why Knowing Both Hops Is Not Enough: Understanding Two-Hop Generalization in Language Models",
+      "primary_category": "llm_interpretability",
+      "categories": [
+        "llm_interpretability",
+        "llm_reasoning",
+        "llm_nlp"
+      ],
+      "classification_confidence": 0.97,
+      "summary": "",
+      "issues": []
+    },
+    "2608.07077": {
+      "announcement_date": "2026-08-10",
+      "path": "2026-08-10/llm_interpretability/transformers-struggle-to-use-their-emergent-world-models-revisiting-the-tower-of-hanoi-and-the-illus.md",
+      "review_status": "ai_draft",
+      "title": "Transformers Struggle to Use Their Emergent World Models: Revisiting the Tower of Hanoi, and the Illusion of Thinking",
+      "primary_category": "llm_interpretability",
+      "categories": [
+        "llm_interpretability",
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.97,
+      "summary": "",
+      "issues": []
+    },
+    "2608.06741": {
+      "announcement_date": "2026-08-10",
+      "path": "2026-08-10/llm_reasoning/solver-guided-reasoning-for-mixed-equilibrium-strategies.md",
+      "review_status": "ai_draft",
+      "title": "Solver-Guided Reasoning for Mixed-Equilibrium Strategies",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning",
+        "llm_nlp"
+      ],
+      "classification_confidence": 0.98,
+      "summary": "",
+      "issues": [
+        "main_results[0] evidence quote not found in source",
+        "main_results[1] evidence quote not found in source",
+        "ablations[0] evidence quote not found in source",
+        "ablations[1] evidence quote not found in source",
+        "missing structured section: motivation"
+      ]
+    },
+    "2608.07454": {
+      "announcement_date": "2026-08-10",
+      "path": "2026-08-10/llm_agent/strategy-first-synthesis-planning-for-complex-natural-products.md",
+      "review_status": "ai_draft",
+      "title": "Strategy-first synthesis planning for complex natural products",
+      "primary_category": "llm_agent",
+      "categories": [
+        "llm_agent",
+        "llm_reasoning",
+        "llm_nlp"
+      ],
+      "classification_confidence": 0.95,
+      "summary": "本文针对现有逆合成规划工具难以为高复杂度天然产物提出专家级、可讨论的合成策略这一问题，考察基于大语言模型的智能体框架能否以“先定策略、再组织步骤”的方式生成更具创造性的路线设计。",
+      "issues": [
+        "main_results[1] evidence quote not found in source",
+        "ablations[0] evidence quote not found in source",
+        "ablations[1] evidence quote not found in source"
+      ]
+    },
+    "2608.07424": {
+      "announcement_date": "2026-08-10",
+      "path": "2026-08-10/llm_reasoning/coba-cost-effective-test-time-scaling-via-compute-balanced-routing.md",
+      "review_status": "ai_draft",
+      "title": "CoBa: Cost-Effective Test-Time Scaling via Compute-Balanced Routing",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning",
+        "llm_efficiency"
+      ],
+      "classification_confidence": 0.98,
+      "summary": "",
+      "issues": [
+        "missing structured section: motivation"
+      ]
+    },
+    "2608.07437": {
+      "announcement_date": "2026-08-10",
+      "path": "2026-08-10/llm_agent/fisher-r1-training-llm-agents-for-reliable-hypothesis-testing.md",
+      "review_status": "ai_draft",
+      "title": "Fisher-R1: Training LLM Agents for Reliable Hypothesis Testing",
+      "primary_category": "llm_agent",
+      "categories": [
+        "llm_agent",
+        "reinforcement_learning",
+        "llm_reasoning",
+        "llm_nlp"
+      ],
+      "classification_confidence": 0.98,
+      "summary": "",
+      "issues": [
+        "missing structured section: motivation"
+      ]
+    },
+    "2608.06714": {
+      "announcement_date": "2026-08-10",
+      "path": "2026-08-10/llm_agent/the-optimizer-is-the-agent-reasoning-driven-search-across-prompts-programs-and-ml-workflows.md",
+      "review_status": "ai_draft",
+      "title": "The Optimizer Is the Agent: Reasoning-Driven Search across Prompts, Programs, and ML Workflows",
+      "primary_category": "llm_agent",
+      "categories": [
+        "llm_agent",
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.94,
+      "summary": "",
+      "issues": []
+    },
+    "2608.06425": {
+      "announcement_date": "2026-08-10",
+      "path": "2026-08-10/llm_reasoning/ntdh-complex-reasoning-for-comprehensive-affective-analysis.md",
+      "review_status": "ai_draft",
+      "title": "NTDH: Complex Reasoning for Comprehensive Affective Analysis",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning",
+        "llm_alignment"
+      ],
+      "classification_confidence": 0.94,
+      "summary": "",
+      "issues": [
+        "missing structured section: motivation"
+      ]
+    },
+    "2608.06917": {
+      "announcement_date": "2026-08-10",
+      "path": "2026-08-10/multimodal_vlm/regraph-learning-to-generate-recipe-graphs-from-food-images.md",
+      "review_status": "ai_draft",
+      "title": "ReGraph: Learning to Generate Recipe Graphs from Food Images",
+      "primary_category": "multimodal_vlm",
+      "categories": [
+        "multimodal_vlm",
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.84,
+      "summary": "本文针对从单张食物图像生成可验证烹饪流程的问题，指出文本流畅性不能代表程序结构正确性，并以显式食谱图和两阶段训练框架提升模型对实体、状态变化及步骤关系的建模能力。",
+      "issues": []
     }
   }
 }

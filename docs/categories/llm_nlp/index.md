@@ -5,7 +5,7 @@ description: "LLM 其他 方向每日 arXiv 论文中文解读。"
 
 # LLM 其他
 
-共收录 **108** 篇，按 arXiv 日榜日期倒序排列。
+共收录 **109** 篇，按 arXiv 日榜日期倒序排列。
 
 ## 2026-08-10
 
@@ -48,6 +48,20 @@ description: "LLM 其他 方向每日 arXiv 论文中文解读。"
 <div class="daily-paper-summary" markdown="1">
 
 中文摘要尚未生成，请进入论文页查看现有元数据。
+
+</div>
+
+</article>
+
+<article class="daily-paper-item" markdown="1">
+
+#### [PACE: Primitive-Aware Code Evolution for Automated Algorithm Design](../../arxiv_daily/2026-08-10/llm_reasoning/pace-primitive-aware-code-evolution-for-automated-algorithm-design.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.07395</span><span class="paper-category-chip">LLM Reasoning</span><span class="paper-category-chip">LLM 其他</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+PACE 将自动算法设计中原本随完整程序一同淘汰的局部代码逻辑，表示为可持续复用的可执行算法原语，并通过受约束的代码演化与自适应选择促进其跨程序迁移。
 
 </div>
 

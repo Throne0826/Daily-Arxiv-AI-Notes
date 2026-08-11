@@ -5,12 +5,14 @@ description: 每日 arXiv AI 草稿的人工核验入口与自动检查问题。
 
 # 人工审核
 
-当前共有 **251** 篇待核验。优先检查带自动审核问题的页面。
+当前共有 **253** 篇待核验。优先检查带自动审核问题的页面。
 
 <div class="review-table" markdown="1">
 
 | 日期 | 论文 | 状态 | 置信度 | 自动检查 |
 |---|---|---|---:|---|
+| 2026-08-10 | [Stochastic Autoregressive Learning](../arxiv_daily/2026-08-10/llm_reasoning/stochastic-autoregressive-learning.md) <br><code>2608.07224</code> | `ai_draft` | 0.78 | main_results[1] evidence quote not found in source |
+| 2026-08-10 | [PACE: Primitive-Aware Code Evolution for Automated Algorithm Design](../arxiv_daily/2026-08-10/llm_reasoning/pace-primitive-aware-code-evolution-for-automated-algorithm-design.md) <br><code>2608.07395</code> | `ai_draft` | 0.83 | 无结构性问题 |
 | 2026-08-10 | [ReGraph: Learning to Generate Recipe Graphs from Food Images](../arxiv_daily/2026-08-10/multimodal_vlm/regraph-learning-to-generate-recipe-graphs-from-food-images.md) <br><code>2608.06917</code> | `ai_draft` | 0.84 | 无结构性问题 |
 | 2026-08-10 | [Ask-E: An Environment for Calibrated Question Generation](../arxiv_daily/2026-08-10/llm_evaluation/ask-e-an-environment-for-calibrated-question-generation.md) <br><code>2608.06933</code> | `ai_draft` | 0.94 | 无结构性问题 |
 | 2026-08-10 | [The Optimizer Is the Agent: Reasoning-Driven Search across Prompts, Programs, and ML Workflows](../arxiv_daily/2026-08-10/llm_agent/the-optimizer-is-the-agent-reasoning-driven-search-across-prompts-programs-and-ml-workflows.md) <br><code>2608.06714</code> | `ai_draft` | 0.94 | 无结构性问题 |

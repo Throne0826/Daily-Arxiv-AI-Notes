@@ -1,21 +1,21 @@
 ---
 title: "arXiv 每日论文 · 2026-08-10"
-description: "2026-08-10 筛选出的 13 篇 AI arXiv 新论文中文解读。"
+description: "2026-08-10 筛选出的 15 篇 AI arXiv 新论文中文解读。"
 ---
 
 # arXiv 每日论文：2026-08-10
 
 <div class="daily-overview" markdown="1">
 
-收录 **13** 篇不重复论文，形成 **32** 条分类记录。多标签论文会同时出现在所有相关方向中。
+收录 **15** 篇不重复论文，形成 **35** 条分类记录。多标签论文会同时出现在所有相关方向中。
 
 </div>
 
-## LLM · 13 篇
+## LLM · 15 篇
 
 <section class="daily-category-section" markdown="1">
 
-### LLM Reasoning · 13 篇
+### LLM Reasoning · 15 篇
 
 <div class="daily-paper-list" markdown="1">
 
@@ -175,6 +175,20 @@ description: "2026-08-10 筛选出的 13 篇 AI arXiv 新论文中文解读。"
 
 <article class="daily-paper-item" markdown="1">
 
+#### [PACE: Primitive-Aware Code Evolution for Automated Algorithm Design](llm_reasoning/pace-primitive-aware-code-evolution-for-automated-algorithm-design.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.07395</span><span class="paper-category-chip">LLM Reasoning</span><span class="paper-category-chip">LLM 其他</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+PACE 将自动算法设计中原本随完整程序一同淘汰的局部代码逻辑，表示为可持续复用的可执行算法原语，并通过受约束的代码演化与自适应选择促进其跨程序迁移。
+
+</div>
+
+</article>
+
+<article class="daily-paper-item" markdown="1">
+
 #### [Solver-Guided Reasoning for Mixed-Equilibrium Strategies](llm_reasoning/solver-guided-reasoning-for-mixed-equilibrium-strategies.md)
 
 <div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.06741</span><span class="paper-category-chip">LLM Reasoning</span><span class="paper-category-chip">LLM 其他</span></div>
@@ -182,6 +196,20 @@ description: "2026-08-10 筛选出的 13 篇 AI arXiv 新论文中文解读。"
 <div class="daily-paper-summary" markdown="1">
 
 中文摘要尚未生成，请进入论文页查看现有元数据。
+
+</div>
+
+</article>
+
+<article class="daily-paper-item" markdown="1">
+
+#### [Stochastic Autoregressive Learning](llm_reasoning/stochastic-autoregressive-learning.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.07224</span><span class="paper-category-chip">LLM Reasoning</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+本文把确定性自回归学习推广到随机生成器，研究在基础单步、完整思维链与仅终点三种监督下，学习最终词元概率所需的样本量能否建立普适比较。
 
 </div>
 
@@ -411,7 +439,7 @@ description: "2026-08-10 筛选出的 13 篇 AI arXiv 新论文中文解读。"
 
 <section class="daily-category-section" markdown="1">
 
-### LLM 其他 · 6 篇
+### LLM 其他 · 7 篇
 
 <div class="daily-paper-list" markdown="1">
 
@@ -480,6 +508,20 @@ description: "2026-08-10 筛选出的 13 篇 AI arXiv 新论文中文解读。"
 <div class="daily-paper-summary" markdown="1">
 
 本文提出 LUCID，一种利用大语言模型诱导可解释规则、无需训练和标签的社区检测方法。
+
+</div>
+
+</article>
+
+<article class="daily-paper-item" markdown="1">
+
+#### [PACE: Primitive-Aware Code Evolution for Automated Algorithm Design](llm_reasoning/pace-primitive-aware-code-evolution-for-automated-algorithm-design.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.07395</span><span class="paper-category-chip">LLM Reasoning</span><span class="paper-category-chip">LLM 其他</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+PACE 将自动算法设计中原本随完整程序一同淘汰的局部代码逻辑，表示为可持续复用的可执行算法原语，并通过受约束的代码演化与自适应选择促进其跨程序迁移。
 
 </div>
 

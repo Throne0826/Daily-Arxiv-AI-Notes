@@ -4,7 +4,7 @@ title: "LLM 其他"
 
 # LLM 其他
 
-当日共 **6** 篇相关论文。多标签论文链接到其唯一正文页。
+当日共 **7** 篇相关论文。多标签论文链接到其唯一正文页。
 
 <div class="daily-paper-list" markdown="1">
 
@@ -73,6 +73,20 @@ title: "LLM 其他"
 <div class="daily-paper-summary" markdown="1">
 
 本文提出 LUCID，一种利用大语言模型诱导可解释规则、无需训练和标签的社区检测方法。
+
+</div>
+
+</article>
+
+<article class="daily-paper-item" markdown="1">
+
+#### [PACE: Primitive-Aware Code Evolution for Automated Algorithm Design](../llm_reasoning/pace-primitive-aware-code-evolution-for-automated-algorithm-design.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.07395</span><span class="paper-category-chip">LLM Reasoning</span><span class="paper-category-chip">LLM 其他</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+PACE 将自动算法设计中原本随完整程序一同淘汰的局部代码逻辑，表示为可持续复用的可执行算法原语，并通过受约束的代码演化与自适应选择促进其跨程序迁移。
 
 </div>
 

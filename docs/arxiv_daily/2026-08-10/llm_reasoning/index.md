@@ -4,7 +4,7 @@ title: "LLM Reasoning"
 
 # LLM Reasoning
 
-当日共 **13** 篇相关论文。多标签论文链接到其唯一正文页。
+当日共 **15** 篇相关论文。多标签论文链接到其唯一正文页。
 
 <div class="daily-paper-list" markdown="1">
 
@@ -164,6 +164,20 @@ title: "LLM Reasoning"
 
 <article class="daily-paper-item" markdown="1">
 
+#### [PACE: Primitive-Aware Code Evolution for Automated Algorithm Design](pace-primitive-aware-code-evolution-for-automated-algorithm-design.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.07395</span><span class="paper-category-chip">LLM Reasoning</span><span class="paper-category-chip">LLM 其他</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+PACE 将自动算法设计中原本随完整程序一同淘汰的局部代码逻辑，表示为可持续复用的可执行算法原语，并通过受约束的代码演化与自适应选择促进其跨程序迁移。
+
+</div>
+
+</article>
+
+<article class="daily-paper-item" markdown="1">
+
 #### [Solver-Guided Reasoning for Mixed-Equilibrium Strategies](solver-guided-reasoning-for-mixed-equilibrium-strategies.md)
 
 <div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.06741</span><span class="paper-category-chip">LLM Reasoning</span><span class="paper-category-chip">LLM 其他</span></div>
@@ -171,6 +185,20 @@ title: "LLM Reasoning"
 <div class="daily-paper-summary" markdown="1">
 
 中文摘要尚未生成，请进入论文页查看现有元数据。
+
+</div>
+
+</article>
+
+<article class="daily-paper-item" markdown="1">
+
+#### [Stochastic Autoregressive Learning](stochastic-autoregressive-learning.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.07224</span><span class="paper-category-chip">LLM Reasoning</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+本文把确定性自回归学习推广到随机生成器，研究在基础单步、完整思维链与仅终点三种监督下，学习最终词元概率所需的样本量能否建立普适比较。
 
 </div>
 

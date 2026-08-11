@@ -5,7 +5,7 @@ description: "LLM Reasoning 方向每日 arXiv 论文中文解读。"
 
 # LLM Reasoning
 
-共收录 **149** 篇，按 arXiv 日榜日期倒序排列。
+共收录 **151** 篇，按 arXiv 日榜日期倒序排列。
 
 ## 2026-08-10
 
@@ -83,6 +83,20 @@ description: "LLM Reasoning 方向每日 arXiv 论文中文解读。"
 
 <article class="daily-paper-item" markdown="1">
 
+#### [Stochastic Autoregressive Learning](../../arxiv_daily/2026-08-10/llm_reasoning/stochastic-autoregressive-learning.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.07224</span><span class="paper-category-chip">LLM Reasoning</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+本文把确定性自回归学习推广到随机生成器，研究在基础单步、完整思维链与仅终点三种监督下，学习最终词元概率所需的样本量能否建立普适比较。
+
+</div>
+
+</article>
+
+<article class="daily-paper-item" markdown="1">
+
 #### [Solver-Guided Reasoning for Mixed-Equilibrium Strategies](../../arxiv_daily/2026-08-10/llm_reasoning/solver-guided-reasoning-for-mixed-equilibrium-strategies.md)
 
 <div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.06741</span><span class="paper-category-chip">LLM Reasoning</span><span class="paper-category-chip">LLM 其他</span></div>
@@ -104,6 +118,20 @@ description: "LLM Reasoning 方向每日 arXiv 论文中文解读。"
 <div class="daily-paper-summary" markdown="1">
 
 本文针对从单张食物图像生成可验证烹饪流程的问题，指出文本流畅性不能代表程序结构正确性，并以显式食谱图和两阶段训练框架提升模型对实体、状态变化及步骤关系的建模能力。
+
+</div>
+
+</article>
+
+<article class="daily-paper-item" markdown="1">
+
+#### [PACE: Primitive-Aware Code Evolution for Automated Algorithm Design](../../arxiv_daily/2026-08-10/llm_reasoning/pace-primitive-aware-code-evolution-for-automated-algorithm-design.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.07395</span><span class="paper-category-chip">LLM Reasoning</span><span class="paper-category-chip">LLM 其他</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+PACE 将自动算法设计中原本随完整程序一同淘汰的局部代码逻辑，表示为可持续复用的可执行算法原语，并通过受约束的代码演化与自适应选择促进其跨程序迁移。
 
 </div>
 

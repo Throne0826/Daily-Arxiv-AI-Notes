@@ -5,7 +5,27 @@ description: "Multi-Agent 方向每日 arXiv 论文中文解读。"
 
 # Multi-Agent
 
-共收录 **6** 篇，按 arXiv 日榜日期倒序排列。
+共收录 **7** 篇，按 arXiv 日榜日期倒序排列。
+
+## 2026-08-12
+
+<div class="daily-paper-list" markdown="1">
+
+<article class="daily-paper-item" markdown="1">
+
+#### [Conversational Orchestration for Organic 6G](../../arxiv_daily/2026-08-12/llm_agent/conversational-orchestration-for-organic-6g.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.10714</span><span class="paper-category-chip">LLM Agent</span><span class="paper-category-chip">Multi-Agent</span><span class="paper-category-chip">LLM Reasoning</span><span class="paper-category-chip">LLM 其他</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+本文针对域持续加入或退出、资源异构且管理权分散的 Organic 6G，探索以轻量级大语言模型域代理和邻域消息交互取代重型跨域协调架构，实现可扩展、易部署且能随拓扑变化快速调整的服务编排。
+
+</div>
+
+</article>
+
+</div>
 
 ## 2026-08-06
 

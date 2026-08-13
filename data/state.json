@@ -4187,6 +4187,281 @@
       "classification_confidence": 0.7833333333333333,
       "summary": "HexEval将学者评价重新表述为双层证据推理：分别考察代表作的内在研究质量与可公开核验的外部学术行为，并以六维、可追溯档案替代单一总分。",
       "issues": []
+    },
+    "2608.11905": {
+      "announcement_date": "2026-08-13",
+      "path": "2026-08-13/llm_reasoning/policy-as-logic-for-robust-reasoning-over-rules.md",
+      "review_status": "ai_draft",
+      "title": "Policy-as-logic for robust reasoning over rules",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.97,
+      "summary": "本文研究如何把自然语言政策转化为可靠的自动决策：让大语言模型只负责从用户查询中提取事实，再由形式逻辑求解器依据政策规则推导结论，以降低输入扰动和生成随机性对结果的影响。",
+      "issues": []
+    },
+    "2608.11941": {
+      "announcement_date": "2026-08-13",
+      "path": "2026-08-13/llm_evaluation/oeis-open-how-many-conjectures-can-language-models-turn-into-theorems.md",
+      "review_status": "ai_draft",
+      "title": "OEIS Open: How many conjectures can language models turn into theorems?",
+      "primary_category": "llm_evaluation",
+      "categories": [
+        "llm_evaluation",
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.97,
+      "summary": "本文提出以 Lean 形式化证明为判定标准的 OEIS Open 基准，用统一、可复现且较难受答案泄漏影响的评测，衡量通用语言模型能否自主证明或否证尚未解决的数学猜想。",
+      "issues": [
+        "main_results[1] evidence quote not found in source"
+      ]
+    },
+    "2608.11739": {
+      "announcement_date": "2026-08-13",
+      "path": "2026-08-13/robotics/g0-5-one-autoregressive-stream-for-robot-reasoning-and-action.md",
+      "review_status": "ai_draft",
+      "title": "G0.5: One Autoregressive Stream for Robot Reasoning and Action",
+      "primary_category": "robotics",
+      "categories": [
+        "robotics",
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.99,
+      "summary": "本文研究如何让视觉—语言—动作模型中的预训练视觉语言模型不再只是为外部动作专家提供条件，而是通过统一的自回归序列直接完成推理与机器人动作生成。",
+      "issues": [
+        "main_results[0] evidence quote not found in source",
+        "ablations[0] evidence quote not found in source"
+      ]
+    },
+    "2608.11233": {
+      "announcement_date": "2026-08-13",
+      "path": "2026-08-13/llm_reasoning/retrofitting-recurrent-depth-into-a-pretrained-language-model-installation-extrapolation-transfer-an.md",
+      "review_status": "ai_draft",
+      "title": "Retrofitting Recurrent Depth into a Pretrained Language Model: Installation, Extrapolation, Transfer, and Retention at Two Parameter Budgets",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.98,
+      "summary": "本文研究能否在不从头训练、尽量保留原有通用能力的前提下，把预训练稠密语言模型改造成可反复调用同一组参数、在隐状态中逐步推理的循环深度模型。",
+      "issues": []
+    },
+    "2608.11994": {
+      "announcement_date": "2026-08-13",
+      "path": "2026-08-13/llm_reasoning/claim-level-reliability-assessment-for-efficient-test-time-reasoning.md",
+      "review_status": "ai_draft",
+      "title": "Claim-Level Reliability Assessment for Efficient Test-Time Reasoning",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.99,
+      "summary": "本文提出免训练的声明级可靠性评估框架（CLR），把部分测试时计算从重复生成完整解答转向核验决定答案正确性的关键声明，再依据核验结果加权聚合候选答案。",
+      "issues": []
+    },
+    "2608.11829": {
+      "announcement_date": "2026-08-13",
+      "path": "2026-08-13/llm_alignment/towards-understanding-on-policy-distillation-through-the-lens-of-test-time-scaling.md",
+      "review_status": "ai_draft",
+      "title": "Towards Understanding On-Policy Distillation through the Lens of Test-Time Scaling",
+      "primary_category": "llm_alignment",
+      "categories": [
+        "llm_alignment",
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.97,
+      "summary": "本文质疑“在策略蒸馏能把强教师的新推理能力传给学生”这一通行解释，并通过随采样预算 $K$ 增长而比较 $\\mathrm{pass}@K$ 与 $\\mathrm{avg}@K$，将其收益重新解释为主要提高正确推理路径的采样效率，而非稳定扩大学生模型的能力边界。",
+      "issues": []
+    },
+    "2608.12220": {
+      "announcement_date": "2026-08-13",
+      "path": "2026-08-13/vlm_reasoning/scout-unlocking-enhanced-spatial-reasoning-via-structured-chain-of-thought-and-multi-objective-proce.md",
+      "review_status": "ai_draft",
+      "title": "SCOUT: Unlocking Enhanced Spatial Reasoning via Structured Chain-of-Thought and Multi-Objective Process Reward",
+      "primary_category": "vlm_reasoning",
+      "categories": [
+        "vlm_reasoning",
+        "llm_reasoning",
+        "multimodal_vlm"
+      ],
+      "classification_confidence": 0.99,
+      "summary": "SCOUT通过显式组织“空间感知—逻辑分析—答案生成”的推理过程，并用分阶段过程奖励训练视觉语言模型，以同时补足三维空间表征和中间推理信用分配能力。",
+      "issues": [
+        "ablations[0] evidence quote not found in source"
+      ]
+    },
+    "2608.11420": {
+      "announcement_date": "2026-08-13",
+      "path": "2026-08-13/multi_agent/social-chain-of-thought-a-multi-agent-architecture-grounded-in-medical-differential-diagnosis-method.md",
+      "review_status": "ai_draft",
+      "title": "Social Chain of Thought: A Multi-Agent Architecture Grounded in Medical Differential Diagnosis Methodology",
+      "primary_category": "multi_agent",
+      "categories": [
+        "multi_agent",
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.99,
+      "summary": "本文提出社会思维链（SCoT），以动态生成、角色条件化的医学专家智能体开展多轮协商，并检验这种社会化推理结构能否在复杂鉴别诊断中获得单体推理扩展难以复现的召回优势。",
+      "issues": [
+        "main_results[1] evidence quote not found in source",
+        "main_results[2] evidence quote not found in source",
+        "ablations[0] evidence quote not found in source",
+        "ablations[1] evidence quote not found in source"
+      ]
+    },
+    "2608.12125": {
+      "announcement_date": "2026-08-13",
+      "path": "2026-08-13/multi_agent/do-llms-take-care-of-their-own-similarity-signals-can-induce-cooperation.md",
+      "review_status": "ai_draft",
+      "title": "Do LLMs Take Care of Their Own? Similarity Signals Can Induce Cooperation",
+      "primary_category": "multi_agent",
+      "categories": [
+        "multi_agent",
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.98,
+      "summary": "本文研究大语言模型智能体在战略互动中如何响应连续的相似度信号，并检验这种信号能否作为促进合作的机制，以及如何依据智能体的真实行为计算该信号。",
+      "issues": []
+    },
+    "2608.11573": {
+      "announcement_date": "2026-08-13",
+      "path": "2026-08-13/llm_reasoning/reinforcing-step-level-reasoning-for-effective-self-correction-in-llms.md",
+      "review_status": "ai_draft",
+      "title": "Reinforcing Step-level Reasoning for Effective Self-Correction in LLMs",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning",
+        "llm_alignment",
+        "llm_nlp"
+      ],
+      "classification_confidence": 0.98,
+      "summary": "本文提出两阶段框架 SFS-DPO：先强化小型大语言模型的逐步推理能力，再训练其在推理过程中识别并改正错误步骤，从而提升数学推理的可靠性。",
+      "issues": [
+        "main_results[1] evidence quote not found in source",
+        "main_results[2] evidence quote not found in source"
+      ]
+    },
+    "2608.11716": {
+      "announcement_date": "2026-08-13",
+      "path": "2026-08-13/llm_reasoning/chain-of-thought-shows-the-path-to-a-tree-realizing-branching-complexity.md",
+      "review_status": "ai_draft",
+      "title": "Chain-of-Thought Shows the Path to a Tree: Realizing Branching Complexity",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.97,
+      "summary": "本文要把“线性步数的链式思维能够表达更强计算”这一抽象复杂度结论变成可检查的具体构造：先用小深度硬注意力 Transformer 显式实现图遍历，再以遍历为计算底座求树的 Strahler 数与宽度，并考察这些能力在树和 Dyck 路径两种表示之间能否迁移。",
+      "issues": []
+    },
+    "2608.11889": {
+      "announcement_date": "2026-08-13",
+      "path": "2026-08-13/llm_reasoning/dextersql-deep-schema-exploration-and-rule-based-correction-for-text-to-sql-generation.md",
+      "review_status": "ai_draft",
+      "title": "DexterSQL: Deep Schema Exploration and Rule-based Correction for Text-to-SQL Generation",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning",
+        "llm_nlp"
+      ],
+      "classification_confidence": 0.92,
+      "summary": "DexterSQL面向无需微调的Text-to-SQL场景，试图通过深层模式探索、跨数据库纠错规则和基于句法结构的多路径生成，弥补提示式系统在列消歧、重复错误利用和复杂条件还原方面的不足。",
+      "issues": []
+    },
+    "2608.11403": {
+      "announcement_date": "2026-08-13",
+      "path": "2026-08-13/llm_reasoning/when-self-consistency-backfires-majority-vote-hurts-the-majority-of-hard-science-problems-for-small.md",
+      "review_status": "ai_draft",
+      "title": "When Self-Consistency Backfires: Majority Vote Hurts the Majority of Hard Science Problems for Small LLMs",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning",
+        "llm_evaluation"
+      ],
+      "classification_confidence": 0.96,
+      "summary": "本文发现，在GPQA Diamond高难度科学题上，对小型指令微调语言模型增加推理采样并进行多数投票，往往会强化模型稳定但错误的答案；同时，基于答案一致率或词元熵的廉价无验证器门控也无法可靠判断何时应采用投票。",
+      "issues": []
+    },
+    "2608.12004": {
+      "announcement_date": "2026-08-13",
+      "path": "2026-08-13/llm_evaluation/realistictritonbench-a-benchmark-for-triton-kernel-generation-in-real-world-ai-frameworks.md",
+      "review_status": "ai_draft",
+      "title": "RealisticTritonBench: A Benchmark for Triton-Kernel Generation in Real-World AI Frameworks",
+      "primary_category": "llm_evaluation",
+      "categories": [
+        "llm_evaluation",
+        "llm_reasoning",
+        "llm_nlp"
+      ],
+      "classification_confidence": 0.95,
+      "summary": "本文提出 RealisticTritonBench，以真实 AI 框架中的 Triton 相关拉取请求为任务来源，并通过单元测试、模型精度测试和端到端性能测试，评估大语言模型在实际内核开发场景中的能力。",
+      "issues": [
+        "main_results[2] evidence quote not found in source"
+      ]
+    },
+    "2608.11260": {
+      "announcement_date": "2026-08-13",
+      "path": "2026-08-13/vlm_reasoning/glance-scrutinize-and-think-advancing-video-anomaly-detection-from-training-free-to-agentic-reasonin.md",
+      "review_status": "ai_draft",
+      "title": "Glance, Scrutinize, and Think: Advancing Video Anomaly Detection from Training-Free to Agentic Reasoning",
+      "primary_category": "vlm_reasoning",
+      "categories": [
+        "vlm_reasoning",
+        "llm_agent",
+        "llm_nlp",
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.96,
+      "summary": "本文针对视频异常检测中“能定位但不理解”与“能解释但定位不准”的能力割裂，探索统一的全局到局部推理范式，并分别提出无需训练的粗到细框架与可学习调用视频裁剪工具的智能体方法。",
+      "issues": []
+    },
+    "2608.11838": {
+      "announcement_date": "2026-08-13",
+      "path": "2026-08-13/multimodal_vlm/geobridge-decoupled-semantic-conditioning-for-generative-image-geolocalization.md",
+      "review_status": "ai_draft",
+      "title": "GeoBridge: Decoupled Semantic Conditioning for Generative Image Geolocalization",
+      "primary_category": "multimodal_vlm",
+      "categories": [
+        "multimodal_vlm",
+        "llm_nlp",
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.95,
+      "summary": "GeoBridge研究的不是如何让多模态大语言模型提出更好的地点猜测，而是如何把其多粒度地理语义转换为适合连续球面坐标生成器的条件表示，并以角色解耦避免离散语义监督破坏该表示的几何结构。",
+      "issues": []
+    },
+    "2608.11292": {
+      "announcement_date": "2026-08-13",
+      "path": "2026-08-13/vlm_reasoning/self-evolving-code-with-image-reasoning.md",
+      "review_status": "ai_draft",
+      "title": "Self-Evolving Code-with-Image Reasoning",
+      "primary_category": "vlm_reasoning",
+      "categories": [
+        "vlm_reasoning",
+        "llm_agent",
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.94,
+      "summary": "本文研究如何让多模态模型把无法靠目视或语言推理完成的像素级计算写成可执行程序，并通过反思、诊断和修复自身失败程序，在不更新模型权重的情况下积累可复用的视觉算法技能。",
+      "issues": []
+    },
+    "2608.11691": {
+      "announcement_date": "2026-08-13",
+      "path": "2026-08-13/llm_safety/lemur-latent-entropy-aware-multimodal-unlearning-via-visual-anchored-reasoning-redirection.md",
+      "review_status": "ai_draft",
+      "title": "LEMUR: Latent Entropy-aware Multimodal Unlearning via Visual-anchored Reasoning Redirection",
+      "primary_category": "llm_safety",
+      "categories": [
+        "llm_safety",
+        "knowledge_editing",
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.96,
+      "summary": "本文针对强化学习后训练的多模态大推理模型会在思维链中泄露已要求遗忘的敏感事实这一新型隐私风险，提出利用逐词元熵变化定位泄露阶段并在解码时重定向推理轨迹的免训练遗忘框架 LEMUR。",
+      "issues": [
+        "main_results[1] evidence quote not found in source"
+      ]
     }
   }
 }

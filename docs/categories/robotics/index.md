@@ -5,7 +5,27 @@ description: "机器人 / 具身智能 方向每日 arXiv 论文中文解读。"
 
 # 机器人 / 具身智能
 
-共收录 **42** 篇，按 arXiv 日榜日期倒序排列。
+共收录 **43** 篇，按 arXiv 日榜日期倒序排列。
+
+## 2026-08-13
+
+<div class="daily-paper-list" markdown="1">
+
+<article class="daily-paper-item" markdown="1">
+
+#### [G0.5: One Autoregressive Stream for Robot Reasoning and Action](../../arxiv_daily/2026-08-13/robotics/g0-5-one-autoregressive-stream-for-robot-reasoning-and-action.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.11739</span><span class="paper-category-chip">机器人 / 具身智能</span><span class="paper-category-chip">LLM Reasoning</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+本文研究如何让视觉—语言—动作模型中的预训练视觉语言模型不再只是为外部动作专家提供条件，而是通过统一的自回归序列直接完成推理与机器人动作生成。
+
+</div>
+
+</article>
+
+</div>
 
 ## 2026-08-06
 

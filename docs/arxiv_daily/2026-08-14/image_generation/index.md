@@ -1,19 +1,16 @@
 ---
-title: "图像生成 · 每日 arXiv"
-description: "图像生成 方向每日 arXiv 论文中文解读。"
+title: "图像生成"
 ---
 
 # 图像生成
 
-共收录 **1** 篇，按 arXiv 日榜日期倒序排列。
-
-## 2026-08-14
+当日共 **1** 篇相关论文。多标签论文链接到其唯一正文页。
 
 <div class="daily-paper-list" markdown="1">
 
 <article class="daily-paper-item" markdown="1">
 
-#### [Towards Physics-Faithful Generation of Scientific Diagrams](../../arxiv_daily/2026-08-14/image_generation/towards-physics-faithful-generation-of-scientific-diagrams.md)
+#### [Towards Physics-Faithful Generation of Scientific Diagrams](towards-physics-faithful-generation-of-scientific-diagrams.md)
 
 <div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.13112</span><span class="paper-category-chip">图像生成</span><span class="paper-category-chip">LLM Reasoning</span></div>
 

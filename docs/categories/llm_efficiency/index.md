@@ -5,7 +5,27 @@ description: "LLM 效率 方向每日 arXiv 论文中文解读。"
 
 # LLM 效率
 
-共收录 **25** 篇，按 arXiv 日榜日期倒序排列。
+共收录 **26** 篇，按 arXiv 日榜日期倒序排列。
+
+## 2026-08-17
+
+<div class="daily-paper-list" markdown="1">
+
+<article class="daily-paper-item" markdown="1">
+
+#### [Batch-wise Adaptive Pruning: Periodic Neuron Activation-Aware Weight Pruning for Language Reasoning Model](../../arxiv_daily/2026-08-17/llm_efficiency/batch-wise-adaptive-pruning-periodic-neuron-activation-aware-weight-pruning-for-language-reasoning-m.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.14003</span><span class="paper-category-chip">LLM 效率</span><span class="paper-category-chip">LLM Reasoning</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+本文研究如何在大推理模型的批量推理中，以无需训练和外部校准的方式动态剪枝，并通过周期性 top-$k$ 选择与激活记忆缓解共享掩码造成的稀疏率失控和推理精度下降。
+
+</div>
+
+</article>
+
+</div>
 
 ## 2026-08-14
 

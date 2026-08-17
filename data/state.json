@@ -4873,6 +4873,190 @@
       "classification_confidence": 0.86,
       "summary": "本文研究能否以仅含许可数据的训练方案，从零训练一个面向丹麦语与英语、参数量为10亿的层次化推理模型，并在有限训练与推理成本下获得有竞争力的语言理解和推理能力。",
       "issues": []
+    },
+    "2608.13612": {
+      "announcement_date": "2026-08-17",
+      "path": "2026-08-17/llm_evaluation/semplan-benchmarking-structured-semantic-planning-for-llm-based-queries-over-enterprise-data.md",
+      "review_status": "ai_draft",
+      "title": "SemPlan: Benchmarking Structured Semantic Planning for LLM-Based Queries over Enterprise Data",
+      "primary_category": "llm_evaluation",
+      "categories": [
+        "llm_evaluation",
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.88,
+      "summary": "SemPlan通过固定模型、数据、样例与评测规则，对比不同结构化约束程度的企业数据问答架构，以判断约束如何改变正确性、策略合规、失败类型、成本与稳定性之间的权衡。",
+      "issues": []
+    },
+    "2608.13566": {
+      "announcement_date": "2026-08-17",
+      "path": "2026-08-17/llm_evaluation/don-t-claim-benchmark-oriented-optimization-improves-general-coding-capability-diverse-evaluation-is.md",
+      "review_status": "ai_draft",
+      "title": "Don't Claim Benchmark-Oriented Optimization Improves General Coding Capability -- Diverse Evaluation Is Required",
+      "primary_category": "llm_evaluation",
+      "categories": [
+        "llm_evaluation",
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.92,
+      "summary": "本文质疑以 SWE-bench 等少数基准的提升推断“通用编码能力”增强，主张通过跨任务迁移测试和差异化评估，区分真正的能力增长与针对特定基准的专门化。",
+      "issues": []
+    },
+    "2608.13667": {
+      "announcement_date": "2026-08-17",
+      "path": "2026-08-17/llm_agent/second-thought-reasoning-in-parallel-as-llm-agents-act-and-observe.md",
+      "review_status": "ai_draft",
+      "title": "Second Thought: Reasoning in Parallel as LLM Agents Act and Observe",
+      "primary_category": "llm_agent",
+      "categories": [
+        "llm_agent",
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.94,
+      "summary": "本文指出 ReAct 智能体在执行动作并等待环境返回结果时存在反复出现的“推理空闲窗口”，并提出无需训练的 Second Thought，在这些窗口中并行生成可中断、互补的辅助思考，供下一轮决策使用。",
+      "issues": [
+        "main_results[2] evidence quote not found in source",
+        "ablations[0] evidence quote not found in source",
+        "ablations[1] evidence quote not found in source"
+      ]
+    },
+    "2608.13760": {
+      "announcement_date": "2026-08-17",
+      "path": "2026-08-17/llm_reasoning/amplified-does-not-mean-predictive-reasoning-behaviors-in-thinking-models.md",
+      "review_status": "ai_draft",
+      "title": "Amplified Does Not Mean Predictive: Reasoning Behaviors in Thinking Models",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.87,
+      "summary": "本文追问推理导向训练究竟强化了哪些可观察行为，并指出“行为出现得更多”不等于“该行为更能预测答案正确”，因而需要把行为频率与行为对正确性的关联分开衡量。",
+      "issues": []
+    },
+    "2608.14452": {
+      "announcement_date": "2026-08-17",
+      "path": "2026-08-17/llm_agent/sheetcompass-hierarchical-relation-graphs-for-agentic-spreadsheet-reasoning.md",
+      "review_status": "ai_draft",
+      "title": "SheetCompass: Hierarchical Relation Graphs for Agentic Spreadsheet Reasoning",
+      "primary_category": "llm_agent",
+      "categories": [
+        "llm_agent",
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.91,
+      "summary": "SheetCompass旨在以层次化关系图显式恢复复杂电子表格的表内空间拓扑与跨工作表语义依赖，并据此组织多智能体推理，以缓解扁平文本表示造成的结构信息损失。",
+      "issues": []
+    },
+    "2608.13854": {
+      "announcement_date": "2026-08-17",
+      "path": "2026-08-17/llm_alignment/bootstrapping-niche-multilingual-code-translation-via-reinforcement-learning-with-execution-based-ve.md",
+      "review_status": "ai_draft",
+      "title": "Bootstrapping Niche Multilingual Code Translation via Reinforcement Learning with Execution-Based Verifiable Supervision",
+      "primary_category": "llm_alignment",
+      "categories": [
+        "llm_alignment",
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.94,
+      "summary": "本文研究如何利用执行验证产生可靠监督，并以奖励模型和强化学习将大语言模型的代码翻译能力扩展到包含长尾语言的25种编程语言、600个有向翻译方向。",
+      "issues": []
+    },
+    "2608.14221": {
+      "announcement_date": "2026-08-17",
+      "path": "2026-08-17/llm_reasoning/mathform-scaling-mathematical-autoformalization-with-knowledge-retrieval-and-verification-guided-ref.md",
+      "review_status": "ai_draft",
+      "title": "MathForm: Scaling Mathematical Autoformalization with Knowledge Retrieval and Verification-Guided Refinement",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.96,
+      "summary": "MathForm将Mathlib知识检索、编译与语义反馈驱动的迭代修订组成闭环，旨在突破依赖参数记忆和单次生成筛选的数据构造上限，从而生成更可靠、更具领域多样性的自然语言到Lean 4形式化训练数据。",
+      "issues": []
+    },
+    "2608.14003": {
+      "announcement_date": "2026-08-17",
+      "path": "2026-08-17/llm_efficiency/batch-wise-adaptive-pruning-periodic-neuron-activation-aware-weight-pruning-for-language-reasoning-m.md",
+      "review_status": "ai_draft",
+      "title": "Batch-wise Adaptive Pruning: Periodic Neuron Activation-Aware Weight Pruning for Language Reasoning Model",
+      "primary_category": "llm_efficiency",
+      "categories": [
+        "llm_efficiency",
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.98,
+      "summary": "本文研究如何在大推理模型的批量推理中，以无需训练和外部校准的方式动态剪枝，并通过周期性 top-$k$ 选择与激活记忆缓解共享掩码造成的稀疏率失控和推理精度下降。",
+      "issues": [
+        "main_results[2] evidence quote not found in source"
+      ]
+    },
+    "2608.13721": {
+      "announcement_date": "2026-08-17",
+      "path": "2026-08-17/llm_reasoning/capacity-dependent-effects-of-data-selection-for-reasoning.md",
+      "review_status": "ai_draft",
+      "title": "Capacity-Dependent Effects of Data Selection for Reasoning",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.88,
+      "summary": "本文重新审视“应优先选择学生模型高似然响应进行推理监督微调”的经验规则，指出数据选择效果取决于学生模型容量与训练时长，并呈现高似然数据“前期拟合快”、低似然数据在大模型上“后期收益高”的容量依赖规律。",
+      "issues": []
+    },
+    "2608.14277": {
+      "announcement_date": "2026-08-17",
+      "path": "2026-08-17/llm_reasoning/simpleopd-simple-tokenizer-agnostic-on-policy-distillation-for-long-context-reasoning.md",
+      "review_status": "ai_draft",
+      "title": "SimpleOPD: Simple Tokenizer-Agnostic On-Policy Distillation for Long-Context Reasoning",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning",
+        "llm_alignment"
+      ],
+      "classification_confidence": 0.9,
+      "summary": "本文研究如何把长上下文教师模型的推理能力稳定地蒸馏给上下文较短且分词器不同的学生模型，重点解决跨分词器监督、输出长度失控和训练不稳定问题。",
+      "issues": []
+    },
+    "2608.14290": {
+      "announcement_date": "2026-08-17",
+      "path": "2026-08-17/llm_reasoning/intern-s2-mobius-foundation-model-with-decoupled-knowledge-and-reasoning.md",
+      "review_status": "ai_draft",
+      "title": "Intern-S2-Mobius: Foundation Model with Decoupled Knowledge and Reasoning",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.72,
+      "summary": "本文提出将知识存储与推理计算解耦的 Mobius-v0 架构，并据此构建 Intern-S2-Mobius，以提高基础模型的知识压缩能力、训练数据利用率和推理效率。",
+      "issues": []
+    },
+    "2608.13570": {
+      "announcement_date": "2026-08-17",
+      "path": "2026-08-17/llm_reasoning/think-in-latent-explain-in-language-self-explainable-latent-reasoning.md",
+      "review_status": "ai_draft",
+      "title": "Think in Latent, Explain in Language: Self-Explainable Latent Reasoning",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning",
+        "llm_interpretability"
+      ],
+      "classification_confidence": 0.86,
+      "summary": "SELR通过联合答案监督与思维链监督，使同一个模型既能在连续潜在空间中高效推理，又能将自身的潜在思维还原为人类可读的解释。",
+      "issues": []
+    },
+    "2608.13787": {
+      "announcement_date": "2026-08-17",
+      "path": "2026-08-17/llm_alignment/from-passive-delegates-to-strategic-negotiators-reinforcing-social-reasoning-in-small-language-model.md",
+      "review_status": "ai_draft",
+      "title": "From Passive Delegates to Strategic Negotiators: Reinforcing Social Reasoning in Small Language Models with SocialRL",
+      "primary_category": "llm_alignment",
+      "categories": [
+        "llm_alignment",
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.82,
+      "summary": "本文将利益冲突场景中的代理行为视为需要专门后训练的社会推理问题，并研究能否通过 SocialRL 使小型语言模型从顺从的通用助手转变为维护委托人利益的策略型代表。",
+      "issues": []
     }
   }
 }

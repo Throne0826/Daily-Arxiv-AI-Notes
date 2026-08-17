@@ -5,12 +5,25 @@ description: 每日 arXiv AI 草稿的人工核验入口与自动检查问题。
 
 # 人工审核
 
-当前共有 **318** 篇待核验。优先检查带自动审核问题的页面。
+当前共有 **331** 篇待核验。优先检查带自动审核问题的页面。
 
 <div class="review-table" markdown="1">
 
 | 日期 | 论文 | 状态 | 置信度 | 自动检查 |
 |---|---|---|---:|---|
+| 2026-08-17 | [Intern-S2-Mobius: Foundation Model with Decoupled Knowledge and Reasoning](../arxiv_daily/2026-08-17/llm_reasoning/intern-s2-mobius-foundation-model-with-decoupled-knowledge-and-reasoning.md) <br><code>2608.14290</code> | `ai_draft` | 0.72 | 无结构性问题 |
+| 2026-08-17 | [From Passive Delegates to Strategic Negotiators: Reinforcing Social Reasoning in Small Language Models with SocialRL](../arxiv_daily/2026-08-17/llm_alignment/from-passive-delegates-to-strategic-negotiators-reinforcing-social-reasoning-in-small-language-model.md) <br><code>2608.13787</code> | `ai_draft` | 0.82 | 无结构性问题 |
+| 2026-08-17 | [Think in Latent, Explain in Language: Self-Explainable Latent Reasoning](../arxiv_daily/2026-08-17/llm_reasoning/think-in-latent-explain-in-language-self-explainable-latent-reasoning.md) <br><code>2608.13570</code> | `ai_draft` | 0.86 | 无结构性问题 |
+| 2026-08-17 | [Amplified Does Not Mean Predictive: Reasoning Behaviors in Thinking Models](../arxiv_daily/2026-08-17/llm_reasoning/amplified-does-not-mean-predictive-reasoning-behaviors-in-thinking-models.md) <br><code>2608.13760</code> | `ai_draft` | 0.87 | 无结构性问题 |
+| 2026-08-17 | [SemPlan: Benchmarking Structured Semantic Planning for LLM-Based Queries over Enterprise Data](../arxiv_daily/2026-08-17/llm_evaluation/semplan-benchmarking-structured-semantic-planning-for-llm-based-queries-over-enterprise-data.md) <br><code>2608.13612</code> | `ai_draft` | 0.88 | 无结构性问题 |
+| 2026-08-17 | [Capacity-Dependent Effects of Data Selection for Reasoning](../arxiv_daily/2026-08-17/llm_reasoning/capacity-dependent-effects-of-data-selection-for-reasoning.md) <br><code>2608.13721</code> | `ai_draft` | 0.88 | 无结构性问题 |
+| 2026-08-17 | [SimpleOPD: Simple Tokenizer-Agnostic On-Policy Distillation for Long-Context Reasoning](../arxiv_daily/2026-08-17/llm_reasoning/simpleopd-simple-tokenizer-agnostic-on-policy-distillation-for-long-context-reasoning.md) <br><code>2608.14277</code> | `ai_draft` | 0.90 | 无结构性问题 |
+| 2026-08-17 | [SheetCompass: Hierarchical Relation Graphs for Agentic Spreadsheet Reasoning](../arxiv_daily/2026-08-17/llm_agent/sheetcompass-hierarchical-relation-graphs-for-agentic-spreadsheet-reasoning.md) <br><code>2608.14452</code> | `ai_draft` | 0.91 | 无结构性问题 |
+| 2026-08-17 | [Don't Claim Benchmark-Oriented Optimization Improves General Coding Capability -- Diverse Evaluation Is Required](../arxiv_daily/2026-08-17/llm_evaluation/don-t-claim-benchmark-oriented-optimization-improves-general-coding-capability-diverse-evaluation-is.md) <br><code>2608.13566</code> | `ai_draft` | 0.92 | 无结构性问题 |
+| 2026-08-17 | [Second Thought: Reasoning in Parallel as LLM Agents Act and Observe](../arxiv_daily/2026-08-17/llm_agent/second-thought-reasoning-in-parallel-as-llm-agents-act-and-observe.md) <br><code>2608.13667</code> | `ai_draft` | 0.94 | main_results[2] evidence quote not found in source；ablations[0] evidence quote not found in source；ablations[1] evidence quote not found in source |
+| 2026-08-17 | [Bootstrapping Niche Multilingual Code Translation via Reinforcement Learning with Execution-Based Verifiable Supervision](../arxiv_daily/2026-08-17/llm_alignment/bootstrapping-niche-multilingual-code-translation-via-reinforcement-learning-with-execution-based-ve.md) <br><code>2608.13854</code> | `ai_draft` | 0.94 | 无结构性问题 |
+| 2026-08-17 | [MathForm: Scaling Mathematical Autoformalization with Knowledge Retrieval and Verification-Guided Refinement](../arxiv_daily/2026-08-17/llm_reasoning/mathform-scaling-mathematical-autoformalization-with-knowledge-retrieval-and-verification-guided-ref.md) <br><code>2608.14221</code> | `ai_draft` | 0.96 | 无结构性问题 |
+| 2026-08-17 | [Batch-wise Adaptive Pruning: Periodic Neuron Activation-Aware Weight Pruning for Language Reasoning Model](../arxiv_daily/2026-08-17/llm_efficiency/batch-wise-adaptive-pruning-periodic-neuron-activation-aware-weight-pruning-for-language-reasoning-m.md) <br><code>2608.14003</code> | `ai_draft` | 0.98 | main_results[2] evidence quote not found in source |
 | 2026-08-14 | [LLM-Guided Graph Generation for Structure-Based Local Improvement Methods](../arxiv_daily/2026-08-14/llm_reasoning/llm-guided-graph-generation-for-structure-based-local-improvement-methods.md) <br><code>2608.13333</code> | `ai_draft` | 0.78 | 无结构性问题 |
 | 2026-08-14 | [DFM Mimir v1: An Open HRM Delivering Frontier Performance at 1B Parameters Using Only Permissible Post-Training Data](../arxiv_daily/2026-08-14/llm_pretraining/dfm-mimir-v1-an-open-hrm-delivering-frontier-performance-at-1b-parameters-using-only-permissible-pos.md) <br><code>2608.13517</code> | `ai_draft` | 0.86 | 无结构性问题 |
 | 2026-08-14 | [Position: Reasoning is a Learnable Rule-Based Process](../arxiv_daily/2026-08-14/llm_reasoning/position-reasoning-is-a-learnable-rule-based-process.md) <br><code>2608.12325</code> | `ai_draft` | 0.88 | 无结构性问题 |

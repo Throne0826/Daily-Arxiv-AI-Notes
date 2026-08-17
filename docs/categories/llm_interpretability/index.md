@@ -5,7 +5,27 @@ description: "LLM 机制与可解释性 方向每日 arXiv 论文中文解读。
 
 # LLM 机制与可解释性
 
-共收录 **14** 篇，按 arXiv 日榜日期倒序排列。
+共收录 **15** 篇，按 arXiv 日榜日期倒序排列。
+
+## 2026-08-17
+
+<div class="daily-paper-list" markdown="1">
+
+<article class="daily-paper-item" markdown="1">
+
+#### [Think in Latent, Explain in Language: Self-Explainable Latent Reasoning](../../arxiv_daily/2026-08-17/llm_reasoning/think-in-latent-explain-in-language-self-explainable-latent-reasoning.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.13570</span><span class="paper-category-chip">LLM Reasoning</span><span class="paper-category-chip">LLM 机制与可解释性</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+SELR通过联合答案监督与思维链监督，使同一个模型既能在连续潜在空间中高效推理，又能将自身的潜在思维还原为人类可读的解释。
+
+</div>
+
+</article>
+
+</div>
 
 ## 2026-08-14
 

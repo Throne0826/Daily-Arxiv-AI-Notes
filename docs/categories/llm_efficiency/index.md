@@ -5,11 +5,25 @@ description: "LLM 效率 方向每日 arXiv 论文中文解读。"
 
 # LLM 效率
 
-共收录 **26** 篇，按 arXiv 日榜日期倒序排列。
+共收录 **27** 篇，按 arXiv 日榜日期倒序排列。
 
 ## 2026-08-17
 
 <div class="daily-paper-list" markdown="1">
+
+<article class="daily-paper-item" markdown="1">
+
+#### [IterCOMP: Reasoning-aware Adaptive Prompt Compression for Multi-hop Question Answering](../../arxiv_daily/2026-08-17/llm_reasoning/itercomp-reasoning-aware-adaptive-prompt-compression-for-multi-hop-question-answering.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.13588</span><span class="paper-category-chip">LLM Reasoning</span><span class="paper-category-chip">LLM 效率</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+中文摘要尚未生成，请进入论文页查看现有元数据。
+
+</div>
+
+</article>
 
 <article class="daily-paper-item" markdown="1">
 

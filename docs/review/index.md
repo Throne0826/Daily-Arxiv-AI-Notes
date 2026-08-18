@@ -5,15 +5,18 @@ description: 每日 arXiv AI 草稿的人工核验入口与自动检查问题。
 
 # 人工审核
 
-当前共有 **331** 篇待核验。优先检查带自动审核问题的页面。
+当前共有 **334** 篇待核验。优先检查带自动审核问题的页面。
 
 <div class="review-table" markdown="1">
 
 | 日期 | 论文 | 状态 | 置信度 | 自动检查 |
 |---|---|---|---:|---|
 | 2026-08-17 | [Intern-S2-Mobius: Foundation Model with Decoupled Knowledge and Reasoning](../arxiv_daily/2026-08-17/llm_reasoning/intern-s2-mobius-foundation-model-with-decoupled-knowledge-and-reasoning.md) <br><code>2608.14290</code> | `ai_draft` | 0.72 | 无结构性问题 |
+| 2026-08-17 | [More Correct Mass, Worse Answers: Why Power Sampling Can Fail and How to Fix It](../arxiv_daily/2026-08-17/llm_reasoning/more-correct-mass-worse-answers-why-power-sampling-can-fail-and-how-to-fix-it.md) <br><code>2608.14420</code> | `ai_draft` | 0.72 | 无结构性问题 |
+| 2026-08-17 | [Identifiability and Order-Dimension Limits of In-Context Learning on Partial Orders](../arxiv_daily/2026-08-17/llm_reasoning/identifiability-and-order-dimension-limits-of-in-context-learning-on-partial-orders.md) <br><code>2608.14004</code> | `ai_draft` | 0.78 | 无结构性问题 |
 | 2026-08-17 | [From Passive Delegates to Strategic Negotiators: Reinforcing Social Reasoning in Small Language Models with SocialRL](../arxiv_daily/2026-08-17/llm_alignment/from-passive-delegates-to-strategic-negotiators-reinforcing-social-reasoning-in-small-language-model.md) <br><code>2608.13787</code> | `ai_draft` | 0.82 | 无结构性问题 |
 | 2026-08-17 | [Think in Latent, Explain in Language: Self-Explainable Latent Reasoning](../arxiv_daily/2026-08-17/llm_reasoning/think-in-latent-explain-in-language-self-explainable-latent-reasoning.md) <br><code>2608.13570</code> | `ai_draft` | 0.86 | 无结构性问题 |
+| 2026-08-17 | [IterCOMP: Reasoning-aware Adaptive Prompt Compression for Multi-hop Question Answering](../arxiv_daily/2026-08-17/llm_reasoning/itercomp-reasoning-aware-adaptive-prompt-compression-for-multi-hop-question-answering.md) <br><code>2608.13588</code> | `ai_draft` | 0.86 | 无结构性问题 |
 | 2026-08-17 | [Amplified Does Not Mean Predictive: Reasoning Behaviors in Thinking Models](../arxiv_daily/2026-08-17/llm_reasoning/amplified-does-not-mean-predictive-reasoning-behaviors-in-thinking-models.md) <br><code>2608.13760</code> | `ai_draft` | 0.87 | 无结构性问题 |
 | 2026-08-17 | [SemPlan: Benchmarking Structured Semantic Planning for LLM-Based Queries over Enterprise Data](../arxiv_daily/2026-08-17/llm_evaluation/semplan-benchmarking-structured-semantic-planning-for-llm-based-queries-over-enterprise-data.md) <br><code>2608.13612</code> | `ai_draft` | 0.88 | 无结构性问题 |
 | 2026-08-17 | [Capacity-Dependent Effects of Data Selection for Reasoning](../arxiv_daily/2026-08-17/llm_reasoning/capacity-dependent-effects-of-data-selection-for-reasoning.md) <br><code>2608.13721</code> | `ai_draft` | 0.88 | 无结构性问题 |

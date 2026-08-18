@@ -5057,6 +5057,46 @@
       "classification_confidence": 0.82,
       "summary": "本文将利益冲突场景中的代理行为视为需要专门后训练的社会推理问题，并研究能否通过 SocialRL 使小型语言模型从顺从的通用助手转变为维护委托人利益的策略型代表。",
       "issues": []
+    },
+    "2608.14004": {
+      "announcement_date": "2026-08-17",
+      "path": "2026-08-17/llm_reasoning/identifiability-and-order-dimension-limits-of-in-context-learning-on-partial-orders.md",
+      "review_status": "ai_draft",
+      "title": "Identifiability and Order-Dimension Limits of In-Context Learning on Partial Orders",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.78,
+      "summary": "",
+      "issues": []
+    },
+    "2608.14420": {
+      "announcement_date": "2026-08-17",
+      "path": "2026-08-17/llm_reasoning/more-correct-mass-worse-answers-why-power-sampling-can-fail-and-how-to-fix-it.md",
+      "review_status": "ai_draft",
+      "title": "More Correct Mass, Worse Answers: Why Power Sampling Can Fail and How to Fix It",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.72,
+      "summary": "本文揭示了一个反直觉现象：Power Sampling 即使提高正确推理轨迹的总概率，也可能因破坏答案聚合所需的支持结构而降低最终准确率，并据此提出按题目校准、保留中等概率路径的 Relative-Rank SoftSat。",
+      "issues": []
+    },
+    "2608.13588": {
+      "announcement_date": "2026-08-17",
+      "path": "2026-08-17/llm_reasoning/itercomp-reasoning-aware-adaptive-prompt-compression-for-multi-hop-question-answering.md",
+      "review_status": "ai_draft",
+      "title": "IterCOMP: Reasoning-aware Adaptive Prompt Compression for Multi-hop Question Answering",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning",
+        "llm_efficiency"
+      ],
+      "classification_confidence": 0.86,
+      "summary": "",
+      "issues": []
     }
   }
 }

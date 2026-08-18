@@ -4,7 +4,7 @@ title: "LLM Reasoning"
 
 # LLM Reasoning
 
-当日共 **13** 篇相关论文。多标签论文链接到其唯一正文页。
+当日共 **16** 篇相关论文。多标签论文链接到其唯一正文页。
 
 <div class="daily-paper-list" markdown="1">
 
@@ -136,6 +136,20 @@ SemPlan通过固定模型、数据、样例与评测规则，对比不同结构�
 
 <article class="daily-paper-item" markdown="1">
 
+#### [Identifiability and Order-Dimension Limits of In-Context Learning on Partial Orders](identifiability-and-order-dimension-limits-of-in-context-learning-on-partial-orders.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.14004</span><span class="paper-category-chip">LLM Reasoning</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+中文摘要尚未生成，请进入论文页查看现有元数据。
+
+</div>
+
+</article>
+
+<article class="daily-paper-item" markdown="1">
+
 #### [Intern-S2-Mobius: Foundation Model with Decoupled Knowledge and Reasoning](intern-s2-mobius-foundation-model-with-decoupled-knowledge-and-reasoning.md)
 
 <div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.14290</span><span class="paper-category-chip">LLM Reasoning</span></div>
@@ -150,6 +164,20 @@ SemPlan通过固定模型、数据、样例与评测规则，对比不同结构�
 
 <article class="daily-paper-item" markdown="1">
 
+#### [IterCOMP: Reasoning-aware Adaptive Prompt Compression for Multi-hop Question Answering](itercomp-reasoning-aware-adaptive-prompt-compression-for-multi-hop-question-answering.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.13588</span><span class="paper-category-chip">LLM Reasoning</span><span class="paper-category-chip">LLM 效率</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+中文摘要尚未生成，请进入论文页查看现有元数据。
+
+</div>
+
+</article>
+
+<article class="daily-paper-item" markdown="1">
+
 #### [MathForm: Scaling Mathematical Autoformalization with Knowledge Retrieval and Verification-Guided Refinement](mathform-scaling-mathematical-autoformalization-with-knowledge-retrieval-and-verification-guided-ref.md)
 
 <div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.14221</span><span class="paper-category-chip">LLM Reasoning</span></div>
@@ -157,6 +185,20 @@ SemPlan通过固定模型、数据、样例与评测规则，对比不同结构�
 <div class="daily-paper-summary" markdown="1">
 
 MathForm将Mathlib知识检索、编译与语义反馈驱动的迭代修订组成闭环，旨在突破依赖参数记忆和单次生成筛选的数据构造上限，从而生成更可靠、更具领域多样性的自然语言到Lean 4形式化训练数据。
+
+</div>
+
+</article>
+
+<article class="daily-paper-item" markdown="1">
+
+#### [More Correct Mass, Worse Answers: Why Power Sampling Can Fail and How to Fix It](more-correct-mass-worse-answers-why-power-sampling-can-fail-and-how-to-fix-it.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.14420</span><span class="paper-category-chip">LLM Reasoning</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+本文揭示了一个反直觉现象：Power Sampling 即使提高正确推理轨迹的总概率，也可能因破坏答案聚合所需的支持结构而降低最终准确率，并据此提出按题目校准、保留中等概率路径的 Relative-Rank SoftSat。
 
 </div>
 

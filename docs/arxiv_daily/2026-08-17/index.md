@@ -1,21 +1,21 @@
 ---
 title: "arXiv 每日论文 · 2026-08-17"
-description: "2026-08-17 筛选出的 13 篇 AI arXiv 新论文中文解读。"
+description: "2026-08-17 筛选出的 16 篇 AI arXiv 新论文中文解读。"
 ---
 
 # arXiv 每日论文：2026-08-17
 
 <div class="daily-overview" markdown="1">
 
-收录 **13** 篇不重复论文，形成 **22** 条分类记录。多标签论文会同时出现在所有相关方向中。
+收录 **16** 篇不重复论文，形成 **26** 条分类记录。多标签论文会同时出现在所有相关方向中。
 
 </div>
 
-## LLM · 13 篇
+## LLM · 16 篇
 
 <section class="daily-category-section" markdown="1">
 
-### LLM Reasoning · 13 篇
+### LLM Reasoning · 16 篇
 
 <div class="daily-paper-list" markdown="1">
 
@@ -147,6 +147,20 @@ SemPlan通过固定模型、数据、样例与评测规则，对比不同结构�
 
 <article class="daily-paper-item" markdown="1">
 
+#### [Identifiability and Order-Dimension Limits of In-Context Learning on Partial Orders](llm_reasoning/identifiability-and-order-dimension-limits-of-in-context-learning-on-partial-orders.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.14004</span><span class="paper-category-chip">LLM Reasoning</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+中文摘要尚未生成，请进入论文页查看现有元数据。
+
+</div>
+
+</article>
+
+<article class="daily-paper-item" markdown="1">
+
 #### [Intern-S2-Mobius: Foundation Model with Decoupled Knowledge and Reasoning](llm_reasoning/intern-s2-mobius-foundation-model-with-decoupled-knowledge-and-reasoning.md)
 
 <div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.14290</span><span class="paper-category-chip">LLM Reasoning</span></div>
@@ -161,6 +175,20 @@ SemPlan通过固定模型、数据、样例与评测规则，对比不同结构�
 
 <article class="daily-paper-item" markdown="1">
 
+#### [IterCOMP: Reasoning-aware Adaptive Prompt Compression for Multi-hop Question Answering](llm_reasoning/itercomp-reasoning-aware-adaptive-prompt-compression-for-multi-hop-question-answering.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.13588</span><span class="paper-category-chip">LLM Reasoning</span><span class="paper-category-chip">LLM 效率</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+中文摘要尚未生成，请进入论文页查看现有元数据。
+
+</div>
+
+</article>
+
+<article class="daily-paper-item" markdown="1">
+
 #### [MathForm: Scaling Mathematical Autoformalization with Knowledge Retrieval and Verification-Guided Refinement](llm_reasoning/mathform-scaling-mathematical-autoformalization-with-knowledge-retrieval-and-verification-guided-ref.md)
 
 <div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.14221</span><span class="paper-category-chip">LLM Reasoning</span></div>
@@ -168,6 +196,20 @@ SemPlan通过固定模型、数据、样例与评测规则，对比不同结构�
 <div class="daily-paper-summary" markdown="1">
 
 MathForm将Mathlib知识检索、编译与语义反馈驱动的迭代修订组成闭环，旨在突破依赖参数记忆和单次生成筛选的数据构造上限，从而生成更可靠、更具领域多样性的自然语言到Lean 4形式化训练数据。
+
+</div>
+
+</article>
+
+<article class="daily-paper-item" markdown="1">
+
+#### [More Correct Mass, Worse Answers: Why Power Sampling Can Fail and How to Fix It](llm_reasoning/more-correct-mass-worse-answers-why-power-sampling-can-fail-and-how-to-fix-it.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.14420</span><span class="paper-category-chip">LLM Reasoning</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+本文揭示了一个反直觉现象：Power Sampling 即使提高正确推理轨迹的总概率，也可能因破坏答案聚合所需的支持结构而降低最终准确率，并据此提出按题目校准、保留中等概率路径的 Relative-Rank SoftSat。
 
 </div>
 
@@ -335,7 +377,7 @@ SemPlan通过固定模型、数据、样例与评测规则，对比不同结构�
 
 <section class="daily-category-section" markdown="1">
 
-### LLM 效率 · 1 篇
+### LLM 效率 · 2 篇
 
 <div class="daily-paper-list" markdown="1">
 
@@ -348,6 +390,20 @@ SemPlan通过固定模型、数据、样例与评测规则，对比不同结构�
 <div class="daily-paper-summary" markdown="1">
 
 本文研究如何在大推理模型的批量推理中，以无需训练和外部校准的方式动态剪枝，并通过周期性 top-$k$ 选择与激活记忆缓解共享掩码造成的稀疏率失控和推理精度下降。
+
+</div>
+
+</article>
+
+<article class="daily-paper-item" markdown="1">
+
+#### [IterCOMP: Reasoning-aware Adaptive Prompt Compression for Multi-hop Question Answering](llm_reasoning/itercomp-reasoning-aware-adaptive-prompt-compression-for-multi-hop-question-answering.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.13588</span><span class="paper-category-chip">LLM Reasoning</span><span class="paper-category-chip">LLM 效率</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+中文摘要尚未生成，请进入论文页查看现有元数据。
 
 </div>
 

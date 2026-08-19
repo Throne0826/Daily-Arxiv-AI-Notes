@@ -5,7 +5,27 @@ description: "LLM 安全 方向每日 arXiv 论文中文解读。"
 
 # LLM 安全
 
-共收录 **18** 篇，按 arXiv 日榜日期倒序排列。
+共收录 **19** 篇，按 arXiv 日榜日期倒序排列。
+
+## 2026-08-18
+
+<div class="daily-paper-list" markdown="1">
+
+<article class="daily-paper-item" markdown="1">
+
+#### [PL-Guard: Probabilistic Logic Reasoning for LLM Guardrails](../../arxiv_daily/2026-08-18/llm_safety/pl-guard-probabilistic-logic-reasoning-for-llm-guardrails.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.15673</span><span class="paper-category-chip">LLM 安全</span><span class="paper-category-chip">LLM Reasoning</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+本文提出 PL-Guard，将大语言模型护栏中的语义事实识别与政策推理分离，先由本地语言模型估计政策谓词成立的概率，再由 ProbLog 按显式规则推断风险，以提高决策的可检查性并更清楚地呈现安全性与有用性之间的权衡。
+
+</div>
+
+</article>
+
+</div>
 
 ## 2026-08-13
 

@@ -5576,6 +5576,104 @@
       "issues": [
         "ablations[0] evidence quote not found in source"
       ]
+    },
+    "2608.19794": {
+      "announcement_date": "2026-08-21",
+      "path": "2026-08-21/robotics/towards-general-embodied-intelligence-integrating-large-language-models-knowledge-bases-and-reasonin.md",
+      "review_status": "ai_draft",
+      "title": "Towards general embodied intelligence: integrating large language models, knowledge bases, and reasoning capabilities to build the next generation of AI agents",
+      "primary_category": "robotics",
+      "categories": [
+        "robotics",
+        "llm_agent",
+        "llm_reasoning",
+        "llm_nlp"
+      ],
+      "classification_confidence": 0.95,
+      "summary": "",
+      "issues": [
+        "missing structured section: method"
+      ]
+    },
+    "2608.19408": {
+      "announcement_date": "2026-08-21",
+      "path": "2026-08-21/llm_reasoning/beyond-imitation-filtering-on-policy-distillation-by-reasoning-progress.md",
+      "review_status": "ai_draft",
+      "title": "Beyond Imitation: Filtering On-Policy Distillation by Reasoning Progress",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.9,
+      "summary": "本文研究如何在面向推理的在策略蒸馏中识别并过滤与真实推理进展相冲突的教师监督信号，以减少教师模仿对有效推理路径的抑制。",
+      "issues": []
+    },
+    "2608.20116": {
+      "announcement_date": "2026-08-21",
+      "path": "2026-08-21/llm_reasoning/when-text-and-numbers-disagree-evidence-arbitration-in-large-language-models.md",
+      "review_status": "ai_draft",
+      "title": "When Text and Numbers Disagree: Evidence Arbitration in Large Language Models",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning",
+        "llm_nlp"
+      ],
+      "classification_confidence": 0.95,
+      "summary": "",
+      "issues": []
+    },
+    "2608.20153": {
+      "announcement_date": "2026-08-21",
+      "path": "2026-08-21/llm_evaluation/formaltcs-benchmarking-end-to-end-frontier-formal-theoretical-computer-science-research-of-large-lan.md",
+      "review_status": "ai_draft",
+      "title": "FormalTCS: Benchmarking End-to-End Frontier Formal Theoretical Computer Science Research of Large Language Models",
+      "primary_category": "llm_evaluation",
+      "categories": [
+        "llm_evaluation",
+        "llm_reasoning",
+        "llm_nlp"
+      ],
+      "classification_confidence": 0.97,
+      "summary": "",
+      "issues": [
+        "missing structured section: motivation",
+        "missing structured section: method"
+      ]
+    },
+    "2608.20055": {
+      "announcement_date": "2026-08-21",
+      "path": "2026-08-21/llm_interpretability/echocot-extracting-hidden-chain-of-thought-from-large-reasoning-models.md",
+      "review_status": "ai_draft",
+      "title": "EchoCoT: Extracting Hidden Chain-of-Thought from Large Reasoning Models",
+      "primary_category": "llm_interpretability",
+      "categories": [
+        "llm_interpretability",
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.95,
+      "summary": "",
+      "issues": [
+        "missing structured section: motivation"
+      ]
+    },
+    "2608.20256": {
+      "announcement_date": "2026-08-21",
+      "path": "2026-08-21/llm_reasoning/learning-when-to-think-adaptive-reasoning-for-test-time-compute-allocation.md",
+      "review_status": "ai_draft",
+      "title": "Learning When to Think: Adaptive Reasoning for Test-Time Compute Allocation",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.86,
+      "summary": "",
+      "issues": [
+        "main_results[0] evidence quote not found in source",
+        "main_results[1] evidence quote not found in source",
+        "main_results[2] evidence quote not found in source",
+        "ablations[1] evidence quote not found in source",
+        "missing structured section: motivation"
+      ]
     }
   }
 }

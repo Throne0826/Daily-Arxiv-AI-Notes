@@ -5,7 +5,27 @@ description: "LLM 评测 方向每日 arXiv 论文中文解读。"
 
 # LLM 评测
 
-共收录 **72** 篇，按 arXiv 日榜日期倒序排列。
+共收录 **73** 篇，按 arXiv 日榜日期倒序排列。
+
+## 2026-08-21
+
+<div class="daily-paper-list" markdown="1">
+
+<article class="daily-paper-item" markdown="1">
+
+#### [FormalTCS: Benchmarking End-to-End Frontier Formal Theoretical Computer Science Research of Large Language Models](../../arxiv_daily/2026-08-21/llm_evaluation/formaltcs-benchmarking-end-to-end-frontier-formal-theoretical-computer-science-research-of-large-lan.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.20153</span><span class="paper-category-chip">LLM 评测</span><span class="paper-category-chip">LLM Reasoning</span><span class="paper-category-chip">LLM 其他</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+中文摘要尚未生成，请进入论文页查看现有元数据。
+
+</div>
+
+</article>
+
+</div>
 
 ## 2026-08-18
 

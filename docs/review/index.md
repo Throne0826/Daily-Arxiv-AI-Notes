@@ -5,12 +5,18 @@ description: 每日 arXiv AI 草稿的人工核验入口与自动检查问题。
 
 # 人工审核
 
-当前共有 **367** 篇待核验。优先检查带自动审核问题的页面。
+当前共有 **373** 篇待核验。优先检查带自动审核问题的页面。
 
 <div class="review-table" markdown="1">
 
 | 日期 | 论文 | 状态 | 置信度 | 自动检查 |
 |---|---|---|---:|---|
+| 2026-08-21 | [Learning When to Think: Adaptive Reasoning for Test-Time Compute Allocation](../arxiv_daily/2026-08-21/llm_reasoning/learning-when-to-think-adaptive-reasoning-for-test-time-compute-allocation.md) <br><code>2608.20256</code> | `ai_draft` | 0.86 | main_results[0] evidence quote not found in source；main_results[1] evidence quote not found in source；main_results[2] evidence quote not found in source；ablations[1] evidence quote not found in source；missing structured section: motivation |
+| 2026-08-21 | [Beyond Imitation: Filtering On-Policy Distillation by Reasoning Progress](../arxiv_daily/2026-08-21/llm_reasoning/beyond-imitation-filtering-on-policy-distillation-by-reasoning-progress.md) <br><code>2608.19408</code> | `ai_draft` | 0.90 | 无结构性问题 |
+| 2026-08-21 | [Towards general embodied intelligence: integrating large language models, knowledge bases, and reasoning capabilities to build the next generation of AI agents](../arxiv_daily/2026-08-21/robotics/towards-general-embodied-intelligence-integrating-large-language-models-knowledge-bases-and-reasonin.md) <br><code>2608.19794</code> | `ai_draft` | 0.95 | missing structured section: method |
+| 2026-08-21 | [When Text and Numbers Disagree: Evidence Arbitration in Large Language Models](../arxiv_daily/2026-08-21/llm_reasoning/when-text-and-numbers-disagree-evidence-arbitration-in-large-language-models.md) <br><code>2608.20116</code> | `ai_draft` | 0.95 | 无结构性问题 |
+| 2026-08-21 | [EchoCoT: Extracting Hidden Chain-of-Thought from Large Reasoning Models](../arxiv_daily/2026-08-21/llm_interpretability/echocot-extracting-hidden-chain-of-thought-from-large-reasoning-models.md) <br><code>2608.20055</code> | `ai_draft` | 0.95 | missing structured section: motivation |
+| 2026-08-21 | [FormalTCS: Benchmarking End-to-End Frontier Formal Theoretical Computer Science Research of Large Language Models](../arxiv_daily/2026-08-21/llm_evaluation/formaltcs-benchmarking-end-to-end-frontier-formal-theoretical-computer-science-research-of-large-lan.md) <br><code>2608.20153</code> | `ai_draft` | 0.97 | missing structured section: motivation；missing structured section: method |
 | 2026-08-18 | [Does the Proof Prove It That Way? Faithful Formalization of Elements Proofs](../arxiv_daily/2026-08-18/llm_reasoning/does-the-proof-prove-it-that-way-faithful-formalization-of-elements-proofs.md) <br><code>2608.15432</code> | `ai_draft` | 0.62 | ablations[0] evidence quote not found in source |
 | 2026-08-18 | [GRIP: Grounded Reasoning via Information-Restricted Premises](../arxiv_daily/2026-08-18/llm_reasoning/grip-grounded-reasoning-via-information-restricted-premises.md) <br><code>2608.16776</code> | `ai_draft` | 0.70 | ablations[1] evidence quote not found in source |
 | 2026-08-18 | [Behaviour Is an Incomplete Measure of Reasoning Development: Cross-surface pre-arrival accessibility and the limits of developmental inference in a recurrent-depth reasoner](../arxiv_daily/2026-08-18/llm_reasoning/behaviour-is-an-incomplete-measure-of-reasoning-development-cross-surface-pre-arrival-accessibility.md) <br><code>2608.16085</code> | `ai_draft` | 0.72 | 无结构性问题 |

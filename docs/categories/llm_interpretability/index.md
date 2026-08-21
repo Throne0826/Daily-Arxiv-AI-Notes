@@ -5,7 +5,27 @@ description: "LLM 机制与可解释性 方向每日 arXiv 论文中文解读。
 
 # LLM 机制与可解释性
 
-共收录 **16** 篇，按 arXiv 日榜日期倒序排列。
+共收录 **17** 篇，按 arXiv 日榜日期倒序排列。
+
+## 2026-08-21
+
+<div class="daily-paper-list" markdown="1">
+
+<article class="daily-paper-item" markdown="1">
+
+#### [EchoCoT: Extracting Hidden Chain-of-Thought from Large Reasoning Models](../../arxiv_daily/2026-08-21/llm_interpretability/echocot-extracting-hidden-chain-of-thought-from-large-reasoning-models.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.20055</span><span class="paper-category-chip">LLM 机制与可解释性</span><span class="paper-category-chip">LLM Reasoning</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+中文摘要尚未生成，请进入论文页查看现有元数据。
+
+</div>
+
+</article>
+
+</div>
 
 ## 2026-08-18
 

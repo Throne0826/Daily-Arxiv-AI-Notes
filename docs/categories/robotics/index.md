@@ -5,7 +5,27 @@ description: "机器人 / 具身智能 方向每日 arXiv 论文中文解读。"
 
 # 机器人 / 具身智能
 
-共收录 **44** 篇，按 arXiv 日榜日期倒序排列。
+共收录 **45** 篇，按 arXiv 日榜日期倒序排列。
+
+## 2026-08-21
+
+<div class="daily-paper-list" markdown="1">
+
+<article class="daily-paper-item" markdown="1">
+
+#### [Towards general embodied intelligence: integrating large language models, knowledge bases, and reasoning capabilities to build the next generation of AI agents](../../arxiv_daily/2026-08-21/robotics/towards-general-embodied-intelligence-integrating-large-language-models-knowledge-bases-and-reasonin.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.19794</span><span class="paper-category-chip">机器人 / 具身智能</span><span class="paper-category-chip">LLM Agent</span><span class="paper-category-chip">LLM Reasoning</span><span class="paper-category-chip">LLM 其他</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+中文摘要尚未生成，请进入论文页查看现有元数据。
+
+</div>
+
+</article>
+
+</div>
 
 ## 2026-08-14
 

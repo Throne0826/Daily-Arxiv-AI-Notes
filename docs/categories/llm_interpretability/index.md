@@ -5,7 +5,27 @@ description: "LLM 机制与可解释性 方向每日 arXiv 论文中文解读。
 
 # LLM 机制与可解释性
 
-共收录 **17** 篇，按 arXiv 日榜日期倒序排列。
+共收录 **18** 篇，按 arXiv 日榜日期倒序排列。
+
+## 2026-08-24
+
+<div class="daily-paper-list" markdown="1">
+
+<article class="daily-paper-item" markdown="1">
+
+#### [Why2Speak: Faithful Reasoning for Abstaining Action Policies](../../arxiv_daily/2026-08-24/llm_reasoning/why2speak-faithful-reasoning-for-abstaining-action-policies.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.20670</span><span class="paper-category-chip">LLM Reasoning</span><span class="paper-category-chip">LLM 机制与可解释性</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+中文摘要尚未生成，请进入论文页查看现有元数据。
+
+</div>
+
+</article>
+
+</div>
 
 ## 2026-08-21
 

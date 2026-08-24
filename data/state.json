@@ -5674,6 +5674,197 @@
         "ablations[1] evidence quote not found in source",
         "missing structured section: motivation"
       ]
+    },
+    "2608.20966": {
+      "announcement_date": "2026-08-24",
+      "path": "2026-08-24/llm_reasoning/structured-but-fragile-on-the-limits-of-llms-in-cybersecurity-decision-making.md",
+      "review_status": "ai_draft",
+      "title": "Structured but Fragile: On the Limits of LLMs in Cybersecurity Decision-Making",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning",
+        "llm_evaluation",
+        "llm_nlp"
+      ],
+      "classification_confidence": 0.95,
+      "summary": "",
+      "issues": []
+    },
+    "2608.21186": {
+      "announcement_date": "2026-08-24",
+      "path": "2026-08-24/llm_reasoning/a-neurosymbolic-approach-for-constructing-planning-domain-models-from-clinical-narratives.md",
+      "review_status": "ai_draft",
+      "title": "A Neurosymbolic Approach for Constructing Planning Domain Models from Clinical Narratives",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning",
+        "llm_nlp"
+      ],
+      "classification_confidence": 0.95,
+      "summary": "",
+      "issues": [
+        "missing structured section: motivation"
+      ]
+    },
+    "2608.20418": {
+      "announcement_date": "2026-08-24",
+      "path": "2026-08-24/llm_evaluation/rigorous-evaluation-of-large-language-models-for-malaria-drug-discovery-trade-offs-in-performance-sc.md",
+      "review_status": "ai_draft",
+      "title": "Rigorous Evaluation of Large Language Models for Malaria Drug Discovery: Trade-offs in Performance, Scale, and Resource Utility",
+      "primary_category": "llm_evaluation",
+      "categories": [
+        "llm_evaluation",
+        "llm_nlp",
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.95,
+      "summary": "",
+      "issues": [
+        "main_results[0] evidence quote not found in source",
+        "missing structured section: motivation"
+      ]
+    },
+    "2608.21265": {
+      "announcement_date": "2026-08-24",
+      "path": "2026-08-24/llm_reasoning/memory-augmentation-unlocks-efficient-chain-of-thought-reasoning.md",
+      "review_status": "ai_draft",
+      "title": "Memory Augmentation Unlocks Efficient Chain-of-Thought Reasoning",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning",
+        "llm_efficiency",
+        "llm_nlp"
+      ],
+      "classification_confidence": 0.98,
+      "summary": "",
+      "issues": [
+        "missing structured section: motivation"
+      ]
+    },
+    "2608.20938": {
+      "announcement_date": "2026-08-24",
+      "path": "2026-08-24/llm_evaluation/no-judgment-without-a-reason-counterfactual-receipts-for-versioned-ai-evaluators.md",
+      "review_status": "ai_draft",
+      "title": "No Judgment Without a Reason: Counterfactual Receipts for Versioned AI Evaluators",
+      "primary_category": "llm_evaluation",
+      "categories": [
+        "llm_evaluation",
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.96,
+      "summary": "",
+      "issues": [
+        "main_results[0] evidence quote not found in source",
+        "main_results[1] evidence quote not found in source",
+        "ablations[0] evidence quote not found in source",
+        "ablations[1] evidence quote not found in source",
+        "missing structured section: motivation"
+      ]
+    },
+    "2608.20887": {
+      "announcement_date": "2026-08-24",
+      "path": "2026-08-24/llm_reasoning/krel-automatic-medical-coding-via-knowledge-guided-reasoning-over-clinical-evidence-with-llms.md",
+      "review_status": "ai_draft",
+      "title": "KREL: Automatic Medical Coding via Knowledge-Guided Reasoning over Clinical Evidence with LLMs",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning",
+        "llm_nlp"
+      ],
+      "classification_confidence": 0.94,
+      "summary": "",
+      "issues": []
+    },
+    "2608.20670": {
+      "announcement_date": "2026-08-24",
+      "path": "2026-08-24/llm_reasoning/why2speak-faithful-reasoning-for-abstaining-action-policies.md",
+      "review_status": "ai_draft",
+      "title": "Why2Speak: Faithful Reasoning for Abstaining Action Policies",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning",
+        "llm_interpretability"
+      ],
+      "classification_confidence": 0.96,
+      "summary": "",
+      "issues": []
+    },
+    "2608.20717": {
+      "announcement_date": "2026-08-24",
+      "path": "2026-08-24/llm_reasoning/direag-dirichlet-evidence-aggregation-for-calibrating-verbalized-confidence-in-mathematical-reasonin.md",
+      "review_status": "ai_draft",
+      "title": "DirEAG: Dirichlet Evidence Aggregation for Calibrating Verbalized Confidence in Mathematical Reasoning",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning",
+        "llm_nlp"
+      ],
+      "classification_confidence": 0.95,
+      "summary": "",
+      "issues": [
+        "ablations[0] evidence quote not found in source",
+        "ablations[1] evidence quote not found in source"
+      ]
+    },
+    "2608.21218": {
+      "announcement_date": "2026-08-24",
+      "path": "2026-08-24/llm_reasoning/enhancing-llms-in-predictive-political-qa-with-semi-structured-data.md",
+      "review_status": "ai_draft",
+      "title": "Enhancing LLMs in Predictive Political QA with Semi-Structured Data",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.9,
+      "summary": "",
+      "issues": [
+        "ablations[1] evidence quote not found in source"
+      ]
+    },
+    "2608.20359": {
+      "announcement_date": "2026-08-24",
+      "path": "2026-08-24/llm_efficiency/self-speculation-for-faster-reasoning-models.md",
+      "review_status": "ai_draft",
+      "title": "Self-Speculation for Faster Reasoning Models",
+      "primary_category": "llm_efficiency",
+      "categories": [
+        "llm_efficiency",
+        "llm_reasoning",
+        "llm_nlp"
+      ],
+      "classification_confidence": 0.98,
+      "summary": "",
+      "issues": [
+        "main_results[2] evidence quote not found in source",
+        "missing structured section: motivation"
+      ]
+    },
+    "2608.20391": {
+      "announcement_date": "2026-08-24",
+      "path": "2026-08-24/llm_reasoning/immigrationreason-a-structured-dataset-of-u-s-immigration-appeals-for-legal-reasoning-research.md",
+      "review_status": "ai_draft",
+      "title": "ImmigrationReason: A Structured Dataset of U.S. Immigration Appeals for Legal Reasoning Research",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.84,
+      "summary": "",
+      "issues": []
+    },
+    "2608.21079": {
+      "announcement_date": "2026-08-24",
+      "path": "2026-08-24/llm_reasoning/causal-modeling-of-adverse-pregnancy-outcomes-via-adaptive-llm-proposals.md",
+      "review_status": "ai_draft",
+      "title": "Causal Modeling of Adverse Pregnancy Outcomes via Adaptive LLM Proposals",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning",
+        "llm_nlp"
+      ],
+      "classification_confidence": 0.81,
+      "summary": "",
+      "issues": []
     }
   }
 }

@@ -5,7 +5,7 @@ description: "LLM Reasoning 方向每日 arXiv 论文中文解读。"
 
 # LLM Reasoning
 
-共收录 **283** 篇，按 arXiv 日榜日期倒序排列。
+共收录 **288** 篇，按 arXiv 日榜日期倒序排列。
 
 ## 2026-08-24
 
@@ -69,6 +69,34 @@ description: "LLM Reasoning 方向每日 arXiv 论文中文解读。"
 
 <article class="daily-paper-item" markdown="1">
 
+#### [ProofJudge: Tool-Grounded LLM Evaluation of Formal Proof Quality in Mathlib](../../arxiv_daily/2026-08-24/llm_evaluation/proofjudge-tool-grounded-llm-evaluation-of-formal-proof-quality-in-mathlib.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.20432</span><span class="paper-category-chip">LLM 评测</span><span class="paper-category-chip">LLM Reasoning</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+中文摘要尚未生成，请进入论文页查看现有元数据。
+
+</div>
+
+</article>
+
+<article class="daily-paper-item" markdown="1">
+
+#### [PromptResponse: Optimizing Prompts for LLM Coding Tasks](../../arxiv_daily/2026-08-24/llm_reasoning/promptresponse-optimizing-prompts-for-llm-coding-tasks.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.21074</span><span class="paper-category-chip">LLM Reasoning</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+中文摘要尚未生成，请进入论文页查看现有元数据。
+
+</div>
+
+</article>
+
+<article class="daily-paper-item" markdown="1">
+
 #### [No Judgment Without a Reason: Counterfactual Receipts for Versioned AI Evaluators](../../arxiv_daily/2026-08-24/llm_evaluation/no-judgment-without-a-reason-counterfactual-receipts-for-versioned-ai-evaluators.md)
 
 <div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.20938</span><span class="paper-category-chip">LLM 评测</span><span class="paper-category-chip">LLM Reasoning</span></div>
@@ -104,6 +132,20 @@ description: "LLM Reasoning 方向每日 arXiv 论文中文解读。"
 <div class="daily-paper-summary" markdown="1">
 
 中文摘要尚未生成，请进入论文页查看现有元数据。
+
+</div>
+
+</article>
+
+<article class="daily-paper-item" markdown="1">
+
+#### [Inhibitory Attention for Clinical Long-Context Reasoning: Characterizing and Mitigating Lost-in-the-Middle Effects in EHR Processing](../../arxiv_daily/2026-08-24/llm_reasoning/inhibitory-attention-for-clinical-long-context-reasoning-characterizing-and-mitigating-lost-in-the-m.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.20348</span><span class="paper-category-chip">LLM Reasoning</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+本文研究电子健康记录中的临床“中间信息丢失”问题，并检验查询条件化的上下文抑制是否能比单纯提高证据句召回率更有效地支持长病历指令执行。
 
 </div>
 
@@ -156,6 +198,34 @@ description: "LLM Reasoning 方向每日 arXiv 论文中文解读。"
 #### [Causal Modeling of Adverse Pregnancy Outcomes via Adaptive LLM Proposals](../../arxiv_daily/2026-08-24/llm_reasoning/causal-modeling-of-adverse-pregnancy-outcomes-via-adaptive-llm-proposals.md)
 
 <div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.21079</span><span class="paper-category-chip">LLM Reasoning</span><span class="paper-category-chip">LLM 其他</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+中文摘要尚未生成，请进入论文页查看现有元数据。
+
+</div>
+
+</article>
+
+<article class="daily-paper-item" markdown="1">
+
+#### [Asymmetric Capacity Allocation in Self-Refinement Pipelines](../../arxiv_daily/2026-08-24/llm_reasoning/asymmetric-capacity-allocation-in-self-refinement-pipelines.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.21345</span><span class="paper-category-chip">LLM Reasoning</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+本文通过逐阶段独立改变生成器、批评器与修订器的模型规模，研究自我修正流水线中算力应如何非均匀分配。
+
+</div>
+
+</article>
+
+<article class="daily-paper-item" markdown="1">
+
+#### [ARGUS: Theory-of-Mind Guided Argument Generation with Strategy-Aware Planning and Knowledge Grounding](../../arxiv_daily/2026-08-24/llm_reasoning/argus-theory-of-mind-guided-argument-generation-with-strategy-aware-planning-and-knowledge-grounding.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.20405</span><span class="paper-category-chip">LLM Reasoning</span></div>
 
 <div class="daily-paper-summary" markdown="1">
 

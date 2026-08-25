@@ -4,7 +4,7 @@ title: "LLM 评测"
 
 # LLM 评测
 
-当日共 **3** 篇相关论文。多标签论文链接到其唯一正文页。
+当日共 **4** 篇相关论文。多标签论文链接到其唯一正文页。
 
 <div class="daily-paper-list" markdown="1">
 
@@ -13,6 +13,20 @@ title: "LLM 评测"
 #### [No Judgment Without a Reason: Counterfactual Receipts for Versioned AI Evaluators](no-judgment-without-a-reason-counterfactual-receipts-for-versioned-ai-evaluators.md)
 
 <div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.20938</span><span class="paper-category-chip">LLM 评测</span><span class="paper-category-chip">LLM Reasoning</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+中文摘要尚未生成，请进入论文页查看现有元数据。
+
+</div>
+
+</article>
+
+<article class="daily-paper-item" markdown="1">
+
+#### [ProofJudge: Tool-Grounded LLM Evaluation of Formal Proof Quality in Mathlib](proofjudge-tool-grounded-llm-evaluation-of-formal-proof-quality-in-mathlib.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.20432</span><span class="paper-category-chip">LLM 评测</span><span class="paper-category-chip">LLM Reasoning</span></div>
 
 <div class="daily-paper-summary" markdown="1">
 

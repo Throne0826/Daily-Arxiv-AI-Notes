@@ -5865,6 +5865,81 @@
       "classification_confidence": 0.81,
       "summary": "",
       "issues": []
+    },
+    "2608.20432": {
+      "announcement_date": "2026-08-24",
+      "path": "2026-08-24/llm_evaluation/proofjudge-tool-grounded-llm-evaluation-of-formal-proof-quality-in-mathlib.md",
+      "review_status": "ai_draft",
+      "title": "ProofJudge: Tool-Grounded LLM Evaluation of Formal Proof Quality in Mathlib",
+      "primary_category": "llm_evaluation",
+      "categories": [
+        "llm_evaluation",
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.96,
+      "summary": "",
+      "issues": []
+    },
+    "2608.20405": {
+      "announcement_date": "2026-08-24",
+      "path": "2026-08-24/llm_reasoning/argus-theory-of-mind-guided-argument-generation-with-strategy-aware-planning-and-knowledge-grounding.md",
+      "review_status": "ai_draft",
+      "title": "ARGUS: Theory-of-Mind Guided Argument Generation with Strategy-Aware Planning and Knowledge Grounding",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.7,
+      "summary": "",
+      "issues": []
+    },
+    "2608.20348": {
+      "announcement_date": "2026-08-24",
+      "path": "2026-08-24/llm_reasoning/inhibitory-attention-for-clinical-long-context-reasoning-characterizing-and-mitigating-lost-in-the-m.md",
+      "review_status": "ai_draft",
+      "title": "Inhibitory Attention for Clinical Long-Context Reasoning: Characterizing and Mitigating Lost-in-the-Middle Effects in EHR Processing",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.78,
+      "summary": "本文研究电子健康记录中的临床“中间信息丢失”问题，并检验查询条件化的上下文抑制是否能比单纯提高证据句召回率更有效地支持长病历指令执行。",
+      "issues": [
+        "main_results[1] evidence quote not found in source"
+      ]
+    },
+    "2608.21345": {
+      "announcement_date": "2026-08-24",
+      "path": "2026-08-24/llm_reasoning/asymmetric-capacity-allocation-in-self-refinement-pipelines.md",
+      "review_status": "ai_draft",
+      "title": "Asymmetric Capacity Allocation in Self-Refinement Pipelines",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.63,
+      "summary": "本文通过逐阶段独立改变生成器、批评器与修订器的模型规模，研究自我修正流水线中算力应如何非均匀分配。",
+      "issues": [
+        "ablations[1] evidence quote not found in source"
+      ]
+    },
+    "2608.21074": {
+      "announcement_date": "2026-08-24",
+      "path": "2026-08-24/llm_reasoning/promptresponse-optimizing-prompts-for-llm-coding-tasks.md",
+      "review_status": "ai_draft",
+      "title": "PromptResponse: Optimizing Prompts for LLM Coding Tasks",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.82,
+      "summary": "",
+      "issues": [
+        "main_results[0] evidence quote not found in source",
+        "main_results[1] evidence quote not found in source",
+        "main_results[2] evidence quote not found in source",
+        "missing structured section: motivation"
+      ]
     }
   }
 }

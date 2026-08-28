@@ -5940,6 +5940,526 @@
         "main_results[2] evidence quote not found in source",
         "missing structured section: motivation"
       ]
+    },
+    "2608.27219": {
+      "announcement_date": "2026-08-28",
+      "path": "2026-08-28/llm_evaluation/balms-benchmarking-agentic-llms-for-longitudinal-mental-health-sensing.md",
+      "review_status": "ai_draft",
+      "title": "BALMS: Benchmarking Agentic LLMs for Longitudinal Mental Health Sensing",
+      "primary_category": "llm_evaluation",
+      "categories": [
+        "llm_evaluation",
+        "llm_agent",
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.97,
+      "summary": "BALMS建立了一个纵向心理健康感知基准，用于检验不同大语言模型智能体能否从长期可穿戴与手机传感数据中预测可验证的心理健康分数，并生成有时间与数值证据支撑的解释。",
+      "issues": []
+    },
+    "2608.27420": {
+      "announcement_date": "2026-08-28",
+      "path": "2026-08-28/llm_alignment/boosting-llm-exploration-via-weak-model-guidance-in-rlvr.md",
+      "review_status": "ai_draft",
+      "title": "Boosting LLM Exploration via Weak-Model Guidance in RLVR",
+      "primary_category": "llm_alignment",
+      "categories": [
+        "llm_alignment",
+        "llm_reasoning",
+        "reinforcement_learning"
+      ],
+      "classification_confidence": 0.98,
+      "summary": "",
+      "issues": []
+    },
+    "2608.26550": {
+      "announcement_date": "2026-08-28",
+      "path": "2026-08-28/llm_alignment/spear-distilling-domain-adaptive-reasoning-skeletons-via-sequential-symbolic-alignment-in-reinforcem.md",
+      "review_status": "ai_draft",
+      "title": "SPEAR: Distilling Domain-Adaptive Reasoning Skeletons via Sequential Symbolic Alignment in Reinforcement Learning",
+      "primary_category": "llm_alignment",
+      "categories": [
+        "llm_alignment",
+        "llm_reasoning",
+        "reinforcement_learning"
+      ],
+      "classification_confidence": 0.98,
+      "summary": "SPEAR通过将教师和学生的自然语言推理轨迹转换为领域相关的符号里程碑，并用最长公共子序列进行顺序对齐，为强化学习知识蒸馏提供无需训练神经过程奖励模型的稠密过程奖励。",
+      "issues": [
+        "ablations[0] evidence quote not found in source",
+        "ablations[1] evidence quote not found in source"
+      ]
+    },
+    "2608.27265": {
+      "announcement_date": "2026-08-28",
+      "path": "2026-08-28/llm_interpretability/scit-testing-causal-cache-carriers-in-latent-chain-of-thought-models.md",
+      "review_status": "ai_draft",
+      "title": "SCIT: Testing Causal Cache Carriers in Latent Chain-of-Thought Models",
+      "primary_category": "llm_interpretability",
+      "categories": [
+        "llm_interpretability",
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.97,
+      "summary": "",
+      "issues": [
+        "missing structured section: motivation"
+      ]
+    },
+    "2608.26836": {
+      "announcement_date": "2026-08-28",
+      "path": "2026-08-28/llm_reasoning/symbollkg-towards-verifiable-logical-reasoning-via-logical-knowledge-graph-and-symbolic-solvers.md",
+      "review_status": "ai_draft",
+      "title": "SymbolLKG: Towards Verifiable Logical Reasoning via Logical Knowledge Graph and Symbolic Solvers",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning",
+        "llm_nlp"
+      ],
+      "classification_confidence": 0.97,
+      "summary": "",
+      "issues": [
+        "missing structured section: motivation"
+      ]
+    },
+    "2608.26310": {
+      "announcement_date": "2026-08-28",
+      "path": "2026-08-28/llm_evaluation/faithsieve-fine-grained-evaluation-of-math-proofs-with-faithful-formal-evidence.md",
+      "review_status": "ai_draft",
+      "title": "FaithSieve: Fine-Grained Evaluation of Math Proofs with Faithful Formal Evidence",
+      "primary_category": "llm_evaluation",
+      "categories": [
+        "llm_evaluation",
+        "llm_reasoning",
+        "llm_nlp"
+      ],
+      "classification_confidence": 0.99,
+      "summary": "FaithSieve研究如何把自然语言数学证明拆成局部推理单元，并仅在形式化陈述与原意语义对齐时采用Lean验证证据，从而更可靠地定位首个逻辑错误。",
+      "issues": []
+    },
+    "2608.26623": {
+      "announcement_date": "2026-08-28",
+      "path": "2026-08-28/llm_evaluation/agentjudgebench-a-multi-difficulty-benchmark-for-evaluating-llm-judges-on-agentic-tool-calling.md",
+      "review_status": "ai_draft",
+      "title": "AgentJudgeBench: A Multi-Difficulty Benchmark for Evaluating LLM Judges on Agentic Tool-Calling",
+      "primary_category": "llm_evaluation",
+      "categories": [
+        "llm_evaluation",
+        "llm_agent",
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.97,
+      "summary": "本文提出 AgentJudgeBench，用受控难度的工作流有向无环图、程序化参考答案及有无真实轨迹的配对条件，系统检验大语言模型裁判评估智能体工具调用时是否可靠。",
+      "issues": []
+    },
+    "2608.27348": {
+      "announcement_date": "2026-08-28",
+      "path": "2026-08-28/llm_safety/intent-as-a-tool-makes-it-easy-to-track-agentic-misalignment.md",
+      "review_status": "ai_draft",
+      "title": "INTENT-AS-A-TOOL Makes it Easy to Track Agentic Misalignment",
+      "primary_category": "llm_safety",
+      "categories": [
+        "llm_safety",
+        "llm_agent",
+        "llm_nlp",
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.97,
+      "summary": "本文提出 INTENT-AS-A-TOOL：把针对特定有害行为的“意图工具”加入智能体动作空间，以工具调用概率连续追踪推理过程中有害意图的形成，并据此选择在线干预时机。",
+      "issues": []
+    },
+    "2608.26832": {
+      "announcement_date": "2026-08-28",
+      "path": "2026-08-28/llm_evaluation/ruleweaver-benchmarking-rule-centered-scenario-reasoning-for-large-language-models.md",
+      "review_status": "ai_draft",
+      "title": "RuleWeaver: Benchmarking Rule-Centered Scenario Reasoning for Large Language Models",
+      "primary_category": "llm_evaluation",
+      "categories": [
+        "llm_evaluation",
+        "llm_reasoning",
+        "llm_nlp"
+      ],
+      "classification_confidence": 0.98,
+      "summary": "",
+      "issues": []
+    },
+    "2608.27351": {
+      "announcement_date": "2026-08-28",
+      "path": "2026-08-28/llm_alignment/understanding-evolution-strategies-for-llm-reasoning-broader-reasoning-coverage-than-grpo.md",
+      "review_status": "ai_draft",
+      "title": "Understanding Evolution Strategies for LLM Reasoning: Broader Reasoning Coverage than GRPO",
+      "primary_category": "llm_alignment",
+      "categories": [
+        "llm_alignment",
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.99,
+      "summary": "本文旨在厘清演化策略（ES）相较于主流群组相对策略优化（GRPO）的真正优势边界：ES是否能在提升单次作答成功率的同时保留更广的推理路径覆盖，以及其参数漂移、遗忘风险与可扩展训练条件应如何理解。",
+      "issues": []
+    },
+    "2608.27455": {
+      "announcement_date": "2026-08-28",
+      "path": "2026-08-28/llm_reasoning/criticl-inference-time-weak-to-strong-generalization-from-small-language-model-failure-modes.md",
+      "review_status": "ai_draft",
+      "title": "CritICL: Inference-Time Weak-to-Strong Generalization from Small Language Model Failure Modes",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning",
+        "llm_efficiency",
+        "llm_nlp"
+      ],
+      "classification_confidence": 0.95,
+      "summary": "CritICL将小模型反复出现的结构化错误转化为可复用的批评式上下文示例，以较低推理开销帮助同一家族的更强模型规避常见推理陷阱。",
+      "issues": []
+    },
+    "2608.27296": {
+      "announcement_date": "2026-08-28",
+      "path": "2026-08-28/llm_reasoning/llms-can-design-near-optimal-or-algorithms.md",
+      "review_status": "ai_draft",
+      "title": "LLMs Can Design Near-Optimal OR Algorithms",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning",
+        "llm_agent",
+        "llm_nlp"
+      ],
+      "classification_confidence": 0.95,
+      "summary": "本文通过统一、无提示调优的单次查询实验，检验通用大语言模型能否针对数学定义明确但难以精确求解的运筹优化问题，直接生成单实例解或可复用于整个问题类别的高性能算法。",
+      "issues": []
+    },
+    "2608.26187": {
+      "announcement_date": "2026-08-28",
+      "path": "2026-08-28/llm_reasoning/when-the-canonical-completion-is-wrong-formalizing-and-measuring-the-jump-in-large-language-models.md",
+      "review_status": "ai_draft",
+      "title": "When the Canonical Completion Is Wrong: Formalizing and Measuring the Jump in Large Language Models",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning",
+        "llm_evaluation",
+        "llm_nlp"
+      ],
+      "classification_confidence": 0.96,
+      "summary": "",
+      "issues": []
+    },
+    "2608.27448": {
+      "announcement_date": "2026-08-28",
+      "path": "2026-08-28/llm_alignment/ttpo-test-time-policy-optimization.md",
+      "review_status": "ai_draft",
+      "title": "TTPO: Test-Time Policy Optimization",
+      "primary_category": "llm_alignment",
+      "categories": [
+        "llm_alignment",
+        "llm_reasoning",
+        "llm_nlp",
+        "reinforcement_learning"
+      ],
+      "classification_confidence": 0.95,
+      "summary": "",
+      "issues": [
+        "removed unverified project_url: https://zju-real.github.io/TTPO"
+      ]
+    },
+    "2608.27142": {
+      "announcement_date": "2026-08-28",
+      "path": "2026-08-28/llm_reasoning/grain-bridging-name-and-narrative-shifts-in-real-world-graph-reasoning-through-invariance-rewarded-a.md",
+      "review_status": "ai_draft",
+      "title": "GRAIN: Bridging Name and Narrative Shifts in Real-World Graph Reasoning through Invariance-Rewarded Agentic RL",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning",
+        "llm_agent",
+        "llm_alignment",
+        "llm_nlp"
+      ],
+      "classification_confidence": 0.95,
+      "summary": "本文关注大语言模型在图结构不变、但节点名称或任务叙述发生变化时推理性能骤降的问题，并探索以结构不变性奖励训练单智能体，使其稳定完成文本到图结构的解析与工具调用。",
+      "issues": []
+    },
+    "2608.26126": {
+      "announcement_date": "2026-08-28",
+      "path": "2026-08-28/llm_reasoning/telecomgpt-r1-a-unified-open-source-reasoner-for-the-telecom-stack.md",
+      "review_status": "ai_draft",
+      "title": "TelecomGPT-R1: A Unified Open-Source Reasoner for the Telecom Stack",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning",
+        "llm_alignment",
+        "llm_nlp"
+      ],
+      "classification_confidence": 0.97,
+      "summary": "本文针对通用推理模型缺少电信领域依据、现有电信模型又缺乏跨任务多步推理能力的双重缺口，尝试构建一个能统一处理协议、知识、建模与故障问题的开源电信推理模型。",
+      "issues": [
+        "main_results[0] evidence quote not found in source"
+      ]
+    },
+    "2608.26442": {
+      "announcement_date": "2026-08-28",
+      "path": "2026-08-28/llm_reasoning/don-t-overthink-don-t-underthink-toward-adaptive-reasoning-in-agentic-ai.md",
+      "review_status": "ai_draft",
+      "title": "Don't Overthink, Don't Underthink: Toward Adaptive Reasoning in Agentic AI",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning",
+        "llm_agent",
+        "llm_nlp"
+      ],
+      "classification_confidence": 0.95,
+      "summary": "本文将智能体人工智能中的过度推理与不足推理界定为推理资源错配的两类反复出现的失效模式，并通过实证分析说明未来系统需要根据任务执行过程中不断变化的需求，动态决定何时推理、何时行动以及何时停止。",
+      "issues": []
+    },
+    "2608.26334": {
+      "announcement_date": "2026-08-28",
+      "path": "2026-08-28/llm_reasoning/proofevolve-neuro-symbolic-evolution-for-formal-automated-theorem-proving.md",
+      "review_status": "ai_draft",
+      "title": "ProofEvolve: Neuro-Symbolic Evolution for Formal Automated Theorem Proving",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.95,
+      "summary": "ProofEvolve旨在让神经定理证明器不只追求一次性完成整条证明，而是持续保存、验证并跨问题复用部分证明所产生的可靠知识。",
+      "issues": [
+        "main_results[2] evidence quote not found in source"
+      ]
+    },
+    "2608.26164": {
+      "announcement_date": "2026-08-28",
+      "path": "2026-08-28/llm_nlp/a-task-centric-ontology-and-deterministic-domain-rules-as-a-verifiable-core-for-ai-assisted-chemistr.md",
+      "review_status": "ai_draft",
+      "title": "A Task-Centric Ontology and Deterministic Domain Rules as a Verifiable Core for AI-Assisted Chemistry Problem Solving",
+      "primary_category": "llm_nlp",
+      "categories": [
+        "llm_nlp",
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.96,
+      "summary": "本文探索以面向限定题集的任务中心本体和确定性化学规则构成可检查、可约束的符号推理核心，使未来的大语言模型主要负责自然语言与规范化任务表示之间的转换，而非独自承担化学推理。",
+      "issues": []
+    },
+    "2608.26235": {
+      "announcement_date": "2026-08-28",
+      "path": "2026-08-28/llm_evaluation/the-reasoning-tax-token-economics-of-llm-reasoning-across-task-types-and-deployment-contexts.md",
+      "review_status": "ai_draft",
+      "title": "The Reasoning Tax: Token Economics of LLM Reasoning Across Task Types and Deployment Contexts",
+      "primary_category": "llm_evaluation",
+      "categories": [
+        "llm_evaluation",
+        "llm_efficiency",
+        "llm_reasoning",
+        "llm_nlp"
+      ],
+      "classification_confidence": 0.97,
+      "summary": "本文把推理型大语言模型的额外思考视为一项需要核算收益与成本的部署决策，并提出 Token Economy Score（TES）来衡量准确率增益是否足以补偿生成词元开销。",
+      "issues": [
+        "main_results[0] evidence quote not found in source",
+        "main_results[2] evidence quote not found in source"
+      ]
+    },
+    "2608.27036": {
+      "announcement_date": "2026-08-28",
+      "path": "2026-08-28/llm_reasoning/reasoning-about-in-context-samples-for-machine-translation.md",
+      "review_status": "ai_draft",
+      "title": "Reasoning about In-Context Samples for Machine-Translation",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning",
+        "llm_nlp"
+      ],
+      "classification_confidence": 0.95,
+      "summary": "本文研究如何让大语言模型显式分析翻译记忆库中的相似双语样例，先提取可复用的源语—目标语片段，再以这些片段作为推理轨迹生成译文。",
+      "issues": []
+    },
+    "2608.26166": {
+      "announcement_date": "2026-08-28",
+      "path": "2026-08-28/llm_interpretability/improving-llm-interpretability-with-user-centric-chain-of-thought-reasoning.md",
+      "review_status": "ai_draft",
+      "title": "Improving LLM Interpretability with User-Centric Chain-of-Thought Reasoning",
+      "primary_category": "llm_interpretability",
+      "categories": [
+        "llm_interpretability",
+        "llm_reasoning",
+        "llm_nlp"
+      ],
+      "classification_confidence": 0.95,
+      "summary": "本文提出以自包含、可验证步骤组织大语言模型推理轨迹，并通过交互界面支持逐步检查与纠错，目标是在不降低数学推理质量的同时提升解释的用户可用性。",
+      "issues": []
+    },
+    "2608.26329": {
+      "announcement_date": "2026-08-28",
+      "path": "2026-08-28/llm_reasoning/neuro-symbolic-prm-enhancing-scientific-reasoning-via-structured-traces-and-symbolic-verification.md",
+      "review_status": "ai_draft",
+      "title": "Neuro-symbolic PRM: Enhancing Scientific Reasoning via Structured Traces and Symbolic Verification",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning",
+        "llm_alignment",
+        "llm_nlp"
+      ],
+      "classification_confidence": 0.95,
+      "summary": "本文针对定量 STEM 推理中“可执行但语义无依据”的中间步骤，将正确性拆分为符号有效性 $V$ 与语义扎根性 $G$，以确定性验证器负责前者、专用过程奖励模型负责后者。",
+      "issues": [
+        "main_results[0] evidence quote not found in source",
+        "main_results[1] evidence quote not found in source"
+      ]
+    },
+    "2608.26950": {
+      "announcement_date": "2026-08-28",
+      "path": "2026-08-28/llm_evaluation/from-atomic-to-agentic-towards-interpretable-evaluation-of-llms-agentic-mathematical-capabilities.md",
+      "review_status": "ai_draft",
+      "title": "From Atomic to Agentic: Towards Interpretable Evaluation of LLMs' Agentic Mathematical Capabilities",
+      "primary_category": "llm_evaluation",
+      "categories": [
+        "llm_evaluation",
+        "llm_reasoning",
+        "llm_agent",
+        "llm_nlp"
+      ],
+      "classification_confidence": 0.95,
+      "summary": "",
+      "issues": [
+        "main_results[0] evidence quote not found in source",
+        "main_results[2] evidence quote not found in source"
+      ]
+    },
+    "2608.26139": {
+      "announcement_date": "2026-08-28",
+      "path": "2026-08-28/llm_interpretability/syntax-vs-semantics-how-transformers-learn-deep-dependencies.md",
+      "review_status": "ai_draft",
+      "title": "Syntax vs. Semantics: How Transformers Learn Deep Dependencies",
+      "primary_category": "llm_interpretability",
+      "categories": [
+        "llm_interpretability",
+        "llm_reasoning",
+        "llm_nlp"
+      ],
+      "classification_confidence": 0.95,
+      "summary": "",
+      "issues": [
+        "missing structured section: motivation"
+      ]
+    },
+    "2608.26386": {
+      "announcement_date": "2026-08-28",
+      "path": "2026-08-28/llm_reasoning/co-evolving-structured-knowledge-and-reasoning-in-language-models.md",
+      "review_status": "ai_draft",
+      "title": "Co-Evolving Structured Knowledge and Reasoning in Language Models",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.93,
+      "summary": "KBevo将结构化知识库构建与基于知识库的问答推理联合训练，使问答结果的奖励能够反向改善知识的组织方式，从而兼顾知识可控性、可复用性与组合事实推理能力。",
+      "issues": []
+    },
+    "2608.27176": {
+      "announcement_date": "2026-08-28",
+      "path": "2026-08-28/llm_evaluation/when-text-misleads-inconsistent-aware-reasoning-for-audio-grounded-dialogue.md",
+      "review_status": "ai_draft",
+      "title": "When Text Misleads: Inconsistent-Aware Reasoning for Audio-Grounded Dialogue",
+      "primary_category": "llm_evaluation",
+      "categories": [
+        "llm_evaluation",
+        "llm_nlp",
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.9,
+      "summary": "本文以“文本含义与语音表达相冲突”为切入点，构建可区分跨模态冲突与一致情形的口语对话评测，并探索用显式、可检查的声学证据纠正文本捷径。",
+      "issues": [
+        "main_results[2] evidence quote not found in source",
+        "ablations[0] evidence quote not found in source",
+        "ablations[1] evidence quote not found in source"
+      ]
+    },
+    "2608.26147": {
+      "announcement_date": "2026-08-28",
+      "path": "2026-08-28/llm_alignment/care-causally-aligned-reasoning-exploration-for-medical-large-language-models.md",
+      "review_status": "ai_draft",
+      "title": "CARE: Causally-Aligned Reasoning Exploration for Medical Large Language Models",
+      "primary_category": "llm_alignment",
+      "categories": [
+        "llm_alignment",
+        "llm_reasoning",
+        "llm_nlp",
+        "reinforcement_learning"
+      ],
+      "classification_confidence": 0.95,
+      "summary": "CARE将医疗大模型的强化学习从“只看答案是否正确”改为“筛选因果上可信且当前可学的推理轨迹”，以同时减少捷径学习和训练不稳定。",
+      "issues": [
+        "main_results[2] evidence quote not found in source"
+      ]
+    },
+    "2608.26291": {
+      "announcement_date": "2026-08-28",
+      "path": "2026-08-28/llm_evaluation/assessing-mentalization-in-humans-and-large-language-models.md",
+      "review_status": "ai_draft",
+      "title": "Assessing mentalization in humans and large language models",
+      "primary_category": "llm_evaluation",
+      "categories": [
+        "llm_evaluation",
+        "llm_reasoning",
+        "llm_nlp"
+      ],
+      "classification_confidence": 0.95,
+      "summary": "本文研究大型语言模型是否不仅能在心智理论任务中给出类似人类的答案，还能通过推断对手的信念与意图，在互动决策中形成可适应对手复杂度的行为策略。",
+      "issues": []
+    },
+    "2608.26602": {
+      "announcement_date": "2026-08-28",
+      "path": "2026-08-28/llm_agent/the-thousand-graph-hypothesis-a-testable-hypothesis-of-task-conditioned-relation-materialization-in.md",
+      "review_status": "ai_draft",
+      "title": "The Thousand-Graph Hypothesis: A Testable Hypothesis of Task-Conditioned Relation Materialization in Repository-Level Code Reasoning",
+      "primary_category": "llm_agent",
+      "categories": [
+        "llm_agent",
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.86,
+      "summary": "",
+      "issues": []
+    },
+    "2608.26110": {
+      "announcement_date": "2026-08-28",
+      "path": "2026-08-28/llm_reasoning/exploring-the-role-of-llms-in-hpc-programming-a-survey.md",
+      "review_status": "ai_draft",
+      "title": "Exploring the Role of LLMs in HPC Programming: A Survey",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning",
+        "llm_nlp"
+      ],
+      "classification_confidence": 0.95,
+      "summary": "本文系统梳理大语言模型在高性能计算编程中的应用，重点判断其在代码生成、并行化与优化等任务上何时有效、为何失效，以及距离可靠的生产级协作工具还缺少哪些关键条件。",
+      "issues": []
+    },
+    "2608.26870": {
+      "announcement_date": "2026-08-28",
+      "path": "2026-08-28/llm_reasoning/c-unseen-weak-signal-detection-in-dynamic-temporal-knowledge-graphs-via-llm-reasoning.md",
+      "review_status": "ai_draft",
+      "title": "C-Unseen: Weak Signal Detection in Dynamic Temporal Knowledge Graphs via LLM Reasoning",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.83,
+      "summary": "",
+      "issues": [
+        "missing structured section: motivation"
+      ]
+    },
+    "2608.27038": {
+      "announcement_date": "2026-08-28",
+      "path": "2026-08-28/llm_efficiency/cascaded-batch-prompting.md",
+      "review_status": "ai_draft",
+      "title": "Cascaded Batch Prompting",
+      "primary_category": "llm_efficiency",
+      "categories": [
+        "llm_efficiency",
+        "llm_reasoning",
+        "llm_nlp"
+      ],
+      "classification_confidence": 0.91,
+      "summary": "本文将批量提示中的自由形式推理与受限标签映射拆成两个阶段，试图在保留随批大小增长的推理加速效果时，避免传统批量提示带来的任务性能波动。",
+      "issues": []
     }
   }
 }

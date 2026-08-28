@@ -5,7 +5,55 @@ description: "LLM 机制与可解释性 方向每日 arXiv 论文中文解读。
 
 # LLM 机制与可解释性
 
-共收录 **18** 篇，按 arXiv 日榜日期倒序排列。
+共收录 **21** 篇，按 arXiv 日榜日期倒序排列。
+
+## 2026-08-28
+
+<div class="daily-paper-list" markdown="1">
+
+<article class="daily-paper-item" markdown="1">
+
+#### [Syntax vs. Semantics: How Transformers Learn Deep Dependencies](../../arxiv_daily/2026-08-28/llm_interpretability/syntax-vs-semantics-how-transformers-learn-deep-dependencies.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.26139</span><span class="paper-category-chip">LLM 机制与可解释性</span><span class="paper-category-chip">LLM Reasoning</span><span class="paper-category-chip">LLM 其他</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+中文摘要尚未生成，请进入论文页查看现有元数据。
+
+</div>
+
+</article>
+
+<article class="daily-paper-item" markdown="1">
+
+#### [SCIT: Testing Causal Cache Carriers in Latent Chain-of-Thought Models](../../arxiv_daily/2026-08-28/llm_interpretability/scit-testing-causal-cache-carriers-in-latent-chain-of-thought-models.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.27265</span><span class="paper-category-chip">LLM 机制与可解释性</span><span class="paper-category-chip">LLM Reasoning</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+中文摘要尚未生成，请进入论文页查看现有元数据。
+
+</div>
+
+</article>
+
+<article class="daily-paper-item" markdown="1">
+
+#### [Improving LLM Interpretability with User-Centric Chain-of-Thought Reasoning](../../arxiv_daily/2026-08-28/llm_interpretability/improving-llm-interpretability-with-user-centric-chain-of-thought-reasoning.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.26166</span><span class="paper-category-chip">LLM 机制与可解释性</span><span class="paper-category-chip">LLM Reasoning</span><span class="paper-category-chip">LLM 其他</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+本文提出以自包含、可验证步骤组织大语言模型推理轨迹，并通过交互界面支持逐步检查与纠错，目标是在不降低数学推理质量的同时提升解释的用户可用性。
+
+</div>
+
+</article>
+
+</div>
 
 ## 2026-08-24
 

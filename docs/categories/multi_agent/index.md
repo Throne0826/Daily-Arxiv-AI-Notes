@@ -5,7 +5,27 @@ description: "Multi-Agent 方向每日 arXiv 论文中文解读。"
 
 # Multi-Agent
 
-共收录 **12** 篇，按 arXiv 日榜日期倒序排列。
+共收录 **13** 篇，按 arXiv 日榜日期倒序排列。
+
+## 2026-08-31
+
+<div class="daily-paper-list" markdown="1">
+
+<article class="daily-paper-item" markdown="1">
+
+#### [See, Hypothesize, Validate: Multimodal Agentic Framework for Discovering Governing PDEs](../../arxiv_daily/2026-08-31/multi_agent/see-hypothesize-validate-multimodal-agentic-framework-for-discovering-governing-pdes.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.27869</span><span class="paper-category-chip">Multi-Agent</span><span class="paper-category-chip">LLM Reasoning</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+中文摘要尚未生成，请进入论文页查看现有元数据。
+
+</div>
+
+</article>
+
+</div>
 
 ## 2026-08-18
 

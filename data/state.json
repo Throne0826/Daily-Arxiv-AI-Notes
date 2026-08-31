@@ -6460,6 +6460,372 @@
       "classification_confidence": 0.91,
       "summary": "本文将批量提示中的自由形式推理与受限标签映射拆成两个阶段，试图在保留随批大小增长的推理加速效果时，避免传统批量提示带来的任务性能波动。",
       "issues": []
+    },
+    "2608.27953": {
+      "announcement_date": "2026-08-31",
+      "path": "2026-08-31/llm_evaluation/the-illusion-of-textit-what-if-evaluating-the-breakdown-of-counterfactual-reasoning-in-llms.md",
+      "review_status": "ai_draft",
+      "title": "The Illusion of $\\textit{What If}$: Evaluating the Breakdown of Counterfactual Reasoning in LLMs",
+      "primary_category": "llm_evaluation",
+      "categories": [
+        "llm_evaluation",
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.98,
+      "summary": "",
+      "issues": []
+    },
+    "2608.28481": {
+      "announcement_date": "2026-08-31",
+      "path": "2026-08-31/llm_evaluation/nl2agbench-benchmarking-llm-auto-formalization-for-alphageometry.md",
+      "review_status": "ai_draft",
+      "title": "NL2AGBench: Benchmarking LLM Auto-Formalization for AlphaGeometry",
+      "primary_category": "llm_evaluation",
+      "categories": [
+        "llm_evaluation",
+        "llm_reasoning",
+        "llm_nlp"
+      ],
+      "classification_confidence": 0.98,
+      "summary": "本文针对自然语言几何题到 AlphaGeometry 专用形式语言之间的转换瓶颈，提出以求解器实际执行为核心的 NL2AGBench，用于检验大语言模型能否生成语法有效且保持原题几何约束的形式化表示。",
+      "issues": []
+    },
+    "2608.28270": {
+      "announcement_date": "2026-08-31",
+      "path": "2026-08-31/robotics/spatial-semantic-reasoning-using-large-language-models-for-efficient-uav-search-operations.md",
+      "review_status": "ai_draft",
+      "title": "Spatial-Semantic Reasoning using Large Language Models for Efficient UAV Search Operations",
+      "primary_category": "robotics",
+      "categories": [
+        "robotics",
+        "llm_reasoning",
+        "llm_nlp"
+      ],
+      "classification_confidence": 0.96,
+      "summary": "本文研究如何让无人机仅借助轻量级目标检测、三维空间信息与大语言模型的持续语义推理，在未知环境中根据自然语言指令优先搜索最可能出现目标的区域，并以平滑连续轨迹缩短 ObjectNav 任务时间。",
+      "issues": []
+    },
+    "2608.28421": {
+      "announcement_date": "2026-08-31",
+      "path": "2026-08-31/llm_alignment/program-learning-with-verifiable-rewards-symbolic-backpropagation-for-post-training-llms.md",
+      "review_status": "ai_draft",
+      "title": "Program Learning with Verifiable Rewards: Symbolic Backpropagation for Post-Training LLMs",
+      "primary_category": "llm_alignment",
+      "categories": [
+        "llm_alignment",
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.96,
+      "summary": "",
+      "issues": [
+        "removed unverified code_url: https://arxiv.org/abs/2608.28421v1",
+        "main_results[0] evidence quote not found in source",
+        "main_results[1] evidence quote not found in source",
+        "missing structured section: motivation"
+      ]
+    },
+    "2608.28496": {
+      "announcement_date": "2026-08-31",
+      "path": "2026-08-31/llm_reasoning/ladders-in-chaos-when-how-and-perhaps-why-does-test-time-scaling-improve-llm-machine-translation.md",
+      "review_status": "ai_draft",
+      "title": "Ladders in Chaos: When, How, (and Perhaps Why) Does Test-Time Scaling Improve LLM Machine Translation",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning",
+        "llm_nlp"
+      ],
+      "classification_confidence": 0.95,
+      "summary": "",
+      "issues": [
+        "missing structured section: motivation"
+      ]
+    },
+    "2608.28447": {
+      "announcement_date": "2026-08-31",
+      "path": "2026-08-31/llm_reasoning/learning-to-use-tools-reinforcement-learning-for-tool-integrated-mathematical-reasoning.md",
+      "review_status": "ai_draft",
+      "title": "Learning to Use Tools: Reinforcement Learning for Tool-Integrated Mathematical Reasoning",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning",
+        "llm_alignment",
+        "llm_nlp"
+      ],
+      "classification_confidence": 0.97,
+      "summary": "",
+      "issues": []
+    },
+    "2608.27501": {
+      "announcement_date": "2026-08-31",
+      "path": "2026-08-31/llm_alignment/inspire-an-internalize-then-improve-approach-for-example-driven-mathematical-reasoning.md",
+      "review_status": "ai_draft",
+      "title": "INSPIRE: An Internalize-Then-Improve Approach for Example-Driven Mathematical Reasoning",
+      "primary_category": "llm_alignment",
+      "categories": [
+        "llm_alignment",
+        "llm_reasoning",
+        "llm_nlp"
+      ],
+      "classification_confidence": 0.96,
+      "summary": "",
+      "issues": [
+        "missing structured section: motivation"
+      ]
+    },
+    "2608.27964": {
+      "announcement_date": "2026-08-31",
+      "path": "2026-08-31/llm_efficiency/aera-adaptive-evidence-residual-allocation-for-efficient-test-time-reasoning.md",
+      "review_status": "ai_draft",
+      "title": "AERA: Adaptive Evidence Residual Allocation for Efficient Test-Time Reasoning",
+      "primary_category": "llm_efficiency",
+      "categories": [
+        "llm_efficiency",
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.98,
+      "summary": "AERA 将自适应推理的决策目标从“当前答案看起来是否可信”改为“继续计算是否仍有望改善答案”，以应对推理正确性随计算量非单调变化的问题。",
+      "issues": []
+    },
+    "2608.27716": {
+      "announcement_date": "2026-08-31",
+      "path": "2026-08-31/llm_evaluation/pcfbench-a-diagnostic-benchmark-for-product-carbon-footprint-estimation.md",
+      "review_status": "ai_draft",
+      "title": "PCFBench: A Diagnostic Benchmark for Product Carbon Footprint Estimation",
+      "primary_category": "llm_evaluation",
+      "categories": [
+        "llm_evaluation",
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.97,
+      "summary": "",
+      "issues": [
+        "missing structured section: motivation"
+      ]
+    },
+    "2608.27963": {
+      "announcement_date": "2026-08-31",
+      "path": "2026-08-31/llm_efficiency/saber-stability-aware-early-exit-for-llm-reasoning-via-adversarial-branch-probing.md",
+      "review_status": "ai_draft",
+      "title": "SABER: Stability-Aware Early Exit for LLM Reasoning via Adversarial Branch Probing",
+      "primary_category": "llm_efficiency",
+      "categories": [
+        "llm_efficiency",
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.98,
+      "summary": "",
+      "issues": [
+        "missing structured section: motivation"
+      ]
+    },
+    "2608.28021": {
+      "announcement_date": "2026-08-31",
+      "path": "2026-08-31/llm_evaluation/compared-to-what-a-human-anchored-security-benchmark-for-llm-generated-infrastructure-as-code.md",
+      "review_status": "ai_draft",
+      "title": "Compared to What? A Human-Anchored Security Benchmark for LLM-Generated Infrastructure-as-Code",
+      "primary_category": "llm_evaluation",
+      "categories": [
+        "llm_evaluation",
+        "llm_safety",
+        "llm_nlp",
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.95,
+      "summary": "",
+      "issues": [
+        "main_results[0] evidence quote not found in source",
+        "main_results[1] evidence quote not found in source",
+        "ablations[1] evidence quote not found in source",
+        "missing structured section: motivation"
+      ]
+    },
+    "2608.27756": {
+      "announcement_date": "2026-08-31",
+      "path": "2026-08-31/llm_evaluation/load-bearing-context-the-question-damage-score-for-evaluating-context-reliance-in-linguistic-reasoni.md",
+      "review_status": "ai_draft",
+      "title": "Load-Bearing Context: The Question Damage Score for Evaluating Context Reliance in Linguistic Reasoning",
+      "primary_category": "llm_evaluation",
+      "categories": [
+        "llm_evaluation",
+        "llm_reasoning",
+        "llm_nlp",
+        "llm_interpretability"
+      ],
+      "classification_confidence": 0.95,
+      "summary": "",
+      "issues": [
+        "missing structured section: motivation"
+      ]
+    },
+    "2608.27919": {
+      "announcement_date": "2026-08-31",
+      "path": "2026-08-31/llm_reasoning/from-documents-to-reasoning-a-validated-synthetic-data-pipeline-and-semantic-aware-fine-tuning-for-f.md",
+      "review_status": "ai_draft",
+      "title": "From Documents to Reasoning: A Validated Synthetic Data Pipeline and Semantic-Aware Fine-Tuning for Financial Numerical Reasoning",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning",
+        "llm_evaluation",
+        "llm_nlp"
+      ],
+      "classification_confidence": 0.95,
+      "summary": "",
+      "issues": []
+    },
+    "2608.28407": {
+      "announcement_date": "2026-08-31",
+      "path": "2026-08-31/llm_reasoning/a-unified-framework-to-elicit-structured-feedback-for-interpretable-multi-trait-essay-scoring.md",
+      "review_status": "ai_draft",
+      "title": "A Unified Framework to Elicit Structured Feedback for Interpretable Multi-Trait Essay Scoring",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning",
+        "llm_alignment"
+      ],
+      "classification_confidence": 0.94,
+      "summary": "",
+      "issues": [
+        "missing structured section: motivation"
+      ]
+    },
+    "2608.28155": {
+      "announcement_date": "2026-08-31",
+      "path": "2026-08-31/llm_evaluation/finexam-10k-when-retrieval-helps-financial-reasoning.md",
+      "review_status": "ai_draft",
+      "title": "FinExam-10K: When Retrieval Helps Financial Reasoning?",
+      "primary_category": "llm_evaluation",
+      "categories": [
+        "llm_evaluation",
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.94,
+      "summary": "",
+      "issues": []
+    },
+    "2608.28315": {
+      "announcement_date": "2026-08-31",
+      "path": "2026-08-31/llm_reasoning/mail-memory-driven-adaptive-incremental-and-literature-grounded-framework-for-hypothesis-generation.md",
+      "review_status": "ai_draft",
+      "title": "MAIL: Memory-driven, Adaptive, Incremental, and Literature-grounded Framework for Hypothesis Generation in Chemistry",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning",
+        "llm_nlp"
+      ],
+      "classification_confidence": 0.95,
+      "summary": "",
+      "issues": []
+    },
+    "2608.28435": {
+      "announcement_date": "2026-08-31",
+      "path": "2026-08-31/llm_reasoning/linear-temporal-logic-translation-via-human-inspired-self-constrained-reasoning-for-robot-task-speci.md",
+      "review_status": "ai_draft",
+      "title": "Linear Temporal Logic Translation via Human-Inspired Self-Constrained Reasoning for Robot Task Specification",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.91,
+      "summary": "",
+      "issues": [
+        "missing structured section: motivation"
+      ]
+    },
+    "2608.28306": {
+      "announcement_date": "2026-08-31",
+      "path": "2026-08-31/llm_alignment/vista-verifier-informed-student-to-teacher-adaptation-for-on-policy-self-distillation.md",
+      "review_status": "ai_draft",
+      "title": "VISTA: Verifier-Informed Student-to-Teacher Adaptation for On-Policy Self-Distillation",
+      "primary_category": "llm_alignment",
+      "categories": [
+        "llm_alignment",
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.94,
+      "summary": "",
+      "issues": [
+        "ablations[1] evidence quote not found in source",
+        "missing structured section: motivation"
+      ]
+    },
+    "2608.27869": {
+      "announcement_date": "2026-08-31",
+      "path": "2026-08-31/multi_agent/see-hypothesize-validate-multimodal-agentic-framework-for-discovering-governing-pdes.md",
+      "review_status": "ai_draft",
+      "title": "See, Hypothesize, Validate: Multimodal Agentic Framework for Discovering Governing PDEs",
+      "primary_category": "multi_agent",
+      "categories": [
+        "multi_agent",
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.93,
+      "summary": "",
+      "issues": [
+        "main_results[0] evidence quote not found in source",
+        "missing structured section: motivation"
+      ]
+    },
+    "2608.27506": {
+      "announcement_date": "2026-08-31",
+      "path": "2026-08-31/llm_reasoning/thinking-costs-tokens-when-more-structure-is-worth-the-price.md",
+      "review_status": "ai_draft",
+      "title": "Thinking Costs Tokens: When More Structure is Worth the Price",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning",
+        "llm_efficiency"
+      ],
+      "classification_confidence": 0.95,
+      "summary": "本文研究语言模型的规划、检索、候选生成、验证与修复机制是否只有在令牌预算超过某一阈值后才值得采用，并将该问题具体化为单体架构与验证式搜索架构之间随预算变化的性能交叉。",
+      "issues": []
+    },
+    "2608.27793": {
+      "announcement_date": "2026-08-31",
+      "path": "2026-08-31/robotics/cave-nav-vlm-based-autonomous-3d-navigation-in-underwater-cave-environments.md",
+      "review_status": "ai_draft",
+      "title": "CAVE-NAV: VLM-Based Autonomous 3D Navigation in Underwater Cave Environments",
+      "primary_category": "robotics",
+      "categories": [
+        "robotics",
+        "vlm_reasoning",
+        "llm_reasoning",
+        "multimodal_vlm"
+      ],
+      "classification_confidence": 0.93,
+      "summary": "",
+      "issues": []
+    },
+    "2608.28252": {
+      "announcement_date": "2026-08-31",
+      "path": "2026-08-31/llm_agent/regime-aware-portfolio-management-via-retrieval-augmented-llm-guided-expert-switching.md",
+      "review_status": "ai_draft",
+      "title": "Regime-Aware Portfolio Management via Retrieval-Augmented LLM-Guided Expert Switching",
+      "primary_category": "llm_agent",
+      "categories": [
+        "llm_agent",
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.86,
+      "summary": "",
+      "issues": [
+        "missing structured section: motivation"
+      ]
+    },
+    "2608.28402": {
+      "announcement_date": "2026-08-31",
+      "path": "2026-08-31/llm_reasoning/vera-8b-evidence-grounded-audit-risk-reasoning-from-sec-filings.md",
+      "review_status": "ai_draft",
+      "title": "VERA-8B: Evidence-Grounded Audit Risk Reasoning from SEC Filings",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning",
+        "llm_alignment"
+      ],
+      "classification_confidence": 0.88,
+      "summary": "",
+      "issues": [
+        "missing structured section: motivation"
+      ]
     }
   }
 }

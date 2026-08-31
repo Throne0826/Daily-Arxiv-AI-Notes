@@ -5,7 +5,27 @@ description: "LLM 安全 方向每日 arXiv 论文中文解读。"
 
 # LLM 安全
 
-共收录 **20** 篇，按 arXiv 日榜日期倒序排列。
+共收录 **21** 篇，按 arXiv 日榜日期倒序排列。
+
+## 2026-08-31
+
+<div class="daily-paper-list" markdown="1">
+
+<article class="daily-paper-item" markdown="1">
+
+#### [Compared to What? A Human-Anchored Security Benchmark for LLM-Generated Infrastructure-as-Code](../../arxiv_daily/2026-08-31/llm_evaluation/compared-to-what-a-human-anchored-security-benchmark-for-llm-generated-infrastructure-as-code.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.28021</span><span class="paper-category-chip">LLM 评测</span><span class="paper-category-chip">LLM 安全</span><span class="paper-category-chip">LLM 其他</span><span class="paper-category-chip">LLM Reasoning</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+中文摘要尚未生成，请进入论文页查看现有元数据。
+
+</div>
+
+</article>
+
+</div>
 
 ## 2026-08-28
 

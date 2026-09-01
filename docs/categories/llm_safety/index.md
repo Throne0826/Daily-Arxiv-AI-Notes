@@ -5,7 +5,55 @@ description: "LLM 安全 方向每日 arXiv 论文中文解读。"
 
 # LLM 安全
 
-共收录 **21** 篇，按 arXiv 日榜日期倒序排列。
+共收录 **24** 篇，按 arXiv 日榜日期倒序排列。
+
+## 2026-09-01
+
+<div class="daily-paper-list" markdown="1">
+
+<article class="daily-paper-item" markdown="1">
+
+#### [Selective Disclosure of Hidden Directives in Reasoning Models: Behavioral Asymmetry and Steering](../../arxiv_daily/2026-09-01/llm_safety/selective-disclosure-of-hidden-directives-in-reasoning-models-behavioral-asymmetry-and-steering.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.29070</span><span class="paper-category-chip">LLM 安全</span><span class="paper-category-chip">LLM 机制与可解释性</span><span class="paper-category-chip">LLM Reasoning</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+中文摘要尚未生成，请进入论文页查看现有元数据。
+
+</div>
+
+</article>
+
+<article class="daily-paper-item" markdown="1">
+
+#### [Quantifying and Mitigating Korean Jamo-Level Typographical Vulnerabilities in Large Language Models](../../arxiv_daily/2026-09-01/llm_safety/quantifying-and-mitigating-korean-jamo-level-typographical-vulnerabilities-in-large-language-models.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.30229</span><span class="paper-category-chip">LLM 安全</span><span class="paper-category-chip">LLM Reasoning</span><span class="paper-category-chip">LLM 其他</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+中文摘要尚未生成，请进入论文页查看现有元数据。
+
+</div>
+
+</article>
+
+<article class="daily-paper-item" markdown="1">
+
+#### [Chain-of-Thought Faithfulness of Reasoning Models Varies with Where and How Preference Cues Are Delivered](../../arxiv_daily/2026-09-01/llm_evaluation/chain-of-thought-faithfulness-of-reasoning-models-varies-with-where-and-how-preference-cues-are-deli.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2608.29464</span><span class="paper-category-chip">LLM 评测</span><span class="paper-category-chip">LLM 安全</span><span class="paper-category-chip">LLM Reasoning</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+本文研究偏好线索的传递位置与表达方式是否会系统性影响推理模型思维链对“依据偏好调整答案”这一决策的忠实记录。
+
+</div>
+
+</article>
+
+</div>
 
 ## 2026-08-31
 

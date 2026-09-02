@@ -5,7 +5,27 @@ description: "Multi-Agent 方向每日 arXiv 论文中文解读。"
 
 # Multi-Agent
 
-共收录 **14** 篇，按 arXiv 日榜日期倒序排列。
+共收录 **15** 篇，按 arXiv 日榜日期倒序排列。
+
+## 2026-09-02
+
+<div class="daily-paper-list" markdown="1">
+
+<article class="daily-paper-item" markdown="1">
+
+#### [EULER: Exploring Underused Links with Evidence-Checked Return for Multi-Agent Mathematical Discovery](../../arxiv_daily/2026-09-02/multi_agent/euler-exploring-underused-links-with-evidence-checked-return-for-multi-agent-mathematical-discovery.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2609.00032</span><span class="paper-category-chip">Multi-Agent</span><span class="paper-category-chip">LLM Reasoning</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+中文摘要尚未生成，请进入论文页查看现有元数据。
+
+</div>
+
+</article>
+
+</div>
 
 ## 2026-09-01
 

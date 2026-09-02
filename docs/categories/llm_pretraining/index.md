@@ -5,7 +5,27 @@ description: "预训练 方向每日 arXiv 论文中文解读。"
 
 # 预训练
 
-共收录 **3** 篇，按 arXiv 日榜日期倒序排列。
+共收录 **4** 篇，按 arXiv 日榜日期倒序排列。
+
+## 2026-09-02
+
+<div class="daily-paper-list" markdown="1">
+
+<article class="daily-paper-item" markdown="1">
+
+#### [Knowledge Distillation During Mid-Training Favors Reasoning over Factual Recall](../../arxiv_daily/2026-09-02/llm_pretraining/knowledge-distillation-during-mid-training-favors-reasoning-over-factual-recall.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2609.01532</span><span class="paper-category-chip">预训练</span><span class="paper-category-chip">LLM Reasoning</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+本文发现标准前向 KL 知识蒸馏在中期训练中会形成“推理提升、事实回忆变慢”的权衡，并据此提出按教师预测熵在蒸馏与下一词预测之间逐词切换的 Switch Distillation。
+
+</div>
+
+</article>
+
+</div>
 
 ## 2026-09-01
 

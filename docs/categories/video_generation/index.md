@@ -5,7 +5,27 @@ description: "视频生成 方向每日 arXiv 论文中文解读。"
 
 # 视频生成
 
-共收录 **2** 篇，按 arXiv 日榜日期倒序排列。
+共收录 **3** 篇，按 arXiv 日榜日期倒序排列。
+
+## 2026-09-02
+
+<div class="daily-paper-list" markdown="1">
+
+<article class="daily-paper-item" markdown="1">
+
+#### [Physically Plausible Video Generation via Visual-Semantic Chain-of-Events Conditioning](../../arxiv_daily/2026-09-02/video_generation/physically-plausible-video-generation-via-visual-semantic-chain-of-events-conditioning.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2609.00656</span><span class="paper-category-chip">视频生成</span><span class="paper-category-chip">LLM Reasoning</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+中文摘要尚未生成，请进入论文页查看现有元数据。
+
+</div>
+
+</article>
+
+</div>
 
 ## 2026-08-04
 

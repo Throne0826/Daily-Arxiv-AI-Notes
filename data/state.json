@@ -8164,6 +8164,221 @@
         "ablations[0] evidence quote not found in source",
         "missing structured section: motivation"
       ]
+    },
+    "2609.02421": {
+      "announcement_date": "2026-09-03",
+      "path": "2026-09-03/llm_evaluation/utp-bench-uncertainty-aware-travel-planning-benchmark.md",
+      "review_status": "ai_draft",
+      "title": "UTP-Bench: Uncertainty-aware Travel Planning Benchmark",
+      "primary_category": "llm_evaluation",
+      "categories": [
+        "llm_evaluation",
+        "llm_reasoning",
+        "llm_nlp"
+      ],
+      "classification_confidence": 0.95,
+      "summary": "",
+      "issues": []
+    },
+    "2609.02336": {
+      "announcement_date": "2026-09-03",
+      "path": "2026-09-03/llm_reasoning/sala-semantic-aware-logical-alignment-for-complex-reasoning-in-in-context-learning.md",
+      "review_status": "ai_draft",
+      "title": "SALA: Semantic-Aware Logical Alignment for Complex Reasoning in In-Context Learning",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.97,
+      "summary": "SALA通过从下游数据中自动归纳任务特定的推理操作，并在连续语义空间中用动态时间规整对齐操作序列，从而为复杂推理的上下文学习选择逻辑上更匹配的示例。",
+      "issues": [
+        "removed unverified project_url: https://arxiv.org/abs/2609.02336v1"
+      ]
+    },
+    "2609.02817": {
+      "announcement_date": "2026-09-03",
+      "path": "2026-09-03/llm_alignment/cliff-learning-process-rewards-from-the-first-mistake.md",
+      "review_status": "ai_draft",
+      "title": "Cliff: Learning Process Rewards from the First Mistake",
+      "primary_category": "llm_alignment",
+      "categories": [
+        "llm_alignment",
+        "llm_reasoning",
+        "llm_nlp",
+        "reinforcement_learning"
+      ],
+      "classification_confidence": 0.99,
+      "summary": "",
+      "issues": [
+        "missing structured section: motivation"
+      ]
+    },
+    "2609.02049": {
+      "announcement_date": "2026-09-03",
+      "path": "2026-09-03/llm_reasoning/the-dynamics-of-continuous-mixture-collapse-in-language-models.md",
+      "review_status": "ai_draft",
+      "title": "The Dynamics of Continuous Mixture Collapse in Language Models",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning",
+        "llm_interpretability"
+      ],
+      "classification_confidence": 0.97,
+      "summary": "本文追问连续推理状态为何会在预训练语言模型中坍缩，并将原因区分为架构引入的几何失真、训练放大的失真，以及即使在线性传输下仍会发生的软最大值—自回归反馈动力学。",
+      "issues": []
+    },
+    "2609.02805": {
+      "announcement_date": "2026-09-03",
+      "path": "2026-09-03/llm_reasoning/large-language-models-llms-for-telecom-root-cause-analysis-rca-a-structured-reasoning-framework-for.md",
+      "review_status": "ai_draft",
+      "title": "Large Language Models (LLMs) for Telecom Root Cause Analysis (RCA): A Structured Reasoning Framework for Evidence-Grounded Diagnosis",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning",
+        "llm_nlp"
+      ],
+      "classification_confidence": 0.95,
+      "summary": "本文针对通用大语言模型在电信根因分析中推理不稳定、证据对齐不足和易产生幻觉的问题，提出将异构遥测、分阶段诊断路径、根因标签与可追溯解释联合起来的结构化微调框架 SEKA-FT。",
+      "issues": []
+    },
+    "2609.01867": {
+      "announcement_date": "2026-09-03",
+      "path": "2026-09-03/llm_reasoning/thinking-effort-aligns-between-humans-and-reasoning-models-in-abductive-reasoning.md",
+      "review_status": "ai_draft",
+      "title": "Thinking effort aligns between humans and reasoning models in abductive reasoning",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning",
+        "llm_evaluation",
+        "llm_nlp"
+      ],
+      "classification_confidence": 0.95,
+      "summary": "本文以溯因推理为更难依靠形式线索投机的测试场景，考察人类反应时间与大型推理模型推理轨迹长度是否体现一致的思考成本，并进一步分析允许探索多条推理路径的解码方式是否会增强这种一致性。",
+      "issues": [
+        "ablations[1] evidence quote not found in source"
+      ]
+    },
+    "2609.01658": {
+      "announcement_date": "2026-09-03",
+      "path": "2026-09-03/llm_alignment/pro-step-step-level-process-reward-optimization-for-retrieval-augmented-generation.md",
+      "review_status": "ai_draft",
+      "title": "PRO-Step: Step-level Process Reward Optimization for Retrieval-Augmented Generation",
+      "primary_category": "llm_alignment",
+      "categories": [
+        "llm_alignment",
+        "llm_reasoning",
+        "llm_nlp"
+      ],
+      "classification_confidence": 0.96,
+      "summary": "",
+      "issues": []
+    },
+    "2609.02849": {
+      "announcement_date": "2026-09-03",
+      "path": "2026-09-03/llm_reasoning/post-training-language-models-for-gold-medal-performance-in-coding-competitions.md",
+      "review_status": "ai_draft",
+      "title": "Post-Training Language Models for Gold-Medal Performance in Coding Competitions",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning",
+        "llm_alignment",
+        "llm_nlp"
+      ],
+      "classification_confidence": 0.97,
+      "summary": "本文旨在明确训练数据、监督微调、强化学习、模型规模与测试时计算各自如何推动大语言模型达到信息学竞赛金牌水平，并据此构建可在真实竞赛约束下运行的完整系统。",
+      "issues": []
+    },
+    "2609.02158": {
+      "announcement_date": "2026-09-03",
+      "path": "2026-09-03/llm_agent/objection-lawyer-agents-mitigate-guilty-bias-in-legal-judgment-prediction.md",
+      "review_status": "ai_draft",
+      "title": "OBJECTION! Lawyer Agents Mitigate Guilty Bias in Legal Judgment Prediction",
+      "primary_category": "llm_agent",
+      "categories": [
+        "llm_agent",
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.93,
+      "summary": "本文将法律判决预测中的“有罪偏差”定位为推理阶段的叙事偏差问题，并提出由对抗式律师智能体逐阶段提出辩护意见的免训练推理流程 OBJECTION。",
+      "issues": [
+        "main_results[0] evidence quote not found in source"
+      ]
+    },
+    "2609.02754": {
+      "announcement_date": "2026-09-03",
+      "path": "2026-09-03/llm_safety/untangling-the-mechanisms-of-misleading-context-in-medical-question-answering.md",
+      "review_status": "ai_draft",
+      "title": "Untangling the Mechanisms of Misleading Context in Medical Question Answering",
+      "primary_category": "llm_safety",
+      "categories": [
+        "llm_safety",
+        "llm_interpretability",
+        "llm_nlp",
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.95,
+      "summary": "本文将误导性上下文导致的医疗问答错误视为一条完整因果链，比较虚构临床证据与无依据答案断言如何影响模型、是否被模型披露、怎样改变推理过程，以及监督模型能否从推理轨迹或最终回答中发现这种影响。",
+      "issues": []
+    },
+    "2609.01815": {
+      "announcement_date": "2026-09-03",
+      "path": "2026-09-03/llm_reasoning/induction-and-inquiry-via-probabilistic-reasoning-over-language-and-code.md",
+      "review_status": "ai_draft",
+      "title": "Induction and Inquiry via Probabilistic Reasoning over Language and Code",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.86,
+      "summary": "本文旨在解释人类如何从稀少、连续且带噪的经验中形成和修正抽象概念，并提出用大语言模型引导的贝叶斯推断在自然语言与源代码混合的“心理程序”空间中维持多个不确定假设。",
+      "issues": []
+    },
+    "2609.02702": {
+      "announcement_date": "2026-09-03",
+      "path": "2026-09-03/llm_reasoning/trace-as-state-reasoning-traces-as-conditional-states-for-long-context-transformers.md",
+      "review_status": "ai_draft",
+      "title": "Trace as State: Reasoning Traces as Conditional States for Long-Context Transformers",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.97,
+      "summary": "本文研究如何把首轮生成的推理轨迹作为任务状态，在新一轮因果处理开始前置于长上下文之前，使模型能够带着已发现的目标、搜索线索或排除信息重新阅读上下文。",
+      "issues": [
+        "main_results[1] evidence quote not found in source",
+        "ablations[0] evidence quote not found in source"
+      ]
+    },
+    "2609.01659": {
+      "announcement_date": "2026-09-03",
+      "path": "2026-09-03/autonomous_driving/beyond-textual-chain-of-thought-a-survey-on-action-grounded-reasoning-in-autonomous-driving.md",
+      "review_status": "ai_draft",
+      "title": "Beyond Textual Chain-of-Thought: A Survey on Action-Grounded Reasoning in Autonomous Driving",
+      "primary_category": "autonomous_driving",
+      "categories": [
+        "autonomous_driving",
+        "vlm_reasoning",
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.93,
+      "summary": "本文综述将自动驾驶中的思维链从文字推理重新界定为“动作落地的推理表示”，并以观测与驾驶输出之间的中间表示形式为主轴，统一梳理语言、视觉空间、潜在动态和外部化推理。",
+      "issues": []
+    },
+    "2609.01679": {
+      "announcement_date": "2026-09-03",
+      "path": "2026-09-03/llm_reasoning/a-survey-on-self-improving-test-time-intelligence-feedback-driven-adapting-learning-and-scaling-at-i.md",
+      "review_status": "ai_draft",
+      "title": "A Survey on Self-Improving Test-Time Intelligence: Feedback-Driven Adapting, Learning, and Scaling at Inference",
+      "primary_category": "llm_reasoning",
+      "categories": [
+        "llm_reasoning"
+      ],
+      "classification_confidence": 0.72,
+      "summary": "",
+      "issues": [
+        "missing structured section: motivation",
+        "missing structured section: method"
+      ]
     }
   }
 }

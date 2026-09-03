@@ -5,12 +5,26 @@ description: 每日 arXiv AI 草稿的人工核验入口与自动检查问题。
 
 # 人工审核
 
-当前共有 **530** 篇待核验。优先检查带自动审核问题的页面。
+当前共有 **544** 篇待核验。优先检查带自动审核问题的页面。
 
 <div class="review-table" markdown="1">
 
 | 日期 | 论文 | 状态 | 置信度 | 自动检查 |
 |---|---|---|---:|---|
+| 2026-09-03 | [A Survey on Self-Improving Test-Time Intelligence: Feedback-Driven Adapting, Learning, and Scaling at Inference](../arxiv_daily/2026-09-03/llm_reasoning/a-survey-on-self-improving-test-time-intelligence-feedback-driven-adapting-learning-and-scaling-at-i.md) <br><code>2609.01679</code> | `ai_draft` | 0.72 | missing structured section: motivation；missing structured section: method |
+| 2026-09-03 | [Induction and Inquiry via Probabilistic Reasoning over Language and Code](../arxiv_daily/2026-09-03/llm_reasoning/induction-and-inquiry-via-probabilistic-reasoning-over-language-and-code.md) <br><code>2609.01815</code> | `ai_draft` | 0.86 | 无结构性问题 |
+| 2026-09-03 | [OBJECTION! Lawyer Agents Mitigate Guilty Bias in Legal Judgment Prediction](../arxiv_daily/2026-09-03/llm_agent/objection-lawyer-agents-mitigate-guilty-bias-in-legal-judgment-prediction.md) <br><code>2609.02158</code> | `ai_draft` | 0.93 | main_results[0] evidence quote not found in source |
+| 2026-09-03 | [Beyond Textual Chain-of-Thought: A Survey on Action-Grounded Reasoning in Autonomous Driving](../arxiv_daily/2026-09-03/autonomous_driving/beyond-textual-chain-of-thought-a-survey-on-action-grounded-reasoning-in-autonomous-driving.md) <br><code>2609.01659</code> | `ai_draft` | 0.93 | 无结构性问题 |
+| 2026-09-03 | [UTP-Bench: Uncertainty-aware Travel Planning Benchmark](../arxiv_daily/2026-09-03/llm_evaluation/utp-bench-uncertainty-aware-travel-planning-benchmark.md) <br><code>2609.02421</code> | `ai_draft` | 0.95 | 无结构性问题 |
+| 2026-09-03 | [Large Language Models (LLMs) for Telecom Root Cause Analysis (RCA): A Structured Reasoning Framework for Evidence-Grounded Diagnosis](../arxiv_daily/2026-09-03/llm_reasoning/large-language-models-llms-for-telecom-root-cause-analysis-rca-a-structured-reasoning-framework-for.md) <br><code>2609.02805</code> | `ai_draft` | 0.95 | 无结构性问题 |
+| 2026-09-03 | [Thinking effort aligns between humans and reasoning models in abductive reasoning](../arxiv_daily/2026-09-03/llm_reasoning/thinking-effort-aligns-between-humans-and-reasoning-models-in-abductive-reasoning.md) <br><code>2609.01867</code> | `ai_draft` | 0.95 | ablations[1] evidence quote not found in source |
+| 2026-09-03 | [Untangling the Mechanisms of Misleading Context in Medical Question Answering](../arxiv_daily/2026-09-03/llm_safety/untangling-the-mechanisms-of-misleading-context-in-medical-question-answering.md) <br><code>2609.02754</code> | `ai_draft` | 0.95 | 无结构性问题 |
+| 2026-09-03 | [PRO-Step: Step-level Process Reward Optimization for Retrieval-Augmented Generation](../arxiv_daily/2026-09-03/llm_alignment/pro-step-step-level-process-reward-optimization-for-retrieval-augmented-generation.md) <br><code>2609.01658</code> | `ai_draft` | 0.96 | 无结构性问题 |
+| 2026-09-03 | [SALA: Semantic-Aware Logical Alignment for Complex Reasoning in In-Context Learning](../arxiv_daily/2026-09-03/llm_reasoning/sala-semantic-aware-logical-alignment-for-complex-reasoning-in-in-context-learning.md) <br><code>2609.02336</code> | `ai_draft` | 0.97 | removed unverified project_url: https://arxiv.org/abs/2609.02336v1 |
+| 2026-09-03 | [The Dynamics of Continuous Mixture Collapse in Language Models](../arxiv_daily/2026-09-03/llm_reasoning/the-dynamics-of-continuous-mixture-collapse-in-language-models.md) <br><code>2609.02049</code> | `ai_draft` | 0.97 | 无结构性问题 |
+| 2026-09-03 | [Post-Training Language Models for Gold-Medal Performance in Coding Competitions](../arxiv_daily/2026-09-03/llm_reasoning/post-training-language-models-for-gold-medal-performance-in-coding-competitions.md) <br><code>2609.02849</code> | `ai_draft` | 0.97 | 无结构性问题 |
+| 2026-09-03 | [Trace as State: Reasoning Traces as Conditional States for Long-Context Transformers](../arxiv_daily/2026-09-03/llm_reasoning/trace-as-state-reasoning-traces-as-conditional-states-for-long-context-transformers.md) <br><code>2609.02702</code> | `ai_draft` | 0.97 | main_results[1] evidence quote not found in source；ablations[0] evidence quote not found in source |
+| 2026-09-03 | [Cliff: Learning Process Rewards from the First Mistake](../arxiv_daily/2026-09-03/llm_alignment/cliff-learning-process-rewards-from-the-first-mistake.md) <br><code>2609.02817</code> | `ai_draft` | 0.99 | missing structured section: motivation |
 | 2026-09-02 | [ES-AHD: An Evolution Strategy Framework for Automatic Heuristic Design](../arxiv_daily/2026-09-02/llm_reasoning/es-ahd-an-evolution-strategy-framework-for-automatic-heuristic-design.md) <br><code>2609.00023</code> | `ai_draft` | 0.84 | 无结构性问题 |
 | 2026-09-02 | [Beyond the Clock: Measuring the Value of Adaptive Revision](../arxiv_daily/2026-09-02/llm_reasoning/beyond-the-clock-measuring-the-value-of-adaptive-revision.md) <br><code>2609.00874</code> | `ai_draft` | 0.86 | missing structured section: motivation |
 | 2026-09-02 | [Hints Help But Do They Teach? Evaluating Skills Transfer in Code Generation](../arxiv_daily/2026-09-02/llm_reasoning/hints-help-but-do-they-teach-evaluating-skills-transfer-in-code-generation.md) <br><code>2609.01106</code> | `ai_draft` | 0.87 | main_results[0] evidence quote not found in source；main_results[1] evidence quote not found in source；ablations[0] evidence quote not found in source；missing structured section: motivation |

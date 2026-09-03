@@ -5,7 +5,27 @@ description: "LLM Agent 方向每日 arXiv 论文中文解读。"
 
 # LLM Agent
 
-共收录 **72** 篇，按 arXiv 日榜日期倒序排列。
+共收录 **73** 篇，按 arXiv 日榜日期倒序排列。
+
+## 2026-09-03
+
+<div class="daily-paper-list" markdown="1">
+
+<article class="daily-paper-item" markdown="1">
+
+#### [OBJECTION! Lawyer Agents Mitigate Guilty Bias in Legal Judgment Prediction](../../arxiv_daily/2026-09-03/llm_agent/objection-lawyer-agents-mitigate-guilty-bias-in-legal-judgment-prediction.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2609.02158</span><span class="paper-category-chip">LLM Agent</span><span class="paper-category-chip">LLM Reasoning</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+本文将法律判决预测中的“有罪偏差”定位为推理阶段的叙事偏差问题，并提出由对抗式律师智能体逐阶段提出辩护意见的免训练推理流程 OBJECTION。
+
+</div>
+
+</article>
+
+</div>
 
 ## 2026-09-02
 

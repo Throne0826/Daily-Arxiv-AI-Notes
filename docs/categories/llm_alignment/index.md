@@ -5,7 +5,55 @@ description: "对齐 / RLHF 方向每日 arXiv 论文中文解读。"
 
 # 对齐 / RLHF
 
-共收录 **71** 篇，按 arXiv 日榜日期倒序排列。
+共收录 **74** 篇，按 arXiv 日榜日期倒序排列。
+
+## 2026-09-03
+
+<div class="daily-paper-list" markdown="1">
+
+<article class="daily-paper-item" markdown="1">
+
+#### [Post-Training Language Models for Gold-Medal Performance in Coding Competitions](../../arxiv_daily/2026-09-03/llm_reasoning/post-training-language-models-for-gold-medal-performance-in-coding-competitions.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2609.02849</span><span class="paper-category-chip">LLM Reasoning</span><span class="paper-category-chip">对齐 / RLHF</span><span class="paper-category-chip">LLM 其他</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+本文旨在明确训练数据、监督微调、强化学习、模型规模与测试时计算各自如何推动大语言模型达到信息学竞赛金牌水平，并据此构建可在真实竞赛约束下运行的完整系统。
+
+</div>
+
+</article>
+
+<article class="daily-paper-item" markdown="1">
+
+#### [PRO-Step: Step-level Process Reward Optimization for Retrieval-Augmented Generation](../../arxiv_daily/2026-09-03/llm_alignment/pro-step-step-level-process-reward-optimization-for-retrieval-augmented-generation.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2609.01658</span><span class="paper-category-chip">对齐 / RLHF</span><span class="paper-category-chip">LLM Reasoning</span><span class="paper-category-chip">LLM 其他</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+中文摘要尚未生成，请进入论文页查看现有元数据。
+
+</div>
+
+</article>
+
+<article class="daily-paper-item" markdown="1">
+
+#### [Cliff: Learning Process Rewards from the First Mistake](../../arxiv_daily/2026-09-03/llm_alignment/cliff-learning-process-rewards-from-the-first-mistake.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2609.02817</span><span class="paper-category-chip">对齐 / RLHF</span><span class="paper-category-chip">LLM Reasoning</span><span class="paper-category-chip">LLM 其他</span><span class="paper-category-chip">强化学习</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+中文摘要尚未生成，请进入论文页查看现有元数据。
+
+</div>
+
+</article>
+
+</div>
 
 ## 2026-09-02
 

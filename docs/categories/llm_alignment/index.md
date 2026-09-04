@@ -5,7 +5,83 @@ description: "对齐 / RLHF 方向每日 arXiv 论文中文解读。"
 
 # 对齐 / RLHF
 
-共收录 **74** 篇，按 arXiv 日榜日期倒序排列。
+共收录 **79** 篇，按 arXiv 日榜日期倒序排列。
+
+## 2026-09-04
+
+<div class="daily-paper-list" markdown="1">
+
+<article class="daily-paper-item" markdown="1">
+
+#### [Sequential Beats Joint: On the Interplay between On-Policy Distillation and RLVR](../../arxiv_daily/2026-09-04/llm_alignment/sequential-beats-joint-on-the-interplay-between-on-policy-distillation-and-rlvr.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2609.04108</span><span class="paper-category-chip">对齐 / RLHF</span><span class="paper-category-chip">LLM Reasoning</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+本文研究如何组合在策略蒸馏与可验证奖励强化学习，指出将二者拆成“先蒸馏、后强化学习”的连续阶段，比在同一步中混合两种训练信号更能发挥其互补作用。
+
+</div>
+
+</article>
+
+<article class="daily-paper-item" markdown="1">
+
+#### [Legibility is Not Interpretability: Comparing Judged and Actual Importance in Chain-Of-Thought Reasoning](../../arxiv_daily/2026-09-04/llm_interpretability/legibility-is-not-interpretability-comparing-judged-and-actual-importance-in-chain-of-thought-reason.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2609.04194</span><span class="paper-category-chip">LLM 机制与可解释性</span><span class="paper-category-chip">LLM Reasoning</span><span class="paper-category-chip">对齐 / RLHF</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+本文质疑“推理文本清晰可读就意味着其作用可解释”这一默认前提，并研究能否先用步骤优势度量思维链步骤对最终答案的实际影响，再从步骤文本中识别这种影响。
+
+</div>
+
+</article>
+
+<article class="daily-paper-item" markdown="1">
+
+#### [Headroom-Drift Replay: A Primitive for Principled Replay Control in GRPO](../../arxiv_daily/2026-09-04/llm_alignment/headroom-drift-replay-a-primitive-for-principled-replay-control-in-grpo.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2609.03941</span><span class="paper-category-chip">对齐 / RLHF</span><span class="paper-category-chip">强化学习</span><span class="paper-category-chip">LLM Reasoning</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+中文摘要尚未生成，请进入论文页查看现有元数据。
+
+</div>
+
+</article>
+
+<article class="daily-paper-item" markdown="1">
+
+#### [Gradients Know What Outcomes Don't: Unlocking Reinforcement Learning for LLM Reasoning with Gradient-Aligned Rewards](../../arxiv_daily/2026-09-04/llm_alignment/gradients-know-what-outcomes-don-t-unlocking-reinforcement-learning-for-llm-reasoning-with-gradient.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2609.03342</span><span class="paper-category-chip">对齐 / RLHF</span><span class="paper-category-chip">LLM Reasoning</span><span class="paper-category-chip">LLM 其他</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+中文摘要尚未生成，请进入论文页查看现有元数据。
+
+</div>
+
+</article>
+
+<article class="daily-paper-item" markdown="1">
+
+#### [FlowBalance: Verifier-Grounded Self-Improvement from On-Policy Reasoning Experience](../../arxiv_daily/2026-09-04/llm_alignment/flowbalance-verifier-grounded-self-improvement-from-on-policy-reasoning-experience.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2609.03241</span><span class="paper-category-chip">对齐 / RLHF</span><span class="paper-category-chip">LLM Reasoning</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+FlowBalance旨在把稀疏但可靠的验证器反馈与稠密但可能出错的模型自我指导结合起来，构造并学习一个经过结果校准的完整回答概率分布。
+
+</div>
+
+</article>
+
+</div>
 
 ## 2026-09-03
 

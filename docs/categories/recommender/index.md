@@ -5,7 +5,27 @@ description: "推荐系统 方向每日 arXiv 论文中文解读。"
 
 # 推荐系统
 
-共收录 **10** 篇，按 arXiv 日榜日期倒序排列。
+共收录 **11** 篇，按 arXiv 日榜日期倒序排列。
+
+## 2026-09-04
+
+<div class="daily-paper-list" markdown="1">
+
+<article class="daily-paper-item" markdown="1">
+
+#### [SelfDR: Self-Distillation from Reasoning for LLM-Based Recommendation](../../arxiv_daily/2026-09-04/recommender/selfdr-self-distillation-from-reasoning-for-llm-based-recommendation.md)
+
+<div class="daily-paper-meta"><span class="daily-paper-id">arXiv 2609.03313</span><span class="paper-category-chip">推荐系统</span><span class="paper-category-chip">LLM Reasoning</span><span class="paper-category-chip">LLM 其他</span></div>
+
+<div class="daily-paper-summary" markdown="1">
+
+中文摘要尚未生成，请进入论文页查看现有元数据。
+
+</div>
+
+</article>
+
+</div>
 
 ## 2026-08-03
 
